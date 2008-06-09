@@ -1,0 +1,22 @@
+\begin{figure}
+\onehalfspacing
+\begin{tabular}{rcl}
+$\mathscr{E}[SH^{N}\;\overline{n}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
+$\mathscr{E}[SH^{\forall X.T}\;(^{\forall X.T}HS\;v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
+$\mathscr{E}[SH^{\forall X.T}\;(\Lambda X.t_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[SH^{T[X/L]}\;((\Lambda X.t_{H})\;[L])]$ \\
+$\mathscr{E}[SH^{L}\;(^{L}HS\;v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
+$\mathscr{E}[SH^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.t_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SH^{T_{2}}\;((\lambda x_{1}:T_{1}.t_{H})$ \\
+&& $(^{T_{1}}HS\;x_{2})))]$ \\
+$\mathscr{E}[\mathtt{fst}\;(SH^{(T_{1},T_{2})}\;(\mathtt{pair}\;t_{H}^{1}\;t_{H}^{2}))]_{S}$ & $\rightarrow$ & $\mathscr{E}[SH^{T_{1}}\;t_{H}^{1}]$ \\
+$\mathscr{E}[\mathtt{snd}\;(SH^{(T_{1},T_{2})}\;(\mathtt{pair}\;t_{H}^{1}\;t_{H}^{2}))]_{S}$ & $\rightarrow$ & $\mathscr{E}[SH^{T_{2}}\;t_{H}^{2}]$ \\
+$\mathscr{E}[SM^{N}\;\overline{n}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
+$\mathscr{E}[SM^{\forall X.T}\;(^{\forall X.T}MS\;v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
+$\mathscr{E}[SM^{\forall X.T}\;(\Lambda X.t_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[SM^{T[X/L]}\;((\Lambda X.t_{M})\;[L])]$ \\
+$\mathscr{E}[SM^{L}\;(^{L}MS\;v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
+$\mathscr{E}[SM^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.t_{M})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SM^{T_{2}}\;((\lambda x_{1}:T_{1}.t_{M})$ \\
+&& $(^{T_{1}}MS\;x_{2})))]$ \\
+$\mathscr{E}[(SM^{(T_{1},T_{2})}\;(\mathtt{pair}\;v_{M}^{1}\;v_{M}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{pair}\;(SM^{T_{1}}\;v_{M}^{1})\;(SM^{T_{2}}\;v_{M}^{2})]$
+\end{tabular}
+\caption{Scheme interoperation operational semantics}
+\label{fig:sios}
+\end{figure}

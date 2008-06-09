@@ -1,22 +1,14 @@
 \begin{figure}
-\begin{center}
 \begin{tabular}{lcl}
-$t_{H}$ & = & $x\;\vert\;v_{H}\;\vert\;t_{H}\;t_{H}\;\vert\;\mathtt{if0}\;t_{H}\;t_{H}\;t_{H}\;\vert\;o\;t_{H}\;t_{H}\;\vert\;f\;t_{H}\;\vert\;t_{H}\;[T]\;\vert\;^{T}HS\;t_{S}$ \\
-&& $\vert\;^{T}HM^{T}\;t_{M}$ \\
+$t_{H}$ & = & $x\;\vert\;v_{H}\;\vert\;t_{H}\;t_{H}\;\vert\;\mathtt{if0}\;t_{H}\;t_{H}\;t_{H}\;\vert\;o\;t_{H}\;t_{H}\;\vert\;f\;t_{H}\;\vert\;t_{H}\;[T]$ \\
 $x$ & = & Variables \\
-$v_{H}$ & = & $\lambda x:T.t_{H}\;\vert\;\overline{n}\;\vert\;\Lambda X.t_{H}\;\vert\;\mathtt{pair}\;t_{H}\;t_{H}\;\vert\;^{\forall X.T}HS\;v_{S}\;\vert\;^{\forall X.T}HM^{\forall X.T}\;v_{M}$ \\
+$v_{H}$ & = & $\lambda x:T.t_{H}\;\vert\;\overline{n}\;\vert\;\Lambda X.t_{H}\;\vert\;\mathtt{pair}\;t_{H}\;t_{H}$ \\
 $o$ & = & $\mathtt{+}\;\vert\;\mathtt{-}$ \\
 $f$ & = & $\mathtt{fst}\;\vert\;\mathtt{snd}$ \\
-$T$ & = & $N\;\vert\;L\;\vert\;X\;\vert\;T^{a}\;\vert\;T\rightarrow T\;\vert\;\forall X.T\;\vert\;(T,T)$ \\
+$T$ & = & $N\;\vert\;X\;\vert\;T\rightarrow T\;\vert\;\forall X.T\;\vert\;(T,T)$ \\
 $X$ & = & Type variables \\
-$a$ & = & Type annotations \\
-$E_{H}$ & = & $[\,]_{H}\;\vert\;E_{H}\;t_{H}\;\vert\;\mathtt{if0}\;E_{H}\;t_{H}\;t_{H}\;\vert\;o\;E_{H}\;t_{H}\;\vert\;o\;v_{H}\;E_{H}\;\vert\;f\;E_{H}\;\vert\;E_{H}\;[T]$ \\
-&& $\vert\;\mathtt{if0}\;(^{T}MH^{T}\;E_{H})\;t_{M}\;t_{M}\;\vert\;\mathtt{if0}\;(SH^{T}\;E_{H})\;t_{S}\;t_{S}$ \\
-&& $\vert\;o\;(^{T}MH^{T}\;E_{H})\;t_{M}\;\vert\;o\;v_{M}\;(^{T}MH^{T}\;E_{H})$ \\
-&& $\vert\;o\;(SH^{T}\;E_{H})\;t_{S}\;\vert\;o\;v_{S}\;(SH^{T}\;E_{H})$ \\
-&& $\vert\;f\;(SH^{T}\;E_{H})\;\vert\;f\;(^{T}MH^{T}\;E_{H})$
+$E_{H}$ & = & $[\,]_{H}\;\vert\;E_{H}\;t_{H}\;\vert\;\mathtt{if0}\;E_{H}\;t_{H}\;t_{H}\;\vert\;o\;E_{H}\;t_{H}\;\vert\;o\;v_{H}\;E_{H}\;\vert\;f\;E_{H}\;\vert\;E_{H}\;[T]$
 \end{tabular}
-\end{center}
 \caption{Haskell terms}
 \label{fig:ht}
 \end{figure}
