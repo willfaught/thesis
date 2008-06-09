@@ -1,0 +1,35 @@
+\begin{figure}
+\onehalfspacing
+\begin{center}
+\begin{tabular}{rcl}
+$\mathscr{E}[(\lambda x.t_{S})\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}[x/v_{S}]]$ \\
+$\mathscr{E}[\mathtt{if0}\;\overline{0}\;t_{S}^{1}\;t_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}^{1}]$ \\
+$\mathscr{E}[\mathtt{if0}\;v_{S}\;t_{S}^{1}\;t_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}^{2}]\;(v_{S}\neq\overline{0})$ \\
+$\mathscr{E}[+\;\overline{n_{1}}\;\overline{n_{2}}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
+$\mathscr{E}[-\;\overline{n_{1}}\;\overline{n_{2}}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{(max(n_{1}-n_{2},0)}]$ \\
+%$\mathscr{E}[o\;v_{S}^{1}\;v_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{wrong}\;\mathrm{``Not\;a\;number"}]\;(v_{S}^{1}\neq\overline{n}\vee v_{S}^{2}\neq\overline{n})$ \\
+$\mathscr{E}[\mathtt{fst}\;(\mathtt{pair}\;t_{S}^{1}\;t_{S}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}^{1}]$ \\
+$\mathscr{E}[\mathtt{snd}\;(\mathtt{pair}\;t_{S}^{1}\;t_{S}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}^{2}]$ \\
+$\mathscr{E}[^{N}HS\;\overline{n_{1}}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n_{1}}]$ \\
+$\mathscr{E}[^{N}HS\;v_{S}^{1}]_{S}$ & $\rightarrow$ & $\mathscr{E}[^{N}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})]\;(v_{S}^{1}\neq\overline{n})$ \\
+$\mathscr{E}[(^{\forall X_{1}.(T_{1}\rightarrow T_{2})}HS\;v_{S}^{1})\;[T_{3}]]_{S}$ & $\rightarrow$ & $\mathscr{E}[^{(T_{1}\rightarrow T_{2})[X_{1}/T^{a}_{3}]}HS\;v_{S}^{1}]$ \\
+$\mathscr{E}[(^{\forall X_{1}.T_{1}}HS\;v_{S}^{1})\;[T_{2}]]_{S}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}[X_{1}/T_{2}]}HS\;v_{S}^{1}]\;(T_{1}\neq T\rightarrow T)$ \\
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}HS\;(\lambda x_{1}.t_{S}^{1})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}:T_{1}[T^{a}_{i}/T_{i}].(^{T_{2}}HS\;((\lambda x_{1}.t_{S}^{1})\;(SH^{T_{1}}\;x_{2})))]$ \\
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}HS\;v_{S}^{1}]_{S}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}\rightarrow T_{2}}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;function"})]$ \\
+&& $(v_{S}^{1}\neq\lambda x.t_{S})$ \\
+$\mathscr{E}[^{T_{1}}HS\;(SH^{T_{1}}\;t_{S}^{1})]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}^{1}]$ \\
+$\mathscr{E}[^{T_{1}}HS\;(SH^{T^{a}_{1}}\;t_{S}^{1})]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}^{1}]$ \\
+$\mathscr{E}[^{T^{a}_{1}}HS\;v_{S}^{1}]_{S}$ & $\rightarrow$ & $\mathscr{E}[^{T^{a}_{1}}HS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})]$ \\
+&& $(v_{S}^{1}\neq SH^{T^{a}_{1}}\;t_{S})$ \\
+$\mathscr{E}[^{(T_{1},T_{2})}HS\;(\mathtt{pair}\;t_{S}^{1}\;t_{S}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{pair}\;(^{T_{1}}HS\;t_{S}^{1})\;(^{T_{2}}HS\;t_{S}^{2})]$ \\
+$\mathscr{E}[^{(T_{1},T_{2})}HS\;v_{S}^{1}]_{S}$ & $\rightarrow$ & $\mathscr{E}[^{(T_{1},T_{2})}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;pair"})]$ \\
+&& $(v_{S}^{1}\neq\mathtt{pair}\;t_{S}\;t_{S})$ \\
+$\mathscr{E}[^{N}HM^{N}\;\overline{n_{1}}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n_{1}}]$ \\
+$\mathscr{E}[(^{\forall X_{1}.T_{1}}HM^{\forall X_{1}.T_{1}}\;v_{M}^{1})\;[T_{2}]]_{S}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}[X_{1}/T_{2}]}HM^{T_{1}[X_{1}/T_{2}]}\;v_{M}^{1}]$ \\
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}HM^{T_{1}\rightarrow T_{2}}\;v_{M}^{1}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{1}:T_{1}.(^{T_{2}}HM^{T_{2}}\;(v_{M}^{1}\;(^{T_{1}}MH^{T_{1}}\;x_{1})))]$ \\
+$\mathscr{E}[^{(T_{1},T_{2})}HM^{(T_{1},T_{2})}\;(\mathtt{pair}\;t_{M}^{1}\;t_{M}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{pair}\;(^{T_{1}}HM^{T_{1}}\;t_{M}^{1})\;(^{T_{2}}HM^{T_{2}}\;t_{M}^{2})]$ \\
+\end{tabular}
+\caption{Scheme operational semantics}
+\label{fig:sos}
+\end{center}
+\end{figure}

@@ -1,0 +1,112 @@
+\documentclass[12pt]{ucthesis}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse % we are not running PDFLaTeX
+\else
+\pdfoutput=1 % we are running PDFLaTeX
+\pdftrue \fi
+\usepackage{url}
+\ifpdf
+  \usepackage[pdftex]{graphicx}
+  % Update title and author below...
+  \usepackage[pdftex,plainpages=false,breaklinks=true,colorlinks=true,urlcolor=blue,citecolor=blue,
+                                       linkcolor=blue,bookmarks=true,bookmarksopen=true,
+                                       bookmarksopenlevel=3,pdfstartview=FitV,
+                                       pdfauthor={!!Author goes here!!},
+                                       pdftitle={!!Title goes here!!},
+                                       pdfkeywords={thesis, masters, cal poly}
+                                       ]{hyperref}
+    %Options with pdfstartview are FitV, FitB and FitH
+    \pdfcompresslevel=1
+\else
+  \usepackage{graphicx}
+\fi
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[letterpaper]{geometry}
+\usepackage[overload]{textcase}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+
+\bibliographystyle{abbrv}
+
+\setlength{\parindent}{0.25in} \setlength{\parskip}{6pt}
+
+\geometry{verbose,nohead,tmargin=1.25in,bmargin=1in,lmargin=1.5in,rmargin=1.3in}
+
+\setcounter{tocdepth}{2}
+
+% Different font in captions (single-spaced, bold) ------------
+\newcommand{\captionfonts}{\small\bf\ssp}
+
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\captionfonts #1: #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\captionfonts #1: #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother   % Cancel the effect of \makeatletter
+% ---------------------------------------
+
+\begin{document}
+
+\title{Interoperation Between Haskell, ML, and Scheme}
+\author{Will Faught}
+\degreemonth{June}
+\degreeyear{2008}
+\degree{Master of Science}
+\defensemonth{September}
+\defenseyear{2008}
+\numberofmembers{3}
+\chair{Dr. John Clements}
+\othermemberA{Dr. Gene Fisher}
+\othermemberB{Dr. Aaron Keen}
+\field{Computer Science}
+\campus{San Luis Obispo}
+\copyrightyears{seven}
+\maketitle
+
+\begin{frontmatter}
+
+\copyrightpage
+\approvalpage
+\begin{abstract}
+[Abstract]
+\end{abstract}
+\begin{acknowledgements}
+[Acknowledgements]
+\end{acknowledgements}
+\addcontentsline{toc}{chapter}{Contents}
+\tableofcontents
+\listoftables
+\listoffigures
+
+\end{frontmatter}
+
+\pagestyle{plain}
+\renewcommand{\baselinestretch}{1.66}
+
+% Begin content
+
+\chapter{Model}
+
+\input{ht.tex}
+\input{htr.tex}
+\input{hos.tex}
+\input{st.tex}
+\input{str.tex}
+\input{sos.tex}
+
+% End content
+
+\clearpage
+\bibliography{bibliography}
+\bibliographystyle{plain}
+%\addcontentsline{toc}{chapter}{Bibliography}
+
+\end{document}
