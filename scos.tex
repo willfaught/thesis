@@ -1,5 +1,6 @@
 \begin{figure}
 \onehalfspacing
+\begin{center}
 \begin{tabular}{rcl}
 $\mathscr{E}[(\lambda x.t_{S})\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}[x/v_{S}]]$ \\
 $\mathscr{E}[\mathtt{if0}\;\overline{0}\;t_{S}^{1}\;t_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}^{1}]$ \\
@@ -20,6 +21,7 @@ $\mathscr{E}[\mathtt{proc?}\;(\lambda x.t_{S})]_{S}$ & $\rightarrow$ & $\mathscr
 $\mathscr{E}[\mathtt{proc?}\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]\;(v_{S}\neq\lambda x.t_{S})$ \\
 $\mathscr{E}[\mathtt{wrong}\;\mathrm{string}]_{S}$ & $\rightarrow$ & $Error:\;string$
 \end{tabular}
-\caption{Scheme operational semantics}
-\label{fig:sos}
+\end{center}
+\caption{Scheme core operational semantics}
+\label{fig:scos}
 \end{figure}
