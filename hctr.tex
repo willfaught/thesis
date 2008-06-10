@@ -18,12 +18,13 @@
 \[
 \frac{\Gamma,x:T_{1}\vdash_{H}t_{H}:T_{2}\quad\Gamma\vdash_{H}T_{1}}{\Gamma\vdash_{H}\lambda x:T_{1}.t_{H}:T_{1}\rightarrow T_{2}}
 \quad
-\frac{\Gamma\vdash_{H}t_{H}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{H}t_{H}^{1}:T_{1}}{\Gamma\vdash_{H}t_{H}^{1}\;t_{H}^{2}:T_{2}}
+\frac{\Gamma\vdash_{H}t_{H}:T}{\Gamma\vdash_{H}\Lambda X.t_{H}:\forall X.T}
 \]
 \[
-\frac{\Gamma\vdash_{H}t_{H}^{1}:N\quad\Gamma\vdash_{H}t_{H}^{2}:T\quad\Gamma\vdash_{H}t_{H}^{3}:T}{\Gamma\vdash_{H}\mathtt{if0}\;t_{H}^{1}\;t_{H}^{2}\;t_{H}^{3}:T}
+\frac{\Gamma\vdash_{H}t_{H}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{H}t_{H}^{1}:T_{1}}{\Gamma\vdash_{H}t_{H}^{1}\;t_{H}^{2}:T_{2}}
 \quad
-\frac{\Gamma\vdash_{H}t_{H}^{1}:N\quad\Gamma\vdash_{H}t_{H}^{2}:N}{\Gamma\vdash_{H}o\;t_{H}^{1}\;t_{H}^{2}:N}
+\quad
+\frac{\Gamma\vdash_{H}t_{H}:\forall X.T_{2}\quad\Gamma\vdash_{H}T_{1}}{\Gamma\vdash_{H}t_{H}\;[T_{1}]:T_{2}[X/T_{1}]}
 \]
 \[
 \frac{\Gamma\vdash_{H}t_{H}^{1}:T_{1}\quad\Gamma\vdash_{H}t_{H}^{2}:T_{2}}{\Gamma\vdash_{H}\mathtt{pair}\;t_{H}^{1}\;t_{H}^{2}:(T_{1},T_{2})}
@@ -33,9 +34,9 @@
 \frac{\Gamma\vdash_{H}t_{H}:(T_{1},T_{2})}{\Gamma\vdash_{H}\mathtt{snd}\;t_{H}:T_{2}}
 \]
 \[
-\frac{\Gamma\vdash_{H}t_{H}:T}{\Gamma\vdash_{H}\Lambda X.t_{H}:\forall X.T}
+\frac{\Gamma\vdash_{H}t_{H}^{1}:N\quad\Gamma\vdash_{H}t_{H}^{2}:T\quad\Gamma\vdash_{H}t_{H}^{3}:T}{\Gamma\vdash_{H}\mathtt{if0}\;t_{H}^{1}\;t_{H}^{2}\;t_{H}^{3}:T}
 \quad
-\frac{\Gamma\vdash_{H}t_{H}:\forall X.T_{2}\quad\Gamma\vdash_{H}T_{1}}{\Gamma\vdash_{H}t_{H}\;[T_{1}]:T_{2}[X/T_{1}]}
+\frac{\Gamma\vdash_{H}t_{H}^{1}:N\quad\Gamma\vdash_{H}t_{H}^{2}:N}{\Gamma\vdash_{H}o\;t_{H}^{1}\;t_{H}^{2}:N}
 \]
 \caption{Haskell core type relations}
 \label{hctr}
