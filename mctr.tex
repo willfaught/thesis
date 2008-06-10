@@ -1,0 +1,43 @@
+\begin{figure}
+\[
+\Gamma\vdash_{M}N
+\quad
+\Gamma\vdash_{M}X
+\quad
+\frac{\Gamma\vdash_{M}T_{1}[T^{a}_{i}/T_{i}]\quad\Gamma\vdash_{M}T_{2}}{\Gamma\vdash_{M}T_{1}\rightarrow T_{2}}
+\]
+\[
+\frac{\Gamma ,X\vdash_{M}T}{\Gamma\vdash_{M}\forall X.T}
+\quad
+\frac{\Gamma\vdash_{M}T_{1}\quad\Gamma\vdash_{M}T_{2}}{\Gamma\vdash_{M}(T_{1},T_{2})}
+\quad
+\Gamma\vdash_{M}\overline{n}:N
+\quad
+\frac{x:T\in\Gamma}{\Gamma\vdash_{M}x:T}
+\]
+\[
+\frac{\Gamma,x:T_{1}\vdash_{M}t_{M}:T_{2}\quad\Gamma\vdash_{M}T_{1}}{\Gamma\vdash_{M}\lambda x:T_{1}.t_{M}:T_{1}\rightarrow T_{2}}
+\quad
+\frac{\Gamma\vdash_{M}t_{M}:T}{\Gamma\vdash_{M}\Lambda X.t_{M}:\forall X.T}
+\]
+\[
+\frac{\Gamma\vdash_{M}t_{M}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{M}t_{M}^{1}:T_{1}}{\Gamma\vdash_{M}t_{M}^{1}\;t_{M}^{2}:T_{2}}
+\quad
+\quad
+\frac{\Gamma\vdash_{M}t_{M}:\forall X.T_{2}\quad\Gamma\vdash_{M}T_{1}}{\Gamma\vdash_{M}t_{M}\;[T_{1}]:T_{2}[X/T_{1}]}
+\]
+\[
+\frac{\Gamma\vdash_{M}t_{M}^{1}:T_{1}\quad\Gamma\vdash_{M}t_{M}^{2}:T_{2}}{\Gamma\vdash_{M}\mathtt{pair}\;t_{M}^{1}\;t_{M}^{2}:(T_{1},T_{2})}
+\quad
+\frac{\Gamma\vdash_{M}t_{M}:(T_{1},T_{2})}{\Gamma\vdash_{M}\mathtt{fst}\;t_{M}:T_{1}}
+\quad
+\frac{\Gamma\vdash_{M}t_{M}:(T_{1},T_{2})}{\Gamma\vdash_{M}\mathtt{snd}\;t_{M}:T_{2}}
+\]
+\[
+\frac{\Gamma\vdash_{M}t_{M}^{1}:N\quad\Gamma\vdash_{M}t_{M}^{2}:T\quad\Gamma\vdash_{M}t_{M}^{3}:T}{\Gamma\vdash_{M}\mathtt{if0}\;t_{M}^{1}\;t_{M}^{2}\;t_{M}^{3}:T}
+\quad
+\frac{\Gamma\vdash_{M}t_{M}^{1}:N\quad\Gamma\vdash_{M}t_{M}^{2}:N}{\Gamma\vdash_{M}o\;t_{M}^{1}\;t_{M}^{2}:N}
+\]
+\caption{ML core type relations}
+\label{mctr}
+\end{figure}
