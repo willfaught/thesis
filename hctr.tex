@@ -4,24 +4,24 @@
 \quad
 \Gamma\vdash_{H}X
 \quad
-\frac{\Gamma\vdash_{H}T_{1}[T^{a}_{i}/T_{i}]\quad\Gamma\vdash_{H}T_{2}}{\Gamma\vdash_{H}T_{1}\rightarrow T_{2}}
+\frac{\Gamma\vdash_{H}T_{1}\quad\Gamma\vdash_{H}T_{2}}{\Gamma\vdash_{H}T_{1}\rightarrow T_{2}}
 \]
 \[
 \frac{\Gamma ,X\vdash_{H}T}{\Gamma\vdash_{H}\forall X.T}
 \quad
 \frac{\Gamma\vdash_{H}T_{1}\quad\Gamma\vdash_{H}T_{2}}{\Gamma\vdash_{H}(T_{1},T_{2})}
 \quad
-\Gamma\vdash_{H}\overline{n}:N
-\quad
 \frac{x:T\in\Gamma}{\Gamma\vdash_{H}x:T}
+\quad
+\Gamma\vdash_{H}\overline{n}:N
 \]
 \[
 \frac{\Gamma,x:T_{1}\vdash_{H}t_{H}:T_{2}\quad\Gamma\vdash_{H}T_{1}}{\Gamma\vdash_{H}\lambda x:T_{1}.t_{H}:T_{1}\rightarrow T_{2}}
 \quad
-\frac{\Gamma\vdash_{H}t_{H}:T}{\Gamma\vdash_{H}\Lambda X.t_{H}:\forall X.T}
+\frac{\Gamma,X\vdash_{H}t_{H}:T}{\Gamma\vdash_{H}\Lambda X.t_{H}:\forall X.T}
 \]
 \[
-\frac{\Gamma\vdash_{H}t_{H}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{H}t_{H}^{1}:T_{1}}{\Gamma\vdash_{H}t_{H}^{1}\;t_{H}^{2}:T_{2}}
+\frac{\Gamma\vdash_{H}t_{H}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{H}t_{H}^{2}:T_{1}}{\Gamma\vdash_{H}t_{H}^{1}\;t_{H}^{2}:T_{2}}
 \quad
 \quad
 \frac{\Gamma\vdash_{H}t_{H}:\forall X.T_{2}\quad\Gamma\vdash_{H}T_{1}}{\Gamma\vdash_{H}t_{H}\;[T_{1}]:T_{2}[X/T_{1}]}

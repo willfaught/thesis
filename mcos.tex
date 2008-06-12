@@ -3,13 +3,13 @@
 \begin{center}
 \begin{tabular}{rcl}
 $\mathscr{E}[(\lambda x:T.t_{M})\;v_{M}]_{M}$ & $\rightarrow$ & $\mathscr{E}[t_{M}[x/v_{M}]]$ \\
+$\mathscr{E}[(\Lambda X.t_{M})\;[T]]_{M}$ & $\rightarrow$ & $\mathscr{E}[t_{M}[X/T]]$ \\
 $\mathscr{E}[\mathtt{if0}\;\overline{0}\;t_{M}^{1}\;t_{M}^{2}]_{M}$ & $\rightarrow$ & $\mathscr{E}[t_{M}^{1}]$ \\
 $\mathscr{E}[\mathtt{if0}\;\overline{n}\;t_{M}^{1}\;t_{M}^{2}]_{M}$ & $\rightarrow$ & $\mathscr{E}[t_{M}^{2}]\;(n\neq0)$ \\
 $\mathscr{E}[+\;\overline{n_{1}}\;\overline{n_{2}}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
 $\mathscr{E}[-\;\overline{n_{1}}\;\overline{n_{2}}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{(max(n_{1}-n_{2},0)}]$ \\
-$\mathscr{E}[\mathtt{fst}\;(\mathtt{pair}\;t_{M}^{1}\;t_{M}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[t_{M}^{1}]$ \\
-$\mathscr{E}[\mathtt{snd}\;(\mathtt{pair}\;t_{M}^{1}\;t_{M}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[t_{M}^{2}]$ \\
-$\mathscr{E}[(\Lambda X.t_{M})\;[T]]_{M}$ & $\rightarrow$ & $\mathscr{E}[t_{M}[X/T]]$
+$\mathscr{E}[\mathtt{fst}\;(\mathtt{pair}\;v_{M}^{1}\;v_{M}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}^{1}]$ \\
+$\mathscr{E}[\mathtt{snd}\;(\mathtt{pair}\;v_{M}^{1}\;v_{M}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}^{2}]$
 \end{tabular}
 \end{center}
 \caption{ML core operational semantics}
