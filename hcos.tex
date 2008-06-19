@@ -2,14 +2,15 @@
 \onehalfspacing
 \begin{center}
 \begin{tabular}{rcl}
-$\mathscr{E}[(\lambda x:T.t_{H}^{1})\;t_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[t_{H}^{1}[x/t_{H}^{2}]]$ \\
-$\mathscr{E}[(\Lambda X.t_{H})\;[T]]_{H}$ & $\rightarrow$ & $\mathscr{E}[t_{H}[X/T]]$ \\
-$\mathscr{E}[\mathtt{if0}\;\overline{0}\;t_{H}^{1}\;t_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[t_{H}^{1}]$ \\
-$\mathscr{E}[\mathtt{if0}\;\overline{n}\;t_{H}^{1}\;t_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[t_{H}^{2}]\;(n\neq0)$ \\
+$\mathscr{E}[(\lambda x:T.e_{H}^{1})\;e_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{1}[e_{H}^{2}]/x]$ \\
+$\mathscr{E}[(\Lambda X.e_{H})\;\lbrace T\rbrace]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}[T/X]]$ \\
+$\mathscr{E}[\mathtt{if0}\;\overline{0}\;e_{H}^{1}\;e_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{1}]$ \\
+$\mathscr{E}[\mathtt{if0}\;\overline{n}\;e_{H}^{1}\;e_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{2}]\;(n\neq0)$ \\
 $\mathscr{E}[+\;\overline{n_{1}}\;\overline{n_{2}}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
 $\mathscr{E}[-\;\overline{n_{1}}\;\overline{n_{2}}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\overline{(max(n_{1}-n_{2},0)}]$ \\
-$\mathscr{E}[\mathtt{fst}\;(\mathtt{pair}\;t_{H}^{1}\;t_{H}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[t_{H}^{1}]$ \\
-$\mathscr{E}[\mathtt{snd}\;(\mathtt{pair}\;t_{H}^{1}\;t_{H}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[t_{H}^{2}]$
+$\mathscr{E}[\mathtt{hd}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{1}]$ \\
+$\mathscr{E}[\mathtt{tl}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{2}]$ \\
+$\mathscr{E}[\mathtt{fix}\;(\lambda x:T.e_{H})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}[(\mathtt{fix}\;(\lambda x:T.e_{H}))/x]]$
 \end{tabular}
 \end{center}
 \caption{Haskell core operational semantics}

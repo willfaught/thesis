@@ -2,14 +2,14 @@
 \onehalfspacing
 \begin{center}
 \begin{tabular}{lcl}
-$t_{H}$ & $=$ & $x\;\vert\;v_{H}\;\vert\;t_{H}\;t_{H}\;\vert\;t_{H}\;[T]\;\vert\;\mathtt{if0}\;t_{H}\;t_{H}\;t_{H}\;\vert\;o\;t_{H}\;t_{H}\;\vert\;f\;t_{H}$ \\
+$e_{H}$ & $=$ & $x\;\vert\;\overline{n}\;\vert\;\lambda x:T.e_{H}\;\vert\;\Lambda X.e_{H}\;\vert\;\mathtt{cons}\;e_{H}\;e_{H}\;\vert\;\mathtt{nil}\;\vert\;e_{H}\;e_{H}\;\vert\;e_{H}\;\lbrace T\rbrace$ \\
+&& $\vert\;\mathtt{if0}\;e_{H}\;e_{H}\;e_{H}\;\vert\;o\;e_{H}\;e_{H}\;\vert\;f\;e_{H}\;\vert\;\mathtt{fix}\;e_{H}$ \\
 $x$ & $=$ & Variables \\
-$v_{H}$ & $=$ & $\lambda x:T.t_{H}\;\vert\;\Lambda X.t_{H}\;\vert\;\mathtt{pair}\;t_{H}\;t_{H}\;\vert\;\overline{n}$ \\
 $o$ & $=$ & $\mathtt{+}\;\vert\;\mathtt{-}$ \\
-$f$ & $=$ & $\mathtt{fst}\;\vert\;\mathtt{snd}$ \\
-$T$ & $=$ & $N\;\vert\;X\;\vert\;T\rightarrow T\;\vert\;\forall X.T\;\vert\;(T,T)$ \\
+$f$ & $=$ & $\mathtt{hd}\;\vert\;\mathtt{tl}$ \\
+$T$ & $=$ & $N\;\vert\;X\;\vert\;T\rightarrow T\;\vert\;\forall X.T\;\vert\;[T]$ \\
 $X$ & $=$ & Type variables \\
-$E_{H}$ & $=$ & $[\,]_{H}\;\vert\;E_{H}\;t_{H}\;\vert\;E_{H}\;[T]\;\vert\;\mathtt{if0}\;E_{H}\;t_{H}\;t_{H}\;\vert\;o\;E_{H}\;t_{H}\;\vert\;o\;v_{H}\;E_{H}\;\vert\;f\;E_{H}$
+$E_{H}$ & $=$ & $[\,]_{H}\;\vert\;E_{H}\;e_{H}\;\vert\;E_{H}\;\lbrace T\rbrace\;\vert\;\mathtt{if0}\;E_{H}\;e_{H}\;e_{H}\;\vert\;o\;E_{H}\;e_{H}\;\vert\;o\;v_{H}\;E_{H}\;\vert\;f\;E_{H}\;\vert\;\mathtt{fix}\;E_{H}$
 \end{tabular}
 \end{center}
 \caption{Haskell core terms}

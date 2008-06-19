@@ -1,43 +1,48 @@
 \begin{figure}
 \[
-\Gamma\vdash_{M}N
+\frac{}{\Gamma\vdash_{M}N}
 \quad
-\Gamma\vdash_{M}X
+\frac{X\in\Gamma}{\Gamma\vdash_{M}X}
 \quad
 \frac{\Gamma\vdash_{M}T_{1}\quad\Gamma\vdash_{M}T_{2}}{\Gamma\vdash_{M}T_{1}\rightarrow T_{2}}
-\]
-\[
-\frac{\Gamma ,X\vdash_{M}T}{\Gamma\vdash_{M}\forall X.T}
 \quad
-\frac{\Gamma\vdash_{M}T_{1}\quad\Gamma\vdash_{M}T_{2}}{\Gamma\vdash_{M}(T_{1},T_{2})}
+\frac{\Gamma,X\vdash_{M}T}{\Gamma\vdash_{M}\forall X.T}
+\quad
+\frac{\Gamma\vdash_{M}T}{\Gamma\vdash_{M}[T]}
+\]
+\bigskip
+\[
+\frac{}{\Gamma\vdash_{M}\overline{n}:N}
+\quad
+\frac{}{\Gamma\vdash_{M}\mathtt{nil}:\forall X.[X]}
 \quad
 \frac{x:T\in\Gamma}{\Gamma\vdash_{M}x:T}
 \quad
-\Gamma\vdash_{M}\overline{n}:N
+\frac{\Gamma\vdash_{M}e_{M}:T\rightarrow T}{\Gamma\vdash_{M}\mathtt{fix}\;e_{M}:T}
 \]
 \[
-\frac{\Gamma,x:T_{1}\vdash_{M}t_{M}:T_{2}\quad\Gamma\vdash_{M}T_{1}}{\Gamma\vdash_{M}\lambda x:T_{1}.t_{M}:T_{1}\rightarrow T_{2}}
+\frac{\Gamma,x:T_{1}\vdash_{M}e_{M}:T_{2}\quad\Gamma\vdash_{M}T_{1}}{\Gamma\vdash_{M}\lambda x:T_{1}.e_{M}:T_{1}\rightarrow T_{2}}
 \quad
-\frac{\Gamma,X\vdash_{M}t_{M}:T}{\Gamma\vdash_{M}\Lambda X.t_{M}:\forall X.T}
+\frac{\Gamma,X\vdash_{M}e_{M}:T}{\Gamma\vdash_{M}\Lambda X.e_{M}:\forall X.T}
 \]
 \[
-\frac{\Gamma\vdash_{M}t_{M}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{M}t_{M}^{2}:T_{1}}{\Gamma\vdash_{M}t_{M}^{1}\;t_{M}^{2}:T_{2}}
+\frac{\Gamma\vdash_{M}e_{M}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{M}e_{M}^{2}:T_{1}}{\Gamma\vdash_{M}e_{M}^{1}\;e_{M}^{2}:T_{2}}
 \quad
 \quad
-\frac{\Gamma\vdash_{M}t_{M}:\forall X.T_{2}\quad\Gamma\vdash_{M}T_{1}}{\Gamma\vdash_{M}t_{M}\;[T_{1}]:T_{2}[X/T_{1}]}
+\frac{\Gamma\vdash_{M}e_{M}:\forall X.T_{2}\quad\Gamma\vdash_{M}T_{1}}{\Gamma\vdash_{M}e_{M}\;\lbrace T_{1}\rbrace:T_{2}[T_{1}/X]}
 \]
 \[
-\frac{\Gamma\vdash_{M}t_{M}^{1}:T_{1}\quad\Gamma\vdash_{M}t_{M}^{2}:T_{2}}{\Gamma\vdash_{M}\mathtt{pair}\;t_{M}^{1}\;t_{M}^{2}:(T_{1},T_{2})}
+\frac{\Gamma\vdash_{M}e_{M}^{1}:T\quad\Gamma\vdash_{M}e_{M}^{2}:[T]}{\Gamma\vdash_{M}\mathtt{cons}\;e_{M}^{1}\;e_{M}^{2}:[T]}
 \quad
-\frac{\Gamma\vdash_{M}t_{M}:(T_{1},T_{2})}{\Gamma\vdash_{M}\mathtt{fst}\;t_{M}:T_{1}}
+\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{hd}\;e_{M}:T}
 \quad
-\frac{\Gamma\vdash_{M}t_{M}:(T_{1},T_{2})}{\Gamma\vdash_{M}\mathtt{snd}\;t_{M}:T_{2}}
+\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{tl}\;e_{M}:[T]}
 \]
 \[
-\frac{\Gamma\vdash_{M}t_{M}^{1}:N\quad\Gamma\vdash_{M}t_{M}^{2}:T\quad\Gamma\vdash_{M}t_{M}^{3}:T}{\Gamma\vdash_{M}\mathtt{if0}\;t_{M}^{1}\;t_{M}^{2}\;t_{M}^{3}:T}
+\frac{\Gamma\vdash_{M}e_{M}^{1}:N\quad\Gamma\vdash_{M}e_{M}^{2}:T\quad\Gamma\vdash_{M}e_{M}^{3}:T}{\Gamma\vdash_{M}\mathtt{if0}\;e_{M}^{1}\;e_{M}^{2}\;e_{M}^{3}:T}
 \quad
-\frac{\Gamma\vdash_{M}t_{M}^{1}:N\quad\Gamma\vdash_{M}t_{M}^{2}:N}{\Gamma\vdash_{M}o\;t_{M}^{1}\;t_{M}^{2}:N}
+\frac{\Gamma\vdash_{M}e_{M}^{1}:N\quad\Gamma\vdash_{M}e_{M}^{2}:N}{\Gamma\vdash_{M}o\;e_{M}^{1}\;e_{M}^{2}:N}
 \]
-\caption{ML core type relations}
+\caption{ML core typing rules}
 \label{mctr}
 \end{figure}
