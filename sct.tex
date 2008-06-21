@@ -1,14 +1,15 @@
 \begin{figure}
+\onehalfspacing
 \begin{center}
 \begin{tabular}{lcl}
-$t_{S}$ & $=$ & $x\;\vert\;v_{S}\;\vert\;t_{S}\;t_{S}\;\vert\;\mathtt{if0}\;t_{S}\;t_{S}\;t_{S}\;\vert\;\mathtt{pair}\;t_{S}\;t_{S}\;\vert\;o\;t_{S}\;t_{S}\;\vert\;f\;t_{S}\;\vert\;p\;t_{S}\;\vert\;\mathtt{wrong}\;\mathrm{string}$ \\
+$e_{S}$ & $=$ & $x\;\vert\;v_{S}\;\vert\;e_{S}\;e_{S}\;\vert\;\mathtt{if0}\;e_{S}\;e_{S}\;e_{S}\;\vert\;\mathtt{cons}\;e_{S}\;e_{S}\;\vert\;o\;e_{S}\;e_{S}\;\vert\;f\;e_{S}\;\vert\;p\;e_{S}\;\vert\;\mathtt{wrong}\;\mathrm{string}$ \\
 $x$ & $=$ & Variables \\
-$v_{S}$ & $=$ & $\lambda x.t_{S}\;\vert\;\mathtt{pair}\;v_{S}\;v_{S}\;\vert\;\overline{n}$ \\
+$v_{S}$ & $=$ & $\lambda x.e_{S}\;\vert\;\mathtt{cons}\;v_{S}\;v_{S}\;\vert\;\overline{n}$ \\
 $o$ & $=$ & $\mathtt{+}\;\vert\;\mathtt{-}$ \\
-$f$ & $=$ & $\mathtt{fst}\;\vert\;\mathtt{snd}$ \\
-$p$ & $=$ & $\mathtt{nat?}\;\vert\;\mathtt{pair?}\;\vert\;\mathtt{proc?}$ \\
-$E_{S}$ & $=$ & $[\,]_{S}\;\vert\;E_{S}\;t_{S}\;\vert\;v_{S}\;E_{S}\;\vert\;\mathtt{if0}\;E_{S}\;t_{S}\;t_{S}\;\vert\;\mathtt{pair}\;E_{S}\;t_{S}\;\vert\;\mathtt{pair}\;v_{S}\;E_{S}$ \\
-&& $\vert\;o\;E_{S}\;t_{S}\;\vert\;o\;v_{S}\;E_{S}\;\vert\;f\;E_{S}\vert\;p\;E_{S}$
+$f$ & $=$ & $\mathtt{hd}\;\vert\;\mathtt{tl}$ \\
+$p$ & $=$ & $\mathtt{nat?}\;\vert\;\mathtt{list?}\;\vert\;\mathtt{proc?}$ \\
+$E_{S}$ & $=$ & $[\,]_{S}\;\vert\;E_{S}\;e_{S}\;\vert\;v_{S}\;E_{S}\;\vert\;\mathtt{if0}\;E_{S}\;e_{S}\;e_{S}\;\vert\;\mathtt{cons}\;E_{S}\;e_{S}\;\vert\;\mathtt{cons}\;v_{S}\;E_{S}$ \\
+&& $\vert\;o\;E_{S}\;e_{S}\;\vert\;o\;v_{S}\;E_{S}\;\vert\;f\;E_{S}\vert\;p\;E_{S}$
 \end{tabular}
 \end{center}
 \caption{Scheme core terms}

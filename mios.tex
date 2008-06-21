@@ -3,24 +3,23 @@
 \begin{center}
 \begin{tabular}{rcl}
 $\mathscr{E}[^{N}MH^{N}\;\overline{n}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
-$\mathscr{E}[(^{\forall X.T_{1}}MH^{\forall X.T_{1}}\;(\Lambda X.t_{H}))\;[T_{2}]]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}[X/T_{2}]}MH^{T_{1}[X/T_{2}]}\;((\Lambda X.t_{H})\;[T_{2}])]$ \\
-$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MH^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.t_{H})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}:T_{1}.(^{T_{2}}MH^{T_{2}}\;((\lambda x_{1}:T_{1}.t_{H})\;(^{T_{1}}HM^{T_{1}}\;x_{2})))]$ \\
-$\mathscr{E}[\mathtt{fst}\;(^{(T_{1},T_{2})}MH^{(T_{1},T_{2})}\;(\mathtt{pair}\;t_{H}^{1}\;t_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}}MH^{T_{1}}\;t_{H}^{1}]$ \\
-$\mathscr{E}[\mathtt{snd}\;(^{(T_{1},T_{2})}MH^{(T_{1},T_{2})}\;(\mathtt{pair}\;t_{H}^{1}\;t_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}}MH^{T_{2}}\;t_{H}^{2}]$ \\
+$\mathscr{E}[^{\forall X_{1}.T}MH^{\forall X_{1}.T}\;(\Lambda X_{1}.e_{H})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\Lambda X_{2}.(^{T[X_{2}/X_{1}]}MH^{T[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{H})\;\lbrace X_{2}\rbrace))]$ \\
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MH^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.e_{H})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}:T_{1}.(^{T_{2}}MH^{T_{2}}\;((\lambda x_{1}:T_{1}.e_{H})\;(^{T_{1}}HM^{T_{1}}\;x_{2})))]$ \\
+$\mathscr{E}[\mathtt{hd}\;(^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T}MH^{T}\;e_{H}^{1}]$ \\
+$\mathscr{E}[\mathtt{tl}\;(^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MH^{[T]}\;e_{H}^{2}]$ \\
 $\mathscr{E}[^{N}MS\;\overline{n}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
 $\mathscr{E}[^{N}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{N}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})]$ \\
-&& $(v_{S}\neq\overline{n})$ \\
-$\mathscr{E}[(^{\forall X.T_{1}}MS\;v_{S})\;[T_{2}]]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}[X/T_{2}]}MS\;v_{S}]$ \\
-$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;(\lambda x_{1}.t_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}:T_{1}[T^{a}_{i}/T_{i}].(^{T_{2}}MS\;((\lambda x_{1}.t_{S})\;(SM^{T_{1}}\;x_{2})))]$ \\
+&& $(v_{S}\neq\overline{n}$ for any $\overline{n})$ \\
+$\mathscr{E}[(^{\forall X.T_{1}}MS\;v_{S})\;\lbrace T_{2}\rbrace]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}[X/T^{a}_{2}]}MS\;v_{S}]$ \\
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;(\lambda x_{1}.e_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}MS\;((\lambda x_{1}.e_{S})\;(SM^{T_{1}}\;x_{2})))]$ \\
 $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;function"})]$ \\
-&& $(v_{S}\neq\lambda x.t_{S})$ \\
-$\mathscr{E}[^{T}MS\;(SM^{T}\;v_{M})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}]$ \\
-$\mathscr{E}[^{T}MS\;(SM^{T^{a}}\;v_{M})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}]$ \\
+&& $(v_{S}\neq\lambda x.e_{S}$ for any $x,e_{S})$ \\
+$\mathscr{E}[^{T^{a}}MS\;(SM^{T^{a}}\;v_{M})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}]$ \\
 $\mathscr{E}[^{T^{a}}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T^{a}}MS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})]$ \\
-&& $(v_{S}\neq SM^{T^{a}}\;v_{M})$ \\
-$\mathscr{E}[^{(T_{1},T_{2})}MS\;(\mathtt{pair}\;v_{S}^{1}\;v_{S}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{pair}\;(^{T_{1}}MS\;v_{S}^{1})\;(^{T_{2}}MS\;v_{S}^{2})]$ \\
-$\mathscr{E}[^{(T_{1},T_{2})}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{(T_{1},T_{2})}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;pair"})]$ \\
-&& $(v_{S}\neq\mathtt{pair}\;v_{S}\;v_{S})$ \\
+&& $(v_{S}\neq SM^{T^{a}}\;v_{M}$ for any $v_{M})$ \\
+$\mathscr{E}[^{[T]}MS\;(\mathtt{cons}\;v_{S}^{1}\;v_{S}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}\;(^{T}MS\;v_{S}^{1})\;(^{[T]}MS\;v_{S}^{2})]$ \\
+$\mathscr{E}[^{[T]}MS\;v_{S}^{1}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})]$ \\
+&& $(v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ for any $v_{S}^{2},v_{S}^{3})$
 \end{tabular}
 \end{center}
 \caption{ML interoperation operational semantics}

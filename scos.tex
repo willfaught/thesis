@@ -2,23 +2,25 @@
 \onehalfspacing
 \begin{center}
 \begin{tabular}{rcl}
-$\mathscr{E}[(\lambda x.t_{S})\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}[x/v_{S}]]$ \\
-$\mathscr{E}[\mathtt{if0}\;\overline{0}\;t_{S}^{1}\;t_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}^{1}]$ \\
-$\mathscr{E}[\mathtt{if0}\;v_{S}\;t_{S}^{1}\;t_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[t_{S}^{2}]\;(v_{S}\neq\overline{0})$ \\
+$\mathscr{E}[(\lambda x.e_{S})\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[e_{S}[x/v_{S}]]$ \\
+$\mathscr{E}[v_{S}^{1}\;v_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{wrong}\;\mathrm{``Not\;a\;function"}]$ \\
+&& $(v_{S}^{1}\neq\lambda x.e_{S}$ for any $x,e_{S})$ \\
+$\mathscr{E}[\mathtt{if0}\;\overline{0}\;e_{S}^{1}\;e_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[e_{S}^{1}]$ \\
+$\mathscr{E}[\mathtt{if0}\;v_{S}\;e_{S}^{1}\;e_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[e_{S}^{2}]\;(v_{S}\neq\overline{0})$ \\
 $\mathscr{E}[+\;\overline{n_{1}}\;\overline{n_{2}}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
 $\mathscr{E}[-\;\overline{n_{1}}\;\overline{n_{2}}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{(max(n_{1}-n_{2},0)}]$ \\
 $\mathscr{E}[o\;v_{S}^{1}\;v_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{wrong}\;\mathrm{``Not\;a\;number"}]$ \\
-&& $(v_{S}^{1}\neq\overline{n}$ or $v_{S}^{2}\neq\overline{n})$ \\
-$\mathscr{E}[\mathtt{fst}\;(\mathtt{pair}\;v_{S}^{1}\;v_{S}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}^{1}]$ \\
-$\mathscr{E}[\mathtt{snd}\;(\mathtt{pair}\;v_{S}^{1}\;v_{S}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}^{2}]$ \\
-$\mathscr{E}[f\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{wrong}\;\mathrm{``Not\;a\;pair"}]$ \\
-&& $(v_{S}\neq\mathtt{pair}\;t_{S}\;t_{S})$ \\
+&& $(v_{S}^{1}\neq\overline{n}$ or $v_{S}^{2}\neq\overline{n}$ for any $\overline{n})$ \\
+$\mathscr{E}[\mathtt{hd}\;(\mathtt{cons}\;v_{S}^{1}\;v_{S}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}^{1}]$ \\
+$\mathscr{E}[\mathtt{tl}\;(\mathtt{cons}\;v_{S}^{1}\;v_{S}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}^{2}]$ \\
+$\mathscr{E}[f\;v_{S}^{1}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{wrong}\;\mathrm{``Not\;a\;list"}]$ \\
+&& $(v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ for any $v_{S}^{2},v_{S}^{3})$ \\
 $\mathscr{E}[\mathtt{nat?}\;\overline{n}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{0}]$ \\
-$\mathscr{E}[\mathtt{nat?}\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]\;(v_{S}\neq\overline{n})$ \\
-$\mathscr{E}[\mathtt{pair?}\;(\mathtt{pair}\;v_{S}^{1}\;v_{S}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{0}]$ \\
-$\mathscr{E}[\mathtt{pair?}\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]\;(v_{S}\neq\mathtt{pair}\;v_{S}\;v_{S})$ \\
-$\mathscr{E}[\mathtt{proc?}\;(\lambda x.t_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{0}]$ \\
-$\mathscr{E}[\mathtt{proc?}\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]\;(v_{S}\neq\lambda x.t_{S})$ \\
+$\mathscr{E}[\mathtt{nat?}\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]\;(v_{S}\neq\overline{n}$ for any $\overline{n})$ \\
+$\mathscr{E}[\mathtt{list?}\;(\mathtt{list}\;v_{S}^{1}\;v_{S}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{0}]$ \\
+$\mathscr{E}[\mathtt{list?}\;v_{S}^{1}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]\;(v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ for any $v_{S}^{2},v_{S}^{3})$ \\
+$\mathscr{E}[\mathtt{proc?}\;(\lambda x.e_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{0}]$ \\
+$\mathscr{E}[\mathtt{proc?}\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]\;(v_{S}\neq\lambda x.e_{S}$ for any $x,e_{S})$ \\
 $\mathscr{E}[\mathtt{wrong}\;\mathrm{string}]_{S}$ & $\rightarrow$ & Error: $\mathrm{string}$
 \end{tabular}
 \end{center}
