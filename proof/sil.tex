@@ -1,0 +1,22 @@
+\begin{sil}
+\label{sil}
+Inversion of the Scheme typing relation.
+\begin{enumerate}
+\item If $\vdash_{S}\overline{n}:T$ then $T=TST$.
+\item If $\Gamma\vdash_{S}x:T$ then $x:TST\in\Gamma$ and $T=TST$.
+\item If $\Gamma\vdash_{S}\lambda x.e_{S}:T$ then $(\Gamma,x:TST\vdash_{S}e_{S}:TST)$ and $T=TST$.
+\item If $\Gamma\vdash_{S}\mathtt{cons}\;e_{S}^{1}\;e_{S}^{2}:T$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$, $\Gamma\vdash_{S}e_{S}^{2}:TST$, and $T=TST$.
+\item If $\Gamma\vdash_{S}\mathtt{nil}:T$ then $T=TST$.
+\item If $\Gamma\vdash_{S}e_{S}^{1}\;e_{S}^{2}:T$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$, $\Gamma\vdash_{S}e_{S}^{2}:TST$, and $T=TST$.
+\item If $\Gamma\vdash_{S}\mathtt{if0}\;e_{S}^{1}\;e_{S}^{2}\;e_{S}^{3}:T$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$, $\Gamma\vdash_{S}e_{S}^{2}:TST$, $\Gamma\vdash_{S}e_{S}^{3}:TST$, and $T=TST$.
+\item If $\Gamma\vdash_{S}o\;e_{S}^{1}\;e_{S}^{2}:T$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$, $\Gamma\vdash_{S}e_{S}^{2}:TST$, and $T=TST$.
+\item If $\Gamma\vdash_{S}\mathtt{hd}\;e_{S}:T$ then $\Gamma\vdash_{S}e_{S}:TST$ and $T=TST$.
+\item If $\Gamma\vdash_{S}\mathtt{tl}\;e_{S}:T$ then $\Gamma\vdash_{S}e_{S}:TST$ and $T=TST$.
+\item If $\Gamma\vdash_{S}\mathtt{wrong}\;\mathrm{string}:T$ then $T=TST$.
+\item If $\Gamma\vdash_{S}\;SH^{T_{1}}\;e_{H}:T$ then $\Gamma\vdash_{H}T_{1}$, $\Gamma\vdash_{H}e_{H}:T_{1}[T_{i}/T_{i}^{a}]$, and $T=TST$.
+\item If $\Gamma\vdash_{S}\;SM^{T_{1}}\;e_{M}:T$ then $\Gamma\vdash_{M}T_{1}$, $\Gamma\vdash_{M}e_{M}:T_{1}[T_{i}/T_{i}^{a}]$, and $T=TST$.
+\end{enumerate}
+\begin{proof}
+Immediate from the definition of the Scheme typing relation.
+\end{proof}
+\end{sil}

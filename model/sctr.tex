@@ -6,28 +6,30 @@
 \[
 \frac{}{\Gamma\vdash_{S}\overline{n}:TST}
 \quad
+\frac{}{\Gamma\vdash_{S}\mathtt{nil}:TST}
+\quad
 \frac{}{\Gamma\vdash_{S}\mathtt{wrong}\;\mathrm{string}:TST}
 \]
 \[
 \frac{x:TST\in\Gamma}{\Gamma\vdash_{S}x:TST}
 \quad
-\frac{\Gamma\vdash_{S}t_{S}^{1}:TST\quad\Gamma\vdash_{S}t_{S}^{2}:TST}{\Gamma\vdash_{S}\mathtt{pair}\;t_{S}^{1}\;t_{S}^{2}:TST}
+\frac{\Gamma\vdash_{S}e_{S}^{1}:TST\quad\Gamma\vdash_{S}e_{S}^{2}:TST}{\Gamma\vdash_{S}\mathtt{cons}\;e_{S}^{1}\;e_{S}^{2}:TST}
 \]
 \[
-\frac{\Gamma\vdash_{S}t_{S}^{1}:TST\quad\Gamma\vdash_{S}t_{S}^{2}:TST\quad\Gamma\vdash_{S}t_{S}^{3}:TST}{\Gamma\vdash_{S}\mathtt{if0}\;t_{S}^{1}\;t_{S}^{2}\;t_{S}^{3}:TST}
+\frac{\Gamma\vdash_{S}e_{S}^{1}:TST\quad\Gamma\vdash_{S}e_{S}^{2}:TST\quad\Gamma\vdash_{S}e_{S}^{3}:TST}{\Gamma\vdash_{S}\mathtt{if0}\;e_{S}^{1}\;e_{S}^{2}\;e_{S}^{3}:TST}
 \]
 \[
-\frac{\Gamma,x:TST\vdash_{S}t_{S}:TST}{\Gamma\vdash_{S}\lambda x.t_{S}:TST}
+\frac{\Gamma,x:TST\vdash_{S}e_{S}:TST}{\Gamma\vdash_{S}\lambda x.e_{S}:TST}
 \quad
-\frac{\Gamma\vdash_{S}t_{S}^{1}:TST\quad\Gamma\vdash_{S}t_{S}^{2}:TST}{\Gamma\vdash_{S}t_{S}^{1}\;t_{S}^{2}:TST}
+\frac{\Gamma\vdash_{S}e_{S}^{1}:TST\quad\Gamma\vdash_{S}e_{S}^{2}:TST}{\Gamma\vdash_{S}e_{S}^{1}\;e_{S}^{2}:TST}
 \]
 \[
 \quad
-\frac{\Gamma\vdash_{S}t_{S}^{1}:TST\quad\Gamma\vdash_{S}t_{S}^{2}:TST}{\Gamma\vdash_{S}o\;t_{S}^{1}\;t_{S}^{2}:TST}
+\frac{\Gamma\vdash_{S}e_{S}^{1}:TST\quad\Gamma\vdash_{S}e_{S}^{2}:TST}{\Gamma\vdash_{S}o\;e_{S}^{1}\;e_{S}^{2}:TST}
 \quad
-\frac{\Gamma\vdash_{S}t_{S}:TST}{\Gamma\vdash_{S}f\;t_{S}:TST}
+\frac{\Gamma\vdash_{S}e_{S}:TST}{\Gamma\vdash_{S}f\;e_{S}:TST}
 \quad
-\frac{\Gamma\vdash_{S}t_{S}:TST}{\Gamma\vdash_{S}p\;t_{S}:TST}
+\frac{\Gamma\vdash_{S}e_{S}:TST}{\Gamma\vdash_{S}p\;e_{S}:TST}
 \]
 \caption{Scheme core typing rules}
 \label{sctr}
