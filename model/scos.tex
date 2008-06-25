@@ -21,7 +21,7 @@ $\mathscr{E}[\mathtt{list?}\;(\mathtt{list}\;v_{S}^{1}\;v_{S}^{2})]_{S}$ & $\rig
 $\mathscr{E}[\mathtt{list?}\;v_{S}^{1}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]\;(v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ for any $v_{S}^{2},v_{S}^{3})$ \\
 $\mathscr{E}[\mathtt{proc?}\;(\lambda x.e_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{0}]$ \\
 $\mathscr{E}[\mathtt{proc?}\;v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]\;(v_{S}\neq\lambda x.e_{S}$ for any $x,e_{S})$ \\
-$\mathscr{E}[\mathtt{wrong}\;\mathrm{string}]_{S}$ & $\rightarrow$ & Error: $\mathrm{string}$
+$\mathscr{E}[\mathtt{wrong}\;\mathrm{string}]_{S}$ & $\rightarrow$ & \textbf{Error}: $\mathrm{string}$
 \end{tabular}
 \end{center}
 \caption{Scheme core operational semantics}
