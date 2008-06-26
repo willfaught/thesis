@@ -1,11 +1,11 @@
-\begin{mil}
-\label{mil}
+\begin{mi}
+\label{mi}
 Inversion of the ML typing relation.
 \begin{enumerate}
 \item If $\vdash_{M}\overline{n}:T$ then $T=N$.
 \item If $\Gamma\vdash_{M}x:T$ then $x:T\in\Gamma$.
-\item If $\Gamma\vdash_{M}\lambda x:T_{1}.e_{M}:T$ then $\Gamma\vdash_{M}T_{1}$, $(\Gamma,x:T_{1}\vdash_{M}e_{M}:T_{2})$, and $T=T_{1}\rightarrow T_{2}$.
-\item If $\Gamma\vdash_{M}\Lambda X.e_{M}:T$ then $(\Gamma,X\vdash_{M}e_{M}:T_{1})$ and $T=\forall X.T_{1}$.
+\item If $\Gamma\vdash_{M}\lambda x:T_{1}.e_{M}:T$ then $\Gamma\vdash_{M}T_{1}$, $\Gamma,x:T_{1}\vdash_{M}e_{M}:T_{2}$, and $T=T_{1}\rightarrow T_{2}$.
+\item If $\Gamma\vdash_{M}\Lambda X.e_{M}:T$ then $\Gamma,X\vdash_{M}e_{M}:T_{1}$ and $T=\forall X.T_{1}$.
 \item If $\Gamma\vdash_{M}\mathtt{cons}\;e_{M}^{1}\;e_{M}^{2}:T$ then $\Gamma\vdash_{M}e_{M}^{1}:T_{1}$, $\Gamma\vdash_{M}e_{M}^{2}:[T_{1}]$, and $T=[T_{1}]$.
 \item If $\Gamma\vdash_{M}\mathtt{nil}:T$ then $T=\forall X.[X]$.
 \item If $\Gamma\vdash_{M}e_{M}^{1}\;e_{M}^{2}:T$ then $\Gamma\vdash_{M}e_{M}^{1}:T_{1}\rightarrow T_{2}$, $\Gamma\vdash_{M}e_{M}^{2}:T_{1}$, and $T=T_{2}$.
@@ -21,4 +21,4 @@ Inversion of the ML typing relation.
 \begin{proof}
 Immediate from the definition of the ML typing relation.
 \end{proof}
-\end{mil}
+\end{mi}

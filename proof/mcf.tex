@@ -1,14 +1,15 @@
 \begin{mcf}
 \label{mcf}
-Canonical forms of ML values for ML types.
+The canonical form of the normal form for each ML type.
 \begin{enumerate}
-\item If $v_{M}$ is a value of type $N$ then $v_{M}=\overline{n}$.
-\item If $v_{M}$ is a value of type $T_{1}\rightarrow T_{2}$ then $v_{M}=\lambda x:T_{1}.e_{M}$.
-\item If $v_{M}$ is a value of type $\forall X.T$ then $v_{M}=\Lambda X.e_{M}$ or $v_{M}=\;^{\forall X.T}MS\;v_{S}$.
-\item If $v_{M}$ is a value of type $[T]$ then $v_{M}=\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}$.
-\item If $v_{M}$ is a value of type $L$ then $v_{M}=\;^{L}MS\;v_{S}$.
+\item If $v_{M}$ is a normal form of type $N$ then $v_{M}=\overline{n}$.
+\item If $v_{M}$ is a normal form of type $T_{1}\rightarrow T_{2}$ then $v_{M}=\lambda x:T_{1}.e_{M}$.
+\item If $v_{M}$ is a normal form of type $\forall X.T$ then $v_{M}=\Lambda X.e_{M}$ or $v_{M}=\;^{\forall X.T}MS\;v_{S}$.
+\item If $v_{M}$ is a normal form of type $[T]$ then $v_{M}=\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}$.
+\item If $v_{M}$ is a normal form of type $L$ then $v_{M}=\;^{L}MS\;v_{S}$.
 \end{enumerate}
 \begin{proof}
 [???] Straightforward from the definition of ML values and the definition of the ML typing relation.
+%For part (1), according to the typing rules in Figure \ref{mctr}, the only normal form of type $N$ is $\overline{n}$.  For part (2), 
 \end{proof}
 \end{mcf}
