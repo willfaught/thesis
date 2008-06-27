@@ -1,4 +1,77 @@
 \begin{hps}
 \label{hps}
-If $\Gamma\vdash_{H}e_{H}:T$ then there exists an $e_{H}'$ such that $e_{H}\rightarrow e_{H}'$ or $e_{H}\rightarrow$ \emph{\textbf{Error}:\;string}.
+If $\vdash_{H}e_{H}:T$ then either $e_{H}$ is a value, $e_{H}\rightarrow e_{H}'$ for some $e_{H}'$, or $e_{H}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.
+\input{hi.tex}
+\input{huot.tex}
+\input{hcf.tex}
+\begin{proof}
+Straightforward induction on typing derivations of $\vdash_{H}e_{H}:T$.
+\begin{hps-case-1}
+$e_{H}=x$
+
+Cannot occur because $e_{H}$ is closed.
+\end{hps-case-1}
+\begin{hps-case-2}
+$e_{H}=\lambda x:T_{1}.e_{H}^{1}$
+
+$e_{H}$ is a value.
+\end{hps-case-2}
+\begin{hps-case-3}
+$e_{H}=\Lambda X.e_{H}^{1}$
+
+$e_{H}$ is a value.
+\end{hps-case-3}
+\begin{hps-case-4}
+$e_{H}=\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}$
+
+$e_{H}$ is a value.
+\end{hps-case-4}
+\begin{hps-case-5}
+$e_{H}=\mathtt{nil}$
+
+$e_{H}$ is a value.
+\end{hps-case-5}
+\begin{hps-case-6}
+$e_{H}=\overline{n}$
+
+$e_{H}$ is a value.
+\end{hps-case-6}
+\begin{hps-case-7}
+$e_{H}=e_{H}^{1}\;e_{H}^{2}$
+
+By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.
+
+If $e_{H}^{1}$ is a value then $e_{H}^{1}:T_{1}\rightarrow T_{2}$ for some $T_{1}$ and $T_{2}$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\lambda x:T_{1}.e_{H}^{3}$ for some $x$ and $e_{H}^{3}$ by canonical forms (Lemma \ref{hcf}).  Therefore $(\lambda x:T.e_{H}^{3})\;e_{H}^{2}\rightarrow e_{H}^{3}[e_{H}^{2}/x]$.
+
+If $e_{H}^{1}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$ then $e_{H}^{1}\;e_{H}^{2}\rightarrow e_{H}^{3}\;e_{H}^{2}$.
+
+If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $e_{H}^{1}\;e_{H}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.
+\end{hps-case-7}
+\begin{hps-case-8}
+$e_{H}=e_{H}^{1}\;\lbrace T_{1}\rbrace$
+
+By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.
+
+If $e_{H}^{1}$ is a value then $e_{H}^{1}:\forall X.T_{2}$ for some $X$ and $T_{2}$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\Lambda X.e_{H}^{2}$ for some $e_{H}^{2}$ by canonical forms (Lemma \ref{hcf}).  Therefore $(\Lambda X.e_{H}^{2})\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}[T_{1}/X]$.
+
+If $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$ then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}\;\lbrace T_{1}\rbrace$.
+
+If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow$ \emph{\textbf{Error}:\;string}.
+\end{hps-case-8}
+\begin{hps-case-9}
+$e_{H}=\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}$
+
+
+\end{hps-case-9}
+\begin{hps-case-10}
+$e_{H}=$
+
+
+\end{hps-case-10}
+\begin{hps-case-11}
+$e_{H}=$
+
+
+\end{hps-case-11}
+\end{proof}
 \end{hps}
