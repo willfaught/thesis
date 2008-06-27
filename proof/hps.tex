@@ -61,10 +61,18 @@ If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} 
 \begin{hps-case-9}
 $e_{H}=\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}$
 
+By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{4}$ for some $e_{H}^{4}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.
 
+If $e_{H}^{1}$ is a value then $e_{H}^{1}:N$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\overline{n}$ for some $\overline{n}$ by canonical forms (Lemma \ref{hcf}).  Therefore $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow e_{H}^{2}$ if $e_{H}^{1}=\overline{0}$ or $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow e_{H}^{3}$ if $e_{H}^{1}\neq\overline{0}$.
+
+If $e_{H}^{1}\rightarrow e_{H}^{4}$ for some $e_{H}^{4}$ then $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow \mathtt{if0}\;e_{H}^{4}\;e_{H}^{2}\;e_{H}^{3}$.
+
+If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{hps-case-9}
 \begin{hps-case-10}
-$e_{H}=$
+$e_{H}=o\;e_{H}^{1}\;e_{H}^{2}$
+
+By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  By the induction hypothesis, either $e_{H}^{2}$ is a value, $e_{H}^{2}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$, or $e_{H}^{2}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.
 
 
 \end{hps-case-10}
