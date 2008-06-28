@@ -14,27 +14,27 @@ Cannot occur because $e_{H}$ is closed.
 \begin{hps-case-2}
 $e_{H}=\lambda x:T_{1}.e_{H}^{1}$
 
-$e_{H}$ is a value.
+$\lambda x:T_{1}.e_{H}^{1}$ is a value.
 \end{hps-case-2}
 \begin{hps-case-3}
 $e_{H}=\Lambda X.e_{H}^{1}$
 
-$e_{H}$ is a value.
+$\Lambda X.e_{H}^{1}$ is a value.
 \end{hps-case-3}
 \begin{hps-case-4}
 $e_{H}=\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}$
 
-$e_{H}$ is a value.
+$\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}$ is a value.
 \end{hps-case-4}
 \begin{hps-case-5}
 $e_{H}=\mathtt{nil}$
 
-$e_{H}$ is a value.
+$\mathtt{nil}$ is a value.
 \end{hps-case-5}
 \begin{hps-case-6}
 $e_{H}=\overline{n}$
 
-$e_{H}$ is a value.
+$\overline{n}$ is a value.
 \end{hps-case-6}
 \begin{hps-case-7}
 $e_{H}=e_{H}^{1}\;e_{H}^{2}$
@@ -44,8 +44,18 @@ By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarro
 \begin{hps-case-8}
 $e_{H}=e_{H}^{1}\;\lbrace T_{1}\rbrace$
 
-By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:\forall X.T_{2}$ for some $X$ and $T_{2}$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\Lambda X.e_{H}^{2}$ for some $e_{H}^{2}$ by canonical forms (Lemma \ref{hcf}).  Therefore $(\Lambda X.e_{H}^{2})\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}[T_{1}/X]$.  If $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$ then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}\;\lbrace T_{1}\rbrace$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow$ \emph{\textbf{Error}:\;string}.
+By the induction hypothesis, either $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$, $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}, or $e_{H}^{1}$ is a value.  If $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$ then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}\;\lbrace T_{1}\rbrace$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:\forall X.T_{2}$ for some $X$ and $T_{2}$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and either $e_{H}^{1}=\Lambda X.e_{H}^{2}$ for some $e_{H}^{2}$ or $e_{H}^{1}=\,^{\forall X.T_{2}}HS\;v_{S}$ for some $v_{S}$ by canonical forms (Lemma \ref{hcf}).
 \end{hps-case-8}
+\begin{hps-case-8-1}
+$e_{H}^{1}=\Lambda X.e_{H}^{2}$
+
+$(\Lambda X.e_{H}^{2})\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}[T_{1}/X]$.
+\end{hps-case-8-1}
+\begin{hps-case-8-2}
+$e_{H}^{1}=\,^{\forall X.T_{2}}HS\;v_{S}$
+
+$(^{\forall X.T_{2}}HS\;v_{S})\;\lbrace T_{1}\rbrace\rightarrow\,^{T_{2}[T_{1}^{a}/X]}HS\;v_{S}$.
+\end{hps-case-8-2}
 \begin{hps-case-9}
 $e_{H}=\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}$
 
@@ -71,38 +81,74 @@ $e_{H}=\mathtt{fix}\;e_{H}^{1}$
 By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:T_{1}\rightarrow T_{2}$ for some $T_{1}$ and $T_{2}$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\lambda x:T_{1}.e_{H}^{2}$ for some $x$ and $e_{H}^{2}$ by canonical forms (Lemma \ref{hcf}).  Therefore $\mathtt{fix}\;(\lambda x:T_{1}.e_{H}^{2})\rightarrow e_{H}^{2}[\mathtt{fix}\;(\lambda x:T_{1}.e_{H}^{2})/x]$.  If $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$ then $\mathtt{fix}\;e_{H}^{1}\rightarrow\mathtt{fix}\;e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $\mathtt{fix}\;e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{hps-case-12}
 \begin{hps-case-12}
-$e_{H}=\,^{T}HM^{T}\;e_{M}$
+$e_{H}=\,^{T}HM^{T}\;e_{M}^{1}$
+
+By the ML progress theorem (Theorem \ref{mps}), either $e_{M}^{1}\rightarrow e_{M}^{2}$ for some $e_{M}^{2}$, $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}, or $e_{M}^{1}$ is a value.  If $e_{M}^{1}\rightarrow e_{M}^{2}$ for some $e_{M}^{2}$ then $^{T}HS\;e_{M}^{1}\rightarrow\,^{T}HS\;e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $^{T}HS\;e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{M}^{1}$ is a value then $T$ determines its reduction:
+\begin{hps-case-12-1}
+$T=N$
+
+$e_{M}^{1}=\overline{n}$ for some $\overline{n}$ by canonical forms (Lemma \ref{mcf}).  $^{N}HM^{N}\;\overline{n}\rightarrow\overline{n}$.
+\end{hps-case-12-1}
+\begin{hps-case-12-2}
+$T=T_{1}\rightarrow T_{2}$
+
+$e_{M}^{1}=\lambda x_{1}:T_{1}.e_{M}^{2}$ for some $x_{1}$ and $e_{M}^{2}$ by canonical forms (Lemma \ref{mcf}).  $^{T_{1}\rightarrow T_{2}}HM^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.e_{M}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HM^{T_{2}}\;((\lambda x_{1}:T_{1}.e_{M}^{2})\;(^{T_{1}}MH^{T_{1}}\;x_{2})))$.
+\end{hps-case-12-2}
+\begin{hps-case-12-3}
+$T=\forall X_{1}.T_{1}$
+
+$e_{M}^{1}=\Lambda X_{1}.e_{M}^{2}$ for some $e_{M}^{2}$ by canonical forms (Lemma \ref{mcf}).  $^{\forall X_{1}.T_{1}}HM^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{M}^{2})\rightarrow\Lambda X_{2}.(^{T_{1}[X_{2}/X_{1}]}HM^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{M}^{2})\;\lbrace X_{2}\rbrace))$.
+\end{hps-case-12-3}
+\begin{hps-case-12-4}
+$T=[T_{1}]$
 
 
+\end{hps-case-12-4}
+\begin{hps-case-12-5}
+$T=L$
+
+
+\end{hps-case-12-5}
+\begin{hps-case-12-6}
+$T=T_{1}^{a}$
+
+
+\end{hps-case-12-6}
 \end{hps-case-12}
 \begin{hps-case-13}
 $e_{H}=\,^{T}HS\;e_{S}^{1}$
 
-By the Scheme progress theorem (Theorem \ref{sps}), either $e_{S}^{1}\rightarrow e_{S}^{2}$ for some $e_{S}^{2}$, $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}, or $e_{S}^{1}$ is a value.  If $e_{S}^{1}\rightarrow e_{S}^{2}$ for some $e_{S}^{2}$ then $^{T}HS\;e_{S}^{1}\rightarrow\,^{T}HS\;e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $^{T}HS\;e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{S}^{1}$ is a value then $T$ determines its reduction.
-\end{hps-case-13}
+By the Scheme progress theorem (Theorem \ref{sps}), either $e_{S}^{1}\rightarrow e_{S}^{2}$ for some $e_{S}^{2}$, $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}, or $e_{S}^{1}$ is a value.  If $e_{S}^{1}\rightarrow e_{S}^{2}$ for some $e_{S}^{2}$ then $^{T}HS\;e_{S}^{1}\rightarrow\,^{T}HS\;e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $^{T}HS\;e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{S}^{1}$ is a value then $T$ determines its reduction:
 \begin{hps-case-13-1}
-$T=$
+$T=N$
 
+If $e_{S}^{1}=\overline{n}$ for some $\overline{n}$ then $^{N}HS\;\overline{n}\rightarrow\overline{n}$.  Otherwise, $^{N}HS\;e_{S}^{1}\rightarrow\,^{N}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})$.
 \end{hps-case-13-1}
 \begin{hps-case-13-2}
-$T=$
+$T=T_{1}\rightarrow T_{2}$
 
+If $e_{S}^{1}=\lambda x_{1}.e_{S}^{2}$ for some $x_{1}$ and $e_{S}^{2}$ then $^{T_{1}\rightarrow T_{2}}HS\;(\lambda x_{1}.e_{S}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HS\;((\lambda x_{1}.e_{S}^{2})\;(SH^{T_{1}}\;x_{2})))$.  Otherwise, $^{T_{1}\rightarrow T_{2}}HS\;e_{S}^{1}\rightarrow\,^{T_{1}\rightarrow T_{2}}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})$.
 \end{hps-case-13-2}
 \begin{hps-case-13-3}
-$T=$
+$T=\forall X.T_{1}$
 
+$^{\forall X.T_{1}}HS\;e_{S}^{1}$ is a value.
 \end{hps-case-13-3}
 \begin{hps-case-13-4}
-$T=$
+$T=[T_{1}]$
 
+If $e_{S}^{1}=\mathtt{cons}\;e_{S}^{2}\;e_{S}^{3}$ for some $e_{S}^{2}$ and $e_{S}^{3}$ then $^{[T_{1}]}HS\;(\mathtt{cons}\;e_{S}^{2}\;e_{S}^{3})\rightarrow\mathtt{cons}\;(^{T_{1}}HS\;e_{S}^{2})\;(^{[T_{1}]}HS\;e_{S}^{3})$.  Otherwise, $^{[T_{1}]}HS\;e_{S}^{1}\rightarrow\,^{[T_{1}]}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})$.
 \end{hps-case-13-4}
 \begin{hps-case-13-5}
-$T=$
+$T=L$
 
+$^{L}HS\;e_{S}^{1}$ is a value.
 \end{hps-case-13-5}
 \begin{hps-case-13-6}
-$T=$
+$T=T_{1}^{a}$
 
+If $e_{S}^{1}=SH^{T_{1}^{a}}\;e_{H}^{1}$ then $^{T_{1}^{a}}HS\;(SH^{T_{1}^{a}}\;e_{H}^{1})\rightarrow e_{H}^{1}$.  Otherwise, $^{T_{1}^{a}}HS\;e_{S}^{1}\rightarrow\,^{T_{1}^{a}}HS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})$.
 \end{hps-case-13-6}
+\end{hps-case-13}
 \end{proof}
 \end{hps}
