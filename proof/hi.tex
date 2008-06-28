@@ -15,10 +15,10 @@
 \item If $\Gamma\vdash_{H}\mathtt{hd}\;e_{H}:T$ then $\Gamma\vdash_{H}e_{H}:[T_{1}]$ and $T=T_{1}$.
 \item If $\Gamma\vdash_{H}\mathtt{tl}\;e_{H}:T$ then $\Gamma\vdash_{H}e_{H}:[T_{1}]$ and $T=[T_{1}]$.
 \item If $\Gamma\vdash_{H}\mathtt{fix}\;e_{H}:T$ then $\Gamma\vdash_{H}e_{H}:(T_{1}\rightarrow T_{1})\rightarrow T_{1}$ and $T=T_{1}$.
-\item If $\Gamma\vdash_{H}\;^{T_{1}}HM^{T_{2}}\;e_{M}:T$ then $\Gamma\vdash_{H}T_{1}$, $\Gamma\vdash_{M}T_{2}$, $T_{1}=T_{2}$, $\Gamma\vdash_{M}e_{M}:T_{2}$, and $T=T_{1}$.
-\item If $\Gamma\vdash_{H}\;^{T_{1}}HS\;e_{S}:T$ then $\Gamma\vdash_{H}T_{1}$, $\Gamma\vdash_{S}e_{S}:TST$, and $T=T_{1}$.
+\item If $\Gamma\vdash_{H}\,^{T_{1}}HM^{T_{2}}\;e_{M}:T$ then $\Gamma\vdash_{H}T_{1}$, $\Gamma\vdash_{M}T_{2}$, $T_{1}=T_{2}$, $\Gamma\vdash_{M}e_{M}:T_{2}$, and $T=T_{1}$.
+\item If $\Gamma\vdash_{H}\,^{T_{1}}HS\;e_{S}:T$ then $\Gamma\vdash_{H}T_{1}$, $\Gamma\vdash_{S}e_{S}:TST$, and $T=T_{1}$.
 \end{enumerate}
 \begin{proof}
-Immediate from the definition of the Haskell typing relation.
+Immediate from the Haskell typing relation.
 \end{proof}
 \end{hi}

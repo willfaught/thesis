@@ -39,47 +39,70 @@ $e_{H}$ is a value.
 \begin{hps-case-7}
 $e_{H}=e_{H}^{1}\;e_{H}^{2}$
 
-By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.
-
-If $e_{H}^{1}$ is a value then $e_{H}^{1}:T_{1}\rightarrow T_{2}$ for some $T_{1}$ and $T_{2}$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\lambda x:T_{1}.e_{H}^{3}$ for some $x$ and $e_{H}^{3}$ by canonical forms (Lemma \ref{hcf}).  Therefore $(\lambda x:T.e_{H}^{3})\;e_{H}^{2}\rightarrow e_{H}^{3}[e_{H}^{2}/x]$.
-
-If $e_{H}^{1}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$ then $e_{H}^{1}\;e_{H}^{2}\rightarrow e_{H}^{3}\;e_{H}^{2}$.
-
-If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $e_{H}^{1}\;e_{H}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.
+By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:T_{1}\rightarrow T_{2}$ for some $T_{1}$ and $T_{2}$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\lambda x:T_{1}.e_{H}^{3}$ for some $x$ and $e_{H}^{3}$ by canonical forms (Lemma \ref{hcf}).  Therefore $(\lambda x:T.e_{H}^{3})\;e_{H}^{2}\rightarrow e_{H}^{3}[e_{H}^{2}/x]$.  If $e_{H}^{1}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$ then $e_{H}^{1}\;e_{H}^{2}\rightarrow e_{H}^{3}\;e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $e_{H}^{1}\;e_{H}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{hps-case-7}
 \begin{hps-case-8}
 $e_{H}=e_{H}^{1}\;\lbrace T_{1}\rbrace$
 
-By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.
-
-If $e_{H}^{1}$ is a value then $e_{H}^{1}:\forall X.T_{2}$ for some $X$ and $T_{2}$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\Lambda X.e_{H}^{2}$ for some $e_{H}^{2}$ by canonical forms (Lemma \ref{hcf}).  Therefore $(\Lambda X.e_{H}^{2})\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}[T_{1}/X]$.
-
-If $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$ then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}\;\lbrace T_{1}\rbrace$.
-
-If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow$ \emph{\textbf{Error}:\;string}.
+By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:\forall X.T_{2}$ for some $X$ and $T_{2}$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\Lambda X.e_{H}^{2}$ for some $e_{H}^{2}$ by canonical forms (Lemma \ref{hcf}).  Therefore $(\Lambda X.e_{H}^{2})\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}[T_{1}/X]$.  If $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$ then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}\;\lbrace T_{1}\rbrace$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{hps-case-8}
 \begin{hps-case-9}
 $e_{H}=\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}$
 
-By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{4}$ for some $e_{H}^{4}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.
-
-If $e_{H}^{1}$ is a value then $e_{H}^{1}:N$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\overline{n}$ for some $\overline{n}$ by canonical forms (Lemma \ref{hcf}).  Therefore $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow e_{H}^{2}$ if $e_{H}^{1}=\overline{0}$ or $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow e_{H}^{3}$ if $e_{H}^{1}\neq\overline{0}$.
-
-If $e_{H}^{1}\rightarrow e_{H}^{4}$ for some $e_{H}^{4}$ then $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow \mathtt{if0}\;e_{H}^{4}\;e_{H}^{2}\;e_{H}^{3}$.
-
-If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow$ \emph{\textbf{Error}:\;string}.
+By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{4}$ for some $e_{H}^{4}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:N$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\overline{n}$ for some $\overline{n}$ by canonical forms (Lemma \ref{hcf}).  Therefore $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow e_{H}^{2}$ if $e_{H}^{1}=\overline{0}$ or $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow e_{H}^{3}$ if $e_{H}^{1}\neq\overline{0}$.  If $e_{H}^{1}\rightarrow e_{H}^{4}$ for some $e_{H}^{4}$ then $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow \mathtt{if0}\;e_{H}^{4}\;e_{H}^{2}\;e_{H}^{3}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{hps-case-9}
 \begin{hps-case-10}
 $e_{H}=o\;e_{H}^{1}\;e_{H}^{2}$
 
-By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  By the induction hypothesis, either $e_{H}^{2}$ is a value, $e_{H}^{2}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$, or $e_{H}^{2}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.
+By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:N$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\overline{n_{1}}$ for some $\overline{n_{1}}$ by canonical forms (Lemma \ref{hcf}).  If $e_{H}^{1}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$ then $o\;e_{H}^{1}\;e_{H}^{2}\rightarrow o\;e_{H}^{3}\;e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $o\;e_{H}^{1}\;e_{H}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.
 
+By the induction hypothesis, either $e_{H}^{2}$ is a value, $e_{H}^{2}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$, or $e_{H}^{2}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  If $e_{H}^{2}$ is a value then $e_{H}^{2}:N$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{2}=\overline{n_{2}}$ for some $\overline{n_{2}}$ by canonical forms (Lemma \ref{hcf}).  If $e_{H}^{2}\rightarrow e_{H}^{3}$ for some $e_{H}^{3}$ then $o\;e_{H}^{1}\;e_{H}^{2}\rightarrow o\;e_{H}^{1}\;e_{H}^{3}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $o\;e_{H}^{1}\;e_{H}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.
 
+If $e_{H}^{1}=\overline{n_{1}}$ and $e_{H}^{2}=\overline{n_{2}}$ then $o\;e_{H}^{1}\;e_{H}^{2}\rightarrow \overline{n_{1}+n_{2}}$ if $o=+$ or $o\;e_{H}^{1}\;e_{H}^{2}\rightarrow \overline{max(n_{1}-n_{2},0)}$ if $o=-$.
 \end{hps-case-10}
 \begin{hps-case-11}
-$e_{H}=$
+$e_{H}=f\;e_{H}^{1}$
 
-
+By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:[T]$ for some $T$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\mathtt{cons}\;e_{H}^{2}\;e_{H}^{3}$ for some $e_{H}^{2}$ and $e_{H}^{3}$ by canonical forms (Lemma \ref{hcf}).  Therefore $f\;(\mathtt{cons}\;e_{H}^{2}\;e_{H}^{3})\rightarrow e_{H}^{2}$ if $f=\mathtt{hd}$ or $f\;(\mathtt{cons}\;e_{H}^{2}\;e_{H}^{3})\rightarrow e_{H}^{3}$ if $f=\mathtt{tl}$.  If $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$ then $f\;e_{H}^{1}\rightarrow f\;e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $f\;e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{hps-case-11}
+\begin{hps-case-12}
+$e_{H}=\mathtt{fix}\;e_{H}^{1}$
+
+By the induction hypothesis, either $e_{H}^{1}$ is a value, $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$, or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:T_{1}\rightarrow T_{2}$ for some $T_{1}$ and $T_{2}$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}) and $e_{H}^{1}=\lambda x:T_{1}.e_{H}^{2}$ for some $x$ and $e_{H}^{2}$ by canonical forms (Lemma \ref{hcf}).  Therefore $\mathtt{fix}\;(\lambda x:T_{1}.e_{H}^{2})\rightarrow e_{H}^{2}[\mathtt{fix}\;(\lambda x:T_{1}.e_{H}^{2})/x]$.  If $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$ then $\mathtt{fix}\;e_{H}^{1}\rightarrow\mathtt{fix}\;e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $\mathtt{fix}\;e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
+\end{hps-case-12}
+\begin{hps-case-12}
+$e_{H}=\,^{T}HM^{T}\;e_{M}$
+
+
+\end{hps-case-12}
+\begin{hps-case-13}
+$e_{H}=\,^{T}HS\;e_{S}^{1}$
+
+By the Scheme progress theorem (Theorem \ref{sps}), either $e_{S}^{1}\rightarrow e_{S}^{2}$ for some $e_{S}^{2}$, $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}, or $e_{S}^{1}$ is a value.  If $e_{S}^{1}\rightarrow e_{S}^{2}$ for some $e_{S}^{2}$ then $^{T}HS\;e_{S}^{1}\rightarrow\,^{T}HS\;e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $^{T}HS\;e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{S}^{1}$ is a value then $T$ determines its reduction.
+\end{hps-case-13}
+\begin{hps-case-13-1}
+$T=$
+
+\end{hps-case-13-1}
+\begin{hps-case-13-2}
+$T=$
+
+\end{hps-case-13-2}
+\begin{hps-case-13-3}
+$T=$
+
+\end{hps-case-13-3}
+\begin{hps-case-13-4}
+$T=$
+
+\end{hps-case-13-4}
+\begin{hps-case-13-5}
+$T=$
+
+\end{hps-case-13-5}
+\begin{hps-case-13-6}
+$T=$
+
+\end{hps-case-13-6}
 \end{proof}
 \end{hps}
