@@ -1,6 +1,6 @@
 \begin{mi}
 \label{mi}
-Inversion of the ML typing relation.
+\mbox{}
 \begin{enumerate}
 \item If $\vdash_{M}\overline{n}:T$ then $T=N$.
 \item If $\Gamma\vdash_{M}x:T$ then $x:T\in\Gamma$.
@@ -15,10 +15,10 @@ Inversion of the ML typing relation.
 \item If $\Gamma\vdash_{M}\mathtt{hd}\;e_{M}:T$ then $\Gamma\vdash_{M}e_{M}:[T_{1}]$ and $T=T_{1}$.
 \item If $\Gamma\vdash_{M}\mathtt{tl}\;e_{M}:T$ then $\Gamma\vdash_{M}e_{M}:[T_{1}]$ and $T=[T_{1}]$.
 \item If $\Gamma\vdash_{M}\mathtt{fix}\;e_{M}:T$ then $\Gamma\vdash_{M}e_{M}:(T_{1}\rightarrow T_{1})\rightarrow T_{1}$ and $T=T_{1}$.
-\item If $\Gamma\vdash_{M}\;^{T_{1}}MH^{T_{2}}\;e_{H}:T$ then $\Gamma\vdash_{M}T_{1}$, $\Gamma\vdash_{H}T_{2}$, $T_{1}=T_{2}$, $\Gamma\vdash_{H}e_{H}:T_{2}$, and $T=T_{1}$.
-\item If $\Gamma\vdash_{M}\;^{T_{1}}MS\;e_{S}:T$ then $\Gamma\vdash_{M}T_{1}$, $\Gamma\vdash_{S}e_{S}:TST$, and $T=T_{1}$.
+\item If $\Gamma\vdash_{M}\,^{T_{1}}MH^{T_{2}}\;e_{H}:T$ then $\Gamma\vdash_{M}T_{1}$, $\Gamma\vdash_{H}T_{2}$, $T_{1}=T_{2}$, $\Gamma\vdash_{H}e_{H}:T_{2}$, and $T=T_{1}$.
+\item If $\Gamma\vdash_{M}\,^{T_{1}}MS\;e_{S}:T$ then $\Gamma\vdash_{M}T_{1}$, $\Gamma\vdash_{S}e_{S}:TST$, and $T=T_{1}$.
 \end{enumerate}
 \begin{proof}
-Immediate from the definition of the ML typing relation.
+Immediate from the ML typing relation.
 \end{proof}
 \end{mi}
