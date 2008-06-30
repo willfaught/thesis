@@ -1,12 +1,14 @@
-\begin{scf}
-\label{scf}
-Canonical forms.
+\begin{hcf}
+\label{hcf}
+\mbox{}
 \begin{enumerate}
-\item If $v_{M}$ is a value of type $N$ then $v_{M}=\overline{n}$.
-\item If $v_{M}$ is a value of type $T_{1}\rightarrow T_{2}$ then $v_{M}=\lambda x:T_{1}.e_{M}$.
-\item If $v_{M}$ is a value of type $\forall X.T$ then $v_{M}=\Lambda X.e_{M}$.
+\item If $e_{H}$ is a normal form of type $N$ then $e_{H}=\overline{n}$.
+\item If $e_{H}$ is a normal form of type $T_{1}\rightarrow T_{2}$ then $e_{H}=\lambda x:T_{1}.e_{H}$.
+\item If $e_{H}$ is a normal form of type $\forall X.T$ then $e_{H}=\Lambda X.e_{H}$ or $e_{H}=\,^{\forall X.T}HS\;v_{S}$.
+\item If $e_{H}$ is a normal form of type $[T]$ then $e_{H}=\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}$.
+\item If $e_{H}$ is a normal form of type $L$ then $e_{H}=\,^{L}HS\;v_{S}$.
 \end{enumerate}
 \begin{proof}
-
+Immediate from the definition of Haskell values and the Haskell typing relation.
 \end{proof}
-\end{scf}
+\end{hcf}
