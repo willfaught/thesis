@@ -6,9 +6,9 @@
 \]
 \bigskip
 \[
-\frac{\Gamma\vdash_{S}t_{S}:TST\quad\Gamma\vdash_{H}T}{\Gamma\vdash_{H}\;^{T}HS\;t_{S}:T[T_{i}/T^{a}_{i}]}
+\frac{\Gamma\vdash_{H}T_{1}\quad\Gamma\vdash_{M}T_{2}\quad T_{1}=T_{2}\quad\Gamma\vdash_{M}e_{M}:T_{2}}{\Gamma\vdash_{H}\;^{T_{1}}HM^{T_{2}}\;e_{M}:T_{1}}
 \quad
-\frac{\Gamma\vdash_{M}t_{M}:T_{2}\quad\Gamma\vdash_{H}T_{1}\quad\Gamma\vdash_{M}T_{2}\quad T_{1}=T_{2}}{\Gamma\vdash_{H}\;^{T_{1}}HM^{T_{2}}\;t_{M}:T_{1}}
+\frac{\Gamma\vdash_{H}T\quad\Gamma\vdash_{S}e_{S}:TST}{\Gamma\vdash_{H}\;^{T}HS\;e_{S}:T[T_{i}/T^{a}_{i}]}
 \]
 \caption{Haskell interoperation typing rules}
 \label{hitr}

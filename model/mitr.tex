@@ -6,9 +6,9 @@
 \]
 \bigskip
 \[
-\frac{\Gamma\vdash_{S}e_{S}:TST\quad\Gamma\vdash_{M}T}{\Gamma\vdash_{M}\;^{T}MS\;e_{S}:T[T_{i}/T^{a}_{i}]}
+\frac{\Gamma\vdash_{M}T_{1}\quad\Gamma\vdash_{H}T_{2}\quad T_{1}=T_{2}\quad\Gamma\vdash_{H}e_{H}:T_{2}}{\Gamma\vdash_{M}\;^{T_{1}}MH^{T_{2}}\;e_{H}:T_{1}}
 \quad
-\frac{\Gamma\vdash_{H}e_{H}:T_{2}\quad\Gamma\vdash_{M}T_{1}\quad\Gamma\vdash_{H}T_{2}\quad T_{1}=T_{2}}{\Gamma\vdash_{M}\;^{T_{1}}MH^{T_{2}}\;e_{H}:T_{1}}
+\frac{\Gamma\vdash_{M}T\quad\Gamma\vdash_{S}e_{S}:TST}{\Gamma\vdash_{M}\;^{T}MS\;e_{S}:T[T_{i}/T^{a}_{i}]}
 \]
 \caption{ML interoperation typing rules}
 \label{mitr}
