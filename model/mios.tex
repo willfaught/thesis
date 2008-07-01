@@ -9,17 +9,17 @@ $\mathscr{E}[\mathtt{hd}\;(^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})
 $\mathscr{E}[\mathtt{tl}\;(^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MH^{[T]}\;e_{H}^{2}]$ \\
 $\mathscr{E}[^{N}MS\;\overline{n}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
 $\mathscr{E}[^{N}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{N}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})]$ \\
-&& $(v_{S}\neq\overline{n}$ for any $\overline{n})$ \\
+&& ($v_{S}\neq\overline{n}$) \\
 $\mathscr{E}[(^{\forall X.T_{1}}MS\;v_{S})\;\lbrace T_{2}\rbrace]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}[T^{a}_{2}/X]}MS\;v_{S}]$ \\
 $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;(\lambda x_{1}.e_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}MS\;((\lambda x_{1}.e_{S})\;(SM^{T_{1}}\;x_{2})))]$ \\
 $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})]$ \\
-&& $(v_{S}\neq\lambda x.e_{S}$ for any $x$ or $e_{S})$ \\
+&& ($v_{S}\neq\lambda x.e_{S}$) \\
 $\mathscr{E}[^{T^{a}}MS\;(SM^{T^{a}}\;v_{M})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}]$ \\
 $\mathscr{E}[^{T^{a}}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T^{a}}MS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})]$ \\
-&& $(v_{S}\neq SM^{T^{a}}\;v_{M}$ for any $v_{M})$ \\
+&& ($v_{S}\neq SM^{T^{a}}\;v_{M}$) \\
 $\mathscr{E}[^{[T]}MS\;(\mathtt{cons}\;v_{S}^{1}\;v_{S}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}\;(^{T}MS\;v_{S}^{1})\;(^{[T]}MS\;v_{S}^{2})]$ \\
 $\mathscr{E}[^{[T]}MS\;v_{S}^{1}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})]$ \\
-&& $(v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ for any $v_{S}^{2}$ or $v_{S}^{3})$
+&& ($v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$)
 \end{tabular}
 \end{center}
 \caption{ML interoperation operational semantics}
