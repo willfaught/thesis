@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs, setspace}
 \newtheorem{hps}{Theorem}[section]
 \newtheorem{hi}[hps]{Lemma}
 \newtheorem{huot}[hps]{Lemma}
@@ -34,6 +34,8 @@
 \newtheorem*{hps-case-14-6}{Case 14.6}
 \newtheorem{hpn}{Theorem}[section]
 \newtheorem{hecp}[hpn]{Lemma}
+\newtheorem{htms}[hpn]{Lemma}
+\newtheorem{htes}[hpn]{Lemma}
 \newtheorem*{hpn-case-1}{Case 1}
 \newtheorem*{hpn-case-2}{Case 2}
 \newtheorem*{hpn-case-3}{Case 3}
@@ -43,6 +45,19 @@
 \newtheorem*{hpn-case-7}{Case 7}
 \newtheorem*{hpn-case-8}{Case 8}
 \newtheorem*{hpn-case-9}{Case 9}
+\newtheorem*{hpn-case-10}{Case 10}
+\newtheorem*{hpn-case-11}{Case 11}
+\newtheorem*{hpn-case-12}{Case 12}
+\newtheorem*{hpn-case-13}{Case 13}
+\newtheorem*{hpn-case-14}{Case 14}
+\newtheorem*{hpn-case-15}{Case 15}
+\newtheorem*{hpn-case-16}{Case 16}
+\newtheorem*{hpn-case-17}{Case 17}
+\newtheorem*{hpn-case-18}{Case 18}
+\newtheorem*{hpn-case-19}{Case 19}
+\newtheorem*{hpn-case-20}{Case 20}
+\newtheorem*{hpn-case-21}{Case 21}
+\newtheorem*{hpn-case-22}{Case 22}
 \newtheorem{mps}{Theorem}[section]
 \newtheorem{mi}[mps]{Lemma}
 \newtheorem{muot}[mps]{Lemma}
@@ -81,7 +96,13 @@
 \newtheorem{scf}[sps]{Lemma}
 \begin{document}
 \section{Haskell}
+\input{hi.tex}
+\input{huot.tex}
+\input{hcf.tex}
 \input{hps.tex}
+\input{hecp.tex}
+\input{htms.tex}
+\input{htes.tex}
 \input{hpn.tex}
 \section{ML}
 \input{mps.tex}
