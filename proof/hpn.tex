@@ -3,28 +3,39 @@
 \onehalfspacing
 If $\Gamma\vdash e_{H}:T$ and $e_{H}\rightarrow e_{H}'$ then $\Gamma\vdash e_{H}':T$.
 \begin{proof}
-By cases on the reduction $e_{H}\rightarrow e_{H}'$.
+By cases on the reduction $e\rightarrow e'$.
 \begin{hpn-case-1}
 $\mathscr{E}[(\lambda x:T_{1}.e_{H}^{1})\;e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{1}[e_{H}^{2}/x]]$
 
 $(\lambda x:T_{1}.e_{H}^{1})\;e_{H}^{2}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).  $\lambda x:T_{1}.e_{H}^{1}:T_{1}\rightarrow T$, $e_{H}^{2}:T_{1}$, $\Gamma,x:T_{1}\vdash_{H}x:T_{1}$, and $\Gamma,x:T_{1}\vdash_{H}e_{H}^{1}:T$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}).  $e_{H}^{1}[e_{H}^{2}/x]:T$ by term substitution (Lemma \ref{hts}).
 \end{hpn-case-1}
+\begin{hpn-case-1}
+$\mathscr{E}[(\lambda x:T.e_{M})\;v_{M}]_{M}\rightarrow\mathscr{E}[e_{M}[v_{M}/x]]$
+
+$(\lambda x:T.e_{M})\;v_{M}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).  $\lambda x:T_{1}.e_{H}^{1}:T_{1}\rightarrow T$, $e_{H}^{2}:T_{1}$, $\Gamma,x:T_{1}\vdash_{H}x:T_{1}$, and $\Gamma,x:T_{1}\vdash_{H}e_{H}^{1}:T$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}).  $e_{H}^{1}[e_{H}^{2}/x]:T$ by term substitution (Lemma \ref{hts}).
+\end{hpn-case-1}
 \begin{hpn-case-2}
-$\mathscr{E}[(\Lambda X.e_{H})\;\lbrace T\rbrace]_{H}\rightarrow\mathscr{E}[e_{H}[T/X]]$
+$\mathscr{E}[(\Lambda X.e_{H})\;\lbrace T_{1}\rbrace]_{H}\rightarrow\mathscr{E}[e_{H}[T_{1}/X]]$
 
+$(\Lambda X.e_{H})\;\lbrace T_{1}\rbrace:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).
 
+%\textbf{!!! NOT DONE !!!}
+%$\Gamma\vdash_{H}e_{H}:\forall X.T_{2}$, $\Gamma\vdash_{H}T_{1}$, and $T=T_{2}[T_{1}/X]$.
 \end{hpn-case-2}
 \begin{hpn-case-3}
 $\mathscr{E}[\mathtt{if0}\;\overline{0}\;e_{H}^{1}\;e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{1}]$
 
+$\mathtt{if0}\;\overline{0}\;e_{H}^{1}\;e_{H}^{2}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).  $\Gamma\vdash_{H}e_{H}^{1}:T$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}).
 \end{hpn-case-3}
 \begin{hpn-case-4}
 $\mathscr{E}[\mathtt{if0}\;\overline{n}\;e_{H}^{1}\;e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{2}]\;(n\neq0)$
 
+$\mathtt{if0}\;\overline{n}\;e_{H}^{1}\;e_{H}^{2}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).  $\Gamma\vdash_{H}e_{H}^{2}:T$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}).
 \end{hpn-case-4}
 \begin{hpn-case-5}
 $\mathscr{E}[+\;\overline{n_{1}}\;\overline{n_{2}}]_{H}\rightarrow\mathscr{E}[\overline{n_{1}+n_{2}}]$
 
+$+\;\overline{n_{1}}\;\overline{n_{2}}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).  $\overline{n_{1}+n_{2}}$
 \end{hpn-case-5}
 \begin{hpn-case-6}
 $\mathscr{E}[-\;\overline{n_{1}}\;\overline{n_{2}}]_{H}\rightarrow\mathscr{E}[\overline{(max(n_{1}-n_{2},0)}]$

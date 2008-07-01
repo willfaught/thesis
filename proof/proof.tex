@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath, amssymb, amsthm, mathrsfs, setspace}
 \newtheorem{hps}{Theorem}[section]
-\newtheorem{hi}[hps]{Lemma}
+\newtheorem{inversion}[hps]{Lemma}
 \newtheorem{huot}[hps]{Lemma}
 \newtheorem{hcf}[hps]{Lemma}
 \newtheorem*{hps-case-1}{Case 1}
@@ -58,6 +58,7 @@
 \newtheorem*{hpn-case-20}{Case 20}
 \newtheorem*{hpn-case-21}{Case 21}
 \newtheorem*{hpn-case-22}{Case 22}
+
 \newtheorem{mps}{Theorem}[section]
 \newtheorem{mi}[mps]{Lemma}
 \newtheorem{muot}[mps]{Lemma}
@@ -96,7 +97,7 @@
 \newtheorem{scf}[sps]{Lemma}
 \begin{document}
 \section{Haskell}
-\input{hi.tex}
+\input{inversion.tex}
 \input{huot.tex}
 \input{hcf.tex}
 \input{hps.tex}
@@ -104,8 +105,8 @@
 \input{htms.tex}
 \input{htes.tex}
 \input{hpn.tex}
-\section{ML}
-\input{mps.tex}
-\section{Scheme}
-\input{sps.tex}
+%\section{ML}
+%\input{mps.tex}
+%\section{Scheme}
+%\input{sps.tex}
 \end{document}

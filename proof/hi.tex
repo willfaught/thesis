@@ -1,10 +1,11 @@
 \begin{hi}
 \label{hi}
-Inversion
 \begin{enumerate}
-\item If $\vdash_{H}\overline{n}:T$ then $T=N$.
-\item If $\Gamma\vdash_{H}x:T$ then $x:T\in\Gamma$.
+\item If $\vdash_{HM}\overline{n}:T$ then $T=N$.
+\item If $\vdash_{S}\overline{n}:T$ then $T=TST$.
+\item If $\Gamma\vdash_{HMS}x:T$ then $x:T\in\Gamma$.
 \item If $\Gamma\vdash_{H}\lambda x:T_{1}.e_{H}:T$ then $\Gamma\vdash_{H}T_{1}$, $\Gamma,x:T_{1}\vdash_{H}e_{H}:T_{2}$, and $T=T_{1}\rightarrow T_{2}$.
+\item If $\Gamma\vdash_{M}\lambda x:T_{1}.e_{M}:T$ then $\Gamma\vdash_{M}T_{1}$, $\Gamma,x:T_{1}\vdash_{M}e_{M}:T_{2}$, and $T=T_{1}\rightarrow T_{2}$.
 \item If $\Gamma\vdash_{H}\Lambda X.e_{H}:T$ then $\Gamma,X\vdash_{H}e_{H}:T_{1}$ and $T=\forall X.T_{1}$.
 \item If $\Gamma\vdash_{H}\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}:T$ then $\Gamma\vdash_{H}e_{H}^{1}:T_{1}$, $\Gamma\vdash_{H}e_{H}^{2}:[T_{1}]$, and $T=[T_{1}]$.
 \item If $\Gamma\vdash_{H}\mathtt{nil}:T$ then $T=\forall X.[X]$.
@@ -17,6 +18,8 @@ Inversion
 \item If $\Gamma\vdash_{H}\mathtt{fix}\;e_{H}:T$ then $\Gamma\vdash_{H}e_{H}:(T_{1}\rightarrow T_{1})\rightarrow T_{1}$ and $T=T_{1}$.
 \item If $\Gamma\vdash_{H}\,^{T_{1}}HM^{T_{2}}\;e_{M}:T$ then $\Gamma\vdash_{H}T_{1}$, $\Gamma\vdash_{M}T_{2}$, $T_{1}=T_{2}$, $\Gamma\vdash_{M}e_{M}:T_{2}$, and $T=T_{1}$.
 \item If $\Gamma\vdash_{H}\,^{T_{1}}HS\;e_{S}:T$ then $\Gamma\vdash_{H}T_{1}$, $\Gamma\vdash_{S}e_{S}:TST$, and $T=T_{1}$.
+
+
 \end{enumerate}
 \begin{proof}
 Immediate from the Haskell typing relation.
