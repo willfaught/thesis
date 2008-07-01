@@ -1,7 +1,7 @@
-\begin{inversion}
-\label{inversion}
+\begin{lemma}
+\label{i}
 \onehalfspacing
-\mbox{}
+The type of a term of each syntactic form can be calculated from the types of its subterms.
 \begin{enumerate}
 \item If $\Gamma\vdash_{HM}x:T$ then $x:T_{1}\in\Gamma$ and $T=T_{1}$.
 \item If $\Gamma\vdash_{S}x:T$ then $x:TST\in\Gamma$ and $T=TST$.
@@ -10,7 +10,7 @@
 \item If $\Gamma\vdash_{HM}\Lambda X.e_{HM}:T$ then $\Gamma,X\vdash_{HM}e_{HM}:T_{1}$ and $T=\forall X.T_{1}$.
 \item If $\Gamma\vdash_{HM}\mathtt{cons}\;e_{HM}^{1}\;e_{HM}^{2}:T$ then $\Gamma\vdash_{HM}e_{H}^{1}:T_{1}$, $\Gamma\vdash_{HM}e_{H}^{2}:[T_{1}]$, and $T=[T_{1}]$.
 \item If $\Gamma\vdash_{S}\mathtt{cons}\;e_{S}^{1}\;e_{S}^{2}:T$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$, $\Gamma\vdash_{S}e_{S}^{2}:TST$, and $T=TST$.
-\item If $\Gamma\vdash_{HM}\mathtt{nil}:T$ then $T=\forall X.[X]$.
+\item If $\Gamma\vdash_{HM}\mathtt{nil}^{T_{1}}:T$ then $T=[T_{1}]$.
 \item If $\Gamma\vdash_{S}\mathtt{nil}:T$ then $T=TST$.
 \item If $\vdash_{HM}\overline{n}:T$ then $T=N$.
 \item If $\vdash_{S}\overline{n}:T$ then $T=TST$.
@@ -37,4 +37,4 @@
 \begin{proof}
 Immediate from the definitions of the typing relations.
 \end{proof}
-\end{inversion}
+\end{lemma}

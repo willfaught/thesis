@@ -1,110 +1,110 @@
-\begin{hpn}
+\begin{theorem}
 \label{hpn}
 \onehalfspacing
 If $\Gamma\vdash e_{H}:T$ and $e_{H}\rightarrow e_{H}'$ then $\Gamma\vdash e_{H}':T$.
 \begin{proof}
 By cases on the reduction $e\rightarrow e'$.
-\begin{hpn-case-1}
+\begin{case}
 $\mathscr{E}[(\lambda x:T_{1}.e_{H}^{1})\;e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{1}[e_{H}^{2}/x]]$
 
 $(\lambda x:T_{1}.e_{H}^{1})\;e_{H}^{2}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).  $\lambda x:T_{1}.e_{H}^{1}:T_{1}\rightarrow T$, $e_{H}^{2}:T_{1}$, $\Gamma,x:T_{1}\vdash_{H}x:T_{1}$, and $\Gamma,x:T_{1}\vdash_{H}e_{H}^{1}:T$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}).  $e_{H}^{1}[e_{H}^{2}/x]:T$ by term substitution (Lemma \ref{hts}).
-\end{hpn-case-1}
-\begin{hpn-case-1}
+\end{case}
+\begin{case}
 $\mathscr{E}[(\lambda x:T.e_{M})\;v_{M}]_{M}\rightarrow\mathscr{E}[e_{M}[v_{M}/x]]$
 
 $(\lambda x:T.e_{M})\;v_{M}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).  $\lambda x:T_{1}.e_{H}^{1}:T_{1}\rightarrow T$, $e_{H}^{2}:T_{1}$, $\Gamma,x:T_{1}\vdash_{H}x:T_{1}$, and $\Gamma,x:T_{1}\vdash_{H}e_{H}^{1}:T$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}).  $e_{H}^{1}[e_{H}^{2}/x]:T$ by term substitution (Lemma \ref{hts}).
-\end{hpn-case-1}
-\begin{hpn-case-2}
+\end{case}
+\begin{case}
 $\mathscr{E}[(\Lambda X.e_{H})\;\lbrace T_{1}\rbrace]_{H}\rightarrow\mathscr{E}[e_{H}[T_{1}/X]]$
 
 $(\Lambda X.e_{H})\;\lbrace T_{1}\rbrace:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).
 
 %\textbf{!!! NOT DONE !!!}
 %$\Gamma\vdash_{H}e_{H}:\forall X.T_{2}$, $\Gamma\vdash_{H}T_{1}$, and $T=T_{2}[T_{1}/X]$.
-\end{hpn-case-2}
-\begin{hpn-case-3}
+\end{case}
+\begin{case}
 $\mathscr{E}[\mathtt{if0}\;\overline{0}\;e_{H}^{1}\;e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{1}]$
 
 $\mathtt{if0}\;\overline{0}\;e_{H}^{1}\;e_{H}^{2}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).  $\Gamma\vdash_{H}e_{H}^{1}:T$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}).
-\end{hpn-case-3}
-\begin{hpn-case-4}
+\end{case}
+\begin{case}
 $\mathscr{E}[\mathtt{if0}\;\overline{n}\;e_{H}^{1}\;e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{2}]\;(n\neq0)$
 
 $\mathtt{if0}\;\overline{n}\;e_{H}^{1}\;e_{H}^{2}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).  $\Gamma\vdash_{H}e_{H}^{2}:T$ by inversion (Lemma \ref{hi}) and uniqueness of types (Lemma \ref{huot}).
-\end{hpn-case-4}
-\begin{hpn-case-5}
+\end{case}
+\begin{case}
 $\mathscr{E}[+\;\overline{n_{1}}\;\overline{n_{2}}]_{H}\rightarrow\mathscr{E}[\overline{n_{1}+n_{2}}]$
 
 $+\;\overline{n_{1}}\;\overline{n_{2}}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{huot}).  $\overline{n_{1}+n_{2}}$
-\end{hpn-case-5}
-\begin{hpn-case-6}
+\end{case}
+\begin{case}
 $\mathscr{E}[-\;\overline{n_{1}}\;\overline{n_{2}}]_{H}\rightarrow\mathscr{E}[\overline{(max(n_{1}-n_{2},0)}]$
 
-\end{hpn-case-6}
-\begin{hpn-case-7}
+\end{case}
+\begin{case}
 $\mathscr{E}[\mathtt{hd}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})]_{H}\rightarrow\mathscr{E}[e_{H}^{1}]$
 
-\end{hpn-case-7}
-\begin{hpn-case-8}
+\end{case}
+\begin{case}
 $\mathscr{E}[\mathtt{tl}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})]_{H}\rightarrow\mathscr{E}[e_{H}^{2}]$
 
-\end{hpn-case-8}
-\begin{hpn-case-9}
+\end{case}
+\begin{case}
 $\mathscr{E}[\mathtt{fix}\;(\lambda x:T.e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}[(\mathtt{fix}\;(\lambda x:T.e_{H}))/x]]$
 
-\end{hpn-case-9}
-\begin{hpn-case-10}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{N}HM^{N}\;\overline{n}]_{H}\rightarrow\mathscr{E}[\overline{n}]$
 
-\end{hpn-case-10}
-\begin{hpn-case-11}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{\forall X_{1}.T}HM^{\forall X_{1}.T}\;(\Lambda X_{1}.e_{M})]_{H}\rightarrow\mathscr{E}[\Lambda X_{2}.(^{T[X_{2}/X_{1}]}HM^{T[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{M})\;\lbrace X_{2}\rbrace))]$
 
 
-\end{hpn-case-11}
-\begin{hpn-case-12}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{T_{1}\rightarrow T_{2}}HM^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.e_{M})]_{H}\rightarrow\mathscr{E}[\lambda x_{2}:T_{1}.(^{T_{2}}HM^{T_{2}}\;((\lambda x_{1}:T_{1}.e_{M})\;(^{T_{1}}MH^{T_{1}}\;x_{2})))]$
 
-\end{hpn-case-12}
-\begin{hpn-case-13}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{[T]}HM^{[T]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})]_{H}\rightarrow\mathscr{E}[\mathtt{cons}\;(^{T}HM^{T}\;v_{M}^{1})\;(^{[T]}HM^{[T]}\;v_{M}^{2})]$
 
-\end{hpn-case-13}
-\begin{hpn-case-14}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{N}HS\;\overline{n}]_{H}\rightarrow\mathscr{E}[\overline{n}]$
 
-\end{hpn-case-14}
-\begin{hpn-case-15}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{N}HS\;v_{S}]_{H}\rightarrow\mathscr{E}[^{N}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})]\;(v_{S}\neq\overline{n}$ for any $\overline{n})$
 
-\end{hpn-case-15}
-\begin{hpn-case-16}
+\end{case}
+\begin{case}
 $\mathscr{E}[(^{\forall X.T_{1}}HS\;v_{S})\;\lbrace T_{2}\rbrace]_{H}\rightarrow\mathscr{E}[^{T_{1}[T^{a}_{2}/X]}HS\;v_{S}]$
 
-\end{hpn-case-16}
-\begin{hpn-case-17}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{T_{1}\rightarrow T_{2}}HS\;(\lambda x_{1}.e_{S})]_{H}\rightarrow\mathscr{E}[\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HS\;((\lambda x_{1}.e_{S})\;(SH^{T_{1}}\;x_{2})))]$
 
-\end{hpn-case-17}
-\begin{hpn-case-18}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{T_{1}\rightarrow T_{2}}HS\;v_{S}]_{H}\rightarrow\mathscr{E}[^{T_{1}\rightarrow T_{2}}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})]\;(v_{S}\neq\lambda x.e_{S}$ for any $x$ or $e_{S})$
 
-\end{hpn-case-18}
-\begin{hpn-case-19}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{T^{a}}HS\;(SH^{T^{a}}\;e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}]$
 
-\end{hpn-case-19}
-\begin{hpn-case-20}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{T^{a}}HS\;v_{S}]_{H}\rightarrow\mathscr{E}[^{T^{a}}HS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})]\;(v_{S}\neq SH^{T^{a}}\;e_{H}$ for any $e_{H})$
 
-\end{hpn-case-20}
-\begin{hpn-case-21}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{[T]}HS\;(\mathtt{cons}\;v_{S}^{1}\;v_{S}^{2})]_{H}\rightarrow\mathscr{E}[\mathtt{cons}\;(^{T}HS\;v_{S}^{1})\;(^{[T]}HS\;v_{S}^{2})]$
 
-\end{hpn-case-21}
-\begin{hpn-case-22}
+\end{case}
+\begin{case}
 $\mathscr{E}[^{[T]}HS\;v_{S}^{1}]_{H}\rightarrow\mathscr{E}[^{[T]}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})]\;(v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ for any $v_{S}^{2}$ or $v_{S}^{3})$
 
-\end{hpn-case-22}
+\end{case}
 \end{proof}
-\end{hpn}
+\end{theorem}

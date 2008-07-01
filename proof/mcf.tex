@@ -2,11 +2,11 @@
 \label{mcf}
 Canonical Forms
 \begin{enumerate}
-\item If $e_{M}$ is a normal form of type $N$ then $e_{M}=\overline{n}$.
-\item If $e_{M}$ is a normal form of type $T_{1}\rightarrow T_{2}$ then $e_{M}=\lambda x:T_{1}.e_{M}$.
-\item If $e_{M}$ is a normal form of type $\forall X.T$ then $e_{M}=\Lambda X.e_{M}$ or $e_{M}=\,^{\forall X.T}MS\;v_{S}$.
-\item If $e_{M}$ is a normal form of type $[T]$ then $e_{M}=\mathtt{cons}\;e_{M}^{1}\;e_{M}^{2}$.
-\item If $e_{M}$ is a normal form of type $L$ then $e_{M}=\,^{L}MS\;v_{S}$.
+\item If $e_{M}$ is a value of type $N$ then $e_{M}=\overline{n}$.
+\item If $e_{M}$ is a value of type $T_{1}\rightarrow T_{2}$ then $e_{M}=\lambda x:T_{1}.e_{M}$.
+\item If $e_{M}$ is a value of type $\forall X.T$ then $e_{M}=\Lambda X.e_{M}$ or $e_{M}=\,^{\forall X.T}MS\;v_{S}$.
+\item If $e_{M}$ is a value of type $[T]$ then $e_{M}=\mathtt{cons}\;e_{M}^{1}\;e_{M}^{2}$.
+\item If $e_{M}$ is a value of type $L$ then $e_{M}=\,^{L}MS\;v_{S}$.
 \end{enumerate}
 \begin{proof}
 Immediate from the definition of ML values and the ML typing relation.
