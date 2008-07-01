@@ -1,0 +1,18 @@
+\begin{lemma}
+\label{cf}
+\onehalfspacing
+The possible syntactic forms of values of various types.
+\begin{enumerate}
+\item If $v_{HM}:N$ then $v_{HM}=\overline{n}$.
+\item If $v_{HM}:T_{1}\rightarrow T_{2}$ then $v_{HM}=\lambda x:T_{1}.e_{HM}$.
+\item If $v_{H}:\forall X.T$ then $v_{H}=\Lambda X.e_{H}$ or $v_{H}=\,^{(\forall X.T)[T_{i}/T_{i}^{a}]}HS\;v_{S}$.
+\item If $v_{M}:\forall X.T$ then $v_{M}=\Lambda X.e_{M}$ or $v_{M}=\,^{(\forall X.T)[T_{i}/T_{i}^{a}]}MS\;v_{S}$.
+\item If $v_{H}:[T]$ then $v_{H}=\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}$ or $v_{H}=\mathtt{nil}^{T}$.
+\item If $v_{M}:[T]$ then $v_{M}=\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}$ or $v_{M}=\mathtt{nil}^{T}$.
+\item If $v_{H}:L$ then $v_{H}=\,^{L}HS\;v_{S}$.
+\item If $v_{M}:L$ then $v_{M}=\,^{L}MS\;v_{S}$.
+\end{enumerate}
+\begin{proof}
+Immediate from the definitions of values and the typing relations.
+\end{proof}
+\end{lemma}
