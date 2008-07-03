@@ -15,9 +15,9 @@ $e_{HMS}=\overline{n}$
 $\overline{n}$ is a value.
 \end{case}
 \begin{case}
-$e_{HM}=\lambda x:T_{1}.e_{HM}^{1}$
+$e_{HM}=\lambda x:T.e_{HM}^{1}$
 
-$\lambda x:T_{1}.e_{HM}^{1}$ is a value.
+$\lambda x:T.e_{HM}^{1}$ is a value.
 \end{case}
 \begin{case}
 $e_{S}=\lambda x.e_{S}^{1}$
@@ -50,30 +50,35 @@ $e_{S}=\mathtt{nil}$
 $\mathtt{nil}$ is a value.
 \end{case}
 \begin{case}
-$e_{HM}=e_{HM}^{1}\;e_{HM}^{2}$
+$e_{H}=e_{H}^{1}\;e_{H}^{2}$
 
-$e_{HM}^{1}$ is a value or $e_{HM}^{1}\rightarrow e_{HM}^{3}$ or $e_{HM}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{HM}^{1}$ is a value then $e_{HM}^{1}:T_{1}\rightarrow T_{2}$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{HM}^{1}=\lambda x:T_{1}.e_{HM}^{4}$ by canonical forms (Lemma \ref{cf}).  $(\lambda x:T_{1}.e_{HM}^{4})\;e_{HM}^{2}\rightarrow e_{HM}^{4}[e_{HM}^{2}/x]$.  If $e_{HM}^{1}\rightarrow e_{HM}^{3}$ then $e_{HM}^{1}\;e_{HM}^{2}\rightarrow e_{HM}^{3}\;e_{HM}^{2}$.  If $e_{HM}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $e_{HM}^{1}\;e_{HM}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.
+$e_{H}^{1}$ is a value or $e_{H}^{1}\rightarrow e_{H}^{3}$ or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:T_{1}\rightarrow T_{2}$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{H}^{1}=\lambda x:T_{1}.e_{H}^{4}$ by canonical forms (Lemma \ref{cf}).  $(\lambda x:T_{1}.e_{H}^{4})\;e_{H}^{2}\rightarrow e_{H}^{4}[e_{H}^{2}/x]$.  If $e_{H}^{1}\rightarrow e_{H}^{3}$ then $e_{H}^{1}\;e_{H}^{2}\rightarrow e_{H}^{3}\;e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $e_{H}^{1}\;e_{H}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.
+\end{case}
+\begin{case}
+$e_{M}=e_{M}^{1}\;e_{M}^{2}$
+
+$e_{M}^{1}$ is a value or $e_{M}^{1}\rightarrow e_{M}^{3}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{M}^{1}$ is a value then $e_{M}^{1}:T_{1}\rightarrow T_{2}$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{M}^{1}=\lambda x:T_{1}.e_{M}^{4}$ by canonical forms (Lemma \ref{cf}).  If $e_{M}^{1}\rightarrow e_{M}^{3}$ then $e_{M}^{1}\;e_{M}^{2}\rightarrow e_{M}^{3}\;e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $e_{M}^{1}\;e_{M}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.  $e_{M}^{2}$ is a value or $e_{M}^{2}\rightarrow e_{M}^{5}$ or $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{M}^{1}$ is a value and $e_{M}^{2}\rightarrow e_{M}^{5}$ then $e_{M}^{1}\;e_{M}^{2}\rightarrow e_{M}^{1}\;e_{M}^{5}$.  If $e_{M}^{1}$ is a value and $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}:\;string} then $e_{M}^{1}\;e_{M}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{M}^{1}$ and $e_{M}^{2}$ are values then $(\lambda x:T_{1}.e_{M}^{4})\;e_{M}^{2}\rightarrow e_{M}^{4}[e_{M}^{2}/x]$.
 \end{case}
 \begin{case}
 $e_{S}=e_{S}^{1}\;e_{S}^{2}$
 
-$e_{S}^{1}$ is a value or $e_{S}^{1}\rightarrow e_{S}^{3}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{S}^{1}$ and $e_{S}^{2}$ are values then $(\lambda x.e_{S}^{4})\;e_{S}^{2}\rightarrow e_{S}^{4}[e_{S}^{2}/x]$ if $e_{S}^{1}=\lambda x.e_{S}^{4}$ or $e_{S}^{1}\;e_{S}^{2}\rightarrow\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"}$ otherwise.  If $e_{S}^{1}\rightarrow e_{S}^{3}$ then $e_{S}^{1}\;e_{S}^{2}\rightarrow e_{S}^{3}\;e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $e_{S}^{1}\;e_{S}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.
+$e_{S}^{1}$ is a value or $e_{S}^{1}\rightarrow e_{S}^{3}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{S}^{1}\rightarrow e_{S}^{3}$ then $e_{S}^{1}\;e_{S}^{2}\rightarrow e_{S}^{3}\;e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $e_{S}^{1}\;e_{S}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.  $e_{S}^{2}$ is a value or $e_{S}^{2}\rightarrow e_{S}^{4}$ or $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{S}^{1}$ is a value and $e_{S}^{2}\rightarrow e_{S}^{4}$ then $e_{S}^{1}\;e_{S}^{2}\rightarrow e_{S}^{1}\;e_{S}^{4}$.  If $e_{S}^{1}$ is a value and $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}:\;string} then $e_{S}^{1}\;e_{S}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{S}^{1}$ and $e_{S}^{2}$ are values then $(\lambda x.e_{S}^{5})\;e_{S}^{2}\rightarrow e_{S}^{5}[e_{S}^{2}/x]$ if $e_{S}^{1}=\lambda x.e_{S}^{5}$ or $e_{S}^{1}\;e_{S}^{2}\rightarrow\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"}$ otherwise.
 \end{case}
 \begin{case}
 $e_{H}=e_{H}^{1}\;\lbrace T_{1}\rbrace$
 
-By the induction hypothesis, either $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$, $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}, or $e_{H}^{1}$ is a value.  If $e_{H}^{1}\rightarrow e_{H}^{2}$ for some $e_{H}^{2}$ then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}\;\lbrace T_{1}\rbrace$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:\forall X.T_{2}$ for some $X$ and $T_{2}$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and either $e_{H}^{1}=\Lambda X.e_{H}^{2}$ for some $e_{H}^{2}$ or $e_{H}^{1}=\,^{\forall X.T_{2}}HS\;v_{S}$ for some $v_{S}$ by canonical forms (Lemma \ref{cf}).
+$e_{H}^{1}$ is a value or $e_{H}^{1}\rightarrow e_{H}^{2}$ or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{H}^{1}$ is a value then $e_{H}^{1}:\forall X.T_{2}$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{H}^{1}=\Lambda X.e_{H}^{3}$ or $e_{H}^{1}=\,^{(\forall X.T_{2})[T_{i}/T_{i}^{a}]}HS\;v_{S}$ by canonical forms (Lemma \ref{cf}).  If $e_{H}^{1}\rightarrow e_{H}^{2}$ then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}\;\lbrace T_{1}\rbrace$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $e_{H}^{1}\;\lbrace T_{1}\rbrace\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{case}
-\begin{case}
-$e_{H}^{1}=\Lambda X.e_{H}^{2}$
+\begin{subcase}
+$e_{H}^{1}=\Lambda X.e_{H}^{3}$
 
-$(\Lambda X.e_{H}^{2})\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{2}[T_{1}/X]$.
-\end{case}
-\begin{case}
-$e_{H}^{1}=\,^{\forall X.T_{2}}HS\;v_{S}$
+$(\Lambda X.e_{H}^{3})\;\lbrace T_{1}\rbrace\rightarrow e_{H}^{3}[T_{1}/X]$.
+\end{subcase}
+\begin{subcase}
+$e_{H}^{1}=\,^{(\forall X.T_{2})[T_{i}/T_{i}^{a}]}HS\;v_{S}$
 
-$(^{\forall X.T_{2}}HS\;v_{S})\;\lbrace T_{1}\rbrace\rightarrow\,^{T_{2}[T_{1}^{a}/X]}HS\;v_{S}$.
-\end{case}
+$(^{(\forall X.T_{2})[T_{i}/T_{i}^{a}]}HS\;v_{S})\;\lbrace T_{1}\rbrace\rightarrow\,^{T_{2}[T_{1}^{a}/X]}HS\;v_{S}$.
+\end{subcase}
 \begin{case}
 $e_{H}=\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}$
 
