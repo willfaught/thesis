@@ -10,6 +10,8 @@ $\mathscr{E}[+\;\overline{n_{1}}\;\overline{n_{2}}]_{H}$ & $\rightarrow$ & $\mat
 $\mathscr{E}[-\;\overline{n_{1}}\;\overline{n_{2}}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\overline{(max(n_{1}-n_{2},0)}]$ \\
 $\mathscr{E}[\mathtt{hd}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{1}]$ \\
 $\mathscr{E}[\mathtt{tl}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{2}]$ \\
+$\mathscr{E}[\mathtt{hd}\;\mathtt{nil}^{T}]_{H}$ & $\rightarrow$ & $\mathscr{E}[^{T}HS\;(\mathtt{wrong}\;\mathrm{``Empty\;list"})]$ \\
+$\mathscr{E}[\mathtt{tl}\;\mathtt{nil}^{T}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
 $\mathscr{E}[\mathtt{fix}\;(\lambda x:T.e_{H})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}[(\mathtt{fix}\;(\lambda x:T.e_{H}))/x]]$
 \end{tabular}
 \end{center}
