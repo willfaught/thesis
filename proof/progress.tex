@@ -122,24 +122,14 @@ $e_{HM}^{1}$ is a value or $e_{HM}^{1}\rightarrow e_{HM}^{2}$ or $e_{HM}^{1}\rig
 \begin{case}
 $e_{H}=\,^{T}HM^{T}\;e_{M}^{1}$
 
-$e_{M}^{1}$ is a value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{M}^{1}$ is a value then $T$ determines its reduction.  If $T=N$ then $e_{M}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}) and $^{N}HM^{N}\;\overline{n}\rightarrow\overline{n}$.  If $T=T_{1}\rightarrow T_{2}$ then $e_{M}^{1}=\lambda x_{1}:T_{1}.e_{M}^{2}$ by canonical forms (Lemma \ref{cf}) and $^{T_{1}\rightarrow T_{2}}HM^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.e_{M}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HM^{T_{2}}\;((\lambda x_{1}:T_{1}.e_{M}^{2})\;(^{T_{1}}MH^{T_{1}}\;x_{2})))$.  If $T=\forall X_{1}.T_{1}$ then $e_{M}^{1}=\Lambda X_{1}.e_{M}^{2}$ by canonical forms (Lemma \ref{cf}) and $^{\forall X_{1}.T_{1}}HM^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{M}^{2})\rightarrow\Lambda X_{2}.(^{T_{1}[X_{2}/X_{1}]}HM^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{M}^{2})\;\lbrace X_{2}\rbrace))$.  If $T=[T_{1}]$ then $e_{M}^{1}=\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}$ by canonical forms (Lemma \ref{cf}) and $^{[T_{1}]}HM^{[T_{1}]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})\rightarrow\mathtt{cons}\;(^{T_{1}}HM^{T_{1}}\;v_{M}^{1})\;(^{[T_{1}]}HM^{[T_{1}]}\;v_{M}^{2})$.  $T=L$ cannot occur because $L$ occurs only in $^{L}HS\;e_{S}$.  $T=T_{1}^{a}$ cannot occur because $T_{1}^{a}$ occurs only in $^{T_{1}^{a}}HS\;e_{S}$.  If $e_{M}^{1}\rightarrow e_{M}^{2}$ for some $e_{M}^{2}$ then $^{T}HS\;e_{M}^{1}\rightarrow\,^{T}HS\;e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $^{T}HS\;e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
+$e_{M}^{1}$ is a value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{M}^{1}$ is a value then $T$ determines its reduction.  If $T=N$ then $e_{M}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}) and $^{N}HM^{N}\;\overline{n}\rightarrow\overline{n}$.  If $T=T_{1}\rightarrow T_{2}$ then $e_{M}^{1}=\lambda x_{1}:T_{1}.e_{M}^{2}$ by canonical forms (Lemma \ref{cf}) and $^{T_{1}\rightarrow T_{2}}HM^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.e_{M}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HM^{T_{2}}\;((\lambda x_{1}:T_{1}.e_{M}^{2})\;(^{T_{1}}MH^{T_{1}}\;x_{2})))$.  If $T=\forall X_{1}.T_{1}$ then $e_{M}^{1}=\Lambda X_{1}.e_{M}^{2}$ by canonical forms (Lemma \ref{cf}) and $^{\forall X_{1}.T_{1}}HM^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{M}^{2})\rightarrow\Lambda X_{2}.(^{T_{1}[X_{2}/X_{1}]}HM^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{M}^{2})\;\lbrace X_{2}\rbrace))$.  If $T=[T_{1}]$ then $e_{M}^{1}=\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}$ by canonical forms (Lemma \ref{cf}) and $^{[T_{1}]}HM^{[T_{1}]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})\rightarrow\mathtt{cons}\;(^{T_{1}}HM^{T_{1}}\;v_{M}^{1})\;(^{[T_{1}]}HM^{[T_{1}]}\;v_{M}^{2})$.  $T=L$ cannot occur because $L$ occurs only in $^{L}HS\;e_{S}$.  $T=T_{1}^{a}$ cannot occur because $T_{1}^{a}$ occurs only in $^{T_{1}^{a}}HS\;e_{S}$.  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $^{T}HS\;e_{M}^{1}\rightarrow\,^{T}HS\;e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $^{T}HS\;e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{case}
 \begin{case}
 $e_{H}=\,^{T}HS\;e_{S}^{1}$
 
-By the Scheme progress theorem (Theorem \ref{sps}), either $e_{S}^{1}\rightarrow e_{S}^{2}$ for some $e_{S}^{2}$, $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string}, or $e_{S}^{1}$ is a value.  If $e_{S}^{1}\rightarrow e_{S}^{2}$ for some $e_{S}^{2}$ then $^{T}HS\;e_{S}^{1}\rightarrow\,^{T}HS\;e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} for some \emph{string} then $^{T}HS\;e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{S}^{1}$ is a value then $T$ determines its reduction:
-\begin{case}
-$T=N$
+$e_{S}^{1}$ is a value or $e_{S}^{1}\rightarrow e_{S}^{2}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{S}^{1}$ is a value then $T$ determines its reduction.  If $T=N$ then $^{N}HS\;\overline{n}\rightarrow\overline{n}$ if $e_{S}^{1}=\overline{n}$ and $^{N}HS\;e_{S}^{1}\rightarrow\,^{N}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})$ otherwise.  If $T=T_{1}\rightarrow T_{2}$ then $^{T_{1}\rightarrow T_{2}}HS\;(\lambda x_{1}.e_{S}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HS\;((\lambda x_{1}.e_{S}^{2})\;(SH^{T_{1}}\;x_{2})))$ if $e_{S}^{1}=\lambda x_{1}.e_{S}^{2}$ and $^{T_{1}\rightarrow T_{2}}HS\;e_{S}^{1}\rightarrow\,^{T_{1}\rightarrow T_{2}}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})$ otherwise.
 
-If $e_{S}^{1}=\overline{n}$ for some $\overline{n}$ then $^{N}HS\;\overline{n}\rightarrow\overline{n}$.  Otherwise, $^{N}HS\;e_{S}^{1}\rightarrow\,^{N}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})$.
-\end{case}
-\begin{case}
-$T=T_{1}\rightarrow T_{2}$
-
-If $e_{S}^{1}=\lambda x_{1}.e_{S}^{2}$ for some $x_{1}$ and $e_{S}^{2}$ then $^{T_{1}\rightarrow T_{2}}HS\;(\lambda x_{1}.e_{S}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HS\;((\lambda x_{1}.e_{S}^{2})\;(SH^{T_{1}}\;x_{2})))$.  Otherwise, $^{T_{1}\rightarrow T_{2}}HS\;e_{S}^{1}\rightarrow\,^{T_{1}\rightarrow T_{2}}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})$.
-\end{case}
-\begin{case}
-$T=\forall X.T_{1}$
+If $T=\forall X.T_{1}$
 
 $^{\forall X.T_{1}}HS\;e_{S}^{1}$ is a value.
 \end{case}
@@ -158,6 +148,8 @@ $T=T_{1}^{a}$
 
 If $e_{S}^{1}=SH^{T_{1}^{a}}\;e_{H}^{1}$ then $^{T_{1}^{a}}HS\;(SH^{T_{1}^{a}}\;e_{H}^{1})\rightarrow e_{H}^{1}$.  Otherwise, $^{T_{1}^{a}}HS\;e_{S}^{1}\rightarrow\,^{T_{1}^{a}}HS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})$.
 \end{case}
+
+If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $^{T}HS\;e_{S}^{1}\rightarrow\,^{T}HS\;e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $^{T}HS\;e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{case}
 \end{proof}
 \end{theorem}
