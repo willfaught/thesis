@@ -1,0 +1,16 @@
+\begin{case}
+$e_{M}=e_{M}^{1}\;\lbrace T_{1}\rbrace$
+
+$e_{M}^{1}$ is a value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{M}^{1}$ is a value then $e_{M}^{1}:\forall X.T_{2}$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{M}^{1}=\Lambda X.e_{M}^{3}$ or $e_{M}^{1}=\,^{\forall X.T_{2}}MS\;v_{S}$ by canonical forms (Lemma \ref{cf}).
+\begin{subcase}
+$e_{M}^{1}=\Lambda X.e_{M}^{3}$
+
+$(\Lambda X.e_{M}^{3})\;\lbrace T_{1}\rbrace\rightarrow e_{M}^{3}[T_{1}/X]$.
+\end{subcase}
+\begin{subcase}
+$e_{M}^{1}=\,^{\forall X.T_{2}}HS\;v_{S}$
+
+$(^{\forall X.T_{2}}MS\;v_{S})\;\lbrace T_{1}\rbrace\rightarrow\,^{T_{2}[T_{1}^{a}/X]}MS\;v_{S}$.
+\end{subcase}
+If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $e_{M}^{1}\;\lbrace T_{1}\rbrace\rightarrow e_{M}^{2}\;\lbrace T_{1}\rbrace$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $e_{M}^{1}\;\lbrace T_{1}\rbrace\rightarrow$ \emph{\textbf{Error}:\;string}.
+\end{case}

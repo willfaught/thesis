@@ -1,0 +1,5 @@
+\begin{case}
+$e_{HM}=\mathtt{if0}\;e_{HM}^{1}\;e_{HM}^{2}\;e_{HM}^{3}$
+
+$e_{HM}^{1}$ is a value or $e_{HM}^{1}\rightarrow e_{HM}^{4}$ or $e_{HM}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{HM}^{1}$ is a value then $e_{HM}^{1}:N$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{HM}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $\mathtt{if0}\;e_{HM}^{1}\;e_{HM}^{2}\;e_{HM}^{3}\rightarrow e_{HM}^{2}$ if $e_{HM}^{1}=\overline{0}$ or $\mathtt{if0}\;e_{HM}^{1}\;e_{HM}^{2}\;e_{HM}^{3}\rightarrow e_{HM}^{3}$ otherwise.  If $e_{HM}^{1}\rightarrow e_{HM}^{4}$ then $\mathtt{if0}\;e_{HM}^{1}\;e_{HM}^{2}\;e_{HM}^{3}\rightarrow \mathtt{if0}\;e_{HM}^{4}\;e_{HM}^{2}\;e_{HM}^{3}$.  If $e_{HM}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $\mathtt{if0}\;e_{HM}^{1}\;e_{HM}^{2}\;e_{HM}^{3}\rightarrow$ \emph{\textbf{Error}:\;string}.
+\end{case}
