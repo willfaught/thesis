@@ -127,29 +127,8 @@ $e_{M}^{1}$ is a value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightar
 \begin{case}
 $e_{H}=\,^{T}HS\;e_{S}^{1}$
 
-$e_{S}^{1}$ is a value or $e_{S}^{1}\rightarrow e_{S}^{2}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{S}^{1}$ is a value then $T$ determines its reduction.  If $T=N$ then $^{N}HS\;\overline{n}\rightarrow\overline{n}$ if $e_{S}^{1}=\overline{n}$ and $^{N}HS\;e_{S}^{1}\rightarrow\,^{N}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})$ otherwise.  If $T=T_{1}\rightarrow T_{2}$ then $^{T_{1}\rightarrow T_{2}}HS\;(\lambda x_{1}.e_{S}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HS\;((\lambda x_{1}.e_{S}^{2})\;(SH^{T_{1}}\;x_{2})))$ if $e_{S}^{1}=\lambda x_{1}.e_{S}^{2}$ and $^{T_{1}\rightarrow T_{2}}HS\;e_{S}^{1}\rightarrow\,^{T_{1}\rightarrow T_{2}}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})$ otherwise.
-
-If $T=\forall X.T_{1}$
-
-$^{\forall X.T_{1}}HS\;e_{S}^{1}$ is a value.
-\end{case}
-\begin{case}
-$T=[T_{1}]$
-
-If $e_{S}^{1}=\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ for some $v_{S}^{2}$ and $v_{S}^{3}$ then $^{[T_{1}]}HS\;(\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3})\rightarrow\mathtt{cons}\;(^{T_{1}}HS\;v_{S}^{2})\;(^{[T_{1}]}HS\;v_{S}^{3})$.  Otherwise, $^{[T_{1}]}HS\;e_{S}^{1}\rightarrow\,^{[T_{1}]}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})$.
-\end{case}
-\begin{case}
-$T=L$
-
-$^{L}HS\;e_{S}^{1}$ is a value.
-\end{case}
-\begin{case}
-$T=T_{1}^{a}$
-
-If $e_{S}^{1}=SH^{T_{1}^{a}}\;e_{H}^{1}$ then $^{T_{1}^{a}}HS\;(SH^{T_{1}^{a}}\;e_{H}^{1})\rightarrow e_{H}^{1}$.  Otherwise, $^{T_{1}^{a}}HS\;e_{S}^{1}\rightarrow\,^{T_{1}^{a}}HS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})$.
-\end{case}
-
-If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $^{T}HS\;e_{S}^{1}\rightarrow\,^{T}HS\;e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $^{T}HS\;e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
+$e_{S}^{1}$ is a value or $e_{S}^{1}\rightarrow e_{S}^{2}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{S}^{1}$ is a value then $T$ determines its reduction.  If $T=N$ then $^{N}HS\;\overline{n}\rightarrow\overline{n}$ if $e_{S}^{1}=\overline{n}$ and $^{N}HS\;e_{S}^{1}\rightarrow\,^{N}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})$ otherwise.  If $T=T_{1}\rightarrow T_{2}$ then $^{T_{1}\rightarrow T_{2}}HS\;(\lambda x_{1}.e_{S}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HS\;((\lambda x_{1}.e_{S}^{2})\;(SH^{T_{1}}\;x_{2})))$ if $e_{S}^{1}=\lambda x_{1}.e_{S}^{2}$ and $^{T_{1}\rightarrow T_{2}}HS\;e_{S}^{1}\rightarrow\,^{T_{1}\rightarrow T_{2}}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})$ otherwise.  If $T=\forall X.T_{1}$ then $^{\forall X.T_{1}}HS\;e_{S}^{1}$ is a value.  If $T=[T_{1}]$ then $^{[T_{1}]}HS\;(\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3})\rightarrow\mathtt{cons}\;(^{T_{1}}HS\;v_{S}^{2})\;(^{[T_{1}]}HS\;v_{S}^{3})$ if $e_{S}^{1}=\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ and $^{[T_{1}]}HS\;e_{S}^{1}\rightarrow\,^{[T_{1}]}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})$ otherwise.  If $T=L$ then $^{L}HS\;e_{S}^{1}$ is a value.
+If $T=T_{1}^{a}$ then $^{T_{1}^{a}}HS\;(SH^{T_{1}^{a}}\;e_{H}^{1})\rightarrow e_{H}^{1}$ if $e_{S}^{1}=SH^{T_{1}^{a}}\;e_{H}^{1}$ and $^{T_{1}^{a}}HS\;e_{S}^{1}\rightarrow\,^{T_{1}^{a}}HS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})$ otherwise.  If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $^{T}HS\;e_{S}^{1}\rightarrow\,^{T}HS\;e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $^{T}HS\;e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{case}
 \end{proof}
 \end{theorem}
