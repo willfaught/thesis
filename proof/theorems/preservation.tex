@@ -8,30 +8,15 @@ By cases on the reduction $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$.  Scheme reductio
 \input{cases/preservation/type-application.tex}
 \input{cases/preservation/if-true.tex}
 \input{cases/preservation/if-false.tex}
+\input{cases/preservation/addition.tex}
+\input{cases/preservation/subtraction.tex}
+\input{cases/preservation/head-cons.tex}
+\input{cases/preservation/tail-cons.tex}
+\input{cases/preservation/head-nil.tex}
+\input{cases/preservation/tail-nil.tex}
+\input{cases/preservation/fix.tex}
 %\input{cases/preservation/.tex}
 
-
-\begin{case}
-$\mathscr{E}[+\;\overline{n_{1}}\;\overline{n_{2}}]_{H}\rightarrow\mathscr{E}[\overline{n_{1}+n_{2}}]$
-
-$+\;\overline{n_{1}}\;\overline{n_{2}}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{uot}).  $\overline{n_{1}+n_{2}}$
-\end{case}
-\begin{case}
-$\mathscr{E}[-\;\overline{n_{1}}\;\overline{n_{2}}]_{H}\rightarrow\mathscr{E}[\overline{(max(n_{1}-n_{2},0)}]$
-
-\end{case}
-\begin{case}
-$\mathscr{E}[\mathtt{hd}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})]_{H}\rightarrow\mathscr{E}[e_{H}^{1}]$
-
-\end{case}
-\begin{case}
-$\mathscr{E}[\mathtt{tl}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})]_{H}\rightarrow\mathscr{E}[e_{H}^{2}]$
-
-\end{case}
-\begin{case}
-$\mathscr{E}[\mathtt{fix}\;(\lambda x:T.e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}[(\mathtt{fix}\;(\lambda x:T.e_{H}))/x]]$
-
-\end{case}
 \begin{case}
 $\mathscr{E}[^{N}HM^{N}\;\overline{n}]_{H}\rightarrow\mathscr{E}[\overline{n}]$
 
