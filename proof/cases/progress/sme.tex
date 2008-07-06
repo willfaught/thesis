@@ -1,4 +1,36 @@
 \begin{case}
 $e_{S}=SM^{T}\;e_{M}^{1}$
 
+$e_{M}^{1}$ is a value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{M}^{1}$ is a value then $T$ determines its reduction.
+\begin{subcase}
+$T=N$
+
+$e_{M}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $SM^{N}\;\overline{n}\rightarrow\overline{n}$.
+\end{subcase}
+\begin{subcase}
+$T=T_{1}\rightarrow T_{2}$
+
+$e_{M}^{1}=\lambda x_{1}:T_{1}.e_{M}^{3}$ by canonical forms (Lemma \ref{cf}).  $SM^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.e_{M}^{3})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(SM^{T_{2}}\;((\lambda x_{1}:T_{1}.e_{M}^{3})\;(^{T_{1}}MS\;x_{2})))$.
+\end{subcase}
+\begin{subcase}
+$T=\forall X_{1}.T_{1}$
+
+$e_{M}^{1}=\Lambda X_{1}.e_{M}^{3}$ by canonical forms (Lemma \ref{cf}).  $SM^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{M}^{3})\rightarrow\Lambda X_{2}.(SM^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{M}^{3})\;\lbrace X_{2}\rbrace))$.
+\end{subcase}
+\begin{subcase}
+$T=[T_{1}]$
+
+$e_{M}^{1}=\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}$ by canonical forms (Lemma \ref{cf}).  $SM^{[T_{1}]}\;\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})\rightarrow\mathtt{cons}\;(SM^{T}\;v_{M}^{1})\;(SM^{[T]}\;v_{M}^{2})$.
+\end{subcase}
+\begin{subcase}
+$T=L$
+
+$e_{M}^{1}=\,^{L}HS\;v_{S}$ by canonical forms (Lemma \ref{cf}).  $SM^{T}\;(^{L}HS\;v_{S}\rightarrow v_{S}$.
+\end{subcase}
+\begin{subcase}
+$T=T_{1}^{a}$
+
+$SM^{T_{1}^{a}}\;e_{M}^{3}$ is a value.
+\end{subcase}
+If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $SM^{T}\;e_{M}^{1}\rightarrow SM^{T}\;e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $SM^{T}\;e_{M}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{case}
