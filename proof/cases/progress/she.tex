@@ -5,31 +5,32 @@ $e_{H}^{1}$ is a value or $e_{H}^{1}\rightarrow e_{H}^{2}$ or $e_{H}^{1}\rightar
 \begin{subcase}
 $T=N$
 
-If $e_{H}^{1}=\overline{n}$ then $SH^{N}\;\overline{n}\rightarrow\overline{n}$.  $^{N}MS\;e_{S}^{1}\rightarrow\,^{N}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})$ otherwise.
+$e_{H}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $SH^{N}\;\overline{n}\rightarrow\overline{n}$.
 \end{subcase}
 \begin{subcase}
 $T=T_{1}\rightarrow T_{2}$
 
-If $e_{S}^{1}=\lambda x_{1}.e_{S}^{2}$ then $^{T_{1}\rightarrow T_{2}}MS\;(\lambda x_{1}.e_{S}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}MS\;((\lambda x_{1}.e_{S}^{2})\;(SH^{T_{1}}\;x_{2})))$.  $^{T_{1}\rightarrow T_{2}}MS\;e_{S}^{1}\rightarrow\,^{T_{1}\rightarrow T_{2}}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})$ otherwise.
+$e_{H}^{1}=\lambda x_{1}:T_{1}.e_{H}^{3}$ by canonical forms (Lemma \ref{cf}).  $SH^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.e_{H}^{3})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(SH^{T_{2}}\;((\lambda x_{1}:T_{1}.e_{H}^{3})\;(SH^{T_{1}}\;x_{2})))$.
 \end{subcase}
 \begin{subcase}
-$T=\forall X.T_{1}$
+$T=\forall X_{1}.T_{1}$
 
-$^{\forall X.T_{1}}MS\;e_{S}^{1}$ is a value.
+$e_{H}^{1}=\Lambda X_{1}.e_{H}^{3}$ by canonical forms (Lemma \ref{cf}).  $SH^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{H}^{3})\rightarrow\Lambda X_{2}.(SH^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{H}^{3})\;\lbrace X_{2}\rbrace))$.
 \end{subcase}
 \begin{subcase}
 $T=[T_{1}]$
 
-If $e_{S}^{1}=\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ then $^{[T_{1}]}MS\;(\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3})\rightarrow\mathtt{cons}\;(^{T_{1}}MS\;v_{S}^{2})\;(^{[T_{1}]}MS\;v_{S}^{3})$.  $^{[T_{1}]}MS\;e_{S}^{1}\rightarrow\,^{[T_{1}]}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})$ otherwise.
+$SH^{[T_{1}]}\;v_{H}$ is a value.
 \end{subcase}
 \begin{subcase}
 $T=L$
 
-$^{L}MS\;e_{S}^{1}$ is a value.
+$e_{H}^{1}=\,^{L}HS\;v_{S}$ by canonical forms (Lemma \ref{cf}).  $SH^{T}\;(^{L}HS\;v_{S}\rightarrow v_{S}$.
 \end{subcase}
 \begin{subcase}
 $T=T_{1}^{a}$
 
-If $e_{S}^{1}=SH^{T_{1}^{a}}\;e_{H}^{1}$ then $^{T_{1}^{a}}MS\;(SH^{T_{1}^{a}}\;e_{H}^{1})\rightarrow e_{H}^{1}$.  $^{T_{1}^{a}}MS\;e_{S}^{1}\rightarrow\,^{T_{1}^{a}}MS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})$ otherwise.
+$SH^{T_{1}^{a}}\;e_{H}^{3}$ is a value.
 \end{subcase}
+If $e_{H}^{1}\rightarrow e_{H}^{2}$ then $SH^{T}\;e_{H}^{1}\rightarrow SH^{T}\;e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $SH^{T}\;e_{H}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{case}
