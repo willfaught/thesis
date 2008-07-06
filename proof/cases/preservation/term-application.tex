@@ -1,5 +1,5 @@
 \begin{case}
 $(\lambda x:T_{1}.e_{HM}^{1})\;e_{HM}^{2}\rightarrow e_{HM}^{1}[e_{HM}^{2}/x]$
 
-$(\lambda x:T_{1}.e_{HM}^{1})\;e_{HM}^{2}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{uot}).  $\lambda x:T_{1}.e_{HM}^{1}:T_{1}\rightarrow T$, $e_{HM}^{2}:T_{1}$, $\Gamma,x:T_{1}\vdash_{HM}x:T_{1}$, and $\Gamma,x:T_{1}\vdash_{HM}e_{HM}^{1}:T$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $e_{HM}^{1}[e_{HM}^{2}/x]:T$ by term substitution (Lemma \ref{hts}).
+$(\lambda x:T_{1}.e_{HM}^{1})\;e_{HM}^{2}:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{uot}).  $\lambda x:T_{1}.e_{HM}^{1}:T_{1}\rightarrow T$, $e_{HM}^{2}:T_{1}$, $\Gamma,x:T_{1}\vdash_{HM}x:T_{1}$, and $\Gamma,x:T_{1}\vdash_{HM}e_{HM}^{1}:T$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $e_{HM}^{1}[e_{HM}^{2}/x]:T$ by term substitution (Lemma \ref{tms}).
 \end{case}
