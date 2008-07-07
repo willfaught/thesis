@@ -1,19 +1,5 @@
 \begin{case}
-$^{T_{1}\rightarrow T_{2}}B\;v_{S}\rightarrow\,^{T_{1}\rightarrow T_{2}}B\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})$ where $B\in\lbrace HS,MS\rbrace$
+$^{T_{1}\rightarrow T_{2}}B\;v_{S}\rightarrow\,^{T_{1}\rightarrow T_{2}}B\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})\;(v_{S}\neq\lambda x.e_{S})$ where $B\in\lbrace HS,MS\rbrace$
 
-$\Gamma\vdash_{HM}^{T_{1}\rightarrow T_{2}}B\;v_{S}:(T_{1}\rightarrow T_{2})[T_{i}/T_{i}^{a}]$ by premise and inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{HM}^{T_{1}\rightarrow T_{2}}B\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})
+$\Gamma\vdash_{HM}\,^{T_{1}\rightarrow T_{2}}B\;v_{S}:(T_{1}\rightarrow T_{2})[T_{i}/T_{i}^{a}]$ by premise and inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{HM}\,^{T_{1}\rightarrow T_{2}}B\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"}):(T_{1}\rightarrow T_{2})[T_{i}/T_{i}^{a}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).
 \end{case}
-
-TODO:
-
-
-
-
-&& ($v_{S}\neq\lambda x.e_{S}$) \\
-$\mathscr{E}[^{T^{a}}HS\;(SH^{T^{a}}\;e_{H})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}]$ \\
-$\mathscr{E}[^{T^{a}}HS\;v_{S}]_{H}$ & $\rightarrow$ & $\mathscr{E}[^{T^{a}}HS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})]$ \\
-&& ($v_{S}\neq SH^{T^{a}}\;e_{H}$) \\
-$\mathscr{E}[^{[T]}HS\;(\mathtt{cons}\;v_{S}^{1}\;v_{S}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}\;(^{T}HS\;v_{S}^{1})\;(^{[T]}HS\;v_{S}^{2})]$ \\
-$\mathscr{E}[^{[T]}HS\;\mathtt{nil}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
-$\mathscr{E}[^{[T]}HS\;v_{S}^{1}]_{H}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}HS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})]$ \\
-&& ($v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ and $v_{S}^{1}\neq\mathtt{nil}$)
