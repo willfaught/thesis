@@ -4,18 +4,18 @@
 If $\Gamma\vdash_{HMS}e_{HMS}^{1}:T$ and $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$ then $\Gamma\vdash_{HMS}e_{HMS}^{2}:T$.
 \begin{proof}
 By cases on the reduction $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$.  Scheme reductions that do not contain Haskell or ML terms are omitted because demonstrating the preservation of $TST$ is straightforward.
-\input{cases/preservation/term-application-hm.tex}
-\input{cases/preservation/type-application-hm.tex}
-\input{cases/preservation/if-true-hm.tex}
-\input{cases/preservation/if-false-hm.tex}
-\input{cases/preservation/addition-hm.tex}
-\input{cases/preservation/subtraction-hm.tex}
+\input{cases/preservation/term-application.tex}
+\input{cases/preservation/type-application.tex}
+\input{cases/preservation/if-true.tex}
+\input{cases/preservation/if-false.tex}
+\input{cases/preservation/addition.tex}
+\input{cases/preservation/subtraction.tex}
 \input{cases/preservation/head-cons-h.tex}
 \input{cases/preservation/head-cons-m.tex}
 \input{cases/preservation/tail-cons-h.tex}
 \input{cases/preservation/tail-cons-m.tex}
-\input{cases/preservation/head-nil-hm.tex}
-\input{cases/preservation/tail-nil-hm.tex}
+\input{cases/preservation/head-nil.tex}
+\input{cases/preservation/tail-nil.tex}
 \input{cases/preservation/fix.tex}
 \input{cases/preservation/hm-number-hm.tex}
 \input{cases/preservation/hm-number-e.tex}
