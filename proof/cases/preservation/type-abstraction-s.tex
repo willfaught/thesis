@@ -1,0 +1,5 @@
+\begin{case}
+$B^{\forall X.T}\;(\Lambda X.e_{HM})\rightarrow B^{T[L/X]}\;((\Lambda X.e_{HM})\;\lbrace L\rbrace)$ where $B\in\lbrace SH,SM\rbrace$
+
+$\Gamma\vdash_{S}B^{\forall X.T}\;(\Lambda X.e_{HM}):TST$ by premise.  $\Gamma\vdash_{HM}\Lambda X.e_{HM}:\forall X.T$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{HM}(\Lambda X.e_{HM})\;\lbrace L\rbrace:T[L/X]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{HM}B^{T[L/X]}\;((\Lambda X.e_{HM})\;\lbrace L\rbrace):T[L/X]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).
+\end{case}
