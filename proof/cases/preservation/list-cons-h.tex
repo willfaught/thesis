@@ -1,0 +1,5 @@
+\begin{case}
+$^{[T]}HM^{[T]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})\rightarrow\mathtt{cons}\;(^{T}HM^{T}\;v_{M}^{1})\;(^{[T]}HM^{[T]}\;v_{M}^{2})$
+
+$\Gamma\vdash_{H}^{[T]}HM^{[T]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}):[T]$ by premise and inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{M}v_{M}^{1}:T$ and $\Gamma\vdash_{M}v_{M}^{1}:[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}\,^{T}HM^{T}\;v_{M}^{1}:T$ and $\Gamma\vdash_{H}\,^{[T]}HM^{[T]}\;v_{M}^{2}:[T]$ by the induction hypothesis and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}\mathtt{cons}\;(^{T}HM^{T}\;v_{M}^{1})\;(^{[T]}HM^{[T]}\;v_{M}^{2}):[T]$.
+\end{case}

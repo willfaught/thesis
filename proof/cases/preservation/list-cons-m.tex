@@ -1,0 +1,5 @@
+\begin{case}
+$^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})\rightarrow\mathtt{cons}\;(^{T}MH^{T}\;e_{H}^{1})\;(^{[T]}MH^{[T]}\;e_{H}^{2})$
+
+$\Gamma\vdash_{M}^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}):[T]$ by premise and inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}e_{H}^{1}:T$ and $\Gamma\vdash_{H}e_{H}^{1}:[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{M}\,^{T}MH^{T}\;e_{H}^{1}:T$ and $\Gamma\vdash_{M}\,^{[T]}MH^{[T]}\;e_{H}^{2}:[T]$ by the induction hypothesis and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{M}\mathtt{cons}\;(^{T}MH^{T}\;e_{H}^{1})\;(^{[T]}MH^{[T]}\;e_{H}^{2}):[T]$.
+\end{case}
