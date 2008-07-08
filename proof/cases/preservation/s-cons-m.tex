@@ -1,0 +1,5 @@
+\begin{case}
+$SM^{[T]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})\rightarrow\mathtt{cons}\;(SM^{T}\;v_{M}^{1})\;(SM^{[T]}\;v_{M}^{2})$
+
+$\Gamma\vdash_{S}SM^{[T]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}):TST$ by premise.  $\Gamma\vdash_{M}\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}:[T]$, $\Gamma\vdash_{M}v_{M}^{1}:T$, and $\Gamma\vdash_{M}v_{M}^{2}:[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{M}SM^{T}\;v_{M}^{1}:TST$, $\Gamma\vdash_{M}SM^{[T]}\;v_{M}^{2}:TST$, and $\Gamma\vdash_{S}\mathtt{cons}\;(SM^{T}\;v_{M}^{1})\;(SM^{[T]}\;v_{M}^{2}):TST$ by inversion.
+\end{case}
