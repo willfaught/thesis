@@ -1,8 +1,5 @@
 \begin{case}
-$\mathscr{E}[(\Lambda X.e_{H})\;\lbrace T_{1}\rbrace]_{H}\rightarrow\mathscr{E}[e_{H}[T_{1}/X]]$
+$(\Lambda X.e_{HM})\;\lbrace T_{1}\rbrace\rightarrow e_{HM}[T_{1}/X]$
 
-$(\Lambda X.e_{H})\;\lbrace T_{1}\rbrace:T$ by the induction hypothesis and uniqueness of types (Lemma \ref{uot}).
-
-%\textbf{!!! NOT DONE !!!}
-%$\Gamma\vdash_{H}e_{H}:\forall X.T_{2}$, $\Gamma\vdash_{H}T_{1}$, and $T=T_{2}[T_{1}/X]$.
+$\Gamma\vdash_{HM}(\Lambda X.e_{H})\;\lbrace T_{1}\rbrace:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{HM}\Lambda X.e_{HM}:\forall X.T_{2}$, $\Gamma,X\vdash_{HM}e_{HM}:T_{2}$, and $T=T_{2}[T_{1}/X]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{HM}e_{HM}[T_{1}/X]:T_{2}[T_{1}/X]$ by type substitution (Lemma \ref{tes}).  $\Gamma\vdash_{HM}e_{HM}[T_{1}/X]:T$ because $T=T_{2}[T_{1}/X]$.
 \end{case}
