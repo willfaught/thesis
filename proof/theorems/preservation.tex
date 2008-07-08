@@ -3,7 +3,7 @@
 \onehalfspacing
 If $\Gamma\vdash_{HMS}e_{HMS}^{1}:T$ and $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$ then $\Gamma\vdash_{HMS}e_{HMS}^{2}:T$.
 \begin{proof}
-By cases on the reduction $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$.  Scheme reductions that do not contain Haskell or ML terms are omitted because demonstrating the preservation of $TST$ is straightforward.
+By cases on the reduction $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$.  Scheme reductions that do not contain Haskell or ML terms on both sides are omitted because $\Gamma\vdash_{S}e_{S}^{1}:TST$ and $\Gamma\vdash_{S}e_{S}^{2}:TST$ for any $e_{S}^{1}\rightarrow e_{S}^{2}$.
 \input{cases/preservation/term-application.tex}
 \input{cases/preservation/type-application.tex}
 \input{cases/preservation/if-true.tex}
@@ -22,8 +22,10 @@ By cases on the reduction $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$.  Scheme reductio
 \input{cases/preservation/hm-function-hm.tex}
 \input{cases/preservation/hm-function-s.tex}
 \input{cases/preservation/hm-function-e.tex}
-\input{cases/preservation/hm-type-abstraction-hm.tex}
-\input{cases/preservation/s-type-abstraction-hm.tex}
+\input{cases/preservation/s-function-hm.tex}
+\input{cases/preservation/hm-universal-hm.tex}
+\input{cases/preservation/s-universal-hm.tex}
+\input{cases/preservation/s-universal-s.tex}
 \input{cases/preservation/h-cons-m.tex}
 \input{cases/preservation/m-cons-h.tex}
 \input{cases/preservation/hm-cons-s.tex}
@@ -32,7 +34,7 @@ By cases on the reduction $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$.  Scheme reductio
 \input{cases/preservation/hm-label-s.tex}
 \input{cases/preservation/hm-label-e.tex}
 \input{cases/preservation/hm-type-application-s.tex}
-
+\input{cases/preservation/s-lump-s.tex}
 %\input{cases/preservation/.tex}
 \end{proof}
 \end{theorem}
