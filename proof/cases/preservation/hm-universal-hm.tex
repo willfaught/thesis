@@ -1,5 +1,5 @@
 \begin{case}
-$^{\forall X_{1}.T}B^{\forall X_{1}.T}\;(\Lambda X_{1}.e_{HM})\rightarrow\Lambda X_{2}.(^{T[X_{2}/X_{1}]}B^{T[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{HM})\;\lbrace X_{2}\rbrace))$ where $B\in\lbrace HM,MH\rbrace$
+$^{\forall X_{1}.T_{1}}B^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{HM})\rightarrow\Lambda X_{2}.(^{T_{1}[X_{2}/X_{1}]}B^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{HM})\;\lbrace X_{2}\rbrace))$ where $B\in\lbrace HM,MH\rbrace$
 
-$\Gamma\vdash_{HM}\,^{\forall X_{1}.T}B^{\forall X_{1}.T}\;(\Lambda X_{1}.e_{HM}):\forall X_{1}.T$ by premise and inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  NOT DONE.
+$\Gamma\vdash_{HM}\,^{\forall X_{1}.T_{1}}B^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{HM}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=\forall X_{1}.T_{1}$, $\Gamma\vdash_{HM}\Lambda X_{1}.e_{HM}:\forall X_{1}.T_{1}$, $\Gamma,X_{2}\vdash_{HM}X_{2}$, $\Gamma\vdash_{HM}(\Lambda X_{1}.e_{HM})\;\lbrace X_{2}\rbrace:T_{1}[X_{2}/X_{1}]$, $\Gamma\vdash_{HM}{^{T_{1}[X_{2}/X_{1}]}B}^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{HM})\;\lbrace X_{2}\rbrace):T_{1}[X_{2}/X_{1}]$, and $\Gamma\vdash_{HM}\Lambda X_{2}.(^{T_{1}[X_{2}/X_{1}]}B^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{HM})\;\lbrace X_{2}\rbrace)):\forall X_{2}.T_{1}[X_{2}/X_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{HM}\Lambda X_{2}.(^{T_{1}[X_{2}/X_{1}]}B^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{HM})\;\lbrace X_{2}\rbrace)):T$ because $\forall X_{2}.T_{1}[X_{2}/X_{1}]=\forall X_{1}.T_{1}=T$.
 \end{case}
