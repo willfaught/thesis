@@ -1,5 +1,5 @@
 \begin{case}
-$\mathtt{hd}\;\mathtt{nil}^{T_{1}}\rightarrow\,^{T}B\;(\mathtt{wrong}\;\mathrm{``Empty\;list"})$ where $B\in\lbrace HS,MS\rbrace$
+$\mathtt{hd}\;\mathtt{nil}^{T}\rightarrow\,^{T}B\;(\mathtt{wrong}\;\mathrm{``Empty\;list"})$ where $B\in\lbrace HS,MS\rbrace$
 
-$\Gamma\vdash_{HM}\mathtt{hd}\;\mathtt{nil}^{T_{1}}:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{HM}\,^{T}HS\;(\mathtt{wrong}\;\mathrm{``Empty\;list"}):T$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).
+$\Gamma\vdash_{HM}\mathtt{hd}\;\mathtt{nil}^{T}:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}\mathtt{wrong}\;\mathrm{``Empty\;list"}:TST$ and $\Gamma\vdash_{HM}{^{T}B}\;(\mathtt{wrong}\;\mathrm{``Empty\;list"}):T$ by inversion (Lemma \ref{i}) and uniqueness of types.
 \end{case}
