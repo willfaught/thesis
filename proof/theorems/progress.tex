@@ -1,9 +1,9 @@
 \begin{theorem}
 \label{ps}
 \onehalfspacing
-If $\vdash_{HMS}e_{HMS}:T$ then $e_{HMS}$ is a value or $e_{HMS}\rightarrow e_{HMS}'$ or $e_{HMS}\rightarrow$ \emph{\textbf{Error}:\;string}.
+If $\vdash_{A}e_{A}:T$ then $e_{A}$ is a value or $e_{A}\rightarrow e_{A}'$ or $e_{A}\rightarrow$ \emph{\textbf{Error}:\;string} where $A\in\lbrace H,M,S\rbrace$.
 \begin{proof}
-By structural induction on $e_{HMS}$.
+By structural induction on $e_{A}$.
 \input{cases/progress/variable.tex}
 \input{cases/progress/number.tex}
 \input{cases/progress/term-abstraction-hm.tex}
@@ -16,20 +16,19 @@ By structural induction on $e_{HMS}$.
 \input{cases/progress/term-application-h.tex}
 \input{cases/progress/term-application-m.tex}
 \input{cases/progress/term-application-s.tex}
-\input{cases/progress/type-application-h.tex}
-\input{cases/progress/type-application-m.tex}
+\input{cases/progress/type-application.tex}
 \input{cases/progress/if-hm.tex}
+\input{cases/progress/if-s.tex}
 \input{cases/progress/arithmetic-hm.tex}
 \input{cases/progress/arithmetic-s.tex}
 \input{cases/progress/field-h.tex}
 \input{cases/progress/field-m.tex}
 \input{cases/progress/field-s.tex}
 \input{cases/progress/fix.tex}
-\input{cases/progress/hme.tex}
-\input{cases/progress/hse.tex}
-\input{cases/progress/mhe.tex}
-\input{cases/progress/mse.tex}
-\input{cases/progress/she.tex}
-\input{cases/progress/sme.tex}
+\input{cases/progress/ab.tex}
+\input{cases/progress/hs.tex}
+\input{cases/progress/ms.tex}
+\input{cases/progress/sh.tex}
+\input{cases/progress/sm.tex}
 \end{proof}
 \end{theorem}
