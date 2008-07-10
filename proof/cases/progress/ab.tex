@@ -1,5 +1,5 @@
 \begin{case}
-$e_{A}={^{T}A}B^{T}\;e_{B}^{1}$ where $(A,B)\in\lbrace(H,M),(M,H)\rbrace$
+$e_{A}={^{T}A}B^{T}\;e_{B}^{1}$ where $(A,B,C)\in\lbrace(H,M,v),(M,H,e)\rbrace$
 
 $e_{B}^{1}$ is a value or $e_{B}^{1}\rightarrow e_{B}^{2}$ or $e_{B}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{B}^{1}$ is a value then $T$ determines its reduction.
 \begin{subcase}
@@ -20,7 +20,7 @@ $e_{B}^{1}=\Lambda X_{1}.e_{B}^{2}$ by canonical forms (Lemma \ref{cf}).  $^{\fo
 \begin{subcase}
 $T=[T_{1}]$
 
-$e_{B}^{1}=\mathtt{cons}\;v_{B}^{1}\;v_{B}^{2}$ by canonical forms (Lemma \ref{cf}).  $^{[T_{1}]}AB^{[T_{1}]}\;(\mathtt{cons}\;v_{B}^{1}\;v_{B}^{2})$ is a value.
+$e_{B}^{1}=\mathtt{cons}\;C_{B}^{2}\;C_{B}^{3}$ by canonical forms (Lemma \ref{cf}).  $^{[T_{1}]}AB^{[T_{1}]}\;(\mathtt{cons}\;C_{B}^{2}\;C_{B}^{3})$ is a value.
 \end{subcase}
 \begin{subcase}
 $T=L$
