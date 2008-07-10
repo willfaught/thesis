@@ -3,8 +3,8 @@
 \onehalfspacing
 The possible syntactic forms of values of various types.
 \begin{enumerate}
-\item If $v_{HM}:N$ then $v_{HM}=\overline{n}$.
-\item If $v_{HM}:T_{1}\rightarrow T_{2}$ then $v_{HM}=\lambda x:T_{1}.e_{HM}$.
+\item If $v_{A}:N$ then $v_{A}=\overline{n}$ where $A\in\lbrace H,M\rbrace$.
+\item If $v_{A}:T_{1}\rightarrow T_{2}$ then $v_{A}=\lambda x:T_{1}.e_{A}$ where $A\in\lbrace H,M\rbrace$.
 \item If $v_{H}:\forall X.T$ then $v_{H}=\Lambda X.e_{H}$ or $v_{H}=\,^{\forall X.T}HS\;v_{S}$.
 \item If $v_{M}:\forall X.T$ then $v_{M}=\Lambda X.e_{M}$ or $v_{M}=\,^{\forall X.T}MS\;v_{S}$.
 \item If $v_{H}:[T]$ then $v_{H}=\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}$ or $v_{H}=\mathtt{nil}^{T}$.
