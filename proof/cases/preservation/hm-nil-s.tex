@@ -1,5 +1,5 @@
 \begin{case}
-$^{[T]}B\;\mathtt{nil}\rightarrow\mathtt{nil}^{T}$ where $B\in\lbrace HS,MS\rbrace$
+$^{[T_{1}]}AS\;\mathtt{nil}\rightarrow\mathtt{nil}^{T_{1}}$ where $A\in\lbrace H,M\rbrace$
 
-$\vdash_{HM}\,^{[T]}B\;\mathtt{nil}:[T]$ by premise and inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\vdash_{HM}\mathtt{nil}^{T}:[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).
+$\Gamma\vdash_{A}{^{[T_{1}]}A}S\;\mathtt{nil}:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=[T_{1}]$ and $\Gamma\vdash_{A}\mathtt{nil}^{T_{1}}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{A}\mathtt{nil}^{T_{1}}:T$ because $[T_{1}]=T$.
 \end{case}

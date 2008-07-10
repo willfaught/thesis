@@ -1,9 +1,9 @@
 \begin{theorem}
 \label{pn}
 \onehalfspacing
-If $\Gamma\vdash_{HMS}e_{HMS}^{1}:T$ and $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$ then $\Gamma\vdash_{HMS}e_{HMS}^{2}:T$.
+If $\Gamma\vdash_{A}e_{A}^{1}:T$ and $e_{A}^{1}\rightarrow e_{A}^{2}$ then $\Gamma\vdash_{A}e_{A}^{2}:T$ where $A\in\lbrace H,M,S\rbrace$.
 \begin{proof}
-By cases on the reduction $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$.  Scheme reductions that do not contain Haskell or ML terms on both sides are omitted because $\Gamma\vdash_{S}e_{S}^{1}:TST$ and $\Gamma\vdash_{S}e_{S}^{2}:TST$ for any $e_{S}^{1}\rightarrow e_{S}^{2}$.
+By cases on the reduction $e_{A}^{1}\rightarrow e_{A}^{2}$.  Straightforward cases for Scheme preservation are omitted.
 \input{cases/preservation/term-application.tex}
 \input{cases/preservation/type-application.tex}
 \input{cases/preservation/if-true.tex}
@@ -18,6 +18,7 @@ By cases on the reduction $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$.  Scheme reductio
 \input{cases/preservation/tail-nil.tex}
 \input{cases/preservation/fix.tex}
 \input{cases/preservation/hm-number-hm.tex}
+\input{cases/preservation/hm-number-s.tex}
 \input{cases/preservation/hm-number-e.tex}
 \input{cases/preservation/hm-function-hm.tex}
 \input{cases/preservation/hm-function-s.tex}
@@ -33,10 +34,9 @@ By cases on the reduction $e_{HMS}^{1}\rightarrow e_{HMS}^{2}$.  Scheme reductio
 \input{cases/preservation/s-cons-m.tex}
 \input{cases/preservation/hm-nil-s.tex}
 \input{cases/preservation/hm-list-e.tex}
-\input{cases/preservation/hm-label-s.tex}
+\input{cases/preservation/hm-label-hm.tex}
 \input{cases/preservation/hm-label-e.tex}
 \input{cases/preservation/hm-type-application-s.tex}
 \input{cases/preservation/s-lump-s.tex}
-%\input{cases/preservation/.tex}
 \end{proof}
 \end{theorem}

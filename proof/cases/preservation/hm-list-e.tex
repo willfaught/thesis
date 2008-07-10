@@ -1,5 +1,5 @@
 \begin{case}
-$^{[T]}B\;v_{S}^{1}\rightarrow\,^{[T]}B\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})$ where $B\in\lbrace HS,MS\rbrace$ $(v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ and $v_{S}^{1}\neq\mathtt{nil})$
+$^{[T[T_{1}]]}AS\;v_{S}^{1}\rightarrow\,^{[T[T_{1}]]}AS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})$ $(v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ and $v_{S}^{1}\neq\mathtt{nil})$ where $A\in\lbrace H,M\rbrace$
 
-$\Gamma\vdash_{HM}\,^{[T]}B\;v_{S}^{1}:[T]$ by premise and inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\vdash_{HM}\,^{[T]}B\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"}):[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).
+$\Gamma\vdash_{A}{^{[T_{1}]}AS}\;v_{S}^{1}:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\vdash_{S}\mathtt{wrong}\;\mathrm{``Not\;a\;list"}:TST$ by inversion.  $\Gamma\vdash_{A}{^{[T_{1}]}A}S\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"}):[T_{1}]$ by inversion and uniqueness of types.  $\Gamma\vdash_{A}{^{[T_{1}]}A}S\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"}):T$ because $[T_{1}]=T$.
 \end{case}
