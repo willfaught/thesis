@@ -1,4 +1,5 @@
 \begin{case}
+\label{ab}
 $e_{A}={^{T}A}B^{T}\;e_{B}^{1}$ where $(A,B,C)\in\lbrace(H,M,v),(M,H,e)\rbrace$
 
 $e_{B}^{1}$ is a value or $e_{B}^{1}\rightarrow e_{B}^{2}$ or $e_{B}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{B}^{1}$ is a value then $T$ determines its reduction.
@@ -15,12 +16,14 @@ $e_{B}^{1}=\lambda x_{1}:T_{1}.e_{B}^{2}$ by canonical forms (Lemma \ref{cf}).  
 \begin{subcase}
 $T=\forall X_{1}.T_{1}$
 
-$e_{B}^{1}=\Lambda X_{1}.e_{B}^{2}$ by canonical forms (Lemma \ref{cf}).  $^{\forall X_{1}.T_{1}}AB^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{B}^{2})\rightarrow\Lambda X_{2}.(^{T_{1}[X_{2}/X_{1}]}AB^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{B}^{2})\;\lbrace X_{2}\rbrace))$.
+$e_{B}^{1}\in\lbrace\Lambda X_{1}.e_{B}^{2},{^{\forall X.T_{1}}A}S\;v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{B}^{1}=\Lambda X_{1}.e_{B}^{2}$ then $^{\forall X_{1}.T_{1}}AB^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{B}^{2})\rightarrow\Lambda X_{2}.(^{T_{1}[X_{2}/X_{1}]}AB^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{B}^{2})\;\lbrace X_{2}\rbrace))$.  If $e_{B}^{1}={^{\forall X.T_{1}}A}S\;v_{S}$ then ${^{\forall X_{1}.T_{1}}A}B^{\forall X_{1}.T_{1}}\;({^{\forall X.T_{1}}A}S\;v_{S})$ reduces according to Case \ref{as}.
 \end{subcase}
 \begin{subcase}
 $T=[T_{1}]$
 
-$e_{B}^{1}=\mathtt{cons}\;C_{B}^{2}\;C_{B}^{3}$ by canonical forms (Lemma \ref{cf}).  $^{[T_{1}]}AB^{[T_{1}]}\;(\mathtt{cons}\;C_{B}^{2}\;C_{B}^{3})$ is a value.
+$e_{B}^{1}\in\lbrace\mathtt{cons}\;C_{B}^{2}\;C_{B}^{3},\mathtt{nil}^{T_{1}},{^{[T]}M}H^{[T]}\;(\mathtt{cons}\;e_{H}\;e_{H})\rbrace$ if $(A,B)=(H,M)$ and $e_{B}^{1}\in\lbrace\mathtt{cons}\;C_{B}^{2}\;C_{B}^{3},\mathtt{nil}^{T_{1}}\rbrace$ if $(A,B)=(M,H)$ by canonical forms (Lemma \ref{cf}).  $^{[T_{1}]}AB^{[T_{1}]}\;(\mathtt{cons}\;C_{B}^{2}\;C_{B}^{3})$ is a value.
+
+TODO.
 \end{subcase}
 \begin{subcase}
 $T=L$
