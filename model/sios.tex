@@ -5,7 +5,7 @@
 $\mathscr{E}[SH^{N}\;\overline{n}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
 $\mathscr{E}[SH^{\forall X.T}\;(\Lambda X.e_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[SH^{T[L/X]}\;((\Lambda X.e_{H})\;\lbrace L\rbrace)]$ \\
 $\mathscr{E}[SH^{\forall X.T}\;(^{\forall X.T}HS\;v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
-$\mathscr{E}[SH^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.e_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SH^{T_{2}}\;((\lambda x_{1}:T_{1}.e_{H})\;(^{T_{1}}HS\;x_{2})))]$ \\
+$\mathscr{E}[SH^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SH^{T_{2}}\;((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H})\;(^{T_{1}}HS\;x_{2})))]$ \\
 $\mathscr{E}[SH^{L}\;(^{L}HS\;v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
 $\mathscr{E}[\mathtt{hd}\;(SH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{S}$ & $\rightarrow$ & $\mathscr{E}[SH^{T}\;e_{H}^{1}]$ \\
 $\mathscr{E}[\mathtt{tl}\;(SH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{S}$ & $\rightarrow$ & $\mathscr{E}[SH^{[T]}\;e_{H}^{2}]$ \\
@@ -13,7 +13,7 @@ $\mathscr{E}[SH^{[T]}\;\mathtt{nil}^{T}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\ma
 $\mathscr{E}[SM^{N}\;\overline{n}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
 $\mathscr{E}[SM^{\forall X.T}\;(\Lambda X.e_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[SM^{T[L/X]}\;((\Lambda X.e_{M})\;\lbrace L\rbrace)]$ \\
 $\mathscr{E}[SM^{\forall X.T}\;(^{\forall X.T}MS\;v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
-$\mathscr{E}[SM^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.e_{M})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SM^{T_{2}}\;((\lambda x_{1}:T_{1}.e_{M})\;(^{T_{1}}MS\;x_{2})))]$ \\
+$\mathscr{E}[SM^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SM^{T_{2}}\;((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M})\;(^{T_{1}}MS\;x_{2})))]$ \\
 $\mathscr{E}[SM^{L}\;(^{L}MS\;v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
 $\mathscr{E}[(SM^{[T]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}\;(SM^{T}\;v_{M}^{1})\;(SM^{[T]}\;v_{M}^{2})]$ \\
 $\mathscr{E}[SM^{[T]}\;\mathtt{nil}^{T}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}]$
