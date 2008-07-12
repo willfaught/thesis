@@ -16,14 +16,14 @@ $e_{B}^{1}=\lambda x_{1}:T_{1}.e_{B}^{2}$ by canonical forms (Lemma \ref{cf}).  
 \begin{subcase}
 $T=\forall X_{1}.T_{1}$
 
-$e_{B}^{1}\in\lbrace\Lambda X_{1}.e_{B}^{2},{^{\forall X.T_{1}}A}S\;v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{B}^{1}=\Lambda X_{1}.e_{B}^{2}$ then $^{\forall X_{1}.T_{1}}AB^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{B}^{2})\rightarrow\Lambda X_{2}.(^{T_{1}[X_{2}/X_{1}]}AB^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{B}^{2})\;\lbrace X_{2}\rbrace))$.  If $e_{B}^{1}={^{\forall X.T_{1}}A}S\;v_{S}$ then ${^{\forall X_{1}.T_{1}}A}B^{\forall X_{1}.T_{1}}\;({^{\forall X.T_{1}}A}S\;v_{S})$ reduces according to Case \ref{as}.
+$e_{B}^{1}\in\lbrace\Lambda X_{1}.e_{B}^{2},{^{\forall X_{1}.T_{1}}A}S\;v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{B}^{1}=\Lambda X_{1}.e_{B}^{2}$ then $^{\forall X_{1}.T_{1}}AB^{\forall X_{1}.T_{1}}\;(\Lambda X_{1}.e_{B}^{2})\rightarrow\Lambda X_{2}.(^{T_{1}[X_{2}/X_{1}]}AB^{T_{1}[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{B}^{2})\;\lbrace X_{2}\rbrace))$.  If $e_{B}^{1}={^{\forall X_{1}.T_{1}}A}S\;v_{S}$ then ${^{\forall X_{1}.T_{1}}A}S\;v_{S}$ reduces by Case \ref{as}.
 \end{subcase}
 \begin{subcase}
 $T=[T_{1}]$
 
-$e_{B}^{1}\in\lbrace\mathtt{cons}\;C_{B}^{2}\;C_{B}^{3},\mathtt{nil}^{T_{1}},{^{[T]}M}H^{[T]}\;(\mathtt{cons}\;e_{H}\;e_{H})\rbrace$ if $(A,B)=(H,M)$ and $e_{B}^{1}\in\lbrace\mathtt{cons}\;C_{B}^{2}\;C_{B}^{3},\mathtt{nil}^{T_{1}}\rbrace$ if $(A,B)=(M,H)$ by canonical forms (Lemma \ref{cf}).  $^{[T_{1}]}AB^{[T_{1}]}\;(\mathtt{cons}\;C_{B}^{2}\;C_{B}^{3})$ is a value.
+If $(A,B)=(H,M)$ then $e_{B}^{1}\in\lbrace\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2},\mathtt{nil}^{T_{1}},{^{[T]}M}H^{[T]}\;(\mathtt{cons}\;e_{H}\;e_{H})\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{B}^{1}=\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}$ then $^{[T_{1}]}HM^{[T_{1}]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})]_{H}\rightarrow\mathtt{cons}\;(^{T_{1}}HM^{T_{1}}\;v_{M}^{1})\;(^{[T_{1}]}HM^{[T_{1}]}\;v_{M}^{2})]$.  If $e_{B}^{1}=\mathtt{nil}^{T_{1}}$ then $^{[T_{1}]}HM^{[T_{1}]}\;\mathtt{nil}^{T}\rightarrow\mathtt{nil}^{T}$.  If $e_{B}^{1}={^{[T]}M}H^{[T]}\;(\mathtt{cons}\;e_{H}\;e_{H})$ then $^{[T_{1}]}HM^{[T_{1}]}\;(^{[T_{1}]}MH^{[T_{1}]}\;(\mathtt{cons}\;e_{H}\;e_{H}))$ is a value.
 
-TODO.
+If $(A,B)=(M,H)$ then $e_{B}^{1}\in\lbrace\mathtt{cons}\;e_{H}^{3}\;e_{H}^{4},\mathtt{nil}^{T_{1}}\rbrace$ by canonical forms.  If $e_{B}^{1}=\mathtt{cons}\;e_{H}^{3}\;e_{H}^{4}$ then $^{[T_{1}]}MH^{[T_{1}]}\;(\mathtt{cons}\;e_{H}^{3}\;e_{H}^{4})$ is a value.  If $e_{B}^{1}=\mathtt{nil}^{T_{1}}$ then $^{[T_{1}]}MH^{[T_{1}]}\;\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}^{T_{1}}$.
 \end{subcase}
 \begin{subcase}
 $T=L$
