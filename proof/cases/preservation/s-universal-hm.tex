@@ -1,5 +1,5 @@
 \begin{case}
 $SA^{\forall X.T_{1}}\;(\Lambda X.e_{A})\rightarrow SA^{T_{1}[L/X]}\;((\Lambda X.e_{A})\;\lbrace L\rbrace)$ where $A\in\lbrace H,M\rbrace$
 
-$\Gamma\vdash_{S}SA^{\forall X.T_{1}}\;(\Lambda X.e_{A}):T$ by premise.  $T=TST$ by inversion (Lemma \ref{i}).  $\Gamma\vdash_{A}\Lambda X.e_{A}:\forall X.T_{1}$ and $\Gamma\vdash_{A}(\Lambda X.e_{A})\;\lbrace L\rbrace:T_{1}[L/X]$ by inversion and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SA^{T_{1}[L/X]}\;((\Lambda X.e_{A})\;\lbrace L\rbrace):TST$ by inversion.  $\Gamma\vdash_{S}SA^{T_{1}[L/X]}\;((\Lambda X.e_{A})\;\lbrace L\rbrace):T$ because $TST=T$.
+$\Gamma\vdash_{S}SA^{\forall X.T_{1}}\;(\Lambda X.e_{A}):TST$ by premise.  $\Gamma\vdash_{A}\Lambda X.e_{A}:\forall X.T_{1}$ and $\Gamma\vdash_{A}(\Lambda X.e_{A})\;\lbrace L\rbrace:T_{1}[L/X]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SA^{T_{1}[L/X]}\;((\Lambda X.e_{A})\;\lbrace L\rbrace):TST$ by inversion.
 \end{case}

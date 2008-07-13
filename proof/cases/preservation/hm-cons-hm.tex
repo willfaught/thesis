@@ -1,5 +1,0 @@
-\begin{case}
-$^{[T_{1}]}AB^{[T_{1}]}\;(\mathtt{cons}\;C_{B}^{1}\;C_{B}^{2})\rightarrow\mathtt{cons}\;(^{T_{1}}AB^{T_{1}}\;C_{B}^{1})\;(^{[T_{1}]}AB^{[T_{1}]}\;C_{B}^{2})$ where $(A,B,C)\in\lbrace(H,M,v),(M,H,e)\rbrace$
-
-$\Gamma\vdash_{A}{^{[T_{1}]}A}B^{[T_{1}]}\;(\mathtt{cons}\;C_{B}^{1}\;C_{B}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=[T_{1}]$, $\Gamma\vdash_{B}\mathtt{cons}\;C_{B}^{1}\;C_{B}^{2}:[T_{1}]$, $\Gamma\vdash_{B}C_{B}^{1}:T_{1}$, $\Gamma\vdash_{B}C_{B}^{2}:[T_{1}]$, $\Gamma\vdash_{A}{^{T_{1}}A}B^{T_{1}}\;C_{B}^{1}:T_{1}$, $\Gamma\vdash_{A}{^{[T_{1}]}A}B^{[T_{1}]}\;C_{B}^{2}:[T_{1}]$, and $\Gamma\vdash_{A}\mathtt{cons}\;(^{T_{1}}AB^{T_{1}}\;C_{B}^{1})\;(^{[T_{1}]}AB^{[T_{1}]}\;C_{B}^{2}):[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{A}\mathtt{cons}\;(^{T_{1}}AB^{T_{1}}\;C_{B}^{1})\;(^{[T_{1}]}AB^{[T_{1}]}\;C_{B}^{2}):T$ because $[T_{1}]=T$.
-\end{case}

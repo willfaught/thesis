@@ -1,5 +1,5 @@
 \begin{case}
 $SM^{[T_{1}]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})\rightarrow\mathtt{cons}\;(SM^{T_{1}}\;v_{M}^{1})\;(SM^{[T_{1}]}\;v_{M}^{2})$
 
-$\Gamma\vdash_{S}SM^{[T_{1}]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}):T$ by premise.  $T=TST$ by inversion (Lemma \ref{i}).  $\Gamma\vdash_{M}\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}:[T_{1}]$, $\Gamma\vdash_{M}v_{M}^{1}:T_{1}$, and $\Gamma\vdash_{M}v_{M}^{2}:[T_{1}]$ by inversion and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SM^{T_{1}}\;v_{M}^{1}:TST$, $\Gamma\vdash_{S}SM^{[T_{1}]}\;v_{M}^{2}:TST$, and $\Gamma\vdash_{S}\mathtt{cons}\;(SM^{T_{1}}\;v_{M}^{1})\;(SM^{[T_{1}]}\;v_{M}^{2}):TST$ by inversion.  $\Gamma\vdash_{S}\mathtt{cons}\;(SM^{T_{1}}\;v_{M}^{1})\;(SM^{[T_{1}]}\;v_{M}^{2}):T$ because $TST=T$.
+$\Gamma\vdash_{S}SM^{[T_{1}]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}):TST$ by premise.  $\Gamma\vdash_{M}v_{M}^{1}:T_{1}$ and $\Gamma\vdash_{M}v_{M}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SM^{T_{1}}\;v_{M}^{1}:TST$, $\Gamma\vdash_{S}SM^{[T_{1}]}\;v_{M}^{2}:TST$, and $\Gamma\vdash_{S}\mathtt{cons}\;(SM^{T_{1}}\;v_{M}^{1})\;(SM^{[T_{1}]}\;v_{M}^{2}):TST$ by inversion.
 \end{case}
