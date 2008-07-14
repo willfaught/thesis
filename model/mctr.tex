@@ -21,7 +21,7 @@
 \frac{\Gamma\vdash_{M}e_{M}:T\rightarrow T}{\Gamma\vdash_{M}\mathtt{fix}\;e_{M}:T}
 \]
 \[
-\frac{\Gamma,x:T_{1}\vdash_{M}e_{M}:T_{2}\quad\Gamma\vdash_{M}T_{1}}{\Gamma\vdash_{M}\lambda x:T_{1}.e_{M}:T_{1}\rightarrow T_{2}}
+\frac{\Gamma\vdash_{M}T_{1}\quad\Gamma,x:T_{1}\vdash_{M}e_{M}:T_{2}}{\Gamma\vdash_{M}\lambda x:T_{1}.e_{M}:T_{1}\rightarrow T_{2}}
 \quad
 \frac{\Gamma,X\vdash_{M}e_{M}:T}{\Gamma\vdash_{M}\Lambda X.e_{M}:\forall X.T}
 \]
@@ -29,7 +29,7 @@
 \frac{\Gamma\vdash_{M}e_{M}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{M}e_{M}^{2}:T_{1}}{\Gamma\vdash_{M}e_{M}^{1}\;e_{M}^{2}:T_{2}}
 \quad
 \quad
-\frac{\Gamma\vdash_{M}e_{M}:\forall X.T_{2}\quad\Gamma\vdash_{M}T_{1}}{\Gamma\vdash_{M}e_{M}\;\lbrace T_{1}\rbrace:T_{2}[T_{1}/X]}
+\frac{\Gamma\vdash_{M}T_{1}\quad\Gamma\vdash_{M}e_{M}:\forall X.T_{2}}{\Gamma\vdash_{M}e_{M}\;\lbrace T_{1}\rbrace:T_{2}[T_{1}/X]}
 \]
 \[
 \frac{\Gamma\vdash_{M}e_{M}^{1}:T\quad\Gamma\vdash_{M}e_{M}^{2}:[T]}{\Gamma\vdash_{M}\mathtt{cons}\;e_{M}^{1}\;e_{M}^{2}:[T]}
