@@ -24,8 +24,12 @@ $\mathscr{E}[^{\forall X.T}HM^{\forall X.T}\;(^{\forall X.T}MS\;v_{S})]_{H}$ & $
 $\mathscr{E}[(^{\forall X.T_{1}}HS\;v_{S})\;\lbrace T_{2}\rbrace]_{H}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}[T^{a}_{2}/X]}HS\;v_{S}]$ \\
 % hm - list - cons
 $\mathscr{E}[^{[T]}HM^{[T]}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}\;(^{T}HM^{T}\;v_{M}^{1})\;(^{[T]}HM^{[T]}\;v_{M}^{2})]$ \\
+% hm - list - mh cons
+$\mathscr{E}[^{[T]}HM^{[T]}\;(^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}]$ \\
 % hs - list - cons
 $\mathscr{E}[^{[T]}HS\;(\mathtt{cons}\;v_{S}^{1}\;v_{S}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}\;(^{T}HS\;v_{S}^{1})\;(^{[T]}HS\;v_{S}^{2})]$ \\
+% hs - list - sh cons
+$\mathscr{E}[^{[T]}HS\;(SH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}]$ \\
 % hm - list - nil
 $\mathscr{E}[^{[T]}HM^{[T]}\;\mathtt{nil}^{T}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
 % hs - list - nil
