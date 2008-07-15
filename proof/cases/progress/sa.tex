@@ -1,5 +1,5 @@
 \begin{case}
-$e_{S}=SA^{T}\;e_{A}^{1}$ where $A\in\lbrace H,M\rbrace$
+$e_{S}=SA^{T}\;e_{A}^{1}$ where $(A,B)\in\lbrace(H,e),(M,v)\rbrace$
 
 $e_{A}^{1}$ is a value or $e_{A}^{1}\rightarrow e_{A}^{2}$ or $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{A}^{1}$ is a value then $T$ determines its reduction.
 \begin{subcase}
@@ -20,7 +20,7 @@ $e_{A}^{1}\in\lbrace\Lambda X_{1}.e_{A}^{3},{^{\forall X_{1}.T_{1}}A}S\;v_{S}\rb
 \begin{subcase}
 $T=[T_{1}]$
 
-If $A=H$ then $SA^{[T_{1}]}\;e_{A}$ is a value.  If $A=M$ then $e_{A}^{1}=\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}$ by canonical forms (Lemma \ref{cf}).  $SA^{[T_{1}]}\;\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})\rightarrow\mathtt{cons}\;(SA^{T}\;v_{M}^{1})\;(SA^{[T]}\;v_{M}^{2})$.
+$e_{A}^{1}\in\lbrace\mathtt{cons}\;B_{A}^{1}\;B_{A}^{2},\mathtt{nil}^{T_{1}}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $A=H$ and $e_{A}^{1}=\mathtt{cons}\;B_{A}^{1}\;B_{A}^{2}$ then $SA^{[T_{1}]}\;(\mathtt{cons}\;B_{A}^{1}\;B_{A}^{2})$ is a value.  If $A=M$ and $e_{A}^{1}=\mathtt{cons}\;B_{A}^{1}\;B_{A}^{2}$ then $SA^{[T_{1}]}\;(\mathtt{cons}\;B_{A}^{1}\;B_{A}^{2})\rightarrow\mathtt{cons}\;(SA^{T_{1}}\;B_{A}^{1})\;(SA^{[T_{1}]}\;B_{A}^{2})$.  If $e_{A}^{1}=\mathtt{nil}^{T_{1}}$ then $SA^{T_{1}}\;\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.
 \end{subcase}
 \begin{subcase}
 $T=L$
@@ -30,7 +30,7 @@ $e_{A}^{1}={^{L}A}S\;v_{S}$ by canonical forms (Lemma \ref{cf}).  $SA^{L}\;(^{L}
 \begin{subcase}
 $T=T_{1}^{a}$
 
-$SA^{T_{1}^{a}}\;e_{A}^{3}$ is a value.
+$SA^{T_{1}^{a}}\;B_{A}^{3}$ is a value.
 \end{subcase}
 If $e_{A}^{1}\rightarrow e_{A}^{2}$ then $SA^{T}\;e_{A}^{1}\rightarrow SA^{T}\;e_{A}^{2}$.  If $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $SA^{T}\;e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{case}
