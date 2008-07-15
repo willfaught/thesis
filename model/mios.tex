@@ -19,7 +19,7 @@ $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathsc
 % mh - universal
 $\mathscr{E}[^{\forall X_{1}.T}MH^{\forall X_{1}.T}\;(\Lambda X_{1}.e_{H})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\Lambda X_{2}.(^{T[X_{2}/X_{1}]}MH^{T[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{H})\;\lbrace X_{2}\rbrace))]$ \\
 % mh - universal hs
-$\mathscr{E}[^{\forall X.T}MH^{\forall X.T}\;(^{\forall X.T}HS\;v_{S})]_{H}$ & $\rightarrow$ & $\mathscr{E}[^{\forall X.T}MS\;v_{S}]$ \\
+$\mathscr{E}[^{\forall X.T}MH^{\forall X.T}\;(^{\forall X.T}HS\;v_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{\forall X.T}MS\;v_{S}]$ \\
 % ms - universal
 $\mathscr{E}[(^{\forall X.T_{1}}MS\;v_{S})\;\lbrace T_{2}\rbrace]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}[T^{a}_{2}/X]}MS\;v_{S}]$ \\
 % mh - list - head cons
@@ -35,6 +35,8 @@ $\mathscr{E}[^{[T]}MS\;\mathtt{nil}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt
 % ms - list error
 $\mathscr{E}[^{[T]}MS\;v_{S}^{1}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})]$ \\
 && ($v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ and $v_{S}^{1}\neq\mathtt{nil}$) \\
+% mh - lump
+$\mathscr{E}[^{L}MH^{L}\;(^{L}HS\;v_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{L}MS\;v_{S}]$ \\
 % ms - label
 $\mathscr{E}[^{T^{a}}MS\;(SM^{T^{a}}\;v_{M})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}]$ \\
 % ms - label error
