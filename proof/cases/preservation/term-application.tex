@@ -1,5 +1,5 @@
 \begin{case}
 $(\lambda x:T_{1}.e_{A}^{1})\;e_{A}^{2}\rightarrow e_{A}^{1}[e_{A}^{2}/x]$ where $A\in\lbrace H,M\rbrace$
 
-$\Gamma\vdash_{A}(\lambda x:T_{1}.e_{A}^{1})\;e_{A}^{2}:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=T_{2}$, $\Gamma\vdash_{A}\lambda x:T_{1}.e_{A}^{1}:T_{1}\rightarrow T_{2}$, $\Gamma,x:T_{1}\vdash_{A}e_{A}^{1}:T_{2}$, $\Gamma\vdash_{A}e_{A}^{2}:T_{1}$, and $\Gamma,x:T_{1}\vdash_{A}x:T_{1}$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{A}e_{A}^{1}[e_{A}^{2}/x]:T_{2}$ by term substitution (Lemma \ref{tms}).  $\Gamma\vdash_{A}e_{A}^{1}[e_{A}^{2}/x]:T$ because $T_{2}=T$.
+$\Gamma\vdash_{A}(\lambda x:T_{1}.e_{A}^{1})\;e_{A}^{2}:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{A}\lambda x:T_{1}.e_{A}^{1}:T_{1}\rightarrow T_{2}$, $\Gamma,x:T_{1}\vdash_{A}e_{A}^{1}:T_{2}$, $\Gamma\vdash_{A}e_{A}^{2}:T_{1}$, $\Gamma,x:T_{1}\vdash_{A}x:T_{1}$, and $T=T_{2}$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{A}e_{A}^{1}[e_{A}^{2}/x]:T_{2}$ by term substitution (Lemma \ref{tms}).  $\Gamma\vdash_{A}e_{A}^{1}[e_{A}^{2}/x]:T$ because $T_{2}=T$.
 \end{case}

@@ -1,5 +1,5 @@
 \begin{case}
 $^{\forall X.T_{1}}AB^{\forall X.T_{1}}\;(^{\forall X.T_{1}}BS\;v_{S})\rightarrow{^{\forall X.T_{1}}A}S\;v_{S}$ where $(A,B)\in\lbrace(H,M),(M,H)\rbrace$
 
-$\Gamma\vdash_{A}{^{\forall X.T_{1}}A}B^{\forall X.T_{1}}\;(^{\forall X.T_{1}}BS\;v_{S}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=\forall X.T_{1}$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{S}v_{S}:TST$ by inversion.  $\Gamma\vdash_{A}{^{\forall X.T_{1}}A}S\;v_{S}:\forall X.T_{1}$ by inversion and uniqueness of types.  $\Gamma\vdash_{A}{^{\forall X.T_{1}}A}S\;v_{S}:T$ because $\forall X.T_{1}=T$.
+$\Gamma\vdash_{A}{^{\forall X.T_{1}}A}B^{\forall X.T_{1}}\;(^{\forall X.T_{1}}BS\;v_{S}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}v_{S}:TST$ by inversion (Lemma \ref{i}).  $\Gamma\vdash_{B}{^{\forall X.T_{1}}B}S\;v_{S}:\forall X.T_{1}$, $T=\forall X.T_{1}$, and $\Gamma\vdash_{A}{^{\forall X.T_{1}}A}S\;v_{S}:\forall X.T_{1}$ by inversion and uniqueness of types.  $\Gamma\vdash_{A}{^{\forall X.T_{1}}A}S\;v_{S}:T$ because $\forall X.T_{1}=T$.
 \end{case}

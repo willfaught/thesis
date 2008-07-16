@@ -1,5 +1,5 @@
 \begin{case}
 $\mathtt{tl}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})\rightarrow v_{M}^{2}$
 
-$\Gamma\vdash_{M}\mathtt{tl}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=[T_{1}]$, $\Gamma\vdash_{M}\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}:[T_{1}]$, and $\Gamma\vdash_{M}v_{M}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{M}v_{M}^{2}:T$ because $[T_{1}]=T$.
+$\Gamma\vdash_{M}\mathtt{tl}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{M}v_{M}^{2}:[T_{1}]$, $\Gamma\vdash_{M}\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2}:[T_{1}]$, and $T=[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{M}v_{M}^{2}:T$ because $[T_{1}]=T$.
 \end{case}

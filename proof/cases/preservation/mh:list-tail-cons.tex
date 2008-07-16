@@ -1,5 +1,5 @@
 \begin{case}
-$\mathtt{tl}\;(^{[T_{1}]}MH^{[T_{1}]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))\rightarrow{^{[T_{1}]}M}H^{[T_{1}]}\;e_{H}^{2}$
+$\mathtt{tl}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{[T_{1}]}M}H^{[T_{1}]}$ $e_{H}^{2}$
 
-$\Gamma\vdash_{M}\mathtt{tl}\;(^{[T_{1}]}MH^{[T_{1}]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=T_{1}$, $\Gamma\vdash_{H}e_{H}^{1}:T_{1}$, and $^{[T_{1}]}MH^{[T_{1}]}\;e_{H}^{1}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $^{[T_{1}]}MH^{[T_{1}]}\;e_{H}^{2}:T$ because $[T_{1}]=T$.
+$\Gamma\vdash_{M}\mathtt{tl}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}e_{H}^{2}:[T_{1}]$, $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$, $\Gamma\vdash_{M}{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):[T_{1}]$, $T=[T_{1}]$, and $^{[T_{1}]}MH^{[T_{1}]}$ $e_{H}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $^{[T_{1}]}MH^{[T_{1}]}$ $e_{H}^{2}:T$ because $[T_{1}]=T$.
 \end{case}
