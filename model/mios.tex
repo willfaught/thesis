@@ -17,7 +17,7 @@ $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;(\lambda x_{1}.e_{S})]_{M}$ & $\righta
 $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})]$ \\
 && ($v_{S}\neq\lambda x.e_{S}$) \\
 % mh - universal
-$\mathscr{E}[^{\forall X_{1}.T}MH^{\forall X_{1}.T}\;(\Lambda X_{1}.e_{H})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\Lambda X_{2}.(^{T[X_{2}/X_{1}]}MH^{T[X_{2}/X_{1}]}\;((\Lambda X_{1}.e_{H})\;\lbrace X_{2}\rbrace))]$ \\
+$\mathscr{E}[^{\forall X.T}MH^{\forall X.T}\;(\Lambda X.e_{H})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\Lambda X.(^{T}MH^{T}\;e_{H})]$ \\
 % mh - universal hs
 $\mathscr{E}[^{\forall X.T}MH^{\forall X.T}\;(^{\forall X.T}HS\;v_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{\forall X.T}MS\;v_{S}]$ \\
 % ms - universal
@@ -28,6 +28,8 @@ $\mathscr{E}[\mathtt{hd}\;(^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})
 $\mathscr{E}[\mathtt{tl}\;(^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MH^{[T]}\;e_{H}^{2}]$ \\
 % ms - list - cons
 $\mathscr{E}[^{[T]}MS\;(\mathtt{cons}\;v_{S}^{1}\;v_{S}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}\;(^{T}MS\;v_{S}^{1})\;(^{[T]}MS\;v_{S}^{2})]$ \\
+% ms - list - sh cons
+$\mathscr{E}[^{[T]}MS\;(SH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})]$ \\
 % mh - list - nil
 $\mathscr{E}[^{[T]}MH^{[T]}\;\mathtt{nil}^{T}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
 % ms - list - nil
