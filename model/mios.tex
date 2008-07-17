@@ -3,47 +3,47 @@
 \begin{center}
 \begin{tabular}{rcl}
 % mh - number
-$\mathscr{E}[^{N}MH^{N}\;\overline{n}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
+$\mathscr{E}[^{N}MH^{N}$ $\overline{n}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
 % ms - number
-$\mathscr{E}[^{N}MS\;\overline{n}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
+$\mathscr{E}[^{N}MS$ $\overline{n}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
 % ms - number error
-$\mathscr{E}[^{N}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{N}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;number"})]$ \\
+$\mathscr{E}[^{N}MS$ $v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{N}MS$ $(\mathtt{wrong}$ ``Not a number"$)]$ \\
 && ($v_{S}\neq\overline{n}$) \\
 % mh - function
-$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MH^{T_{1}\rightarrow T_{2}}\;(\lambda x_{1}:T_{1}.e_{H})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}:T_{1}.(^{T_{2}}MH^{T_{2}}\;((\lambda x_{1}:T_{1}.e_{H})\;(^{T_{1}}HM^{T_{1}}\;x_{2})))]$ \\
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MH^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}.e_{H})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}:T_{1}.(^{T_{2}}MH^{T_{2}}$ $((\lambda x_{1}:T_{1}.e_{H})$ $(^{T_{1}}HM^{T_{1}}$ $x_{2})))]$ \\
 % ms - function
-$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;(\lambda x_{1}.e_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}MS\;((\lambda x_{1}.e_{S})\;(SM^{T_{1}}\;x_{2})))]$ \\
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS$ $(\lambda x_{1}.e_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}MS$ $((\lambda x_{1}.e_{S})$ $(SM^{T_{1}}$ $x_{2})))]$ \\
 % ms - function error
-$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;procedure"})]$ \\
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS$ $v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS$ $(\mathtt{wrong}$ ``Not a procedure"$)]$ \\
 && ($v_{S}\neq\lambda x.e_{S}$) \\
 % mh - universal
-$\mathscr{E}[^{\forall X.T}MH^{\forall X.T}\;(\Lambda X.e_{H})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\Lambda X.(^{T}MH^{T}\;e_{H})]$ \\
+$\mathscr{E}[^{\forall X.T}MH^{\forall X.T}$ $(\Lambda X.e_{H})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\Lambda X.(^{T}MH^{T}$ $e_{H})]$ \\
 % mh - universal hs
-$\mathscr{E}[^{\forall X.T}MH^{\forall X.T}\;(^{\forall X.T}HS\;v_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{\forall X.T}MS\;v_{S}]$ \\
+$\mathscr{E}[^{\forall X.T}MH^{\forall X.T}$ $(^{\forall X.T}HS$ $v_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{\forall X.T}MS$ $v_{S}]$ \\
 % ms - universal
-$\mathscr{E}[(^{\forall X.T_{1}}MS\;v_{S})\;\lbrace T_{2}\rbrace]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}[T^{a}_{2}/X]}MS\;v_{S}]$ \\
+$\mathscr{E}[(^{\forall X.T_{1}}MS$ $v_{S})$ $\lbrace T_{2}\rbrace]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T_{1}[T^{a}_{2}/X]}MS$ $v_{S}]$ \\
 % mh - list - head cons
-$\mathscr{E}[\mathtt{hd}\;(^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T}MH^{T}\;e_{H}^{1}]$ \\
+$\mathscr{E}[\mathtt{hd}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T}MH^{T}$ $e_{H}^{1}]$ \\
 % mh - list - tail cons
-$\mathscr{E}[\mathtt{tl}\;(^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MH^{[T]}\;e_{H}^{2}]$ \\
+$\mathscr{E}[\mathtt{tl}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MH^{[T]}$ $e_{H}^{2}]$ \\
 % ms - list - cons
-$\mathscr{E}[^{[T]}MS\;(\mathtt{cons}\;v_{S}^{1}\;v_{S}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}\;(^{T}MS\;v_{S}^{1})\;(^{[T]}MS\;v_{S}^{2})]$ \\
+$\mathscr{E}[^{[T]}MS$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{cons}$ $(^{T}MS$ $v_{S}^{1})$ $(^{[T]}MS$ $v_{S}^{2})]$ \\
 % ms - list - sh cons
-$\mathscr{E}[^{[T]}MS\;(SH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MH^{[T]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})]$ \\
+$\mathscr{E}[^{[T]}MS$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]$ \\
 % mh - list - nil
-$\mathscr{E}[^{[T]}MH^{[T]}\;\mathtt{nil}^{T}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
+$\mathscr{E}[^{[T]}MH^{[T]}$ $\mathtt{nil}^{T}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
 % ms - list - nil
-$\mathscr{E}[^{[T]}MS\;\mathtt{nil}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
+$\mathscr{E}[^{[T]}MS$ $\mathtt{nil}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
 % ms - list error
-$\mathscr{E}[^{[T]}MS\;v_{S}^{1}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MS\;(\mathtt{wrong}\;\mathrm{``Not\;a\;list"})]$ \\
-&& ($v_{S}^{1}\neq\mathtt{cons}\;v_{S}^{2}\;v_{S}^{3}$ and $v_{S}^{1}\neq\mathtt{nil}$) \\
+$\mathscr{E}[^{[T]}MS$ $v_{S}^{1}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{[T]}MS$ $(\mathtt{wrong}$ ``Not a list"$)]$ \\
+&& ($v_{S}^{1}\neq\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3}$ and $v_{S}^{1}\neq\mathtt{nil}$) \\
 % mh - lump
-$\mathscr{E}[^{L}MH^{L}\;(^{L}HS\;v_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{L}MS\;v_{S}]$ \\
+$\mathscr{E}[^{L}MH^{L}$ $(^{L}HS$ $v_{S})]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{L}MS$ $v_{S}]$ \\
 % ms - label
-$\mathscr{E}[^{T^{a}}MS\;(SM^{T^{a}}\;v_{M})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}]$ \\
+$\mathscr{E}[^{T^{a}}MS$ $(SM^{T^{a}}$ $v_{M})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}]$ \\
 % ms - label error
-$\mathscr{E}[^{T^{a}}MS\;v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T^{a}}MS\;(\mathtt{wrong}\;\mathrm{``Parametricity\;violated"})]$ \\
-&& ($v_{S}\neq SM^{T^{a}}\;v_{M}$)
+$\mathscr{E}[^{T^{a}}MS$ $v_{S}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T^{a}}MS$ $(\mathtt{wrong}$ ``Parametricity violated"$)]$ \\
+&& ($v_{S}\neq SM^{T^{a}}$ $v_{M}$)
 \end{tabular}
 \end{center}
 \caption{ML interoperation operational semantics}

@@ -2,17 +2,17 @@
 \onehalfspacing
 \begin{center}
 \begin{tabular}{rcl}
-$\mathscr{E}[(\lambda x:T.e_{M})\;v_{M}]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}[v_{M}/x]]$ \\
-$\mathscr{E}[(\Lambda X.e_{M})\;\lbrace T\rbrace]]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}[T/X]]$ \\
-$\mathscr{E}[\mathtt{if0}\;\overline{0}\;e_{M}^{1}\;e_{M}^{2}]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}^{1}]$ \\
-$\mathscr{E}[\mathtt{if0}\;\overline{n}\;e_{M}^{1}\;e_{M}^{2}]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}^{2}]\;(n\neq0)$ \\
-$\mathscr{E}[+\;\overline{n_{1}}\;\overline{n_{2}}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
-$\mathscr{E}[-\;\overline{n_{1}}\;\overline{n_{2}}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{max(n_{1}-n_{2},0)}]$ \\
-$\mathscr{E}[\mathtt{hd}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}^{1}]$ \\
-$\mathscr{E}[\mathtt{tl}\;(\mathtt{cons}\;v_{M}^{1}\;v_{M}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}^{2}]$ \\
-$\mathscr{E}[\mathtt{hd}\;\mathtt{nil}^{T}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T}MS\;(\mathtt{wrong}\;\mathrm{``Empty\;list"})]$ \\
-$\mathscr{E}[\mathtt{tl}\;\mathtt{nil}^{T}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
-$\mathscr{E}[\mathtt{fix}\;(\lambda x:T.e_{M})]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}[(\mathtt{fix}\;(\lambda x:T.e_{M}))/x]]$
+$\mathscr{E}[(\lambda x:T.e_{M})$ $v_{M}]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}[v_{M}/x]]$ \\
+$\mathscr{E}[(\Lambda X.e_{M})$ $\lbrace T\rbrace]]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}[T/X]]$ \\
+$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e_{M}^{1}$ $e_{M}^{2}]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}^{1}]$ \\
+$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e_{M}^{1}$ $e_{M}^{2}]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}^{2}]$ $(n\neq0)$ \\
+$\mathscr{E}[+$ $\overline{n_{1}}$ $\overline{n_{2}}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
+$\mathscr{E}[-$ $\overline{n_{1}}$ $\overline{n_{2}}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\overline{max(n_{1}-n_{2},0)}]$ \\
+$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}^{1}]$ \\
+$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{M}$ & $\rightarrow$ & $\mathscr{E}[v_{M}^{2}]$ \\
+$\mathscr{E}[\mathtt{hd}$ $\mathtt{nil}^{T}]_{M}$ & $\rightarrow$ & $\mathscr{E}[^{T}MS$ $(\mathtt{wrong}$ ``Empty list"$)]$ \\
+$\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}^{T}]_{M}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
+$\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{M})]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}[(\mathtt{fix}$ $(\lambda x:T.e_{M}))/x]]$
 \end{tabular}
 \end{center}
 \caption{ML core operational semantics}
