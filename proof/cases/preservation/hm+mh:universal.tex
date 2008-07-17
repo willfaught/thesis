@@ -1,5 +1,5 @@
 \begin{case}
-$^{\forall X.T_{1}}AB^{\forall X_{1}.T_{1}}\;(\Lambda X.e_{B})\rightarrow\Lambda X.(^{T_{1}}AB^{T_{1}}\;e_{B})$ where $(A,B)\in\lbrace(H,M),(M,H)\rbrace$
+$^{\forall X.T_{1}}AB^{\forall X_{1}.T_{1}}$ $(\Lambda X.e_{B})\rightarrow\Lambda X.(^{T_{1}}AB^{T_{1}}$ $e_{B})$ where $(A,B)\in\lbrace(H,M),(M,H)\rbrace$
 
-$\Gamma\vdash_{A}{^{\forall X.T_{1}}A}B^{\forall X.T_{1}}\;(\Lambda X_{1}.e_{B}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma,X\vdash_{B}e_{B}:T_{1}$, $\Gamma\vdash_{B}\Lambda X.e_{B}:\forall X.T_{1}$, $T=\forall X.T_{1}$, $\Gamma,X\vdash_{A}{^{T_{1}}A}B^{T_{1}}\;e_{B}:T_{1}$, and $\Gamma\vdash_{A}\Lambda X.(^{T_{1}}AB^{T_{1}}\;e_{B}):\forall X.T_{1}$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{A}\Lambda X.(^{T_{1}}AB^{T_{1}}\;e_{B}):T$ because $\forall X.T_{1}=T$.
+$\Gamma\vdash_{A}{^{\forall X.T_{1}}A}B^{\forall X.T_{1}}$ $(\Lambda X_{1}.e_{B}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma,X\vdash_{B}e_{B}:T_{1}$, $\Gamma\vdash_{B}\Lambda X.e_{B}:\forall X.T_{1}$, $T=\forall X.T_{1}$, $\Gamma,X\vdash_{A}{^{T_{1}}A}B^{T_{1}}$ $e_{B}:T_{1}$, and $\Gamma\vdash_{A}\Lambda X.(^{T_{1}}AB^{T_{1}}$ $e_{B}):\forall X.T_{1}$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{A}\Lambda X.(^{T_{1}}AB^{T_{1}}$ $e_{B}):T$ because $\forall X.T_{1}=T$.
 \end{case}
