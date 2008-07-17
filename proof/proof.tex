@@ -5,11 +5,32 @@
 \newtheorem{case}{Case}[theorem]
 \newtheorem{subcase}{Case}[case]
 \begin{document}
+The soundness of the type system must be proven for the model to be useful.  Soundness is ensured if progress of terms and preservation of types are ensured.  Progress ensures that a well-typed, closed term either is a value, reduces to another term, or reduces to an error.  Preservation ensures that if a well-typed term reduces to another term, the other term is well-typed and has the same type.  Proving progress and preservation proves soundness.
+
+Progress will be proven by structural induction on a term of each syntactic form.  In each case, the term will be proven to be either a value, reducible to another term, or reducible to an error.  If a subterm is reducible to another term, the reduction of the term substitutes the new subterm for the old subterm.  If a subterm is reducible to an error, the term reduces to the error.  If no subterms are reducible but the term is reducible, the syntactic forms of its subterms must be determined to perform the reduction.  Since the term is well-typed, its subterms are well-typed, and thus the typing relations can be inverted to calculate its type from the types of its subterms.
+
 \input{lemmas/progress/inversion.tex}
+
+The type system ensures that a well-typed term has one unique type.
+
 \input{lemmas/progress/uniqueness-of-types.tex}
+
+Once the type of an irreducible subterm is determined, its syntactic form can be determined.
+
 \input{lemmas/progress/canonical-forms.tex}
+
+If the term is irreducible, it is a value.
+
 \input{theorems/progress.tex}
+
+Preservation will be proven by cases on the reduction rules.  In each case, the new term will be proven to be well-typed and have the same type as the old term.  Inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) will be used to determine the type of the old term, the types of the subterms of the old term that occur within the new term, and the type of the new term.  Some reduction rules use substitution.
+
+Term substitution substitutes one term for a second term within a third term.  The result of a term substitution has the same type as the third term.
+
 \input{lemmas/preservation/term-substitution.tex}
+
+Type substitution substitutes a type for a type variable within a term.  The type of the result is the type substituted for the type variable within the term.
+
 \input{lemmas/preservation/type-substitution.tex}
 \input{lemmas/preservation/evaluation-context-preservation.tex}
 \input{theorems/preservation.tex}
