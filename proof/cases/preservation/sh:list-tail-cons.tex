@@ -1,5 +1,5 @@
 \begin{case}
-$\mathtt{tl}\;(SH^{[T_{1}]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}))\rightarrow SH^{[T_{1}]}\;e_{H}^{2}$
+$\mathtt{tl}$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{[T_{1}]}$ $e_{H}^{2}$
 
-$\Gamma\vdash_{S}\mathtt{tl}\;(SH^{[T_{1}]}\;(\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2})):TST$ by premise.  $\Gamma\vdash_{H}e_{H}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SH^{[T_{1}]}\;e_{H}^{2}:TST$ by inversion.
+$\Gamma\vdash_{S}\mathtt{tl}$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):TST$ by premise.  $\Gamma\vdash_{H}e_{H}^{2}:[T_{1}]$ and $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):TST$ and $\Gamma\vdash_{S}SH^{[T_{1}]}$ $e_{H}^{2}:TST$ by inversion.
 \end{case}
