@@ -1,0 +1,27 @@
+\chapter{Model of Computation}
+
+Extended lambda calculi represent the languages.  The lambda calculus is a simple model of computation that embodies the notions of abstracting patterns into functions and applying function abstractions to concrete instances of patterns.  Computation is done by substituting function arguments for free occurrences of corresponding variables within function bodies.  Interoperation between calculi is represented by nesting one language within another as an expression embedded within special syntactic forms that indicate a change of language and expected types of expressions for either side of the boundary.
+
+\section{Haskell}
+
+The Haskell calculus extends the lambda calculus in several ways.  It adds a type system called System F, which provides parametric polymorphism whereby the types of terms can be parameterized and instantiated for specific types.  Types are defined explicitly by annotations for function parameters and for other terms, type abstractions for parameterizing the type of a term, and type applications for instantiating a type abstraction with a type.  The presence of explicit types enables the type of any term to be determined, which can be used to determine whether a type error would occur if the term were evaluated.  If no type errors would occur, the term is said to be well-typed; otherwise, it is said to be ill-typed or to have no type.
+
+The addition of System F renders the calculus unequivalent to a Turing machine because recursive functions cannot have types.  To enable recursion and restore Turing equivalence, a fixed-point operator is added.  The fixed-point operator consumes a function that takes as its parameter its body and produces the body rendered recursive.
+
+In addition, it adds natural numbers, addition and subtraction operations to combine natural numbers, and conditions to choose behavior according to natural numbers.  It adds lists, which are either a construction of head and tail expressions or empty and operations that access head and tail expressions.
+
+A value is a term that is irreducible to any other term and is also called a normal form.  An expression can be a value or any other reducible expression.
+
+\subsection{Core Terms}
+
+Haskell values, denoted $v_{H}$, are comprised of natural numbers, denoted $\overline{n}$; functions, denoted $\lambda x:T.e_{H}$; type abstractions, denoted $\Lambda X.e_{H}$; list constructions, denoted $\mathtt{cons}$ $e_{H}$ $e_{H}$; and empty lists, denoted $\mathtt{nil}^{T}$.  Haskell expressions, denoted $e_{H}$, are comprised of variables, denoted $x$; applications, denoted $e_{H}$ $e_{H}$; type applications, denoted $e_{H}$ $\lbrace T\rbrace$; conditions, denoted $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$; arithmetic operations, denoted $+$ $e_{H}$ $e_{H}$ and $-$ $e_{H}$ $e_{H}$, accessors for list heads and tails, denoted $\mathtt{hd}$ $e_{H}$ and $\mathtt{tl}$ $e_{H}$; and fixed-point operations, denoted $\mathtt{fix}$ $e_{H}$.  Types, denoted $T$, are comprised of natural numbers, denoted $N$; type variables, denoted $X$; functions, denoted $T\rightarrow T$; universal types, denoted $\forall X.T$; and lists, denoted $[T]$.
+
+\subsection{Core Typing Rules}
+
+\subsection{Core Operational Semantics}
+
+\subsection{Interoperation Terms}
+
+\subsection{Interoperation Typing Rules}
+
+\subsection{Interoperation Operational Semantics}
