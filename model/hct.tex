@@ -1,5 +1,7 @@
 \begin{figure}
-\onehalfspacing
+\label{hct}
+\caption{Haskell core terms}
+%\onehalfspacing
 \begin{center}
 \begin{tabular}{lcl}
 $e_{H}$ & $=$ & $x$ $\vert$ $v_{H}$ $\vert$ $e_{H}$ $e_{H}$ $\vert$ $e_{H}$ $\lbrace T\rbrace$ $\vert$ $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$ $\vert$ $o$ $e_{H}$ $e_{H}$ $\vert$ $f$ $e_{H}$ $\vert$ $\mathtt{fix}$ $e_{H}$ \\
@@ -9,9 +11,8 @@ $o$ & $=$ & $\mathtt{+}$ $\vert$ $\mathtt{-}$ \\
 $f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
 $T$ & $=$ & $N$ $\vert$ $X$ $\vert$ $T\rightarrow T$ $\vert$ $\forall X.T$ $\vert$ $[T]$ \\
 $X$ & $=$ & Type variables \\
-$E_{H}$ & $=$ & $[\,]_{H}$ $\vert$ $E_{H}$ $e_{H}$ $\vert$ $E_{H}$ $\lbrace T\rbrace$ $\vert$ $\mathtt{if0}$ $E_{H}$ $e_{H}$ $e_{H}$ $\vert$ $o$ $E_{H}$ $e_{H}$ $\vert$ $o$ $\overline{n}$ $E_{H}$ $\vert$ $f$ $E_{H}$ $\vert$ $\mathtt{fix}$ $E_{H}$
+$E_{H}$ & $=$ & $[\,]_{H}$ $\vert$ $E_{H}$ $e_{H}$ $\vert$ $E_{H}$ $\lbrace T\rbrace$ $\vert$ $\mathtt{if0}$ $E_{H}$ $e_{H}$ $e_{H}$ $\vert$ $o$ $E_{H}$ $e_{H}$ $\vert$ $o$ $\overline{n}$ $E_{H}$ $\vert$ $f$ $E_{H}$ \\
+&& $\vert$ $\mathtt{fix}$ $E_{H}$
 \end{tabular}
 \end{center}
-\caption{Haskell core terms}
-\label{fig:hct}
 \end{figure}

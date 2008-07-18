@@ -1,33 +1,45 @@
 \documentclass[12pt]{ucthesis}
-\newif\ifpdf
-\ifx\pdfoutput\undefined
-  \pdffalse % we are not running PDFLaTeX
+\newif \ifpdf
+\ifx \pdfoutput \undefined
+  \pdffalse
 \else
-\pdfoutput=1 % we are running PDFLaTeX
-\pdftrue \fi
+  \pdfoutput=1
+  \pdftrue
+\fi
 \usepackage{url}
 \ifpdf
   \usepackage[pdftex]{graphicx}
-  % Update title and author below...
-  \usepackage[pdftex,plainpages=false,breaklinks=true,colorlinks=true,urlcolor=blue,citecolor=blue,
-                                       linkcolor=blue,bookmarks=true,bookmarksopen=true,
-                                       bookmarksopenlevel=3,pdfstartview=FitV,
-                                       pdfauthor={!!Author goes here!!},
-                                       pdftitle={!!Title goes here!!},
-                                       pdfkeywords={thesis, masters, cal poly}
-                                       ]{hyperref}
-    %Options with pdfstartview are FitV, FitB and FitH
-    \pdfcompresslevel=1
+  \usepackage[pdftex,
+    plainpages=false,
+    breaklinks=true,
+    colorlinks=true,
+    urlcolor=blue,
+    citecolor=blue,
+    linkcolor=blue,
+    bookmarks=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=3,
+    pdfstartview=FitV,
+    pdfauthor={William Faught},
+    pdftitle={Interoperation Between Haskell, ML, and Scheme},
+    pdfkeywords={thesis, masters, cal poly}]{hyperref}
+  \pdfcompresslevel=1
 \else
   \usepackage{graphicx}
 \fi
 
-\usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage[letterpaper]{geometry}
-\usepackage[overload]{textcase}
 \usepackage{mathrsfs}
 \usepackage{setspace}
+\usepackage[overload]{textcase}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{case}{Case}[theorem]
+\newtheorem{subcase}{Case}[case]
 
 \bibliographystyle{abbrv}
 
@@ -37,26 +49,24 @@
 
 \setcounter{tocdepth}{2}
 
-% Different font in captions (single-spaced, bold) ------------
 \newcommand{\captionfonts}{\small\bf\ssp}
 
-\makeatletter  % Allow the use of @ in command names
+\makeatletter
 \long\def\@makecaption#1#2{%
   \vskip\abovecaptionskip
-  \sbox\@tempboxa{{\captionfonts #1: #2}}%
-  \ifdim \wd\@tempboxa >\hsize
+  \sbox\@tempboxa{{\captionfonts #1: #2}}
+  \ifdim \wd \@tempboxa > \hsize
     {\captionfonts #1: #2\par}
   \else
-    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+    \hbox to \hsize{\hfil\box\@tempboxa\hfil}
   \fi
   \vskip\belowcaptionskip}
-\makeatother   % Cancel the effect of \makeatletter
-% ---------------------------------------
+\makeatother
 
 \begin{document}
 
 \title{Interoperation Between Haskell, ML, and Scheme}
-\author{Will Faught}
+\author{William Faught}
 \degreemonth{June}
 \degreeyear{2008}
 \degree{Master of Science}
@@ -76,10 +86,10 @@
 \copyrightpage
 \approvalpage
 \begin{abstract}
-[Abstract]
+[TODO]
 \end{abstract}
 \begin{acknowledgements}
-[Acknowledgements]
+[TODO]
 \end{acknowledgements}
 \addcontentsline{toc}{chapter}{Contents}
 \tableofcontents
@@ -91,12 +101,8 @@
 \pagestyle{plain}
 \renewcommand{\baselinestretch}{1.66}
 
-% Begin content
-
 \input{chapter-1.tex}
 \input{chapter-2.tex}
-
-% End content
 
 \clearpage
 \bibliography{bibliography}

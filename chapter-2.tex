@@ -10,11 +10,15 @@ The addition of System F renders the calculus unequivalent to a Turing machine b
 
 In addition, it adds natural numbers, addition and subtraction operations to combine natural numbers, and conditions to choose behavior according to natural numbers.  It adds lists, which are either a construction of head and tail expressions or empty and operations that access head and tail expressions.
 
-A value is a term that is irreducible to any other term and is also called a normal form.  An expression can be a value or any other reducible expression.
+Furthermore, it imposes a lazy evaluation strategy where function arguments are not evaluated before term substitution.
 
 \subsection{Core Terms}
 
-Haskell values, denoted $v_{H}$, are comprised of natural numbers, denoted $\overline{n}$; functions, denoted $\lambda x:T.e_{H}$; type abstractions, denoted $\Lambda X.e_{H}$; list constructions, denoted $\mathtt{cons}$ $e_{H}$ $e_{H}$; and empty lists, denoted $\mathtt{nil}^{T}$.  Haskell expressions, denoted $e_{H}$, are comprised of variables, denoted $x$; applications, denoted $e_{H}$ $e_{H}$; type applications, denoted $e_{H}$ $\lbrace T\rbrace$; conditions, denoted $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$; arithmetic operations, denoted $+$ $e_{H}$ $e_{H}$ and $-$ $e_{H}$ $e_{H}$, accessors for list heads and tails, denoted $\mathtt{hd}$ $e_{H}$ and $\mathtt{tl}$ $e_{H}$; and fixed-point operations, denoted $\mathtt{fix}$ $e_{H}$.  Types, denoted $T$, are comprised of natural numbers, denoted $N$; type variables, denoted $X$; functions, denoted $T\rightarrow T$; universal types, denoted $\forall X.T$; and lists, denoted $[T]$.
+A term is any instance of any syntactic form.  A reduction or evaluation is a step of computation that applies a rewrite rule to a term.  A value is a term that is irreducible.  An expression is a value or a reducible term.
+
+Haskell values, denoted $v_{H}$, are comprised of natural numbers, denoted $\overline{n}$; functions, denoted $\lambda x:T.e_{H}$; type abstractions, denoted $\Lambda X.e_{H}$; list constructions, denoted $\mathtt{cons}$ $e_{H}$ $e_{H}$; and empty lists, denoted $\mathtt{nil}^{T}$.  Haskell expressions, denoted $e_{H}$, are comprised of variables, denoted $x$; term applications, denoted $e_{H}$ $e_{H}$; type applications, denoted $e_{H}$ $\lbrace T\rbrace$; conditions, denoted $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$; arithmetic operations, denoted $+$ $e_{H}$ $e_{H}$ and $-$ $e_{H}$ $e_{H}$, accessors for list heads and tails, denoted $\mathtt{hd}$ $e_{H}$ and $\mathtt{tl}$ $e_{H}$; and fixed-point operations, denoted $\mathtt{fix}$ $e_{H}$.  Types, denoted $T$, are comprised of natural numbers, denoted $N$; type variables, denoted $X$; functions, denoted $T\rightarrow T$; universal types, denoted $\forall X.T$; and lists, denoted $[T]$.  Haskell evaluation contexts, denoted $E_{H}$, determine the evaluation strategy by constraining which term matches with the Haskell hole, denoted $[\,]_{H}$.  A Haskell evaluation context can be the Haskell hole, the left term of a term application, the left term of a type application, the guard of a condition, the left operand of an arithmetic operation, the right operand of an arithmetic operation if the left operand is a natural number, the operand of a head or tail access operation, or the operand of a fixed-point operation.  Haskell core terms are summarized in Figure \ref{hct}.
+
+\input{model/hct.tex}
 
 \subsection{Core Typing Rules}
 
