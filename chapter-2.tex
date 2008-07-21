@@ -62,3 +62,21 @@ The natural number $\overline{0}$ represents true and all other values of any ty
 
 \section{Interoperation Model}
 
+The core calculi are extended to express interoperation between the languages.  For each pairing of a sending and receiving language, a new expression and its typing rule is added to the interoperation calculus that represents the boundary between the two languages and the actual and expected types of the value crossing the boundary, if any.  A rewrite rule for each type and value crossing a boundary are added to the interoperation calculus.
+
+The expression $^{T_{1}}HM^{T_{2}}$ $e_{M}$ denotes the ML expression $e_{M}$ with the actual type $T_{1}$ crossing from ML to Haskell with the expected type $T_{2}$.  $T_{1}$ and $T_{2}$ must be well-formed according to the Haskell and ML typing rules, respectively; $T_{1}$ must equal $T_{2}$; and $e_{M}$ must have type $T_{2}$ for $^{T_{1}}HM^{T_{2}}$ $e_{M}$ to have type $T_{1}$.  The expression $^{T}HS$ $e_{S}$ denotes the Scheme expression $e_{S}$ with the actual type $TST$ crossing from Scheme to Haskell with the expected type $T$.  The $TST$ type superscript on the Scheme side of the boundary is omitted because every well-typed Scheme expression has type $TST$.  $T$ must be well-formed and $e_{S}$ must have type $TST$ for $^{T}HS$ $e_{S}$ to have type $T$.  The other boundary expressions, denoted $^{T_{1}}MH^{T_{2}}$ $e_{H}$, $^{T}MS$ $e_{S}$, $SH^{T}$ $e_{H}$, and $SM^{T}$ $e_{M}$, have similar meanings and typing rules.
+
+\subsection{Natural Numbers}
+
+
+
+\subsection{Functions}
+
+
+
+\subsection{Universal Types}
+
+
+
+\subsection{Lists}
+
