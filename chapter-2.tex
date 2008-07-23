@@ -2,7 +2,7 @@
 
 Extended lambda calculi represent the languages.  The lambda calculus is a simple model of computation that embodies the notions of abstracting patterns into functions and applying function abstractions to concrete instances of patterns.  Computation is done by substituting function arguments for free occurrences of corresponding variables within function bodies.  Interoperation between calculi is represented by nesting one language within another as an expression embedded within special syntactic forms that indicate a change of language and expected types of expressions for either side of the boundary.
 
-\section{Core Model}
+\section{Core Calculi}
 
 \subsection{Haskell}
 
@@ -18,19 +18,13 @@ An expression is an instance of any syntactic form.  A reduction or evaluation i
 
 Haskell values, denoted $v_{H}$, are comprised of natural numbers, denoted $\overline{n}$, which syntactically represents the natural number $n$; functions, denoted $\lambda x:T.e_{H}$; type abstractions, denoted $\Lambda X.e_{H}$; list constructions, denoted $\mathtt{cons}$ $e_{H}$ $e_{H}$; and empty lists, denoted $\mathtt{nil}^{T}$.  Haskell expressions, denoted $e_{H}$, are comprised of variables, denoted $x$; term applications, denoted $e_{H}$ $e_{H}$; type applications, denoted $e_{H}$ $\lbrace T\rbrace$; conditions, denoted $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$; arithmetic operations, denoted $+$ $e_{H}$ $e_{H}$ and $-$ $e_{H}$ $e_{H}$, list head and tail accessor operations, denoted $\mathtt{hd}$ $e_{H}$ and $\mathtt{tl}$ $e_{H}$; and fixed-point operations, denoted $\mathtt{fix}$ $e_{H}$.  Types, denoted $T$, are comprised of natural numbers, denoted $N$; type variables, denoted $X$; functions, denoted $T\rightarrow T$; universal types, denoted $\forall X.T$; and lists, denoted $[T]$.  Haskell evaluation contexts, denoted $E_{H}$, determine the evaluation strategy by constraining which term matches with the Haskell hole, denoted $[\,]_{H}$.  A Haskell evaluation context can be the Haskell hole, the left term of a term application, the left term of a type application, the guard of a condition, the left operand of an arithmetic operation, the right operand of an arithmetic operation if the left operand is a natural number, the operand of a head or tail access operation, or the operand of a fixed-point operation.  Haskell core terms are summarized in Figure \ref{hct}.
 
-\input{model/hct.tex}
-
 All variables and type variables in all languages must be unique.  Alpha conversion is implicitly used to resolve name conflicts.
 
 Number superscripts of grammar non-terminals denote individual instances of them.
 
 A Haskell type statement can assert a type $T$ is well-formed and contains zero or more free type variables that are in some context $\Gamma$, denoted $\Gamma\vdash_{H}T$.  If a type $T$ is well-formed but contains no free type variables, the context can be omitted, denoted $\vdash_{H}T$.  It can also assert the type $T$ of a term $e_{H}$, denoted $\Gamma\vdash_{H}e_{H}:T$.  A new context can be constructed from an old context $\Gamma$ by extending it with type variables and variable-type associations, denoted $\Gamma,X$ and $\Gamma,x:T$, respectively.  The letter subscript of the type judgment symbol $\vdash$ indicates the typing rules of which language to use.  Type substitution substitutes one type for a second type within a third type, denoted $T_{3}[T_{1}/T_{2}]$.  The Haskell core typing rules are in Figure \ref{hctr}.
 
-\input{model/hctr.tex}
-
-Expression substitution substitutes one expression, $e_{H}^{1}$, for a variable, $x$, within a second expression, $e_{H}^{2}$, denoted $e_{H}^{2}[e_{H}^{1}/x]$. All rewrite rules are defined with an unspecified evaluation context $\mathscr{E}$.  The evaluation of a single language would instantiate $\mathscr{E}$ to $E_{H}$ for Haskell, to $E_{M}$ for ML, and to $E_{S}$ for Scheme.  The evaluation of multiple languages would instantiate $\mathscr{E}$ according to the language in which programs begin and end.  The Haskell core operational semantics are in Figure \ref{hcos}.
-
-\input{model/hcos.tex}
+Expression substitution substitutes one expression, $e_{H}^{1}$, for a variable, $x$, within a second expression, $e_{H}^{2}$, denoted $e_{H}^{2}[e_{H}^{1}/x]$.  Any instances of variables that occur only on the right side of a rewrite rule are new and unique and thus do not create a name conflict with other variables.  All rewrite rules are defined with an unspecified evaluation context $\mathscr{E}$.  The evaluation of a single language would instantiate $\mathscr{E}$ to $E_{H}$ for Haskell, to $E_{M}$ for ML, and to $E_{S}$ for Scheme.  The evaluation of multiple languages would instantiate $\mathscr{E}$ according to the language in which programs begin and end.  The Haskell core operational semantics are in Figure \ref{hcos}.
 
 \subsection{ML}
 
@@ -40,43 +34,64 @@ In addition, in Haskell, function arguments are not evaluated, but they are in M
 
 The rest is identical to Haskell.  The ML core terms are in Figure \ref{mct}.  The ML typing rules are in Figure \ref{mctr}.  The ML core operational semantics are in Figure \ref{mcos}.
 
-\input{model/mct.tex}
-\input{model/mctr.tex}
-\input{model/mcos.tex}
-
 \subsection{Scheme}
 
 Scheme is identical to ML except it removes the static type system and adds a dynamic type system.  Those terms, type annotations for terms, evaluation contexts, and rewrite rules the static type system added to the Haskell and ML calculi are removed from the Scheme calculus.  Specifically, the terms $\Lambda X.e_{S}$, $e_{S}$ $\lbrace T\rbrace$, and $\mathtt{fix}$ $e_{S}$; the type annotation in the terms $\lambda x:T.e_{S}$ and $\mathtt{nil}^{T}$; the evaluation contexts $E_{S}$ $\lbrace T\rbrace$ and $\mathtt{fix}$ $E_{S}$; and the rewrite rules $\mathscr{E}[(\Lambda X.e_{S})$ $\lbrace T\rbrace]_{S}\rightarrow\mathscr{E}[e_{S}[T/X]]$ and $\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{S})]_{S}\rightarrow\mathscr{E}[e_{S}[(\mathtt{fix}$ $(\lambda x:T.e_{S}))/x]]$ are removed.
 
 The dynamic type system provides type predicates that determine the types of values at run time and a mechanism for signaling type errors.  The expression $\mathtt{nat?}$ $e_{S}$ determines if $e_{S}$ is a natural number.  The expression $\mathtt{list?}$ $e_{S}$ determines if $e_{S}$ is a list.  The expression $\mathtt{proc?}$ $e_{S}$ determines if $e_{S}$ is a function.  The expression $\mathtt{wrong}$ string signals an error with the corresponding explanation.  Scheme evaluation contexts can also be the argument of a type predicate, denoted $\mathtt{nat?}$ $E_{S}$, $\mathtt{list?}$ $E_{S}$, and $\mathtt{proc?}$ $E_{S}$.  The Scheme core terms and evaluation contexts are in Figure \ref{sct}.
 
-\input{model/sct.tex}
-
 There is one Scheme type called The Scheme Type, $TST$.  Every well-typed term and subterm has type $TST$.  The purpose of Scheme types is merely to ensure that all free variables are in some context $\Gamma$.  The Scheme core typing rules are in Figure \ref{sctr}.
-
-\input{model/sctr.tex}
 
 The natural number $\overline{0}$ represents true and all other values of any type represent false.  As such, the condition expression reduces to the true alternative if the guard is $\overline{0}$ and to the false alternative otherwise.  The type predicate expressions reduce to $\overline{0}$ if the predicate is true and the natural number $\overline{1}$ if the predicate is false.  The wrong expression discards the current evaluation context and signals an error with an explanation.  Since type errors can occur at run time, rewrite rules must be added to handle such cases by signaling an an error with an explanation.  The Scheme core operational semantics are in Figure \ref{scos}.
 
+\input{model/hct.tex}
+\input{model/hctr.tex}
+\input{model/hcos.tex}
+\input{model/mct.tex}
+\input{model/mctr.tex}
+\input{model/mcos.tex}
+\input{model/sct.tex}
+\input{model/sctr.tex}
 \input{model/scos.tex}
 
-\section{Interoperation Model}
+\section{Interoperation Calculi}
 
-The core calculi are extended to express interoperation between the languages.  For each pairing of a sending and receiving language, a new expression and its typing rule is added to the interoperation calculus that represents the boundary between the two languages and the actual and expected types of the value crossing the boundary, if any.  A rewrite rule for each type and value crossing a boundary are added to the interoperation calculus.
+The interoperation calculi extend the core calculi with new expressions, evaluation contexts, typing rules, and rewrite rules to enable language interoperation.  For each pairing of sending and receiving languages, the interoperation calculi must represent a value with an actual and expected type crossing the boundary from the sending language to the receiving language.  Boundary expressions are denoted by a two-letter acronym, where the first letter names the receiving language and the second letter names the sending language.  The expected and actual types are superscripts to the left and right of the first and second letters, respectively.  The expression to be reduced to a value and cross from the sending language to the receiving language is to the right of the letters and types and separated by a space.  For example, the expression $^{T_{1}}HM^{T_{2}}$ $e_{M}$ denotes the ML expression $e_{M}$ with the actual type $T_{2}$ and the expected type $T_{1}$ crossing the boundary from ML to Haskell.  $T_{1}$ and $T_{2}$ must be well-formed according to the Haskell and ML typing rules, respectively; $T_{1}$ must equal $T_{2}$; and $e_{M}$ must have type $T_{2}$ for $^{T_{1}}HM^{T_{2}}$ $e_{M}$ to have type $T_{1}$.  Since all well-typed Scheme expressions have type $TST$, $TST$ is omitted for expected and actual types of boundary expressions.  For each boundary expression, the interoperation calculi add rewrite rules for every combination of sending and receiving languages, expected and actual types, and syntactic form of values.  Rewrite rules for Scheme values crossing boundaries verify the syntactic forms of the values match the expected types.
 
-The expression $^{T_{1}}HM^{T_{2}}$ $e_{M}$ denotes the ML expression $e_{M}$ with the actual type $T_{1}$ crossing from ML to Haskell with the expected type $T_{2}$.  $T_{1}$ and $T_{2}$ must be well-formed according to the Haskell and ML typing rules, respectively; $T_{1}$ must equal $T_{2}$; and $e_{M}$ must have type $T_{2}$ for $^{T_{1}}HM^{T_{2}}$ $e_{M}$ to have type $T_{1}$.  The expression $^{T}HS$ $e_{S}$ denotes the Scheme expression $e_{S}$ with the actual type $TST$ crossing from Scheme to Haskell with the expected type $T$.  The $TST$ type superscript on the Scheme side of the boundary is omitted because every well-typed Scheme expression has type $TST$.  $T$ must be well-formed and $e_{S}$ must have type $TST$ for $^{T}HS$ $e_{S}$ to have type $T$.  The other boundary expressions, denoted $^{T_{1}}MH^{T_{2}}$ $e_{H}$, $^{T}MS$ $e_{S}$, $SH^{T}$ $e_{H}$, and $SM^{T}$ $e_{M}$, have similar meanings and typing rules.
+[!!! add eval contexts for boundary exp exp]
 
 \subsection{Natural Numbers}
 
-
+Natural numbers remain unchanged when they cross boundaries because all of the languages have the same number domain.  For example, $^{N}HM^{N}$ $\overline{n}\rightarrow\overline{n}$.  In the cases of $^{N}HS$ $v_{S}$ and $^{N}MS$ $v_{S}$, where $v_{S}$ is not a natural number, the boundary expressions reduce to type errors that explain that the Scheme value is not a natural number.
 
 \subsection{Functions}
 
-
+Functions cannot be directly converted when they cross boundaries because each language grammar is different, Haskell and ML do not have a reasonable equivalent for every Scheme function, and functions may behave differently if they are evaluated with a different evaluation strategy.  Instead, a function from the sending language is wrapped inside a function from the receiving language with a boundary expression.  The wrapper function passes its argument across a boundary from the receiving language to the sending language.  Within the sending language, the original function is applied to the argument, and the result is passed back across a boundary to the receiving language.  The wrapper function produces the result from the sending language as its result.  To do this, a language is allowed to perform substitution within itself across boundaries.  For example, the Scheme function $\lambda x_{1}.e_{S}$ represented in Haskell with type $T_{1}\rightarrow T_{2}$ is $\lambda x_{2}:T_{1}.(^{T_{2}}HS$ $((\lambda x_{1}.e_{S})$ $(SH^{T_{1}}$ $x_{2})))$.  If the Haskell function is applied to an argument, the argument crosses the $SH^{T_{1}}$ boundary from Haskell to Scheme, the Scheme function is applied to it, and its result crosses the $^{T_{2}}HS$ boundary from Scheme back to Haskell, which becomes the result of the function application.
 
 \subsection{Universal Types}
 
+If the expected and actual types of a boundary expression are a universal type, $\forall X.T$ for example, the contained value is either a type abstraction or a Scheme value contained within another boundary expression.  If it is a type abstraction, $\Lambda X.e_{M}$ for example, the boundary expression reduces to a type abstraction of the same type variable $X$ for a boundary with expected and actual type $T$ containing $e_{M}$.  Therefore $^{\forall X.T}HM^{\forall X.T}$ $(\Lambda X.e_{M})\rightarrow\Lambda X.(^{T}HM^{T}$ $e_{M})$.  If it is some Scheme value contained within another boundary expression, $^{\forall X.T}MS$ $v_{S}$ for example, the boundary expression reduces to a new boundary expression where the $v_{S}$ crosses from Scheme to ML with expected type $\forall X.T$ and actual type $TST$.  Therefore $^{\forall X.T}HM^{\forall X.T}$ $(^{\forall X.T}MS$ $v_{S})\rightarrow{^{\forall X.T}H}S$ $v_{S}$.
 
+If the expected and actual types of a boundary expression are a universal type, $\forall X.T$ for example, and $TST$, respectively, the contained value is a Scheme value, $v_{S}$ for example.  Such a boundary expression cannot be reduced because Scheme does not have universal types.  Therefore $^{\forall X.T}HS$ $v_{S}$ and $^{\forall X.T}MS$ $v_{S}$ are values.  Instead, such a boundary expression can be applied to a type like a type abstraction, which substitutes the type argument for $X$ within $T$ for its expected and actual types.  Therefore $(^{\forall X.T_{1}}HS$ $v_{S})$ $\lbrace T_{2}\rbrace\rightarrow{^{T_{1}[T^{a}_{2}/X]}H}S$ $v_{S}$.  Following the type substitution, if its expected type is another universal type, it can only be reduced by applying it to another type.
+
+If the expected and actual types of a boundary expression are $TST$ and a universal type, $\forall X.T$ for example, respectively, the contained value is a type abstraction or a Scheme value contained within another boundary expression.  If the contained value is a type abstraction, the actual type must be instantiated with, and the type abstraction must be applied to, a new type that will prevent any polymorphic functions inside the type abstraction that contain $X$ from examining the arguments they are applied to.  mthe lump type $L$ is substituted 
+
+$SH^{\forall X.T}$ $(\Lambda X.e_{H})\rightarrow SH^{T[L/X]}$ $((\Lambda X.e_{H})$ $\lbrace L\rbrace)$
 
 \subsection{Lists}
 
+
+
+\subsection{Protecting Parametricity}
+
+
+
+%\input{model/hit.tex}
+%\input{model/hitr.tex}
+%\input{model/hios.tex}
+%\input{model/mit.tex}
+%\input{model/mitr.tex}
+%\input{model/mios.tex}
+%\input{model/sit.tex}
+%\input{model/sitr.tex}
+%\input{model/sios.tex}
