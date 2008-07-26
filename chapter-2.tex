@@ -70,28 +70,45 @@ Functions cannot be directly converted when they cross boundaries because each l
 
 \subsection{Universal Types}
 
-If the expected and actual types of a boundary expression are a universal type, $\forall X.T$ for example, the contained value is either a type abstraction or a Scheme value contained within another boundary expression.  If it is a type abstraction, $\Lambda X.e_{M}$ for example, the boundary expression reduces to a type abstraction of the same type variable $X$ for a boundary with expected and actual type $T$ containing $e_{M}$.  Therefore $^{\forall X.T}HM^{\forall X.T}$ $(\Lambda X.e_{M})\rightarrow\Lambda X.(^{T}HM^{T}$ $e_{M})$.  If it is some Scheme value contained within another boundary expression, $^{\forall X.T}MS$ $v_{S}$ for example, the boundary expression reduces to a new boundary expression where the $v_{S}$ crosses from Scheme to ML with expected type $\forall X.T$ and actual type $TST$.  Therefore $^{\forall X.T}HM^{\forall X.T}$ $(^{\forall X.T}MS$ $v_{S})\rightarrow{^{\forall X.T}H}S$ $v_{S}$.
+If the expected and actual types of a boundary expression are a universal type, the contained value is either a type abstraction or a Scheme value contained within another boundary expression.  If it is a type abstraction, $\Lambda X.e_{M}$ with type $\forall X.T$ for example, the boundary expression reduces to a type abstraction of $X$ for a boundary with expected and actual type $T$ containing $e_{M}$.  Therefore $^{\forall X.T}HM^{\forall X.T}$ $(\Lambda X.e_{M})\rightarrow\Lambda X.(^{T}HM^{T}$ $e_{M})$.  If it is a Scheme value contained within another boundary expression, $^{\forall X.T}MS$ $v_{S}$ for example, the boundary expression reduces to a new boundary expression where $v_{S}$ crosses from Scheme to Haskell with expected type $\forall X.T$ and actual type $TST$.  Therefore $^{\forall X.T}HM^{\forall X.T}$ $(^{\forall X.T}MS$ $v_{S})\rightarrow{^{\forall X.T}H}S$ $v_{S}$.
 
-If the expected and actual types of a boundary expression are a universal type, $\forall X.T$ for example, and $TST$, respectively, the contained value is a Scheme value, $v_{S}$ for example.  Such a boundary expression cannot be reduced because Scheme does not have universal types.  Therefore $^{\forall X.T}HS$ $v_{S}$ and $^{\forall X.T}MS$ $v_{S}$ are values.  Instead, such a boundary expression can be applied to a type like a type abstraction, which substitutes the type argument for $X$ within $T$ for its expected and actual types.  Therefore $(^{\forall X.T_{1}}HS$ $v_{S})$ $\lbrace T_{2}\rbrace\rightarrow{^{T_{1}[T^{a}_{2}/X]}H}S$ $v_{S}$.  Following the type substitution, if its expected type is another universal type, it can only be reduced by applying it to another type.
+If the expected and actual types of a boundary expression are a universal type and the Scheme type, respectively, the contained value is a Scheme value.  Such a boundary expression is irreducible because Scheme does not have expressions with universal types.  Therefore $^{\forall X.T_{1}}HS$ $v_{S}$ and $^{\forall X.T_{1}}MS$ $v_{S}$ are values.  Instead, such a boundary expression can be applied to a type $T_{2}$ like a type abstraction, which could substitute the type argument $T_{2}$ for $X$ within $T_{1}$ for its expected and actual types.  However, if $T_{1}$ is a function type that contains $X$ and $v_{S}$ is a function, a safeguard must ensure that $v_{S}$ does not break the parametricity of Haskell and ML.  For example, if $T_{1}$ is $X\rightarrow X$, Haskell and ML assume $v_{S}$ is the identity function, but it may be another function that satisfies the type and thus breaks parametricity.
 
-If the expected and actual types of a boundary expression are $TST$ and a universal type, $\forall X.T$ for example, respectively, the contained value is a type abstraction or a Scheme value contained within another boundary expression.  If the contained value is a type abstraction, the actual type must be instantiated with, and the type abstraction must be applied to, a new type that will prevent any polymorphic functions inside the type abstraction that contain $X$ from examining the arguments they are applied to.  mthe lump type $L$ is substituted 
+To ensure Scheme cannot break parametricity, the safeguard must do two things.  First, it must prevent polymorphic Scheme functions from determining their behavior by the types and values of their arguments.  Consider the following reductions, where a polymorphic Scheme function would break the parametricity of Haskell:
 
-$SH^{\forall X.T}$ $(\Lambda X.e_{H})\rightarrow SH^{T[L/X]}$ $((\Lambda X.e_{H})$ $\lbrace L\rbrace)$
+\begin{tabular}{ll}
+& $((^{\forall X.(X\rightarrow X)}HS$ $(\lambda x_{1}.(\mathtt{if0}$ $x_{1}$ $1$ $x_{1})))$ $\lbrace N\rbrace)$ $\overline{0}$ \\
+$\rightarrow$ & $(^{N\rightarrow N}HS$ $(\lambda x_{1}.(\mathtt{if0}$ $x_{1}$ $1$ $x_{1})))$ $\overline{0}$ \\
+$\rightarrow$ & $(\lambda x_{2}:N.(^{N}HS$ $((\lambda x_{1}.(\mathtt{if0}$ $x_{1}$ $1$ $x_{1}))$ $(SH^{N}$ $x_{2}))))$ $\overline{0}$ \\
+$\rightarrow$ & $^{N}HS$ $((\lambda x_{1}.(\mathtt{if0}$ $x_{1}$ $1$ $x_{1}))$ $(SH^{N}$ $\overline{0}))$
+\end{tabular}
+
+Next, the $SH^{N}\;\overline{0}$ boundary expression would reduce and the Haskell function argument $\overline{0}$ would cross the boundary from Haskell to Scheme and reduce to the Scheme value $\overline{0}$.  The Scheme polymorphic function can now determine the type and value of the argument and thereby break parametricity.  Therefore to preserve parametricity, $SH^{N}\;\overline{0}$ cannot be reducible, and in fact all such boundary expressions in the context of being arguments to polymorphic Scheme functions cannot be reducible as well.  Since such boundary expressions also occur for the conversion of non-polymorphic Scheme functions, such boundary expressions must be marked in such a way that they are reducible for non-polymorphic functions but irreducible for polymorphic functions.  This is done by introducing a new type called a type label, denoted $T^{a}$, and changing the type arguments to labeled types before performing the type substitution.  Even though labeled types are used, the type of the expression is still expected to be the type underlying the label, so the type of HS and MS expressions and the types of expressions within SH and SM expressions are their expected and actual types, respectively, with their labeled types replacd with their corresponding underlying types, denoted $T[T_{i}/T_{i}^{a}]$.  Furthermore, since arguments may be returned, there has to be a way to reduce the nested HS and SH boundaries to retrieve the Haskell value.  Therefore the rewrite rule $\mathscr{E}[^{T^{a}}HS$ $(SH^{T^{a}}$ $e_{H})\rightarrow\mathscr{E}[e_{H}]$ is added.
+
+Second, it must verify that the same argument corresponds to every instantiation of $X$ within $T_{1}$.  Otherwise, it is possible for a Scheme function with type $\forall X_{1}.(\forall X_{2}.(X_{1}\rightarrow X_{2}\rightarrow X_{1}))$ and instantiated with $N$ and again with $N$ to return the second argument and not the first as required by parametricity.  Therefore every type label used for type substitutions must be unique and the type labels of nested HS and SH and MS and SM expressions must match up.  Otherwise, an error is signaled to indicate that parametricity was broken.
+
+Even if $T_{1}$ is not a function type, the type labels are still used in case a function type is contained by it.
+
+If the expected and actual types of a boundary expression are the Scheme type and a universal type, respectively, the contained value is either a type abstraction or a Scheme value contained within another boundary expression.
+
+If it is a type abstraction, $\Lambda X.e_{H}$ with type $\forall X.T$ for example, it may contain parametrically polymorphic functions of types containing $X$.  Since those functions are parametrically polymorphic, they cannot examine the types or values of their arguments.  Therefore Scheme arguments for these functions cannot cross the boundary to Haskell and ML.  In addition, the function types must be instantiated with a type that would enable them to accept any Scheme argument.  The lump type $L$ is added to be used in these situations.  $^{L}HS$ $v_{S}$ and $^{L}MS$ $v_{S}$ are irreducible.  For example, $SH^{\forall X.(T\rightarrow T)}$ $\Lambda X.(\lambda x:X.x)\rightarrow SH^{(T\rightarrow T)[L/X]}$ $(\Lambda X.(\lambda x:X.x))$ $\lbrace L\rbrace\rightarrow SH^{L\rightarrow L}$ $(\lambda x:L.x)$.
+
+If it is a Scheme value contained within another boundary expression, the boundary expression reduces to the Scheme value.  For example, $SH^{T}$ $(^{T}HS$ $v_{S})\rightarrow$ $v_{S}$.
 
 \subsection{Lists}
 
+If the expected and actual types of a boundary expression are a list type, the contained value is either an empty list or a list construction.  If it is an empty list, the boundary expression reduces to the empty list.  For example, $^{[T]}HM^{[T]}$ $\mathtt{nil}^{T}$ reduces to $\mathtt{nil}^{T}$.  If it is an ML list construction crossing to Haskell, the boundary expression reduces to a list construction where the head and tail are the head and tail of the ML list construction wrapped in boundary expressions, respectively.  For example, $\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}$ with type $[T]$ would reduce to $\mathtt{cons}$ $(^{T}HM^{T}$ $v_{M}^{1})$ $(^{[T]}HM^{[T]}$ $v_{M}^{2})$.  If it is a Haskell list construction crossing to ML, the boundary expression should be irreducible.  Since Haskell list constructions are values, they can be recursive and therefore infinite in length.  Converting a list construction from Haskell to ML like a list construction is converted from ML to Haskell would reduce the tail until it is a value.  If the list construction were infinite, the tail may reduce to the list construction, and thus never reduce to a value, and the computation would loop forever.  Therefore $^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value.
 
+If the expected and actual types of a boundary expression are a list type and the Scheme type, respectively, the contained value is either an empty list or a list construction.  If it is an empty list, the boundary expression reduces to an empty list of the corresponding type.  For example, $^{[T]}HS$ $\mathtt{nil}$ reduces to $\mathtt{nil}^{T}$.  If it is a list construction, the boundary expression reduces to a list construction where the new head and tail are the old head and tail wrapped in boundary expressions, respectively.  For example, $^{[T]}HS$ $\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2}$ reduces to $\mathtt{cons}$ $(^{T}HS$ $v_{S}^{1})$ $(^{[T]}HS$ $v_{S}^{2})$.
 
-\subsection{Protecting Parametricity}
+If the expected and actual types of a boundary expression are the Scheme type and a list type, respectively, the contained value is either an empty list or a list construction.  If it is an empty list, the boundary expression reduces to an empty list.  For example, $SH^{[T]}$ $\mathtt{nil}^{T}$ reduces to $\mathtt{nil}$.  If it is an ML list construction, the boundary expression reduces to a list construction where the new head and tail are the old head and tail wrapped in boundary expressions, respectively.  For example, $SM^{[T]}$ $v_{M}^{1}$ $v_{M}^{2}$ reduces to $\mathtt{cons}$ $(SM^{T}$ $v_{M}^{1})$ $(SM^{[T]}$ $v_{M}^{2})$.  If it is a Haskell list construction, it should be irreducible for the same reason that $^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value, as discussed above.  Therefore $SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value.
 
-
-
-%\input{model/hit.tex}
-%\input{model/hitr.tex}
-%\input{model/hios.tex}
-%\input{model/mit.tex}
-%\input{model/mitr.tex}
-%\input{model/mios.tex}
-%\input{model/sit.tex}
-%\input{model/sitr.tex}
-%\input{model/sios.tex}
+\input{model/hit.tex}
+\input{model/hitr.tex}
+\input{model/hios.tex}
+\input{model/mit.tex}
+\input{model/mitr.tex}
+\input{model/mios.tex}
+\input{model/sit.tex}
+\input{model/sitr.tex}
+\input{model/sios.tex}
