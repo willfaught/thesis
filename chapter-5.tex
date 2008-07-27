@@ -6,5 +6,12 @@ parametricity
 multiple type systems
 multiple evaluation strategies (with compound types and recursive lazy data)
 
+This work extends the work of Kinghorn \cite{kinghorn07} by adding Haskell and lists to his model of computation, proof of type soundness, and implementation of the model to explore the interoperation of incompatible evaluation strategies.  The work of Kinghorn extends the work of Matthews and Findler \cite{matthews07} by adding parametric polymorphism and parametricity to their model of computation, providing a more thorough proof of type soundness, and implementing the model with a fully-featured Scheme and a subset of Objective Caml, a dialect of ML.
+
 Perhaps the most mainstream systems of interoperation are the Common Object Request Broker Architecture (CORBA), the Component Object Model (COM), and the .NET Framework, yet not one of them supports interoperation between Haskell, ML, and Scheme as this model and implementation does.  CORBA, COM, and the .NET Framework support the interoperation of static and dynamic type systems and strict evaluation but do not support the interoperation of higher-order functions, parametric polymorphism, parametricity, or lazy evaluation \cite{omg04} \cite{microsoft07} \cite{ecma06}.
 
+Tobin-Hochstadt and Felleisen \cite{tobin-hochstadt06} describe a system of mechanically translating programs written in a dynamically-typed language to an equivalent form in a similar, statically-typed language.  The model of computation has higher-order functions, static and dynamic type systems, strict evaluation, and contracts for higher-order functions but does not have parametric polymorphism, parametricity, or lazy evaluation.  It assigns blame to languages for type errors, which this model does not do.
+
+Henglein and Rehof \cite{henglein95} describe a system of polymorphic type inference for Scheme that infers types and run-time type operations, thereby giving a high-level translation to ML.  The model of computation has higher-order functions, static and dynamic type systems, parametric polymorphism, parametricity, and strict evaluation but does not have lazy evaluation.
+
+Benton \cite{benton05} describes 
