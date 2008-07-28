@@ -2,6 +2,8 @@
 
 The soundness of the type system must be proven for the model to be useful.  Soundness is ensured if progress of terms and preservation of types are ensured.  Progress ensures that a well-typed, closed term either is a value, reduces to another term, or reduces to an error.  Preservation ensures that if a well-typed term reduces to another term, the other term is well-typed and has the same type.  Proving progress and preservation proves soundness.
 
+\section{Progress}
+
 Progress will be proven by structural induction on a term of each syntactic form.  In each case, the term will be proven to be either a value, reducible to another term, or reducible to an error.  If a subterm is reducible to another term, the reduction of the term substitutes the new subterm for the old subterm.  If a subterm is reducible to an error, the term reduces to the error.  If no subterms are reducible but the term is reducible, the syntactic forms of its subterms must be determined to perform the reduction.  Since the term is well-typed, its subterms are well-typed, and thus the typing relations can be inverted to calculate its type from the types of its subterms.
 
 \input{proof/lemmas/progress/inversion.tex}
@@ -17,6 +19,8 @@ Once the type of an irreducible subterm is determined, its syntactic form can be
 If the term is irreducible, it is a value.
 
 \input{proof/theorems/progress.tex}
+
+\section{Preservation}
 
 Preservation will be proven by cases on the reduction rules.  In each case, the new term will be proven to be well-typed and have the same type as the old term.  Inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) will be used to determine the type of the old term, the types of the subterms of the old term that occur within the new term, and the type of the new term.  Some reduction rules use substitution.
 
