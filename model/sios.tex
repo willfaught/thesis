@@ -6,8 +6,10 @@
 \begin{tabular}{rcl}
 $\mathscr{E}[SH^{N}$ $\overline{n}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
 $\mathscr{E}[SM^{N}$ $\overline{n}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
-$\mathscr{E}[SH^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SH^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H})$ $(^{T_{1}}HS$ $x_{2})))]$ \\
-$\mathscr{E}[SM^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SM^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M})$ $(^{T_{1}}MS$ $x_{2})))]$ \\
+$\mathscr{E}[SH^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SH^{T_{2}}$ \\
+&& $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H})$ $(^{T_{1}}HS$ $x_{2})))]$ \\
+$\mathscr{E}[SM^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SM^{T_{2}}$ \\
+&& $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M})$ $(^{T_{1}}MS$ $x_{2})))]$ \\
 $\mathscr{E}[SH^{\forall X.T}$ $(\Lambda X.e_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[SH^{T[L/X]}$ $((\Lambda X.e_{H})$ $\lbrace L\rbrace)]$ \\
 $\mathscr{E}[SM^{\forall X.T}$ $(\Lambda X.e_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[SM^{T[L/X]}$ $((\Lambda X.e_{M})$ $\lbrace L\rbrace)]$ \\
 $\mathscr{E}[SH^{\forall X.T}$ $(^{\forall X.T}HS$ $v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
@@ -19,7 +21,8 @@ $\mathscr{E}[SM^{[T]}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}
 $\mathscr{E}[SH^{[T]}$ $\mathtt{nil}^{T}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}]$ \\
 $\mathscr{E}[SM^{[T]}$ $\mathtt{nil}^{T}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}]$ \\
 $\mathscr{E}[SH^{L}$ $(^{L}HS$ $v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
-$\mathscr{E}[SM^{L}$ $(^{L}MS$ $v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$
+$\mathscr{E}[SM^{L}$ $(^{L}MS$ $v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
+$\mathscr{E}[\mathtt{list?}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{0}]$ \\
 \end{tabular}
 \end{center}
 \end{figure}
