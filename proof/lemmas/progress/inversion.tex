@@ -3,29 +3,32 @@
 %\onehalfspacing
 The type of a term of each syntactic form can be calculated from the types of its subterms.
 \begin{enumerate}
-\item If $\Gamma\vdash_{A}x:T$ then $x:T_{1}\in\Gamma$ and $T=T_{1}$ where $A\in\lbrace H,M\rbrace$.
-\item If $\Gamma\vdash_{S}x:TST$ then $x:TST\in\Gamma$.
 \item If $\vdash_{A}\overline{n}:T$ then $T=N$ where $A\in\lbrace H,M\rbrace$.
 \item $\vdash_{S}\overline{n}:TST$.
-\item If $\Gamma\vdash_{A}\lambda x:T_{1}.e_{A}:T$ then $\Gamma\vdash_{A}T_{1}$, $\Gamma,x:T_{1}\vdash_{A}e_{A}:T_{2}$, and $T=T_{1}\rightarrow T_{2}$ where $A\in\lbrace H,M\rbrace$.
-\item If $\Gamma\vdash_{S}\lambda x.e_{S}:TST$ then $\Gamma,x:TST\vdash_{S}e_{S}:TST$.
-\item If $\Gamma\vdash_{A}\Lambda X.e_{A}:T$ then $\Gamma,X\vdash_{A}e_{A}:T_{1}$ and $T=\forall X.T_{1}$ where $A\in\lbrace H,M\rbrace$.
 \item If $\Gamma\vdash_{A}\mathtt{cons}$ $e_{A}^{1}$ $e_{A}^{2}:T$ then $\Gamma\vdash_{A}e_{A}^{1}:T_{1}$, $\Gamma\vdash_{A}e_{A}^{2}:[T_{1}]$, and $T=[T_{1}]$ where $A\in\lbrace H,M\rbrace$.
 \item If $\Gamma\vdash_{S}\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$ and $\Gamma\vdash_{S}e_{S}^{2}:TST$.
 \item If $\Gamma\vdash_{A}\mathtt{nil}^{T_{1}}:T$ then $\Gamma\vdash_{A}T_{1}$ and $T=[T_{1}]$ where $A\in\lbrace H,M\rbrace$.
 \item $\vdash_{S}\mathtt{nil}:TST$.
+\item If $\Gamma\vdash_{A}\lambda x:T_{1}.e_{A}:T$ then $\Gamma\vdash_{A}T_{1}$, $\Gamma,x:T_{1}\vdash_{A}e_{A}:T_{2}$, and $T=T_{1}\rightarrow T_{2}$ where $A\in\lbrace H,M\rbrace$.
+\item If $\Gamma\vdash_{S}\lambda x.e_{S}:TST$ then $\Gamma,x:TST\vdash_{S}e_{S}:TST$.
+\item If $\Gamma\vdash_{A}\Lambda X.e_{A}:T$ then $\Gamma,X\vdash_{A}e_{A}:T_{1}$ and $T=\forall X.T_{1}$ where $A\in\lbrace H,M\rbrace$.
+\item If $\Gamma\vdash_{A}x:T$ then $x:T_{1}\in\Gamma$ and $T=T_{1}$ where $A\in\lbrace H,M\rbrace$.
+\item If $\Gamma\vdash_{S}x:TST$ then $x:TST\in\Gamma$.
 \item If $\Gamma\vdash_{A}e_{A}^{1}$ $e_{A}^{2}:T$ then $\Gamma\vdash_{A}e_{A}^{1}:T_{1}\rightarrow T_{2}$, $\Gamma\vdash_{A}e_{A}^{2}:T_{1}$, and $T=T_{2}$ where $A\in\lbrace H,M\rbrace$.
 \item If $\Gamma\vdash_{S}e_{S}^{1}$ $e_{S}^{2}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$ and $\Gamma\vdash_{S}e_{S}^{2}:TST$.
 \item If $\Gamma\vdash_{A}e_{A}$ $\lbrace T_{1}\rbrace:T$ then $\Gamma\vdash_{A}T_{1}$, $\Gamma\vdash_{A}e_{A}:\forall X.T_{2}$, and $T=T_{2}[T_{1}/X]$ where $A\in\lbrace H,M\rbrace$.
-\item If $\Gamma\vdash_{A}\mathtt{if0}$ $e_{A}^{1}$ $e_{A}^{2}$ $e_{A}^{3}:T$ then $\Gamma\vdash_{A}e_{A}^{1}:N$, $\Gamma\vdash_{A}e_{A}^{2}:T_{1}$, $\Gamma\vdash_{A}e_{A}^{3}:T_{1}$, and $T=T_{1}$ where $A\in\lbrace H,M\rbrace$.
-\item If $\Gamma\vdash_{S}\mathtt{if0}$ $e_{S}^{1}$ $e_{S}^{2}$ $e_{S}^{3}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$, $\Gamma\vdash_{S}e_{S}^{2}:TST$, and $\Gamma\vdash_{S}e_{S}^{3}:TST$.
 \item If $\Gamma\vdash_{A}o$ $e_{A}^{1}$ $e_{A}^{2}:T$ then $\Gamma\vdash_{A}e_{A}^{1}:N$, $\Gamma\vdash_{A}e_{A}^{2}:N$, and $T=N$ where $A\in\lbrace H,M\rbrace$.
 \item If $\Gamma\vdash_{S}o$ $e_{S}^{1}$ $e_{S}^{2}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$ and $\Gamma\vdash_{S}e_{S}^{2}:TST$.
+\item If $\Gamma\vdash_{A}\mathtt{if0}$ $e_{A}^{1}$ $e_{A}^{2}$ $e_{A}^{3}:T$ then $\Gamma\vdash_{A}e_{A}^{1}:N$, $\Gamma\vdash_{A}e_{A}^{2}:T_{1}$, $\Gamma\vdash_{A}e_{A}^{3}:T_{1}$, and $T=T_{1}$ where $A\in\lbrace H,M\rbrace$.
+\item If $\Gamma\vdash_{S}\mathtt{if0}$ $e_{S}^{1}$ $e_{S}^{2}$ $e_{S}^{3}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$, $\Gamma\vdash_{S}e_{S}^{2}:TST$, and $\Gamma\vdash_{S}e_{S}^{3}:TST$.
 \item If $\Gamma\vdash_{A}\mathtt{hd}$ $e_{A}:T$ then $\Gamma\vdash_{A}e_{A}:[T_{1}]$ and $T=T_{1}$ where $A\in\lbrace H,M\rbrace$.
 \item If $\Gamma\vdash_{A}\mathtt{tl}$ $e_{A}:T$ then $\Gamma\vdash_{A}e_{A}:[T_{1}]$ and $T=[T_{1}]$ where $A\in\lbrace H,M\rbrace$.
 \item If $\Gamma\vdash_{S}f$ $e_{S}:TST$ then $\Gamma\vdash_{S}e_{S}:TST$.
+\item If $\Gamma\vdash_{A}\mathtt{ifnil}$ $e_{A}^{1}$ $e_{A}^{2}$ $e_{A}^{3}:T$ then $\Gamma\vdash_{A}e_{A}^{1}:[T_{1}]$, $\Gamma\vdash_{A}e_{A}^{2}:T_{2}$, $\Gamma\vdash_{A}e_{A}^{3}:T_{2}$, and $T=T_{2}$ where $A\in\lbrace H,M\rbrace$.
+\item If $\Gamma\vdash_{S}\mathtt{ifnil}$ $e_{S}^{1}$ $e_{S}^{2}$ $e_{S}^{3}:TST$ then $\Gamma\vdash_{A}e_{A}^{1}:TST$, $\Gamma\vdash_{S}e_{S}^{2}:TST$, and $\Gamma\vdash_{S}e_{S}^{3}:TST$.
 \item If $\Gamma\vdash_{A}\mathtt{fix}$ $e_{A}:T$ then $\Gamma\vdash_{A}e_{A}:T_{1}\rightarrow T_{1}$ and $T=T_{1}$ where $A\in\lbrace H,M\rbrace$.
 \item If $\Gamma\vdash_{S}p$ $e_{S}:TST$ then $\Gamma\vdash_{S}e_{S}:TST$.
+\item $\Gamma\vdash_{A}\mathtt{wrong}^{T}$ $\mathrm{string}:T$ where $A\in\lbrace H,M\rbrace$.
 \item $\vdash_{S}\mathtt{wrong}$ $\mathrm{string}:TST$.
 \item If $\Gamma\vdash_{A}{^{T_{1}}A}B^{T_{1}}$ $e_{B}:T$ then $\Gamma\vdash_{A}T_{1}$, $\Gamma\vdash_{B}T_{1}$, $\Gamma\vdash_{B}e_{B}:T_{1}$, and $T=T_{1}$ where $(A,B)\in\lbrace(H,M),(M,H)\rbrace$.
 \item If $\Gamma\vdash_{A}{^{T_{1}}A}S$ $e_{S}:T$ then $\Gamma\vdash_{A}T_{1}$, $\Gamma\vdash_{S}e_{S}:TST$, and $T=T_{1}[T_{i}/T_{i}^{a}]$ where $A\in\lbrace H,M\rbrace$.
