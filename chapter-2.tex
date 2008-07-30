@@ -109,12 +109,12 @@ If the expected and actual types of a boundary expression are a list type and th
 
 If the expected and actual types of a boundary expression are the Scheme type and a list type, respectively, the contained value is either an empty list or a list construction.  If it is an empty list, the boundary expression reduces to an empty list.  For example, $SH^{[T]}$ $\mathtt{nil}^{T}$ reduces to $\mathtt{nil}$.  If it is an ML list construction, the boundary expression reduces to a list construction where the new head and tail are the old head and tail wrapped in boundary expressions, respectively.  For example, $SM^{[T]}$ $v_{M}^{1}$ $v_{M}^{2}$ reduces to $\mathtt{cons}$ $(SM^{T}$ $v_{M}^{1})$ $(SM^{[T]}$ $v_{M}^{2})$.  If it is a Haskell list construction, it should be irreducible for the same reason that $^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value, as discussed above.  Therefore $SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value.
 
-\input{model/hit.tex}
+\input{model/hie.tex}
 \input{model/hitr.tex}
 \input{model/hios.tex}
-\input{model/mit.tex}
+\input{model/mie.tex}
 \input{model/mitr.tex}
 \input{model/mios.tex}
-\input{model/sit.tex}
+\input{model/sie.tex}
 \input{model/sitr.tex}
 \input{model/sios.tex}
