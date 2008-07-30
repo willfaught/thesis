@@ -6,15 +6,18 @@
 \begin{tabular}{rcl}
 $\mathscr{E}[(\lambda x:T.e_{H}^{1})$ $e_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{1}[e_{H}^{2}/x]]$ \\
 $\mathscr{E}[(\Lambda X.e_{H})$ $\lbrace T\rbrace]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}[T/X]]$ \\
-$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{1}]$ \\
-$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{2}]$ $(n\neq0)$ \\
 $\mathscr{E}[+$ $\overline{n_{1}}$ $\overline{n_{2}}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
 $\mathscr{E}[-$ $\overline{n_{1}}$ $\overline{n_{2}}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\overline{max(n_{1}-n_{2},0)}]$ \\
+$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{1}]$ \\
+$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{2}]$ $(n\neq0)$ \\
 $\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{1}]$ \\
 $\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{2}]$ \\
-$\mathscr{E}[\mathtt{hd}$ $\mathtt{nil}^{T}]_{H}$ & $\rightarrow$ & $\mathscr{E}[^{T}HS$ $(\mathtt{wrong}$ ``Empty list"$)]$ \\
-$\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}^{T}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}^{T}]$ \\
-$\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{H})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}[(\mathtt{fix}$ $(\lambda x:T.e_{H}))/x]]$
+$\mathscr{E}[\mathtt{hd}$ $\mathtt{nil}^{T}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{wrong}^{T}$ ``Empty list"$]$ \\
+$\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}^{T}]_{H}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{wrong}^{[T]}$ ``Empty list"$]$ \\
+$\mathscr{E}[\mathtt{ifnil}$ $\mathtt{nil}^{T}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{1}]$ \\
+$\mathscr{E}[\mathtt{ifnil}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ $e_{H}^{3}$ $e_{H}^{4}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{4}]$ \\
+$\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{H})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}[(\mathtt{fix}$ $(\lambda x:T.e_{H}))/x]]$ \\
+$\mathscr{E}[\mathtt{wrong}^{T}$ string$]_{H}$ & $\rightarrow$ & \textbf{Error}: string
 \end{tabular}
 \end{center}
 \end{figure}

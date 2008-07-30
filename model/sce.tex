@@ -1,0 +1,17 @@
+\begin{figure}[p]
+\label{sce}
+\caption{Scheme core expressions}
+%\onehalfspacing
+\begin{center}
+\begin{tabular}{lcl}
+$e_{S}$ & $=$ & $v_{S}$ $\vert$ $x$ $\vert$ $e_{S}$ $e_{S}$ $\vert$ $o$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{if0}$ $e_{S}$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $e_{S}$ $e_{S}$ $\vert$ $f$ $e_{S}$ \\
+&& $\vert$ $\mathtt{ifnil}$ $e_{S}$ $e_{S}$ $e_{S}$ $\vert$ $p$ $e_{S}$ $\vert$ $\mathtt{wrong}$ $\mathrm{string}$ \\
+$v_{S}$ & $=$ & $\overline{n}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $v_{S}$ $\vert$ $\mathtt{nil}$ $\vert$ $\lambda x.e_{S}$ \\
+$o$ & $=$ & $\mathtt{+}$ $\vert$ $\mathtt{-}$ \\
+$f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
+$p$ & $=$ & $\mathtt{num?}$ $\vert$ $\mathtt{list?}$ $\vert$ $\mathtt{fun?}$ \\
+$E_{S}$ & $=$ & $[\,]_{S}$ $\vert$ $E_{S}$ $e_{S}$ $\vert$ $v_{S}$ $E_{S}$ $\vert$ $o$ $E_{S}$ $e_{S}$ $\vert$ $o$ $v_{S}$ $E_{S}$ $\vert$ $\mathtt{if0}$ $E_{S}$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $E_{S}$ $e_{S}$ \\
+&& $\vert$ $\mathtt{cons}$ $v_{S}$ $E_{S}$ $\vert$ $f$ $E_{S}$ $\vert$ $\mathtt{ifnil}$ $E_{S}$ $e_{S}$ $e_{S}$ $\vert$ $p$ $E_{S}$
+\end{tabular}
+\end{center}
+\end{figure}

@@ -16,16 +16,16 @@
 \[
 \frac{}{\vdash_{H}\overline{n}:N}
 \quad
+\frac{\Gamma\vdash_{H}e_{H}^{1}:T\quad\Gamma\vdash_{H}e_{H}^{2}:[T]}{\Gamma\vdash_{H}\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}:[T]}
+\quad
 \frac{\Gamma\vdash_{H}T}{\Gamma\vdash_{H}\mathtt{nil}^{T}:[T]}
-\quad
-\frac{x:T\in\Gamma}{\Gamma\vdash_{H}x:T}
-\quad
-\frac{\Gamma\vdash_{H}e_{H}:T\rightarrow T}{\Gamma\vdash_{H}\mathtt{fix}\;e_{H}:T}
 \]
 \[
 \frac{\Gamma\vdash_{H}T_{1}\quad\Gamma,x:T_{1}\vdash_{H}e_{H}:T_{2}}{\Gamma\vdash_{H}\lambda x:T_{1}.e_{H}:T_{1}\rightarrow T_{2}}
 \quad
 \frac{\Gamma,X\vdash_{H}e_{H}:T}{\Gamma\vdash_{H}\Lambda X.e_{H}:\forall X.T}
+\quad
+\frac{x:T\in\Gamma}{\Gamma\vdash_{H}x:T}
 \]
 \[
 \frac{\Gamma\vdash_{H}e_{H}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{H}e_{H}^{2}:T_{1}}{\Gamma\vdash_{H}e_{H}^{1}\;e_{H}^{2}:T_{2}}
@@ -33,15 +33,21 @@
 \frac{\Gamma\vdash_{H}T_{1}\quad\Gamma\vdash_{H}e_{H}:\forall X.T_{2}}{\Gamma\vdash_{H}e_{H}\;\lbrace T_{1}\rbrace:T_{2}[T_{1}/X]}
 \]
 \[
-\frac{\Gamma\vdash_{H}e_{H}^{1}:T\quad\Gamma\vdash_{H}e_{H}^{2}:[T]}{\Gamma\vdash_{H}\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}:[T]}
+\frac{\Gamma\vdash_{H}e_{H}^{1}:N\quad\Gamma\vdash_{H}e_{H}^{2}:N}{\Gamma\vdash_{H}o\;e_{H}^{1}\;e_{H}^{2}:N}
 \quad
+\frac{\Gamma\vdash_{H}e_{H}^{1}:N\quad\Gamma\vdash_{H}e_{H}^{2}:T\quad\Gamma\vdash_{H}e_{H}^{3}:T}{\Gamma\vdash_{H}\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}:T}
+\]
+\[
 \frac{\Gamma\vdash_{H}e_{H}:[T]}{\Gamma\vdash_{H}\mathtt{hd}\;e_{H}:T}
 \quad
 \frac{\Gamma\vdash_{H}e_{H}:[T]}{\Gamma\vdash_{H}\mathtt{tl}\;e_{H}:[T]}
 \]
 \[
-\frac{\Gamma\vdash_{H}e_{H}^{1}:N\quad\Gamma\vdash_{H}e_{H}^{2}:T\quad\Gamma\vdash_{H}e_{H}^{3}:T}{\Gamma\vdash_{H}\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}:T}
+\frac{\Gamma\vdash_{H}e_{H}^{1}:[T_{1}]\quad\Gamma\vdash_{H}e_{H}^{2}:T_{2}\quad\Gamma\vdash_{H}e_{H}^{3}:T_{2}}{\Gamma\vdash_{H}\mathtt{ifnil}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}:T_{2}}
 \quad
-\frac{\Gamma\vdash_{H}e_{H}^{1}:N\quad\Gamma\vdash_{H}e_{H}^{2}:N}{\Gamma\vdash_{H}o\;e_{H}^{1}\;e_{H}^{2}:N}
+\frac{\Gamma\vdash_{H}e_{H}:T\rightarrow T}{\Gamma\vdash_{H}\mathtt{fix}\;e_{H}:T}
+\]
+\[
+\frac{\Gamma\vdash_{H}T}{\Gamma\vdash_{H}\mathtt{wrong}^{T}\;\mathrm{string}:T}
 \]
 \end{figure}
