@@ -5,17 +5,20 @@ If $\Gamma\vdash_{A}e_{A}^{1}:T$ and $e_{A}^{1}\rightarrow e_{A}^{2}$ then $\Gam
 By cases on the reductions $e_{A}^{1}\rightarrow e_{A}^{2}$ and $e_{S}^{1}\rightarrow e_{S}^{2}$.  Straightforward cases of Scheme preservation are elided.
 \input{proof/cases/preservation/term-application.tex}
 \input{proof/cases/preservation/type-application.tex}
-\input{proof/cases/preservation/if-true.tex}
-\input{proof/cases/preservation/if-false.tex}
 \input{proof/cases/preservation/addition.tex}
 \input{proof/cases/preservation/subtraction.tex}
+\input{proof/cases/preservation/if0-true.tex}
+\input{proof/cases/preservation/if0-false.tex}
 \input{proof/cases/preservation/h:head-cons.tex}
 \input{proof/cases/preservation/h:tail-cons.tex}
 \input{proof/cases/preservation/m:head-cons.tex}
 \input{proof/cases/preservation/m:tail-cons.tex}
 \input{proof/cases/preservation/head-nil.tex}
 \input{proof/cases/preservation/tail-nil.tex}
+\input{proof/cases/preservation/ifnil-true.tex}
+\input{proof/cases/preservation/ifnil-false.tex}
 \input{proof/cases/preservation/fix.tex}
+\input{proof/cases/preservation/wrong.tex}
 \input{proof/cases/preservation/hm+mh:number.tex}
 \input{proof/cases/preservation/hs+ms:number.tex}
 \input{proof/cases/preservation/hs+ms:number-error.tex}
