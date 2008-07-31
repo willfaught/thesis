@@ -1,5 +1,5 @@
 \begin{case}
-$e_{S}=SA^{T}$ $e_{A}^{1}$ where $(A,B)\in\lbrace(H,e),(M,v)\rbrace$
+$e_{S}=SA^{T}$ $e_{A}^{1}$ where $A\in\lbrace H,M\rbrace$
 
 $e_{A}^{1}$ is a value or $e_{A}^{1}\rightarrow e_{A}^{2}$ or $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{A}^{1}$ is a value then $T$ determines its reduction.
 \begin{subcase}
@@ -13,9 +13,9 @@ $T=T_{1}\rightarrow T_{2}$
 $e_{A}^{1}=\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A}^{3}$ by canonical forms (Lemma \ref{cf}).  $SA^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A}^{3})\rightarrow\lambda x_{2}.(SA^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A}^{3})$ $(^{T_{1}}AS$ $x_{2})))$.
 \end{subcase}
 \begin{subcase}
-$T=\forall X_{1}.T_{1}$
+$T=\forall X.T_{1}$
 
-$e_{A}^{1}\in\lbrace\Lambda X_{1}.e_{A}^{3},{^{\forall X_{1}.T_{1}}A}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{A}^{1}=\Lambda X_{1}.e_{A}^{3}$ then $SA^{\forall X_{1}.T_{1}}$ $(\Lambda X_{1}.e_{A}^{3})\rightarrow\Lambda X_{2}.(SA^{T_{1}[X_{2}/X_{1}]}$ $((\Lambda X_{1}.e_{A}^{3})$ $\lbrace X_{2}\rbrace))$.  If $e_{A}^{1}={^{\forall X_{1}.T_{1}}A}S$ $v_{S}$ then it reduces by Case \ref{as}.
+$e_{A}^{1}\in\lbrace\Lambda X.e_{A}^{3},{^{\forall X.T_{1}}A}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{A}^{1}=\Lambda X.e_{A}^{3}$ then $SA^{\forall X.T_{1}}$ $(\Lambda X.e_{A}^{3})\rightarrow SA^{T_{1}[L/X]}$ $((\Lambda X.e_{A}^{3})$ $\lbrace L\rbrace)$.  If $e_{A}^{1}={^{\forall X.T_{1}}A}S$ $v_{S}$ then $SA^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}AS$ $v_{S})\rightarrow v_{S}$.
 \end{subcase}
 \begin{subcase}
 $T=[T_{1}]$
@@ -32,7 +32,7 @@ $e_{A}^{1}={^{L}A}S$ $v_{S}$ by canonical forms (Lemma \ref{cf}).  $SA^{L}$ $(^{
 \begin{subcase}
 $T=T_{1}^{a}$
 
-$SA^{T_{1}^{a}}$ $B_{A}^{3}$ is a value.
+$SA^{T_{1}^{a}}$ $e_{A}^{1}$ is a value.
 \end{subcase}
-If $e_{A}^{1}\rightarrow e_{A}^{2}$ then $SA^{T}$ $e_{A}^{1}\rightarrow SA^{T}$ $e_{A}^{2}$.  If $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $SA^{T}$ $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
+If $e_{A}^{1}$ is not a value and $A=H$ then $SA^{T_{1}^{a}}$ $e_{A}^{1}$ is a value.  If $e_{A}^{1}\rightarrow e_{A}^{2}$ then $SA^{T}$ $e_{A}^{1}\rightarrow SA^{T}$ $e_{A}^{2}$.  If $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $SA^{T}$ $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
 \end{case}
