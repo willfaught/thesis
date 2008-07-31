@@ -2,6 +2,8 @@
 %\onehalfspacing
 \centering
 \begin{tabular}{rcl}
+$\mathscr{E}[\mathtt{ifnil}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]$ \\
+$\mathscr{E}[\mathtt{list?}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{0}]$ \\
 $\mathscr{E}[SH^{N}$ $\overline{n}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
 $\mathscr{E}[SM^{N}$ $\overline{n}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{n}]$ \\
 $\mathscr{E}[SH^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H})]_{S}$ & $\rightarrow$ & $\mathscr{E}[\lambda x_{2}.(SH^{T_{2}}$ \\
@@ -19,8 +21,7 @@ $\mathscr{E}[SM^{[T]}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}
 $\mathscr{E}[SH^{[T]}$ $\mathtt{nil}^{T}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}]$ \\
 $\mathscr{E}[SM^{[T]}$ $\mathtt{nil}^{T}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{nil}]$ \\
 $\mathscr{E}[SH^{L}$ $(^{L}HS$ $v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
-$\mathscr{E}[SM^{L}$ $(^{L}MS$ $v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$ \\
-$\mathscr{E}[\mathtt{list?}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{0}]$ \\
+$\mathscr{E}[SM^{L}$ $(^{L}MS$ $v_{S})]_{S}$ & $\rightarrow$ & $\mathscr{E}[v_{S}]$
 \end{tabular}
 \caption{Scheme interoperation operational semantics}
 \label{sios}
