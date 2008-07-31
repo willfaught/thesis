@@ -1,8 +1,6 @@
 \begin{figure}[p]
-\label{hcos}
-\caption{Haskell core operational semantics}
 %\onehalfspacing
-\begin{center}
+\centering
 \begin{tabular}{rcl}
 $\mathscr{E}[(\lambda x:T.e_{H}^{1})$ $e_{H}^{2}]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}^{1}[e_{H}^{2}/x]]$ \\
 $\mathscr{E}[(\Lambda X.e_{H})$ $\lbrace T\rbrace]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}[T/X]]$ \\
@@ -19,5 +17,6 @@ $\mathscr{E}[\mathtt{ifnil}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ $e_{H}^{3
 $\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{H})]_{H}$ & $\rightarrow$ & $\mathscr{E}[e_{H}[(\mathtt{fix}$ $(\lambda x:T.e_{H}))/x]]$ \\
 $\mathscr{E}[\mathtt{wrong}^{T}$ string$]_{H}$ & $\rightarrow$ & \textbf{Error}: string
 \end{tabular}
-\end{center}
+\caption{Haskell core operational semantics}
+\label{hcos}
 \end{figure}

@@ -1,8 +1,6 @@
 \begin{figure}[p]
-\label{scos}
-\caption{Scheme core operational semantics}
 %\onehalfspacing
-\begin{center}
+\centering
 \begin{tabular}{rcl}
 $\mathscr{E}[(\lambda x.e_{S})$ $v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[e_{S}[v_{S}/x]]$ \\
 $\mathscr{E}[v_{S}^{1}$ $v_{S}^{2}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\mathtt{wrong}$ ``Not a function"$]$ $(v_{S}^{1}\neq\lambda x.e_{S})$ \\
@@ -28,5 +26,6 @@ $\mathscr{E}[\mathtt{fun?}$ $(\lambda x.e_{S})]_{S}$ & $\rightarrow$ & $\mathscr
 $\mathscr{E}[\mathtt{fun?}$ $v_{S}]_{S}$ & $\rightarrow$ & $\mathscr{E}[\overline{1}]$ ($v_{S}\neq\lambda x.e_{S}$) \\
 $\mathscr{E}[\mathtt{wrong}$ $\mathrm{string}]_{S}$ & $\rightarrow$ & \textbf{Error}: string
 \end{tabular}
-\end{center}
+\caption{Scheme core operational semantics}
+\label{scos}
 \end{figure}

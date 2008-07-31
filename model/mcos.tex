@@ -1,8 +1,6 @@
 \begin{figure}[p]
-\label{mcos}
-\caption{ML core operational semantics}
 %\onehalfspacing
-\begin{center}
+\centering
 \begin{tabular}{rcl}
 $\mathscr{E}[(\lambda x:T.e_{M})$ $v_{M}]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}[v_{M}/x]]$ \\
 $\mathscr{E}[(\Lambda X.e_{M})$ $\lbrace T\rbrace]]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}[T/X]]$ \\
@@ -19,5 +17,6 @@ $\mathscr{E}[\mathtt{ifnil}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})$ $e_{M}^{1
 $\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{M})]_{M}$ & $\rightarrow$ & $\mathscr{E}[e_{M}[(\mathtt{fix}$ $(\lambda x:T.e_{M}))/x]]$ \\
 $\mathscr{E}[\mathtt{wrong}^{T}$ string$]_{M}$ & $\rightarrow$ & \textbf{Error}: string 
 \end{tabular}
-\end{center}
+\caption{ML core operational semantics}
+\label{mcos}
 \end{figure}
