@@ -27,7 +27,6 @@
 \else
   \usepackage{graphicx}
 \fi
-
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -35,22 +34,15 @@
 \usepackage{mathrsfs}
 \usepackage{setspace}
 \usepackage[overload]{textcase}
-
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
 \newtheorem{case}{Case}[theorem]
 \newtheorem{subcase}{Case}[case]
-
 \bibliographystyle{abbrv}
-
 \setlength{\parindent}{0.25in} \setlength{\parskip}{6pt}
-
 \geometry{verbose,nohead,tmargin=1.25in,bmargin=1in,lmargin=1.5in,rmargin=1.3in}
-
 \setcounter{tocdepth}{2}
-
 \newcommand{\captionfonts}{\small\bf\ssp}
-
 \makeatletter
 \long\def\@makecaption#1#2{%
   \vskip\abovecaptionskip
@@ -63,9 +55,7 @@
   \vskip\belowcaptionskip}
 %\let\@currsize\normalsize
 \makeatother
-
 \begin{document}
-
 \title{Interoperation Between Haskell, ML, and Scheme}
 \author{William Faught}
 \degreemonth{June}
@@ -81,9 +71,7 @@
 \campus{San Luis Obispo}
 \copyrightyears{seven}
 \maketitle
-
 \begin{frontmatter}
-
 \copyrightpage
 \approvalpage
 \begin{abstract}
@@ -94,14 +82,11 @@ Programming language interoperation is the cooperation of software components wr
 
 I want to thank my adviser, John Clements, for helping me along the way.  I very much appreciate the time he set aside for me and his advice.
 \end{acknowledgements}
-\tableofcontents\addcontentsline{toc}{chapter}{Contents}
+\tableofcontents
 \listoffigures
-
 \end{frontmatter}
-
 \pagestyle{plain}
 \renewcommand{\baselinestretch}{1.66}
-
 \input{chapter-1.tex}
 \input{chapter-2.tex}
 \input{chapter-3.tex}
@@ -109,10 +94,7 @@ I want to thank my adviser, John Clements, for helping me along the way.  I very
 \input{chapter-5.tex}
 \input{chapter-6.tex}
 \input{chapter-7.tex}
-
 \clearpage
 \bibliography{bibliography}
 \bibliographystyle{plain}
-\addcontentsline{toc}{chapter}{Bibliography}
-
 \end{document}
