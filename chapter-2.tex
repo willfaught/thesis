@@ -2,7 +2,7 @@
 
 Embedding server languages within client languages as expressions succinctly expresses the client-server interaction of interoperation.  Embedded server expressions evaluate to values and convert to equivalent client values.  Value conversion represents servers sending data and clients receiving them.  Since Haskell, ML, and Scheme are functional languages, extended lambda calculi can represent them.
 
-Lambda calculus is a minimal model of computation that embodies the notions of abstracting patterns into functions and applying function abstractions to concrete instances of patterns.  Computation is done by substituting function arguments for free occurrences of corresponding variables within function bodies.  Interoperation between lambda calculi is represented by nesting languages within languages expressions embedded within special syntactic forms that indicate a change of language and expected and actual types of values for both sides of boundaries.
+Lambda calculus is a minimal model of computation that embodies the notions of abstracting patterns into functions and applying function abstractions to concrete instances of patterns.  Computation is done by substituting function arguments for free occurrences of corresponding variables within function bodies.  Interoperation between lambda calculi is represented by nesting languages within languages expressions embedded within special syntactic forms that indicate a change of language and expected and actual types of values for both sides of boundaries.  An evaluation context determines the evaluation strategy.
 
 \section{Core Calculi}
 
@@ -16,7 +16,7 @@ Third, it adds a static type system called System F.  System F adds types for na
 
 System F renders Haskell Turing-incomplete because Haskell cannot express recursive functions.  Haskell adds a fixed-point operator to restore Turing-completeness.  The operand of the fixed-point operator is a function of a recursive function over the body of the recursive function.
 
-Fourth, it adds evaluation contexts where appropriate according to the spirit of lazy evaluation.
+Fourth, the values and evaluation context of Haskell follow the spirit of lazy evaluation in that expressions are reduced only where necessary.
 
 An expression is an instance of any syntactic form.  A reduction or evaluation is a step of computation that applies a rewrite rule of an operational semantics to an expression.  A value is an expression that is irreducible.  Letter subscripts of grammar non-terminals and relations denote the language to which they belong.
 
@@ -34,7 +34,9 @@ Variables and type variables are unique across all languages.  Alpha conversion 
 
 The Haskell typing relation, denoted $\Gamma\vdash_{H}e_{H}:T$, is defined by a set of typing rules that assign types to expressions \cite{pierce02}.  $\Gamma\vdash_{H}e_{H}:T$ is a typing statement that asserts the type of an expression and typing rules are implications between typing statements.  Where the type of an expression depends on the types of its subexpressions, its typing rule uses typing statements about those subexpressions as premises for its conclusion.  An expression $e_{H}$ is well-typed if there is some $T$ with the context $\Gamma$ such that $\Gamma\vdash_{H}e_{H}:T$.  A context is a set of assumptions about the types of variables and the abstraction of type variables.  Since all programs are assumed to be closed, programs containing free variables or free type variables are ill-typed.  Adding to the context $\Gamma$ assumptions about the type variable $X$ and the type $T$ of variable $x$ is denoted $\Gamma,X$ and $\Gamma,x:T$, respectively.  The typing statement $\Gamma\vdash_{H}T$ asserts the type $T$ is well-formed with the context $\Gamma$.  Where the context is empty, it is omitted from typing statements.
 
-Natural number values, addition and subtraction operations and their operands, and guards of natural number conditions have type $N$.  Function values, left expressions of function applications, operands of fixed-point operations, have type $T_{1}\rightarrow T_{2}$.  Type abstraction values and expressions of type applications have type $\forall X.T$.  List constructions, tails of list constructions, empty lists, tail operations, operands of head and tail operations, and guards of list conditions have type $[T]$.  Variables have the types they are assumed to have by the context.  If the context does not assume the type of a variable, the variable occurs free and the expression is ill-typed.  If the context does not assume the abstraction of a type variable, the type variable occurs free and the expression is ill-typed.  Function values, empty lists, and error reports have type annotations because their types cannot be calculated otherwise.  Type substitution substitutes one type, $T_{1}$, for free occurrences of a type variable, $X$, within a second type, $T_{2}$, denoted $T_{2}[T_{1}/X]$.  Number subscripts and superscripts of grammar symbols in a typing rule denote distinct instances of them.  Numbers are absent where there is a single instance of a grammar symbol in a typing rule.
+Natural number values, addition and subtraction operations and their operands, and guards of natural number conditions have type $N$.  Function values, left expressions of function applications, operands of fixed-point operations, have type $T_{1}\rightarrow T_{2}$.  Type abstraction values and expressions of type applications have type $\forall X.T$.  List constructions, tails of list constructions, empty lists, tail operations, operands of head and tail operations, and guards of list conditions have type $[T]$.
+
+Variables have the types they are assumed to have by the context.  If the context does not assume the type of a variable, the variable occurs free and the expression is ill-typed.  If the context does not assume the abstraction of a type variable, the type variable occurs free and the expression is ill-typed.  Function values, empty lists, and error reports have type annotations because their types cannot be calculated otherwise.  Type substitution substitutes one type, $T_{1}$, for free occurrences of a type variable, $X$, within a second type, $T_{2}$, denoted $T_{2}[T_{1}/X]$.  Number subscripts and superscripts of grammar symbols in a typing rule denote distinct instances of them.  Numbers are absent where there is a single instance of a grammar symbol in a typing rule.
 
 \input{model/hctr.tex}
 
@@ -46,11 +48,15 @@ Expression substitution substitutes one expression, $e_{H}^{1}$, for a variable,
 
 \subsection{ML}
 
-The ML calculus is identical to the Haskell calculus except that Haskell uses lazy evaluation and ML uses strict evaluation.  The difference of evaluation strategy affects list constructions and the evaluation of function arguments.  In Haskell, every list construction is a value, but its head and tail are expressions, not necessarily values, because they are not evaluated.  This follows the notion of lazy evaluation that expressions are not evaluated until they are used.  In ML, a list construction is a value only if its head and tail are also values.  This follows the notion of strict evaluation that expressions are evaluated up front despite their future utility.  To reflect these differences, the head and tail of the list construction value are changed to values, denoted $\mathtt{cons}$ $v_{M}$ $v_{M}$, and a list construction expression is added, denoted $\mathtt{cons}$ $e_{M}$ $e_{M}$.  Since heads and tails are evaluated in ML, the ML evaluation context can also be the head and tail of a list construction.  To preserve a deterministic order of evaluation on list constructions, much like arithmetic operations, the head is evaluated before the tail.  Therefore the ML evaluation context can be the tail of a list construction only if the head is an ML value.  
+ML is identical to Haskell except that it uses strict evaluation instead of lazy evaluation.  This difference affects list constructions and the evaluation context.  Haskell reduces expressions only where necessary and ML reduces expressions regardless of necessity, thus their definition of values are different.  Haskell list constructions are values regardless of whether their heads and tails are values, but ML list constructions are values where their heads and tails are values.  To reflect these differences, ML adds a list construction expression where the head and tail are expressions, denoted $\mathtt{cons}$ $e_{M}$ $e_{M}$, and changes the head and tail of the list construction value to values, denoted $\mathtt{cons}$ $v_{M}$ $v_{M}$.
 
-In addition, in Haskell, function arguments are not evaluated, but they are in ML.  Therefore the ML evaluation context can also be the right term of a term application if the left term is an ML value.
+The ML evaluation context extends the Haskell evaluation context such that all expressions are reduced and the order of evaluation is deterministic.  In addition to the Haskell definition, the ML evaluation context is right expressions of function applications where left expression are values, heads of list constructions, and tails of list construction where heads are values.
 
-The rest is identical to Haskell.
+\input{model/mce.tex}
+
+\input{model/mctr.tex}
+
+\input{model/mcos.tex}
 
 \subsection{Scheme}
 
@@ -62,11 +68,10 @@ There is one Scheme type called The Scheme Type, $TST$.  Every well-typed term a
 
 The natural number $\overline{0}$ represents true and all other values of any type represent false.  As such, the condition expression reduces to the true alternative if the guard is $\overline{0}$ and to the false alternative otherwise.  The type predicate expressions reduce to $\overline{0}$ if the predicate is true and the natural number $\overline{1}$ if the predicate is false.  The wrong expression discards the current evaluation context and signals an error with an explanation.  Since type errors can occur at run time, rewrite rules must be added to handle such cases by signaling an an error with an explanation.
 
-\input{model/mce.tex}
-\input{model/mctr.tex}
-\input{model/mcos.tex}
 \input{model/sce.tex}
+
 \input{model/sctr.tex}
+
 \input{model/scos.tex}
 
 \section{Interoperation Calculi}
