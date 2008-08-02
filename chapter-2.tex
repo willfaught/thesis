@@ -58,19 +58,15 @@ It adds a single type called The Scheme Type, $TST$.  Well-typed expressions do 
 
 It changes the natural number condition to reduce to one if the guard is not zero, and possibly not a natural number.  It changes the list condition to reduce to one if the guard is not an empty list, and possibly not a list.  The type predicates reduce to the natural number zero if true and the natural number one if false.
 
-\clearpage
-
 \input{model/hce.tex}
-\input{model/hctr.tex}
-\input{model/hcos.tex}
 \input{model/mce.tex}
-\input{model/mctr.tex}
-\input{model/mcos.tex}
 \input{model/sce.tex}
+\input{model/hctr.tex}
+\input{model/mctr.tex}
 \input{model/sctr.tex}
+\input{model/hcos.tex}
+\input{model/mcos.tex}
 \input{model/scos.tex}
-
-\clearpage
 
 \section{Interoperation Calculi}
 
@@ -198,11 +194,11 @@ If the expected and actual types of a boundary are a list type and the Scheme ty
 If the expected and actual types of a boundary are the Scheme type and a list type, respectively, the value is either an empty list or a list construction.  If it is an empty list, the boundary reduces to an empty list.  For example, $SH^{[T]}$ $\mathtt{nil}^{T}$ reduces to $\mathtt{nil}$.  If it is an ML list construction, the boundary reduces to a list construction of the head and tail wrapped in boundaries.  For example, $SM^{[T]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})$ reduces to $\mathtt{cons}$ $(SM^{T}$ $v_{M}^{1})$ $(SM^{[T]}$ $v_{M}^{2})$.  If it is a Haskell list construction, it is irreducible for the same reason that $^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value, as discussed above.  Therefore $SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value.
 
 \input{model/hie.tex}
-\input{model/hitr.tex}
-\input{model/hios.tex}
 \input{model/mie.tex}
-\input{model/mitr.tex}
-\input{model/mios.tex}
 \input{model/sie.tex}
+\input{model/hitr.tex}
+\input{model/mitr.tex}
 \input{model/sitr.tex}
+\input{model/hios.tex}
+\input{model/mios.tex}
 \input{model/sios.tex}
