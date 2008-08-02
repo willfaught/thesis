@@ -1,14 +1,34 @@
-\begin{figure}[tp]
-%\onehalfspacing
+\begin{figure}[ph!]
 \centering
 \begin{tabular}{lcl}
 $e_{H}$ & $=$ & $v_{H}$ $\vert$ $x$ $\vert$ $e_{H}$ $e_{H}$ $\vert$ $e_{H}$ $\lbrace T\rbrace$ $\vert$ $o$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$ $\vert$ $f$ $e_{H}$ \\
+
+\vspace{5pt}
+
 && $\vert$ $\mathtt{ifnil}$ $e_{H}$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{fix}$ $e_{H}$ $\vert$ $\mathtt{wrong}^{T}$ string \\
+
+\vspace{5pt}
+
 $v_{H}$ & $=$ & $\overline{n}$ $\vert$ $\mathtt{cons}$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{nil}^{T}$ $\vert$ $\lambda x:T.e_{H}$ $\vert$ $\Lambda X.e_{H}$ \\
+
+\vspace{5pt}
+
 $T$ & $=$ & $N$ $\vert$ $X$ $\vert$ $T\rightarrow T$ $\vert$ $\forall X.T$ $\vert$ $[T]$ \\
+
+\vspace{5pt}
+
 $o$ & $=$ & $\mathtt{+}$ $\vert$ $\mathtt{-}$ \\
+
+\vspace{5pt}
+
 $f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
+
+\vspace{5pt}
+
 $E_{H}$ & $=$ & $[\,]_{H}$ $\vert$ $E_{H}$ $e_{H}$ $\vert$ $E_{H}$ $\lbrace T\rbrace$ $\vert$ $o$ $E_{H}$ $e_{H}$ $\vert$ $o$ $v_{H}$ $E_{H}$ $\vert$ $\mathtt{if0}$ $E_{H}$ $e_{H}$ $e_{H}$ $\vert$ $f$ $E_{H}$ \\
+
+\vspace{5pt}
+
 && $\vert$ $\mathtt{ifnil}$ $E_{H}$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{fix}$ $E_{H}$
 \end{tabular}
 \caption{Haskell core expressions}

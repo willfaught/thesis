@@ -1,14 +1,34 @@
-\begin{figure}[tp]
-%\onehalfspacing
+\begin{figure}[ph!]
 \centering
 \begin{tabular}{lcl}
 $e_{S}$ & $=$ & $v_{S}$ $\vert$ $x$ $\vert$ $e_{S}$ $e_{S}$ $\vert$ $o$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{if0}$ $e_{S}$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $e_{S}$ $e_{S}$ $\vert$ $f$ $e_{S}$ \\
+
+\vspace{5pt}
+
 && $\vert$ $\mathtt{ifnil}$ $e_{S}$ $e_{S}$ $e_{S}$ $\vert$ $p$ $e_{S}$ $\vert$ $\mathtt{wrong}$ $\mathrm{string}$ \\
+
+\vspace{5pt}
+
 $v_{S}$ & $=$ & $\overline{n}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $v_{S}$ $\vert$ $\mathtt{nil}$ $\vert$ $\lambda x.e_{S}$ \\
+
+\vspace{5pt}
+
 $o$ & $=$ & $\mathtt{+}$ $\vert$ $\mathtt{-}$ \\
+
+\vspace{5pt}
+
 $f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
+
+\vspace{5pt}
+
 $p$ & $=$ & $\mathtt{num?}$ $\vert$ $\mathtt{list?}$ $\vert$ $\mathtt{fun?}$ \\
+
+\vspace{5pt}
+
 $E_{S}$ & $=$ & $[\,]_{S}$ $\vert$ $E_{S}$ $e_{S}$ $\vert$ $v_{S}$ $E_{S}$ $\vert$ $o$ $E_{S}$ $e_{S}$ $\vert$ $o$ $v_{S}$ $E_{S}$ $\vert$ $\mathtt{if0}$ $E_{S}$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $E_{S}$ $e_{S}$ \\
+
+\vspace{5pt}
+
 && $\vert$ $\mathtt{cons}$ $v_{S}$ $E_{S}$ $\vert$ $f$ $E_{S}$ $\vert$ $\mathtt{ifnil}$ $E_{S}$ $e_{S}$ $e_{S}$ $\vert$ $p$ $E_{S}$
 \end{tabular}
 \caption{Scheme core expressions}
