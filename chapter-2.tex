@@ -20,7 +20,7 @@ Fourth, the values and evaluation contexts of Haskell follow the spirit of lazy 
 
 An expression is an instance of any syntactic form.  A reduction or evaluation is a step of computation that applies a rewrite rule of an operational semantics to an expression.  A value is an expression that is irreducible.  Letter subscripts of grammar non-terminals and relations denote the language to which they belong.
 
-Types, denoted $T$, are comprised of natural numbers, denoted $N$; type variables, denoted $X$; functions, denoted $T\rightarrow T$; type abstractions, denoted $\forall X.T$; and lists, denoted $[T]$.
+Types, denoted $T$, are comprised of natural numbers, denoted $N$; type variables, denoted $X$; functions, denoted $T\rightarrow T$; universally-quantified (forall) types, denoted $\forall X.T$; and lists, denoted $[T]$.
 
 Haskell values, denoted $v_{H}$, are comprised of natural numbers, denoted $\overline{n}$, which syntactically represents the natural number $n$; list constructions, denoted $\mathtt{cons}$ $e_{H}$ $e_{H}$; empty lists, denoted $\mathtt{nil}^{T}$; functions, denoted $\lambda x:T.e_{H}$; and type abstractions, denoted $\Lambda X.e_{H}$.
 
@@ -78,15 +78,15 @@ It changes the natural number condition to reduce to one if the guard is not zer
 
 \section{Interoperation Calculi}
 
-The interoperation calculi extend the core calculi with new expressions, evaluation contexts, typing rules, and rewrite rules to express interoperation.  They add boundary expressions, which represent values with actual (server) and expected (client) types crossing from server languages to client languages.  Boundaries are denoted by two-letter acronyms, where the first letter names servers and the second letters names clients.  Expected types are superscripts to the left of first letters, and actual types are superscripts to the right of second letters.  Expressions to be reduced to values and cross between languages are to the right of the letters and types, separated by a space.  For example, the expression $^{T_{1}}HM^{T_{2}}$ $e_{M}$ denotes ML expression $e_{M}$ with actual type $T_{2}$ and expected type $T_{1}$ crossing from ML to Haskell.  Since a set of $n$ interoperable languages requires $n\times(n-1)$ boundary expressions, this model requires six boundaries.
+The interoperation calculi extend the core calculi with new expressions, evaluation contexts, typing rules, and rewrite rules to express interoperation.  They add boundary expressions, which represent values with actual (server) and expected (client) types crossing from server languages to client languages.  Boundaries are denoted by two-letter acronyms, where the first letter names servers and the second letters names clients.  Expected types are superscripts to the left of first letters, and actual types are superscripts to the right of second letters.  Expressions to be reduced to values and cross between languages are to the right of the letters and types, separated by a space.  For example, the expression $^{T_{1}}HM^{T_{2}}$ $e_{M}$ denotes ML expression $e_{M}$ with expected type $T_{1}$ and actual type $T_{2}$ crossing from ML to Haskell.  Boundaries can be nested within each other to express interoperation between more than two languages.  Since a set of $n$ interoperable languages requires $n\times(n-1)$ boundary expressions, this model requires six boundaries.
 
 They add evaluation contexts for the expressions of boundaries, $^{T}HM^{T}$ $E_{M}$ for example.
 
-They add typing rules for boundaries.  For a boundary to be well-typed, its actual and expected types must be well-formed and equivalent and the type of its expression must equal the actual type of the boundary.  The types of boundaries are their expected types.  $TST$ is omitted from boundary notation because all well-typed Scheme expressions have type $TST$.
+They add typing rules for boundaries.  For a boundary to be well-typed, its expected and actual types must be well-formed and equivalent and the type of its expression must equal the actual type of the boundary.  The types of boundaries are their expected types.  $TST$ is omitted from boundary notation because all well-typed Scheme expressions have type $TST$.
 
-They add rewrite rules for every combination of boundary, expected and actual types, and syntactic forms of values.  Rewrite rules for boundaries containing Scheme values verify that their syntactic forms match their expected types and report type errors.
+They add rewrite rules for every combination of boundary, expected and actual types, and syntactic forms of values.  Rewrite rules for boundaries containing Scheme values verify that their syntactic forms match their expected types and report type errors.  Rewrite rules for boundaries containing Haskell or ML values do not validate their types because the Haskell and ML type systems guarantee they are valid.
 
-The actual and expected types of boundaries determine their reduction.
+The expected and actual types of boundaries determine their reduction.
 
 \subsection{Natural Number Types}
 
@@ -94,9 +94,77 @@ Natural numbers do not change when they cross languages because the languages ha
 
 \subsection{Function Types}
 
-Functions cannot be directly converted when they cross boundaries because each language grammar is different, Haskell and ML do not have a reasonable equivalent for every Scheme function, and functions may behave differently if they are evaluated with a different evaluation strategy.  Instead, a function from the sending language is wrapped inside a function from the receiving language with a boundary expression.  The wrapper function passes its argument across a boundary from the receiving language to the sending language.  Within the sending language, the original function is applied to the argument, and the result is passed back across a boundary to the receiving language.  The wrapper function produces the result from the sending language as its result.  To do this, a language is allowed to perform substitution within itself across boundaries.  For example, the Scheme function $\lambda x_{1}.e_{S}$ represented in Haskell with type $T_{1}\rightarrow T_{2}$ is $\lambda x_{2}:T_{1}.(^{T_{2}}HS$ $((\lambda x_{1}.e_{S})$ $(SH^{T_{1}}$ $x_{2})))$.  If the Haskell function is applied to an argument, the argument crosses the $SH^{T_{1}}$ boundary from Haskell to Scheme, the Scheme function is applied to it, and its result crosses the $^{T_{2}}HS$ boundary from Scheme back to Haskell, which becomes the result of the function application.
+Functions cannot be directly converted when they cross languages because the language grammars are different, Haskell and ML do not have a reasonable equivalent for every Scheme function, and functions may behave differently with different evaluation strategies.  Instead, server functions are wrapped inside client functions.  The client functions apply the server function to their arguments and produce the server function results as their own.  This is made possible by languages performing substitution within themselves across boundaries.  Observe the Scheme function $\lambda x_{1}.\mathtt{nil}$ crossing to Haskell with expected type $N\rightarrow[N]$ and being applied to $\overline{0}$:
 
-\subsection{Type Abstraction Types}
+\begin{figure}[h]
+$(^{N\rightarrow[N]}HS$ $\lambda x_{1}.\mathtt{nil})$ $\overline{0}$
+
+\vspace{5pt}
+
+$\rightarrow(\lambda x_{2}:N.(^{[N]}HS$ $((\lambda x_{1}.\mathtt{nil})$ $(SH^{N}$ $x_{2})))$ $\overline{0}$
+
+\vspace{5pt}
+
+$\rightarrow{^{[N]}H}S$ $((\lambda x_{1}.\mathtt{nil})$ $(SH^{N}$ $\overline{0}))$
+
+\vspace{5pt}
+
+$\rightarrow{^{[N]}H}S$ $((\lambda x_{1}.\mathtt{nil})$ $\overline{0})$
+
+\vspace{5pt}
+
+$\rightarrow{^{[N]}H}S$ $\mathtt{nil}$
+
+\vspace{5pt}
+
+$\rightarrow\mathtt{nil}^{N}$
+\end{figure}
+
+In the above example, a single boundary with a function type is split into two boundaries that convert the Haskell argument to an equivalent Scheme argument and the Scheme result to an equivalent Haskell result.  Every boundary with a function type is split into two boundaries in this fashion.  The Scheme-to-Haskell boundary verifies the syntactic form of its value matches its expected type.  If its value is not some list of natural numbers, it reports a type error.  If the body of the Scheme function had been $\overline{0}$ instead of $\mathtt{nil}$, the computation would reduce to $^{[N]}HS$ $\overline{0}$ instead of $^{[N]}HS$ $\mathtt{nil}$.  Since $\overline{0}$ does not have the equivalent type $[N]$, $^{[N]}HS$ $\overline{0}$ reduces to $\mathtt{wrong}$ ``Not a list" to report the type error.
+
+The case for higher-order functions is more complex, but straightforward.  Observe the Scheme function $\lambda x_{1}.(x_{1}$ $\overline{0})$ crossing to Haskell with expected type $(N\rightarrow N)\rightarrow N$ and being applied to $\lambda x_{2}:N.x_{2}$:
+
+\begin{figure}[h]
+$(^{(N\rightarrow N)\rightarrow N}HS$ $\lambda x_{1}.(x_{1}$ $\overline{0}))$ $(\lambda x_{2}:N.x_{2})$
+
+\vspace{5pt}
+
+$\rightarrow(\lambda x_{3}:N\rightarrow N.(^{N}HS$ $((\lambda x_{1}.(x_{1}$ $\overline{0}))$ $(SH^{N\rightarrow N}$ $x_{3}))))$ $(\lambda x_{2}:N.x_{2})$
+
+\vspace{5pt}
+
+$\rightarrow{^{N}H}S$ $((\lambda x_{1}.(x_{1}$ $\overline{0}))$ $(SH^{N\rightarrow N}$ $(\lambda x_{2}:N.x_{2})))$
+
+\vspace{5pt}
+
+$\rightarrow{^{N}H}S$ $((\lambda x_{1}.(x_{1}$ $\overline{0}))$ $(\lambda x_{4}.(SH^{N}$ $((\lambda x_{2}:N.x_{2})$ $(^{N}HS$ $x_{4})))))$
+
+\vspace{5pt}
+
+$\rightarrow{^{N}H}S$ $((\lambda x_{4}.(SH^{N}$ $((\lambda x_{2}:N.x_{2})$ $(^{N}HS$ $x_{4}))))$ $\overline{0})$
+
+\vspace{5pt}
+
+$\rightarrow{^{N}H}S$ $(SH^{N}$ $((\lambda x_{2}:N.x_{2})$ $(^{N}HS$ $\overline{0})))$
+
+\vspace{5pt}
+
+$\rightarrow{^{N}H}S$ $(SH^{N}$ $((\lambda x_{2}:N.x_{2})$ $\overline{0}))$
+
+\vspace{5pt}
+
+$\rightarrow{^{N}H}S$ $(SH^{N}$ $\overline{0})$
+
+\vspace{5pt}
+
+$\rightarrow{^{N}H}S$ $\overline{0}$
+
+\vspace{5pt}
+
+$\rightarrow\overline{0}$
+\end{figure}
+
+\subsection{Forall Types}
 
 If the expected and actual types of a boundary expression are a universal type, the contained value is either a type abstraction or a Scheme value contained within another boundary expression.  If it is a type abstraction, $\Lambda X.e_{M}$ with type $\forall X.T$ for example, the boundary expression reduces to a type abstraction of $X$ for a boundary with expected and actual type $T$ containing $e_{M}$.  Therefore $^{\forall X.T}HM^{\forall X.T}$ $(\Lambda X.e_{M})\rightarrow\Lambda X.(^{T}HM^{T}$ $e_{M})$.  If it is a Scheme value contained within another boundary expression, $^{\forall X.T}MS$ $v_{S}$ for example, the boundary expression reduces to a new boundary expression where $v_{S}$ crosses from Scheme to Haskell with expected type $\forall X.T$ and actual type $TST$.  Therefore $^{\forall X.T}HM^{\forall X.T}$ $(^{\forall X.T}MS$ $v_{S})\rightarrow{^{\forall X.T}H}S$ $v_{S}$.
 
@@ -127,11 +195,11 @@ If it is a Scheme value contained within another boundary expression, the bounda
 
 \subsection{List Types}
 
-If the expected and actual types of a boundary expression are a list type, the contained value is either an empty list or a list construction.  If it is an empty list, the boundary expression reduces to the empty list.  For example, $^{[T]}HM^{[T]}$ $\mathtt{nil}^{T}$ reduces to $\mathtt{nil}^{T}$.  If it is an ML list construction crossing to Haskell, the boundary expression reduces to a list construction where the head and tail are the head and tail of the ML list construction wrapped in boundary expressions, respectively.  For example, $\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}$ with type $[T]$ would reduce to $\mathtt{cons}$ $(^{T}HM^{T}$ $v_{M}^{1})$ $(^{[T]}HM^{[T]}$ $v_{M}^{2})$.  If it is a Haskell list construction crossing to ML, the boundary expression should be irreducible.  Since Haskell list constructions are values, they can be recursive and therefore infinite in length.  Converting a list construction from Haskell to ML like a list construction is converted from ML to Haskell would reduce the tail until it is a value.  If the list construction were infinite, the tail may reduce to the list construction, and thus never reduce to a value, and the computation would loop forever.  Therefore $^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value.
+If the expected and actual types of a boundary are a list type, the value is either an empty list or a list construction.  If it is an empty list, the boundary reduces to the empty list.  For example, $^{[T]}HM^{[T]}$ $\mathtt{nil}^{T}$ reduces to $\mathtt{nil}^{T}$.  If it is an ML list construction crossing to Haskell, the boundary reduces to a list construction of the head and tail of the ML list construction wrapped in boundaries.  For example, $^{[T]}HM^{[T]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})$ reduces to $\mathtt{cons}$ $(^{T}HM^{T}$ $v_{M}^{1})$ $(^{[T]}HM^{[T]}$ $v_{M}^{2})$.  If it is a Haskell list construction crossing to ML, the boundary is irreducible.  Since Haskell list constructions can be recursive and therefore infinite, they canot be mechanically converted to equivalent ML list constructions.  Therefore $^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value.  Instead, heads and tails cross to ML individually when accessed by head and tail operations.  For example, $\mathtt{tl}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))$ reduces to $^{T}MH^{T}$ $e_{H}^{1}$.
 
-If the expected and actual types of a boundary expression are a list type and the Scheme type, respectively, the contained value is either an empty list or a list construction.  If it is an empty list, the boundary expression reduces to an empty list of the corresponding type.  For example, $^{[T]}HS$ $\mathtt{nil}$ reduces to $\mathtt{nil}^{T}$.  If it is a list construction, the boundary expression reduces to a list construction where the new head and tail are the old head and tail wrapped in boundary expressions, respectively.  For example, $^{[T]}HS$ $\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2}$ reduces to $\mathtt{cons}$ $(^{T}HS$ $v_{S}^{1})$ $(^{[T]}HS$ $v_{S}^{2})$.
+If the expected and actual types of a boundary are a list type and the Scheme type, respectively, the value is either an empty list or a list construction.  If it is an empty list, the boundary reduces to an empty list of the corresponding type.  For example, $^{[T]}HS$ $\mathtt{nil}$ reduces to $\mathtt{nil}^{T}$.  If it is a list construction, the boundary expression reduces to a list construction of the head and tail wrapped in boundaries.  For example, $^{[T]}HS$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})$ reduces to $\mathtt{cons}$ $(^{T}HS$ $v_{S}^{1})$ $(^{[T]}HS$ $v_{S}^{2})$.
 
-If the expected and actual types of a boundary expression are the Scheme type and a list type, respectively, the contained value is either an empty list or a list construction.  If it is an empty list, the boundary expression reduces to an empty list.  For example, $SH^{[T]}$ $\mathtt{nil}^{T}$ reduces to $\mathtt{nil}$.  If it is an ML list construction, the boundary expression reduces to a list construction where the new head and tail are the old head and tail wrapped in boundary expressions, respectively.  For example, $SM^{[T]}$ $v_{M}^{1}$ $v_{M}^{2}$ reduces to $\mathtt{cons}$ $(SM^{T}$ $v_{M}^{1})$ $(SM^{[T]}$ $v_{M}^{2})$.  If it is a Haskell list construction, it should be irreducible for the same reason that $^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value, as discussed above.  Therefore $SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value.
+If the expected and actual types of a boundary are the Scheme type and a list type, respectively, the value is either an empty list or a list construction.  If it is an empty list, the boundary reduces to an empty list.  For example, $SH^{[T]}$ $\mathtt{nil}^{T}$ reduces to $\mathtt{nil}$.  If it is an ML list construction, the boundary reduces to a list construction of the head and tail wrapped in boundaries.  For example, $SM^{[T]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})$ reduces to $\mathtt{cons}$ $(SM^{T}$ $v_{M}^{1})$ $(SM^{[T]}$ $v_{M}^{2})$.  If it is a Haskell list construction, it is irreducible for the same reason that $^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value, as discussed above.  Therefore $SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value.
 
 \input{model/hie.tex}
 \input{model/hitr.tex}
