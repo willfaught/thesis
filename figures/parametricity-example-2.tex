@@ -1,0 +1,50 @@
+\begin{figure}
+\centering
+\begin{tabular}{ll}
+\vspace{5pt}
+
+& $((((^{\forall X_{1}.(\forall X_{2}.(X_{1}\rightarrow(X_{2}\rightarrow X_{2})))}HS$ $\lambda x_{1}.(\lambda x_{2}.x_{1}))$ $\lbrace N\rbrace)$ $\lbrace N\rbrace)$ $\overline{0})$ $\overline{1}$ \\
+
+\vspace{5pt}
+
+$\rightarrow$ & $(((^{\forall X_{2}.(N^{a}\rightarrow(X_{2}\rightarrow X_{2}))}HS$ $\lambda x_{1}.(\lambda x_{2}.x_{1}))$ $\lbrace N\rbrace)$ $\overline{0})$ $\overline{1}$ \\
+
+\vspace{5pt}
+
+$\rightarrow$ & $((^{N^{a}\rightarrow(N^{b}\rightarrow N^{b}))}HS$ $\lambda x_{1}.(\lambda x_{2}.x_{1}))$ $\overline{0})$ $\overline{1}$ \\
+
+\vspace{5pt}
+
+$\rightarrow$ & $((\lambda x_{3}:N.(^{N^{b}\rightarrow N^{b}}HS$ $((\lambda x_{1}.(\lambda x_{2}.x_{1}))$ $(SH^{N^{a}}$ $x_{3}))))$ $\overline{0})$ $\overline{1}$ \\
+
+\vspace{5pt}
+
+$\rightarrow$ & $(^{N^{b}\rightarrow N^{b}}HS$ $((\lambda x_{1}.(\lambda x_{2}.x_{1}))$ $(SH^{N^{a}}$ $\overline{0})))$ $\overline{1}$ \\
+
+\vspace{5pt}
+
+$\rightarrow$ & $(\lambda x_{4}:N.(^{N^{b}}HS$ $(((\lambda x_{1}.(\lambda x_{2}.x_{1}))$ $(SH^{N^{a}}$ $\overline{0}))$ $(SH^{N^{b}}$ $x_{4}))))$ $\overline{1}$ \\
+
+\vspace{5pt}
+
+$\rightarrow$ & ${^{N^{b}}H}S$ $(((\lambda x_{1}.(\lambda x_{2}.x_{1}))$ $(SH^{N^{a}}$ $\overline{0}))$ $(SH^{N^{b}}$ $\overline{1}))$ \\
+
+\vspace{5pt}
+
+$\rightarrow$ & ${^{N^{b}}H}S$ $((\lambda x_{2}.(SH^{N^{a}}$ $\overline{0}))$ $(SH^{N^{b}}$ $\overline{1}))$ \\
+
+\vspace{5pt}
+
+$\rightarrow$ & ${^{N^{b}}H}S$ $(SH^{N^{a}}$ $\overline{0})$ \\
+
+\vspace{5pt}
+
+$\rightarrow$ & $\mathtt{wrong}$ ``Parametricity violated" \\
+
+\vspace{5pt}
+
+$\rightarrow$ & \textbf{Error}: ``Parametricity violated"
+\end{tabular}
+\caption{Scheme breaking parametricity}
+\label{parametricity-example-2}
+\end{figure}
