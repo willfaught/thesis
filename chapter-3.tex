@@ -1,34 +1,33 @@
 \chapter{Proof of Type Soundness}
 
-The soundness of the type system must be proven for the model to be useful.  Soundness is ensured if progress of terms and preservation of types are ensured.  Progress ensures that a well-typed, closed term either is a value, reduces to another term, or reduces to an error.  Preservation ensures that if a well-typed term reduces to another term, the other term is well-typed and has the same type.  Proving progress and preservation proves soundness.  The proof extends the proof by Kinghorn \cite{kinghorn07}, which was based on proofs by Pierce \cite{pierce02} and Matthews and Findler \cite{matthews07}.
+The soundness of the type systems must be proven for the model to be useful.  Soundness is ensured if progress of expressions and preservation of types are ensured.  Progress ensures that a well-typed, closed expression is either a value, reducible to another expression, or reducible to an error.  Preservation ensures that if a well-typed expression reduces to another expression, the other expression is well-typed and has the same type.  Proving progress and preservation proves type soundness.  The proof extends the proof by Kinghorn \cite{kinghorn07}, which was based on proofs by Pierce \cite{pierce02} and Matthews and Findler \cite{matthews07}.
 
 \section{Progress}
 
-Progress will be proven by structural induction on a term of each syntactic form.  In each case, the term will be proven to be either a value, reducible to another term, or reducible to an error.  If a subterm is reducible to another term, the reduction of the term substitutes the new subterm for the old subterm.  If a subterm is reducible to an error, the term reduces to the error.  If no subterms are reducible but the term is reducible, the syntactic forms of its subterms must be determined to perform the reduction.  Since the term is well-typed, its subterms are well-typed, and thus the typing relations can be inverted to calculate its type from the types of its subterms.
+Progress will be proven by structural induction on a well-typed, closed expression of each syntactic form.  In each case, the expression will be proven to be either a value, reducible to another expression, or reducible to an error.  Reductions of subexpressions are reductions of the top expression.  If a subexpression reduces to an error, the top expression reduces to the error.  In some cases, the syntactic forms of subexpressions must be determined to reduce the top expression.  If unique types for those subexpressions can be determined, they can be used to determine their syntactic forms.
+
+Inverting the typing relations enables the syntactic forms of well-typed expressions to determine the types of their subexpressions:
 
 \input{proof/lemmas/progress/inversion.tex}
 
-The type system ensures that a well-typed term has one unique type.
+Well-typed Haskell and ML expressions have unique types:
 
 \input{proof/lemmas/progress/uniqueness-of-types.tex}
 
-Once the type of an irreducible subterm is determined, its syntactic form can be determined.
+The types of Haskell and ML values determine their syntactic forms:
 
 \input{proof/lemmas/progress/canonical-forms.tex}
-
-If the term is irreducible, it is a value.
-
 \input{proof/theorems/progress.tex}
 
 \section{Preservation}
 
-Preservation will be proven by cases on the reduction rules.  In each case, the new term will be proven to be well-typed and have the same type as the old term.  Inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) will be used to determine the type of the old term, the types of the subterms of the old term that occur within the new term, and the type of the new term.  Some reduction rules use substitution.
+Preservation will be proven by cases on the rewrite rules.  In each case, the right side is be proven to be well-typed and have the same type as the left side.  Inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) are used to determine the types of the left side and its subexpressions and the type of the right side.  Some rewrite rules use expression and type substitutions.
 
-Term substitution substitutes one term for a second term within a third term.  The result of a term substitution has the same type as the third term.
+If $e_{A}^{1}$ is substituted for free occurrences of $x$ within $e_{A}^{2}$, $e_{A}^{1}$ and $x$ have the same type, and the result has the same type as $e_{A}^{2}$, where $A\in\lbrace H,M,S\rbrace$:
 
-\input{proof/lemmas/preservation/term-substitution.tex}
+\input{proof/lemmas/preservation/expression-substitution.tex}
 
-Type substitution substitutes a type for a type variable within a term.  The type of the result is the type substituted for the type variable within the term.
+If $T_{1}$ is substituted for free occurrences of $X$ within $e_{A}$ of type $T_{2}$, the type of the result is $T_{1}$ substituted for free occurrences of $X$ within $T_{2}$, where $A\in\lbrace H,M\rbrace$:
 
 \input{proof/lemmas/preservation/type-substitution.tex}
 \input{proof/lemmas/preservation/evaluation-context-preservation.tex}
