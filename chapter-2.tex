@@ -88,73 +88,13 @@ Natural numbers do not change when they cross languages because the languages ha
 
 Functions cannot be directly converted when they cross languages because the language grammars are different, Haskell and ML do not have a reasonable equivalent for every Scheme function, and functions may behave differently with different evaluation strategies.  Instead, server functions are wrapped in client functions.  The client functions apply the server function to their arguments and produce the server function results as their own.  This is made possible by languages performing substitution within themselves across boundaries.  Observe the Scheme function $\lambda x_{1}.\mathtt{nil}$ cross to Haskell with expected type $N\rightarrow[N]$ and be applied to $\overline{0}$:
 
-\begin{figure}[h]
-$(^{N\rightarrow[N]}HS$ $\lambda x_{1}.\mathtt{nil})$ $\overline{0}$
-
-\vspace{5pt}
-
-$\rightarrow(\lambda x_{2}:N.(^{[N]}HS$ $((\lambda x_{1}.\mathtt{nil})$ $(SH^{N}$ $x_{2})))$ $\overline{0}$
-
-\vspace{5pt}
-
-$\rightarrow{^{[N]}H}S$ $((\lambda x_{1}.\mathtt{nil})$ $(SH^{N}$ $\overline{0}))$
-
-\vspace{5pt}
-
-$\rightarrow{^{[N]}H}S$ $((\lambda x_{1}.\mathtt{nil})$ $\overline{0})$
-
-\vspace{5pt}
-
-$\rightarrow{^{[N]}H}S$ $\mathtt{nil}$
-
-\vspace{5pt}
-
-$\rightarrow\mathtt{nil}^{N}$
-\end{figure}
+\input{figures/function-1.tex}
 
 In the above example, a single boundary with a function type is split into two boundaries that convert the Haskell argument to an equivalent Scheme argument and the Scheme result to an equivalent Haskell result.  Every boundary with a function type is split into two boundaries in this fashion.  The Scheme-to-Haskell boundary verifies the syntactic form of its value matches its expected type.  If its value is not some list of natural numbers, it reports a type error.  If the body of the Scheme function had been $\overline{0}$ instead of $\mathtt{nil}$, the computation would reduce to $^{[N]}HS$ $\overline{0}$ instead of $^{[N]}HS$ $\mathtt{nil}$.  Since $\overline{0}$ does not have the equivalent type $[N]$, $^{[N]}HS$ $\overline{0}$ reduces to $\mathtt{wrong}$ ``Not a list" to report the type error.
 
 The case for higher-order functions is more complex, but straightforward.  Observe the Scheme function $\lambda x_{1}.(x_{1}$ $\overline{0})$ cross to Haskell with expected type $(N\rightarrow N)\rightarrow N$ and be applied to $\lambda x_{2}:N.x_{2}$:
 
-\begin{figure}[h]
-$(^{(N\rightarrow N)\rightarrow N}HS$ $\lambda x_{1}.(x_{1}$ $\overline{0}))$ $(\lambda x_{2}:N.x_{2})$
-
-\vspace{5pt}
-
-$\rightarrow(\lambda x_{3}:N\rightarrow N.(^{N}HS$ $((\lambda x_{1}.(x_{1}$ $\overline{0}))$ $(SH^{N\rightarrow N}$ $x_{3}))))$ $(\lambda x_{2}:N.x_{2})$
-
-\vspace{5pt}
-
-$\rightarrow{^{N}H}S$ $((\lambda x_{1}.(x_{1}$ $\overline{0}))$ $(SH^{N\rightarrow N}$ $(\lambda x_{2}:N.x_{2})))$
-
-\vspace{5pt}
-
-$\rightarrow{^{N}H}S$ $((\lambda x_{1}.(x_{1}$ $\overline{0}))$ $(\lambda x_{4}.(SH^{N}$ $((\lambda x_{2}:N.x_{2})$ $(^{N}HS$ $x_{4})))))$
-
-\vspace{5pt}
-
-$\rightarrow{^{N}H}S$ $((\lambda x_{4}.(SH^{N}$ $((\lambda x_{2}:N.x_{2})$ $(^{N}HS$ $x_{4}))))$ $\overline{0})$
-
-\vspace{5pt}
-
-$\rightarrow{^{N}H}S$ $(SH^{N}$ $((\lambda x_{2}:N.x_{2})$ $(^{N}HS$ $\overline{0})))$
-
-\vspace{5pt}
-
-$\rightarrow{^{N}H}S$ $(SH^{N}$ $((\lambda x_{2}:N.x_{2})$ $\overline{0}))$
-
-\vspace{5pt}
-
-$\rightarrow{^{N}H}S$ $(SH^{N}$ $\overline{0})$
-
-\vspace{5pt}
-
-$\rightarrow{^{N}H}S$ $\overline{0}$
-
-\vspace{5pt}
-
-$\rightarrow\overline{0}$
-\end{figure}
+\input{figures/function-2.tex}
 
 \subsection{Forall Types}
 
@@ -162,17 +102,17 @@ If the expected and actual types of a boundary are a forall type ($^{\forall X.T
 
 If the expected and actual types of a boundary are a forall type and the Scheme type, respectively, the value is a Scheme value.  Such a boundary is irreducible because Scheme does not have type abstractions.  Therefore $^{\forall X.T_{1}}HS$ $v_{S}$ and $^{\forall X.T_{1}}MS$ $v_{S}$ are values.  Nevertheless, there are useful Scheme values that correspond to forall types, and they ought to be convertable.  If the expected type of the boundary is instantiated and it is not a forall type, the boundary is reducible and the Scheme value can be converted.  However, Haskell and ML preserve parametricity, and instantiating the expected type of the boundary does nothing to prevent the Scheme value, if it is a function, from breaking parametricity once converted.
 
-Scheme functions with expected forall types can break parametricity by using type predicates and conditions to determine their behavior by the types and values of their arguments.  Haskell and ML must wrap their arguments for these functions such that Scheme predicates and conditions cannot examine them.  This is done by labeling instantiations of expected forall types with unique labels, denoted $T^{a}$, and making boundaries with labeled actual types---$SH^{T^{a}}$ $e_{H}$ for example---irreducible; Scheme type predicates and conditions cannot examine them.  Therefore $SH^{T^{a}}$ $e_{H}$ and $SM^{T^{a}}$ $v_{M}$ are values.  Expected types of boundaries can be instantiated by applying those boundaries to types.  The reductions of these type applications label the type arguments before instantiating the expected types with them.  See Figure \ref{parametricity-example-1} for an example.
+Scheme functions with expected forall types can break parametricity by using type predicates and conditions to determine their behavior by the types and values of their arguments.  Haskell and ML must wrap their arguments for these functions such that Scheme predicates and conditions cannot examine them.  This is done by labeling instantiations of expected forall types with unique labels, denoted $T^{a}$, and making boundaries with labeled actual types---$SH^{T^{a}}$ $e_{H}$ for example---irreducible; Scheme type predicates and conditions cannot examine them.  Therefore $SH^{T^{a}}$ $e_{H}$ and $SM^{T^{a}}$ $v_{M}$ are values.  Expected types of boundaries can be instantiated by applying those boundaries to types.  The reductions of these type applications label the type arguments before instantiating the expected types with them.  See Figure \ref{forall-1} for an example.
 
-\input{figures/parametricity-example-1.tex}
+\input{figures/forall-1.tex}
 
 Natural number conditions reduce to their true alternatives only if their guards are $\overline{0}$.  $\mathtt{if0}$ $(SH^{N^{a}}$ $\overline{0})$ $\overline{1}$ $(SH^{N^{a}}$ $\overline{0})$ reduces to $(SH^{N^{a}}$ $\overline{0})$ because the guard is $(SH^{N^{a}}$ $\overline{0})$, which is not equal to $\overline{0}$.  If Scheme functions with labeled expected types produce their arguments as their results, the arguments can cross back to Haskell and ML if the expected and actual types are equal.  Therefore $^{N^{a}}HS$ $(SH^{N^{a}}$ $\overline{0})$ reduces to $\overline{0}$.  If the expected type of the outer boundary and the actual type of the inner boundary are not equal, the outer boundary reduces to a parametricity error report.
 
 Observe that $(^{\forall X.(X\rightarrow X)}HS$ $\lambda x_{1}.(\mathtt{if0}$ $x_{1}$ $\overline{1}$ $x_{1})$ $\lbrace N\rbrace)$, which has type $\forall X.(X\rightarrow X)$, reduces to $^{N^{a}\rightarrow N^{a}}HS$ $\lambda x_{1}.(\mathtt{if0}$ $x_{1}$ $\overline{1}$ $x_{1})$, which has type $N^{a}\rightarrow N^{a}$.  $N^{a}\rightarrow N^{a}$ conflicts with $N\rightarrow N$, the type expected by other Haskell expressions.  The Haskell and ML typing relations resolve this conflict by removing all labels from expected and actual types.  For example, $\Gamma\vdash_{H}{^{T}H}S$ $e_{S}:T[T_{i}/T^{a}_{i}]$, where $T[T_{i}/T_{i}^{a}]$ denotes the substitution of every labeled type $T_{i}^{a}$ for the underlying type $T_{i}$ within $T$.
 
-Scheme functions with expected forall types can also break parametricity by producing the wrong argument as their results.  Haskell and ML assume type variables for result types are instantiated along with one or more type variables for argument types.  For example, Haskell and ML assume a function with type $\forall X_{1}.(\forall X_{2}.(X_{1}\rightarrow(X_{2}\rightarrow X_{2}))$ reduces to its second argument because the second argument and the result share the same type variable.  Labels enforce this assumption because unique labels are used for each application of a boundary to a type.  Unique labels group argument and result types together, and mismatched labels for expected and actual types of boundaries indicates that Scheme broke parametricity.  See Figure \ref{parametricity-example-2} for an example.
+Scheme functions with expected forall types can also break parametricity by producing the wrong argument as their results.  Haskell and ML assume type variables for result types are instantiated along with one or more type variables for argument types.  For example, Haskell and ML assume a function with type $\forall X_{1}.(\forall X_{2}.(X_{1}\rightarrow(X_{2}\rightarrow X_{2}))$ reduces to its second argument because the second argument and the result share the same type variable.  Labels enforce this assumption because unique labels are used for each application of a boundary to a type.  Unique labels group argument and result types together, and mismatched labels for expected and actual types of boundaries indicates that Scheme broke parametricity.  See Figure \ref{forall-2} for an example.
 
-\input{figures/parametricity-example-2.tex}
+\input{figures/forall-2.tex}
 
 If the expected and actual types of a boundary expression are the Scheme type and a universal type, respectively, the contained value is either a type abstraction or a Scheme value contained within another boundary expression.
 
