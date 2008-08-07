@@ -76,7 +76,7 @@
 \copyrightpage
 \approvalpage
 \begin{abstract}
-Programming language interoperation is the cooperation of software components written in different languages.  Components cooperate by exchanging data across a boundary between their languages that converts it from one form to another.  The boundary resolves conflicts between languages and must not violate the type system of either language.  This paper explores the resolution of conflicting type systems, conflicting preservation of parametricity, and conflicting evaluation strategies for a system of interoperation for Haskell, ML, and Scheme by defining a model of computation and interoperation, providing a proof of its type soundness, and describing an implementation of it.
+Software components written in different programming languages can cooperate through interoperation.  Differences between languages---incompatibilities---complicate interoperation.  This paper explores and resolves incompatible type systems, support for parametricity, and evaluation strategies with a model of computation, gives a thorough proof of its type soundness, and describes an implementation of it.  The model uses contracts for higher-order functions and lump types to resolve incompatible type systems, label types to resolve incompatible support for parametricity, and delayed conversions for list constructions to resolve incompatible evaluation strategies.  These mechanisms enable the interoperation of Haskell, ML, and Scheme without compromising their semantics.
 \end{abstract}
 \begin{acknowledgements}
 \indent\indent I want to thank my parents, Jerry and Jo Ann, for their encouragement, advice, and support, without which this would not have been possible.
