@@ -4,7 +4,7 @@ Software components comprise various programming languages, interfaces, and exec
 
 \section{Evaluation Strategies}
 
-The first incompatibility is evaluation strategies.  Evaluation strategies determine the order in which languages evaluate expressions.  Eager evaluation reduces expressions regardless of necessity, and lazy evaluation reduces expressions only where necessary.  Lazy languages --- languages that use lazy evaluation --- can construct infinite streams as lists because they do not evaluate list elements when lists are constructed, but eager languages cannot because they do.  Not all lazy lists --- lists in lazy languages --- can be converted to eager lists.  Instead, elements of lazy lists can be converted when accessed by eager languages if they are not lazy lists too.
+The first incompatibility is evaluation strategies.  Evaluation strategies determine the order in which languages evaluate expressions.  Eager evaluation reduces expressions regardless of necessity, and lazy evaluation reduces expressions only where necessary.  Lazy languages --- languages that use lazy evaluation --- can construct infinite streams as lists because they do not evaluate list elements when lists are constructed, but eager languages cannot because they do.  Lazy lists --- lists in lazy languages --- are equivalent to eager lists if the sequences of elements are equivalent.  Since there exist lazy lists for which no equivalent eager lists exist, lazy lists are not converted to eager lists.  Instead, elements of lazy lists are converted when accessed by eager languages if they are not lazy lists too.
 
 \section{Type Systems}
 
