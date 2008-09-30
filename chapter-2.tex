@@ -20,15 +20,7 @@ The core ML model is identical to the core Haskell model except that it uses an 
 
 \subsection{Scheme Model}
 
-The core Scheme model is identical to the core ML model except that it removes the static type system and adds a dynamic type system.  It removes all the types and type annotations for functions, empty lists, and error reports.  It removes type abstractions and type applications and the evaluation contexts, typing rules, and rewrite rules that contain them.
-
-The dynamic type system adds value predicate expressions that determine the kinds of values.  $\mathtt{num?}$ $e_{S}$ determines whether $e_{S}$ is a natural number.  $\mathtt{list?}$ $e_{S}$ determines whether $e_{S}$ is a list.  $\mathtt{fun?}$ $e_{S}$ determines whether $e_{S}$ is a function.
-
-In addition to ML evaluation contexts, Scheme evaluation contexts are the expression of value predicates, denoted $p$ $E_{S}$.
-
-It adds a single type called The Scheme Type, $TST$.  Well-typed expressions have type $TST$, and well-typed programs are closed.
-
-It changes the natural number condition to reduce to one if the guard is not zero, and possibly not a natural number.  It changes the list condition to reduce to one if the guard is not an empty list, and possibly not a list.  The value predicates reduce to $\overline{0}$ if true and $\overline{1}$ if false.
+The core Scheme model is similar to the core ML model.  It does not have type abstractions, type applications, and fixed-point operations and the evaluation contexts, typing rules, and reduction rules that contain them.  Its single type is The Scheme Type, $TST$.  It does not have type annotations for empty lists, functions, and error reports.  Value predicate expressions determine set membership for natural numbers, lists, and functions that reduce to the natural number zero for true and to the natural number one for false.  Evaluation contexts include operands of value predicates.  Conditions use the natural number zero as true and all other values, which may not be natural numbers, as false.
 
 \input{model/core/haskell/grammar.tex}
 
