@@ -8,17 +8,11 @@ The core models are the subset of the model that define the languages, but do no
 
 \subsection{Haskell Model}
 
-The core Haskell model comprises the variables, functions, and function applications of lambda calculus; the type variables, type abstractions, and type applications of System F \cite{pierce02}; natural numbers and arithmetic operations; lists and list operations; conditions that use the natural number zero as true all other natural numbers as false; fixed-point operations; error reports; and types for type abstractions and all values.  Empty lists, functions, and error reports have type annotations to enable the calculation of their types.  Haskell values and evaluation contexts conform to an extended call-by-name (lazy) evaluation strategy.  Letter subscripts of grammar non-terminals denote the language to which they belong, and numbered superscripts denote individual instances of them.  Variable and type variable names are assumed to be unique across all languages.  See Figure \ref{hce} for the Haskell core grammar and evaluation contexts.
+The core Haskell model comprises the variables, functions, and function applications of lambda calculus; the type variables, type abstractions, and type applications of System F \cite{pierce02}; natural numbers and arithmetic operations; lists and list operations; conditions that use the natural number zero as true all other natural numbers as false; fixed-point operations; error reports; and types for type abstractions and all values.  Empty lists, functions, and error reports have type annotations to enable the calculation of their types.  Haskell values and evaluation contexts conform to an extended call-by-name (lazy) evaluation strategy.  Letter subscripts of grammar non-terminals denote the language to which they belong, and numbered superscripts denote individual instances of them.  Variable and type variable names are assumed to be unique across all languages.
 
-\input{model/hce.tex}
-
-$\Gamma\vdash_{H}e_{H}:T$ denotes the Haskell typing relation.  An expression $e_{H}$ is well-typed within the context $\Gamma$ if there is some type $T$ such that $\Gamma\vdash_{H}e_{H}:T$ is derivable.  $\Gamma\vdash_{H}T$ asserts the type $T$ is well-formed within the context $\Gamma$.  Where the context is empty, it is omitted from typing judgments.  Programs that contain free variables or free type variables are ill-typed.  Type equivalence is computed up to alpha-equivalence on bound type variables.  Letter subscripts of type relations denote the language to which they belong.  $T_{1}[T_{2}/X]$ denotes the substitution of type $T_{2}$ for free occurrences of type variable $X$ within type $T_{1}$.  Number subscripts and superscripts of grammar non-terminals in typing rules denote individual instances of them, but are absent where instances are unambigious.  See Figure \ref{hctr} for the Haskell core typing rules.
-
-\input{model/hctr.tex}
+$\Gamma\vdash_{H}e_{H}:T$ denotes the Haskell typing relation.  An expression $e_{H}$ is well-typed within the context $\Gamma$ if there is some type $T$ such that $\Gamma\vdash_{H}e_{H}:T$ is derivable.  $\Gamma\vdash_{H}T$ asserts the type $T$ is well-formed within the context $\Gamma$.  Where the context is empty, it is omitted from typing judgments.  Programs that contain free variables or free type variables are ill-typed.  Type equivalence is computed up to alpha-equivalence on bound type variables.  Letter subscripts of type relations denote the language to which they belong.  $T_{1}[T_{2}/X]$ denotes the substitution of type $T_{2}$ for free occurrences of type variable $X$ within type $T_{1}$.  Number subscripts and superscripts of grammar non-terminals in typing rules denote individual instances of them, but are absent where instances are unambigious.
 
 $e_{H}^{1}[e_{H}^{2}/x]$ denotes the substitution of expression $e_{H}^{2}$ for free occurrences of variable $x$ within expression $e_{H}^{1}$.  Variable instances that occur on the right side of a reduction rule, but not its left, are new and unique.  Error reports reduce to errors and terminate the computation.  All reduction rules are defined with an unspecified evaluation context $\mathscr{E}$.  The evaluation of a single language instantiates $\mathscr{E}$ to $E_{H}$ for Haskell, to $E_{M}$ for ML, and to $E_{S}$ for Scheme.  Language interoperation instantiates $\mathscr{E}$ according to the language in which programs begin and end.  $\mathscr{E}$ is implicitly instantiated correctly in later examples.
-
-\input{model/hcos.tex}
 
 \subsection{ML Model}
 
@@ -38,14 +32,23 @@ It adds a single type called The Scheme Type, $TST$.  Well-typed expressions hav
 
 It changes the natural number condition to reduce to one if the guard is not zero, and possibly not a natural number.  It changes the list condition to reduce to one if the guard is not an empty list, and possibly not a list.  The value predicates reduce to $\overline{0}$ if true and $\overline{1}$ if false.
 
-\input{model/mce.tex}
-\input{model/sce.tex}
+\input{model/core/haskell/grammar.tex}
 
-\input{model/mctr.tex}
-\input{model/sctr.tex}
+\input{model/core/ml/grammar.tex}
 
-\input{model/mcos.tex}
-\input{model/scos.tex}
+\input{model/core/scheme/grammar.tex}
+
+\input{model/core/haskell/typing-rules.tex}
+
+\input{model/core/ml/typing-rules.tex}
+
+\input{model/core/scheme/typing-rules.tex}
+
+\input{model/core/haskell/operational-semantics.tex}
+
+\input{model/core/ml/operational-semantics.tex}
+
+\input{model/core/scheme/operational-semantics.tex}
 
 \clearpage
 
@@ -107,12 +110,28 @@ If a boundary has an expected Scheme type and an actual forall type ($SH^{\foral
 
 If it is a Scheme value wrapped in an inner boundary, the outer boundary reduces to the Scheme value.  For example, $SH^{\forall X.T}$ $(^{\forall X.T}HS$ $v_{S})$ reduces to $v_{S}$.
 
-\input{model/hie.tex}
-\input{model/mie.tex}
-\input{model/sie.tex}
-\input{model/hitr.tex}
-\input{model/mitr.tex}
-\input{model/sitr.tex}
-\input{model/hios.tex}
-\input{model/mios.tex}
-\input{model/sios.tex}
+\clearpage
+
+\input{model/interoperation/haskell/grammar.tex}
+
+\input{model/interoperation/ml/grammar.tex}
+
+\input{model/interoperation/scheme/grammar.tex}
+
+\clearpage
+
+\input{model/interoperation/haskell/typing-rules.tex}
+
+\input{model/interoperation/ml/typing-rules.tex}
+
+\input{model/interoperation/scheme/typing-rules.tex}
+
+\clearpage
+
+\input{model/interoperation/haskell/operational-semantics.tex}
+
+\input{model/interoperation/ml/operational-semantics.tex}
+
+\input{model/interoperation/scheme/operational-semantics.tex}
+
+\clearpage
