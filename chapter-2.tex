@@ -16,13 +16,11 @@ $e_{H}^{1}[e_{H}^{2}/x]$ denotes the substitution of expression $e_{H}^{2}$ for 
 
 \subsection{ML Model}
 
-ML is identical to Haskell except that it uses an extended call-by-value (eager) evaluation strategy.  This difference affects list constructions and evaluation contexts.  Since Haskell reduces expressions only where necessary, and ML reduces expressions regardless of necessity, their definitions of values are different.  Haskell list constructions are values regardless of whether their heads and tails are values, but ML list constructions are values only where their heads and tails are values.  To reflect these differences, ML adds a list construction expression where the head and tail are expressions, denoted $\mathtt{cons}$ $e_{M}$ $e_{M}$, and changes the head and tail of its list construction value to values, denoted $\mathtt{cons}$ $v_{M}$ $v_{M}$.
-
-ML evaluation contexts extend Haskell evaluation contexts such that all expressions are reduced and the order of evaluation is deterministic.  In addition to the Haskell definition, ML evaluation contexts are right subexpressions of function applications where left subexpressions are values, heads of list constructions, and tails of list construction where heads are values.
+The core ML model is identical to the core Haskell model except that it uses an extended call-by-value (eager) evaluation strategy, which affects list constructions, evaluation contexts, and function applications.  The heads and tails of list construction values must also be values to conform to the notion of eager evaluation, and there must be list construction expressions where the heads and tails are also expressions.  Evaluation contexts for the heads and tails of list constructions must be added.  Function applications can only be reduced if the arguments are values to conform to eager evaluation.
 
 \subsection{Scheme Model}
 
-Scheme is identical to ML except that it removes the static type system and adds a dynamic type system.  It removes all the types and type annotations for functions, empty lists, and error reports.  It removes type abstractions and type applications and the evaluation contexts, typing rules, and rewrite rules that contain them.
+The core Scheme model is identical to the core ML model except that it removes the static type system and adds a dynamic type system.  It removes all the types and type annotations for functions, empty lists, and error reports.  It removes type abstractions and type applications and the evaluation contexts, typing rules, and rewrite rules that contain them.
 
 The dynamic type system adds value predicate expressions that determine the kinds of values.  $\mathtt{num?}$ $e_{S}$ determines whether $e_{S}$ is a natural number.  $\mathtt{list?}$ $e_{S}$ determines whether $e_{S}$ is a list.  $\mathtt{fun?}$ $e_{S}$ determines whether $e_{S}$ is a function.
 
