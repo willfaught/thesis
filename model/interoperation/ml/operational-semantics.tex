@@ -89,7 +89,11 @@ $\mathscr{E}[^{[T]}MS$ $\mathtt{nil}]_{M}\rightarrow\mathscr{E}[\mathtt{nil}^{T}
 \vspace{5pt}
 
 % ms - list error
-$\mathscr{E}[^{[T]}MS$ $v_{S}^{1}]_{M}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ $(v_{S}^{1}\neq\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3}$ and $v_{S}^{1}\neq\mathtt{nil})$ \\
+$\mathscr{E}[^{[T]}MS$ $v_{S}^{1}]_{M}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ \\
+
+\vspace{5pt}
+
+$\quad(v_{S}^{1}\not\in\lbrace\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},\mathtt{nil},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
 
 \vspace{5pt}
 
@@ -106,6 +110,6 @@ $\mathscr{E}[^{T^{a}}MS$ $(SM^{T^{a}}$ $v_{M})]_{M}\rightarrow\mathscr{E}[v_{M}]
 % ms - label error
 $\mathscr{E}[^{T^{a}}MS$ $v_{S}]_{M}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Parametricity violated"$]$ $(v_{S}\neq SM^{T^{a}}$ $v_{M})$
 \end{tabular}
-\caption{Interoperation ML operational semantics}
+\caption{ML interoperation operational semantics}
 \label{imos}
 \end{figure}

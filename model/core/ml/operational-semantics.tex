@@ -19,6 +19,14 @@ $\mathscr{E}[-$ $\overline{n_{1}}$ $\overline{n_{2}}]_{M}\rightarrow\mathscr{E}[
 
 \vspace{5pt}
 
+$\mathscr{E}[\mathtt{null?}$ $\mathtt{nil}^{T}]_{M}\rightarrow\mathscr{E}[\overline{0}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{null?}$ $(\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2})]_{M}\rightarrow\mathscr{E}[\overline{1}]$ \\
+
+\vspace{5pt}
+
 $\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e_{M}^{1}$ $e_{M}^{2}]_{M}\rightarrow\mathscr{E}[e_{M}^{1}]$ \\
 
 \vspace{5pt}
@@ -43,20 +51,12 @@ $\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}^{T}]_{M}\rightarrow\mathscr{E}[\mathtt{w
 
 \vspace{5pt}
 
-$\mathscr{E}[\mathtt{ifnil}$ $\mathtt{nil}^{T}$ $e_{M}^{1}$ $e_{M}^{2}]_{M}\rightarrow\mathscr{E}[e_{M}^{1}]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{ifnil}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})$ $e_{M}^{1}$ $e_{M}^{2}]_{M}\rightarrow\mathscr{E}[e_{M}^{2}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{M})]_{M}\rightarrow\mathscr{E}[e_{M}[(\mathtt{fix}$ $(\lambda x:T.e_{M}))/x]]$ \\
 
 \vspace{5pt}
 
 $\mathscr{E}[\mathtt{wrong}^{T}$ string$]_{M}\rightarrow$ \textbf{Error}: string 
 \end{tabular}
-\caption{Core ML operational semantics}
+\caption{ML core operational semantics}
 \label{cmos}
 \end{figure}

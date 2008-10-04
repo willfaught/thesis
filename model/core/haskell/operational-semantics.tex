@@ -19,6 +19,14 @@ $\mathscr{E}[-$ $\overline{n_{1}}$ $\overline{n_{2}}]_{H}\rightarrow\mathscr{E}[
 
 \vspace{5pt}
 
+$\mathscr{E}[\mathtt{null?}$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\overline{0}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{null?}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]_{H}\rightarrow\mathscr{E}[\overline{1}]$ \\
+
+\vspace{5pt}
+
 $\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{1}]$ \\
 
 \vspace{5pt}
@@ -43,20 +51,12 @@ $\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\mathtt{w
 
 \vspace{5pt}
 
-$\mathscr{E}[\mathtt{ifnil}$ $\mathtt{nil}^{T}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{1}]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{ifnil}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ $e_{H}^{3}$ $e_{H}^{4}]_{H}\rightarrow\mathscr{E}[e_{H}^{4}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}[(\mathtt{fix}$ $(\lambda x:T.e_{H}))/x]]$ \\
 
 \vspace{5pt}
 
 $\mathscr{E}[\mathtt{wrong}^{T}$ string$]_{H}\rightarrow$ \textbf{Error}: string
 \end{tabular}
-\caption{Core Haskell operational semantics}
+\caption{Haskell core operational semantics}
 \label{chos}
 \end{figure}

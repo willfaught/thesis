@@ -1,6 +1,26 @@
 \chapter{Model of Computation}
 
-The model of computation represents Haskell, ML, and Scheme with lambda calculus extended in various ways.  Expressions represent software components, and nesting component expressions expresses interoperation between them, where the inner component expression evaluates to the value given to the outer component expression.  Boundary expressions separate interoperating component expressions of different languages, indicate inner and outer languages, and declare the expected and actual types of the given values.  The reduction of boundary expressions converts values between languages.  The model extends the model of Kinghorn \cite{kinghorn07}, which extended the model of Matthews and Findler \cite{matthews07}.  The model comprises smaller models to ease comprehension and simplify organization.
+The model of computation represents Haskell, ML, and Scheme with lambda calculus extended in various ways.  Expressions represent software components, and nesting component expressions expresses interoperation between them, where the inner component expression evaluates to the value given to the outer component expression.  Boundary expressions separate interoperating component expressions of different languages, indicate inner and outer languages, and declare the expected and actual types of the given values.  The reduction of boundary expressions converts values between languages.  The model extends the model of Kinghorn \cite{kinghorn07}, which extended the model of Matthews and Findler \cite{matthews07}.
+
+The Haskell and ML models extend System F, which extends lambda calculus with explicit types that simplify the type soundness proofs and parametric polymorphism that approximates the type systems of Haskell and ML.  The Scheme model extends lambda calculus with a simple type system to detect unbound variables.
+
+Hereafter the names Haskell, ML, and Scheme refer to their corresponding models, unless otherwise stated.
+
+Letter subscripts of grammar non-terminals denote the language to which they belong, and numbered superscripts denote individual instances of them.
+
+\section{Grammars}
+
+Haskell types $T$ comprise natural numbers $N$, lists $[T]$, functions $T\rightarrow T$, type variables $X$, and forall types $\forall X.T$.  Haskell values $v_{H}$ comprise natural numbers $\overline{n}$, which syntactically represents the natural number $n$; list constructions $\mathtt{cons}$ $e_{H}$ $e_{H}$; empty lists $\mathtt{nil}^{T}$; functions $\lambda x:T.e_{H}$; and type abstractions $\Lambda X.e_{H}$.  Haskell expressions $e_{H}$ comprise variables $x$, function applications $e_{H}$ $e_{H}$, type applications $e_{H}$ $\lbrace T\rbrace$, arithmetic operations $+$ $e_{H}$ $e_{H}$ and $-$ $e_{H}$ $e_{H}$, conditions $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$, list operations $\mathtt{hd}$ $e_{H}$ and $\mathtt{tl}$ $e_{H}$, fixed-point operations $\mathtt{fix}$ $e_{H}$, and error reports $\mathtt{wrong}^{T}$ string.
+
+The core Haskell model comprises the variables, functions, and function applications of lambda calculus; the type variables, type abstractions, and type applications of System F \cite{pierce02}; natural numbers and arithmetic operations; lists and list operations; conditions that use the natural number zero as true all other natural numbers as false; fixed-point operations; error reports; and types for type abstractions and all values.  Empty lists, functions, and error reports have type annotations to enable the calculation of their types.  Haskell values and evaluation contexts conform to an extended call-by-name (lazy) evaluation strategy.  Letter subscripts of grammar non-terminals denote the language to which they belong, and numbered superscripts denote individual instances of them.  Variable and type variable names are assumed to be unique across all languages.
+
+\section{Typing Rules}
+
+
+
+\section{Operational Semantics}
+
+
 
 \section{Core Models}
 
@@ -8,7 +28,7 @@ The core models are the subset of the model that define the languages, but do no
 
 \subsection{Haskell Model}
 
-The core Haskell model comprises the variables, functions, and function applications of lambda calculus; the type variables, type abstractions, and type applications of System F \cite{pierce02}; natural numbers and arithmetic operations; lists and list operations; conditions that use the natural number zero as true all other natural numbers as false; fixed-point operations; error reports; and types for type abstractions and all values.  Empty lists, functions, and error reports have type annotations to enable the calculation of their types.  Haskell values and evaluation contexts conform to an extended call-by-name (lazy) evaluation strategy.  Letter subscripts of grammar non-terminals denote the language to which they belong, and numbered superscripts denote individual instances of them.  Variable and type variable names are assumed to be unique across all languages.
+The core Haskell model comprises the variables, functions, and function applications of lambda calculus; the type variables, type abstractions, and type applications of System F \cite{pierce02}; natural numbers and arithmetic operations; lists and list operations; conditions that use the natural number zero as true all other natural numbers as false; fixed-point operations; error reports; and types for type abstractions and all values.  Empty lists, functions, and error reports have type annotations to enable the calculation of their types.  Haskell values and evaluation contexts conform to an extended call-by-name (lazy) evaluation strategy.  Variable and type variable names are assumed to be unique across all languages.
 
 $\Gamma\vdash_{H}e_{H}:T$ denotes the Haskell typing relation.  An expression $e_{H}$ is well-typed within the context $\Gamma$ if there is some type $T$ such that $\Gamma\vdash_{H}e_{H}:T$ is derivable.  $\Gamma\vdash_{H}T$ asserts the type $T$ is well-formed within the context $\Gamma$.  Where the context is empty, it is omitted from typing judgments.  Programs that contain free variables or free type variables are ill-typed.  Type equivalence is computed up to alpha-equivalence on bound type variables.  Letter subscripts of type relations denote the language to which they belong.  $T_{1}[T_{2}/X]$ denotes the substitution of type $T_{2}$ for free occurrences of type variable $X$ within type $T_{1}$.  Number subscripts and superscripts of grammar non-terminals in typing rules denote individual instances of them, but are absent where instances are unambigious.
 
@@ -28,11 +48,15 @@ The core Scheme model is similar to the core ML model.  It does not have type ab
 
 \input{model/core/scheme/grammar.tex}
 
+\clearpage
+
 \input{model/core/haskell/typing-rules.tex}
 
 \input{model/core/ml/typing-rules.tex}
 
 \input{model/core/scheme/typing-rules.tex}
+
+\clearpage
 
 \input{model/core/haskell/operational-semantics.tex}
 

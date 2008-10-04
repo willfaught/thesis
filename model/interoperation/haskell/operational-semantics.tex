@@ -83,7 +83,11 @@ $\mathscr{E}[^{[T]}HS$ $\mathtt{nil}]_{H}\rightarrow\mathscr{E}[\mathtt{nil}^{T}
 \vspace{5pt}
 
 % hs - list error
-$\mathscr{E}[^{[T]}HS$ $v_{S}^{1}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ $(v_{S}^{1}\neq\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3}$ and $v_{S}^{1}\neq\mathtt{nil})$ \\
+$\mathscr{E}[^{[T]}HS$ $v_{S}^{1}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ \\
+
+\vspace{5pt}
+
+$\quad(v_{S}^{1}\not\in\lbrace\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},\mathtt{nil},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
 
 \vspace{5pt}
 
@@ -100,6 +104,6 @@ $\mathscr{E}[^{T^{a}}HS$ $(SH^{T^{a}}$ $e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}]
 % hs - label error
 $\mathscr{E}[^{T^{a}}HS$ $v_{S}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Parametricity violated"$]$ $(v_{S}\neq SH^{T^{a}}$ $e_{H})$ \\
 \end{tabular}
-\caption{Interoperation Haskell operational semantics}
+\caption{Haskell interoperation operational semantics}
 \label{ihos}
 \end{figure}

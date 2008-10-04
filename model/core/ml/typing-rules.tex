@@ -2,13 +2,13 @@
 \[
 \frac{}{\vdash_{M}N}
 \quad
-\frac{X\in\Gamma}{\Gamma\vdash_{M}X}
+\frac{\Gamma\vdash_{M}T}{\Gamma\vdash_{M}[T]}
 \quad
 \frac{\Gamma\vdash_{M}T_{1}\quad\Gamma\vdash_{M}T_{2}}{\Gamma\vdash_{M}T_{1}\rightarrow T_{2}}
 \quad
-\frac{\Gamma,X\vdash_{M}T}{\Gamma\vdash_{M}\forall X.T}
+\frac{X\in\Gamma}{\Gamma\vdash_{M}X}
 \quad
-\frac{\Gamma\vdash_{M}T}{\Gamma\vdash_{M}[T]}
+\frac{\Gamma,X\vdash_{M}T}{\Gamma\vdash_{M}\forall X.T}
 \]
 \bigskip
 \[
@@ -33,22 +33,20 @@
 \[
 \frac{\Gamma\vdash_{M}e_{M}^{1}:N\quad\Gamma\vdash_{M}e_{M}^{2}:N}{\Gamma\vdash_{M}o\;e_{M}^{1}\;e_{M}^{2}:N}
 \quad
+\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{null?}\;e_{M}:N}
+\]
+\[
 \frac{\Gamma\vdash_{M}e_{M}^{1}:N\quad\Gamma\vdash_{M}e_{M}^{2}:T\quad\Gamma\vdash_{M}e_{M}^{3}:T}{\Gamma\vdash_{M}\mathtt{if0}\;e_{M}^{1}\;e_{M}^{2}\;e_{M}^{3}:T}
-\]
-\[
-\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{hd}\;e_{M}:T}
 \quad
-\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{tl}\;e_{M}:[T]}
+\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{hd}\;e_{M}:T}
 \]
 \[
-\frac{\Gamma\vdash_{M}e_{M}^{1}:[T_{1}]\quad\Gamma\vdash_{M}e_{M}^{2}:T_{2}\quad\Gamma\vdash_{M}e_{M}^{3}:T_{2}}{\Gamma\vdash_{M}\mathtt{ifnil}\;e_{M}^{1}\;e_{M}^{2}\;e_{M}^{3}:T_{2}}
+\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{tl}\;e_{M}:[T]}
 \quad
 \frac{\Gamma\vdash_{M}e_{M}:T\rightarrow T}{\Gamma\vdash_{M}\mathtt{fix}\;e_{M}:T}
 \quad
-\]
-\[
 \frac{\Gamma\vdash_{M}T}{\Gamma\vdash_{M}\mathtt{wrong}^{T}\;\mathrm{string}:T}
 \]
-\caption{Core ML typing rules}
+\caption{ML core typing rules}
 \label{cmtr}
 \end{figure}

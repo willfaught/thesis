@@ -3,11 +3,11 @@
 \begin{tabular}{lcl}
 \vspace{5pt}
 
-$e_{H}$ & $=$ & $v_{H}$ $\vert$ $x$ $\vert$ $e_{H}$ $e_{H}$ $\vert$ $e_{H}$ $\lbrace T\rbrace$ $\vert$ $o$ $e_{H}$ $e_{H}$ $\vert$ $p$ $e_{H}$ $\vert$ $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$ $\vert$ $f$ $e_{H}$ \\
+$e_{H}$ & $=$ & $v_{H}$ $\vert$ $x$ $\vert$ $e_{H}$ $e_{H}$ $\vert$ $e_{H}$ $\lbrace T\rbrace$ $\vert$ $o$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{null?}$ $e_{H}$ $\vert$ $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$ \\
 
 \vspace{5pt}
 
-&& $\vert$ $\mathtt{fix}$ $e_{H}$ $\vert$ $\mathtt{wrong}^{T}$ string \\
+&& $\vert$ $f$ $e_{H}$ $\vert$ $\mathtt{fix}$ $e_{H}$ $\vert$ $\mathtt{wrong}^{T}$ string \\
 
 \vspace{5pt}
 
@@ -23,20 +23,16 @@ $o$ & $=$ & $+$ $\vert$ $-$ \\
 
 \vspace{5pt}
 
-$p$ & $=$ & $\mathtt{null?}$ \\
-
-\vspace{5pt}
-
 $f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
 
 \vspace{5pt}
 
-$E_{H}$ & $=$ & $[\,]_{H}$ $\vert$ $E_{H}$ $e_{H}$ $\vert$ $E_{H}$ $\lbrace T\rbrace$ $\vert$ $o$ $E_{H}$ $e_{H}$ $\vert$ $o$ $\overline{n}$ $E_{H}$ $\vert$ $p$ $E_{H}$ $\vert$ $\mathtt{if0}$ $E_{H}$ $e_{H}$ $e_{H}$ \\
+$E_{H}$ & $=$ & $[\,]_{H}$ $\vert$ $E_{H}$ $e_{H}$ $\vert$ $E_{H}$ $\lbrace T\rbrace$ $\vert$ $o$ $E_{H}$ $e_{H}$ $\vert$ $o$ $\overline{n}$ $E_{H}$ $\vert$ $\mathtt{null?}$ $E_{H}$ \\
 
 \vspace{5pt}
 
-&& $\vert$ $f$ $E_{H}$ $\vert$ $\mathtt{fix}$ $E_{H}$
+&& $\vert$ $\mathtt{if0}$ $E_{H}$ $e_{H}$ $e_{H}$ $\vert$ $f$ $E_{H}$ $\vert$ $\mathtt{fix}$ $E_{H}$
 \end{tabular}
-\caption{Core Haskell grammar and evaluation contexts}
+\caption{Haskell core grammar and evaluation contexts}
 \label{chg}
 \end{figure}
