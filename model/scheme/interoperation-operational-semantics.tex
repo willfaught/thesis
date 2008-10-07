@@ -3,6 +3,16 @@
 \begin{tabular}{l}
 \vspace{5pt}
 
+% sh - lump
+$\mathscr{E}[SH^{L}$ $(^{L}HS$ $v_{S})]_{S}\rightarrow\mathscr{E}[v_{S}]$ \\
+
+\vspace{5pt}
+
+% sm - lump
+$\mathscr{E}[SM^{L}$ $(^{L}MS$ $v_{S})]_{S}\rightarrow\mathscr{E}[v_{S}]$ \\
+
+\vspace{5pt}
+
 % sh - number
 $\mathscr{E}[SH^{N}$ $\overline{n}]_{S}\rightarrow\mathscr{E}[\overline{n}]$ \\
 
@@ -10,6 +20,36 @@ $\mathscr{E}[SH^{N}$ $\overline{n}]_{S}\rightarrow\mathscr{E}[\overline{n}]$ \\
 
 % sm - number
 $\mathscr{E}[SM^{N}$ $\overline{n}]_{S}\rightarrow\mathscr{E}[\overline{n}]$ \\
+
+\vspace{5pt}
+
+% sh - list - nil
+$\mathscr{E}[SH^{[T]}$ $\mathtt{nil}^{T[T_{i}/T_{i}^{a}]}]_{S}\rightarrow\mathscr{E}[\mathtt{nil}]$ \\
+
+\vspace{5pt}
+
+% sh - list - head cons
+$\mathscr{E}[\mathtt{hd}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{T}$ $e_{H}^{1}]$ \\
+
+\vspace{5pt}
+
+% sh - list - tail cons
+$\mathscr{E}[\mathtt{tl}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{[T]}$ $e_{H}^{2}]$ \\
+
+\vspace{5pt}
+
+% sm - list - nil
+$\mathscr{E}[SM^{[T]}$ $\mathtt{nil}^{T[T_{i}/T_{i}^{a}]}]_{S}\rightarrow\mathscr{E}[\mathtt{nil}]$ \\
+
+\vspace{5pt}
+
+% sm - list - cons
+$\mathscr{E}[SM^{[T]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{S}\rightarrow\mathscr{E}[\mathtt{cons}$ $(SM^{T}$ $v_{M}^{1})$ $(SM^{[T]}$ $v_{M}^{2})]$ \\
+
+\vspace{5pt}
+
+% sm - list - mh cons
+$\mathscr{E}[SM^{[T]}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]$ \\
 
 \vspace{5pt}
 
@@ -47,47 +87,7 @@ $\mathscr{E}[SH^{\forall X.T}$ $(^{\forall X.T}HS$ $v_{S})]_{S}\rightarrow\maths
 \vspace{5pt}
 
 % sm - universal - ms
-$\mathscr{E}[SM^{\forall X.T}$ $(^{\forall X.T}MS$ $v_{S})]_{S}\rightarrow\mathscr{E}[v_{S}]$ \\
-
-\vspace{5pt}
-
-% sh - list - head cons
-$\mathscr{E}[\mathtt{hd}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{T}$ $e_{H}^{1}]$ \\
-
-\vspace{5pt}
-
-% sh - list - tail cons
-$\mathscr{E}[\mathtt{tl}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{[T]}$ $e_{H}^{2}]$ \\
-
-\vspace{5pt}
-
-% sm - list - cons
-$\mathscr{E}[(SM^{[T]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{S}\rightarrow\mathscr{E}[\mathtt{cons}$ $(SM^{T}$ $v_{M}^{1})$ $(SM^{[T]}$ $v_{M}^{2})]$ \\
-
-\vspace{5pt}
-
-% sm - list - mh cons
-$\mathscr{E}[SM^{[T]}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]$ \\
-
-\vspace{5pt}
-
-% sh - list - nil
-$\mathscr{E}[SH^{[T]}$ $\mathtt{nil}^{T[T_{i}/T_{i}^{a}]}]_{S}\rightarrow\mathscr{E}[\mathtt{nil}]$ \\
-
-\vspace{5pt}
-
-% sm - list - nil
-$\mathscr{E}[SM^{[T]}$ $\mathtt{nil}^{T[T_{i}/T_{i}^{a}]}]_{S}\rightarrow\mathscr{E}[\mathtt{nil}]$ \\
-
-\vspace{5pt}
-
-% sh - lump
-$\mathscr{E}[SH^{L}$ $(^{L}HS$ $v_{S})]_{S}\rightarrow\mathscr{E}[v_{S}]$ \\
-
-\vspace{5pt}
-
-% sm - lump
-$\mathscr{E}[SM^{L}$ $(^{L}MS$ $v_{S})]_{S}\rightarrow\mathscr{E}[v_{S}]$
+$\mathscr{E}[SM^{\forall X.T}$ $(^{\forall X.T}MS$ $v_{S})]_{S}\rightarrow\mathscr{E}[v_{S}]$
 \end{tabular}
 \caption{Scheme interoperation operational semantics}
 \label{isos}
