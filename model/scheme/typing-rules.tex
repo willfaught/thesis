@@ -29,7 +29,12 @@
 \]
 \[
 \frac{}{\vdash_{S}\mathtt{wrong}\;\mathrm{string}:TST}
+\quad
+\frac{\Gamma\vdash_{H}T\quad\Gamma\vdash_{H}e_{H}:T[T_{i}/T^{a}_{i}]}{\Gamma\vdash_{S}\;SH^{T}\;e_{H}:TST}
 \]
-\caption{Scheme core typing rules}
-\label{cstr}
+\[
+\frac{\Gamma\vdash_{M}T\quad\Gamma\vdash_{M}e_{M}:T[T_{i}/T^{a}_{i}]}{\Gamma\vdash_{S}\;SM^{T}\;e_{M}:TST}
+\]
+\caption{Scheme typing rules}
+\label{str}
 \end{figure}

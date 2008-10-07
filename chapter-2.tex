@@ -42,30 +42,6 @@ The core ML model is identical to the core Haskell model except that it uses an 
 
 The core Scheme model is similar to the core ML model.  It does not have type abstractions, type applications, and fixed-point operations and the evaluation contexts, typing rules, and reduction rules that contain them.  Its single type is The Scheme Type, $TST$.  It does not have type annotations for empty lists, functions, and error reports.  Value predicate expressions determine set membership for natural numbers, lists, and functions that reduce to the natural number zero for true and to the natural number one for false.  Evaluation contexts include operands of value predicates.  Conditions use the natural number zero as true and all other values, which may not be natural numbers, as false.
 
-\input{model/core/haskell/grammar.tex}
-
-\input{model/core/ml/grammar.tex}
-
-\input{model/core/scheme/grammar.tex}
-
-\clearpage
-
-\input{model/core/haskell/typing-rules.tex}
-
-\input{model/core/ml/typing-rules.tex}
-
-\input{model/core/scheme/typing-rules.tex}
-
-\clearpage
-
-\input{model/core/haskell/operational-semantics.tex}
-
-\input{model/core/ml/operational-semantics.tex}
-
-\input{model/core/scheme/operational-semantics.tex}
-
-\clearpage
-
 \section{Interoperation Models}
 
 The interoperation calculi extend the core calculi with new expressions, evaluation contexts, typing rules, and rewrite rules to enable interoperation.  They add boundary expressions, which represent values with actual and expected types crossing between languages.  Boundaries are denoted by two-letter acronyms, where the first letter names clients and the second letter names servers.  Expected types are superscripts to the left of the first letters, and actual types are superscripts to the right of the second letters.  Expressions to be reduced to values and cross languages are to the right of the letters and types, separated by a space.  For example, the expression $^{T_{1}}HM^{T_{2}}$ $e_{M}$ denotes $e_{M}$ with expected (Haskell) type $T_{1}$ and actual (ML) type $T_{2}$ crossing from ML to Haskell.  Boundaries can be nested within each other to express interoperation between more than two languages.  Since a set of $n$ interoperable languages requires $n\times(n-1)$ boundaries, this model requires six boundaries.
@@ -124,28 +100,26 @@ If a boundary has an expected Scheme type and an actual forall type ($SH^{\foral
 
 If it is a Scheme value wrapped in an inner boundary, the outer boundary reduces to the Scheme value.  For example, $SH^{\forall X.T}$ $(^{\forall X.T}HS$ $v_{S})$ reduces to $v_{S}$.
 
-\clearpage
+\input{model/haskell/grammar.tex}
 
-\input{model/interoperation/haskell/grammar.tex}
+\input{model/ml/grammar.tex}
 
-\input{model/interoperation/ml/grammar.tex}
+\input{model/scheme/grammar.tex}
 
-\input{model/interoperation/scheme/grammar.tex}
+\input{model/haskell/typing-rules.tex}
 
-\clearpage
+\input{model/ml/typing-rules.tex}
 
-\input{model/interoperation/haskell/typing-rules.tex}
+\input{model/scheme/typing-rules.tex}
 
-\input{model/interoperation/ml/typing-rules.tex}
+\input{model/haskell/core-operational-semantics.tex}
 
-\input{model/interoperation/scheme/typing-rules.tex}
+\input{model/haskell/interoperation-operational-semantics.tex}
 
-\clearpage
+\input{model/ml/core-operational-semantics.tex}
 
-\input{model/interoperation/haskell/operational-semantics.tex}
+\input{model/ml/interoperation-operational-semantics.tex}
 
-\input{model/interoperation/ml/operational-semantics.tex}
+\input{model/scheme/core-operational-semantics.tex}
 
-\input{model/interoperation/scheme/operational-semantics.tex}
-
-\clearpage
+\input{model/scheme/interoperation-operational-semantics.tex}

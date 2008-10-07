@@ -31,7 +31,15 @@ $\mathscr{E}[\mathtt{null?}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\overline{
 
 \vspace{5pt}
 
-$\mathscr{E}[\mathtt{null?}$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ $(v_{S}^{1}\not\in\lbrace\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},\mathtt{nil}\rbrace)$ \\
+$\mathscr{E}[\mathtt{null?}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[\overline{1}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{null?}$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ \\
+
+\vspace{5pt}
+
+$\quad(v_{S}^{1}\not\in\lbrace\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},\mathtt{nil},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
 
 \vspace{5pt}
 
@@ -51,7 +59,11 @@ $\mathscr{E}[\mathtt{list?}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\overline{
 
 \vspace{5pt}
 
-$\mathscr{E}[\mathtt{list?}$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\overline{1}]$ $(v_{S}^{1}\not\in\lbrace\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},\mathtt{nil}\rbrace)$ \\
+$\mathscr{E}[\mathtt{list?}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{list?}$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\overline{1}]$ $(v_{S}^{1}\not\in\lbrace\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},\mathtt{nil},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
 
 \vspace{5pt}
 
