@@ -1,5 +1,0 @@
-\begin{case}
-$e_{S}=\mathtt{ifnil}\;e_{S}^{1}\;e_{S}^{2}\;e_{S}^{3}$
-
-$e_{S}^{1}$ is a value or $e_{S}^{1}\rightarrow e_{S}^{4}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{S}^{1}$ is a value then $\mathtt{ifnil}\;e_{S}^{1}\;e_{S}^{2}\;e_{S}^{3}\rightarrow e_{S}^{2}$ if $e_{S}^{1}=\mathtt{nil}$ or $\mathtt{ifnil}\;e_{S}^{1}\;e_{S}^{2}\;e_{S}^{3}\rightarrow e_{S}^{3}$ otherwise.  If $e_{S}^{1}\rightarrow e_{S}^{4}$ then $\mathtt{ifnil}\;e_{S}^{1}\;e_{S}^{2}\;e_{S}^{3}\rightarrow \mathtt{ifnil}\;e_{S}^{4}\;e_{S}^{2}\;e_{S}^{3}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $\mathtt{ifnil}\;e_{S}^{1}\;e_{S}^{2}\;e_{S}^{3}\rightarrow$ \emph{\textbf{Error}:\;string}.
-\end{case}
