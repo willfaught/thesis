@@ -6,51 +6,39 @@ The Haskell and ML models extend System F, which extends lambda calculus with ex
 
 Hereafter the names Haskell, ML, and Scheme refer to their corresponding models, unless otherwise stated.
 
-Letter subscripts of grammar non-terminals denote the language to which they belong, and numbered superscripts denote individual instances of them.
-
 \section{Grammars}
 
-Haskell types $T$ comprise natural numbers $N$, lists $[T]$, functions $T\rightarrow T$, type variables $X$, and forall types $\forall X.T$.  Haskell values $v_{H}$ comprise natural numbers $\overline{n}$, which syntactically represents the natural number $n$; list constructions $\mathtt{cons}$ $e_{H}$ $e_{H}$; empty lists $\mathtt{nil}^{T}$; functions $\lambda x:T.e_{H}$; and type abstractions $\Lambda X.e_{H}$.  Haskell expressions $e_{H}$ comprise variables $x$, function applications $e_{H}$ $e_{H}$, type applications $e_{H}$ $\lbrace T\rbrace$, arithmetic operations $+$ $e_{H}$ $e_{H}$ and $-$ $e_{H}$ $e_{H}$, conditions $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$, list operations $\mathtt{hd}$ $e_{H}$ and $\mathtt{tl}$ $e_{H}$, fixed-point operations $\mathtt{fix}$ $e_{H}$, and error reports $\mathtt{wrong}^{T}$ string.
+Haskell types $T$ comprise lumps $L$, natural numbers $N$, variables $X$, lists $[T]$, labels $T^{a}$, functions $T\rightarrow T$, and foralls $\forall X.T$.  Haskell values $v_{H}$ comprise functions $\lambda x:T.e_{H}$, type abstractions $\Lambda X.e_{H}$, natural numbers $\overline{n}$, empty lists $\mathtt{nil}^{T}$, list constructions $\mathtt{cons}$ $e_{H}$ $e_{H}$, Scheme boundaries with lump expected types $^{L}HS$ $v_{S}$, and Scheme boundaries with forall expected types $^{\forall X.T}HS$ $v_{S}$.  $\overline{n}$ syntactically represents the natural number $n$.  The first subexpression in list constructions is the head and the second is the tail.  Tails that are empty lists signify the ends of lists.  Haskell expressions $e_{H}$ comprise variables $x$, function applications $e_{H}$ $e_{H}$, type applications $e_{H}$ $\lbrace T\rbrace$, arithmetic operations $+$ $e_{H}$ $e_{H}$ and $-$ $e_{H}$ $e_{H}$, empty list predicates $\mathtt{null?}$ $e_{H}$, conditions $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$, list operations $\mathtt{hd}$ $e_{H}$ and $\mathtt{tl}$ $e_{H}$, fixed-point operations $\mathtt{fix}$ $e_{H}$, error reports $\mathtt{wrong}^{T}$ string, ML boundaries $^{T}HM^{T}$ $e_{M}$, and Scheme boundaries $^{T}HS$ $e_{S}$.  Empty list predicates determine whether lists are empty.  The first subexpression in conditions is the test, the second is the true alternative, and the third is the false alternative.  Empty list predicates and conditions use the natural number zero as true and all other natural numbers as false.  List operations produce the heads and tails of list constructions.  Fixed-point operations render functions recursive.  Error reports signal error conditions.  ML and Scheme boundaries embed expressions from those languages in Haskell.  Functions, empty lists, and error reports have type annotations that enable the calculation of their types.  Haskell evaluation contexts $E_{H}$ conform to an extended call-by-name (lazy) evaluation strategy.  Haskell holes are denoted $[\,]_{H}$.  Figure \ref{hg} defines the Haskell grammar and evaluation contexts.
 
-The core Haskell model comprises the variables, functions, and function applications of lambda calculus; the type variables, type abstractions, and type applications of System F \cite{pierce02}; natural numbers and arithmetic operations; lists and list operations; conditions that use the natural number zero as true all other natural numbers as false; fixed-point operations; error reports; and types for type abstractions and all values.  Empty lists, functions, and error reports have type annotations to enable the calculation of their types.  Haskell values and evaluation contexts conform to an extended call-by-name (lazy) evaluation strategy.  Letter subscripts of grammar non-terminals denote the language to which they belong, and numbered superscripts denote individual instances of them.  Variable and type variable names are assumed to be unique across all languages.
+ML's grammar differs from Haskell's grammar in three ways.  First, the heads and tails of list construction values are also values: $\mathtt{cons}$ $v_{M}$ $v_{M}$. Second, it has a list construction expression in which the heads and tails are expressions: $\mathtt{cons}$ $e_{M}$ $e_{M}$.  Third, its evaluation contexts conform to an extended call-by-value (eager) evaluation strategy.  Figure \ref{mg} defines the ML grammar and evaluation contexts.
+
+Scheme's grammar differs from ML's grammar in four ways.  First, it does not have type abstractions, type applications, and fixed-point operations and the evaluation contexts that contain them.  Second, it does not have types.  Third, it does not have type annotations for functions, empty lists, and error reports.  Fourth, it has three value predicate expressions that determine whether values are functions $\mathtt{fun?}$ $e_{S}$, lists $\mathtt{list?}$ $e_{S}$, and natural numbers $\mathtt{nat?}$ $e_{S}$.  Figure \ref{sg} defines the Scheme grammar and evaluation contexts.
+
+Letter subscripts of grammar non-terminals denote the language to which they belong, and numbered superscripts denote individual instances of them.  Variable and type variable names must be unique across all languages.
 
 \section{Typing Rules}
 
+Sch doesn't have Sys F stuff and , typing rules, and reduction rules that contain them
 
-
-\section{Operational Semantics}
-
-
-
-\section{Core Models}
-
-The core models are the subset of the model that define the languages, but do not make provisions for interoperation.
-
-\subsection{Haskell Model}
-
-The core Haskell model comprises the variables, functions, and function applications of lambda calculus; the type variables, type abstractions, and type applications of System F \cite{pierce02}; natural numbers and arithmetic operations; lists and list operations; conditions that use the natural number zero as true all other natural numbers as false; fixed-point operations; error reports; and types for type abstractions and all values.  Empty lists, functions, and error reports have type annotations to enable the calculation of their types.  Haskell values and evaluation contexts conform to an extended call-by-name (lazy) evaluation strategy.  Variable and type variable names are assumed to be unique across all languages.
+set membership
 
 $\Gamma\vdash_{H}e_{H}:T$ denotes the Haskell typing relation.  An expression $e_{H}$ is well-typed within the context $\Gamma$ if there is some type $T$ such that $\Gamma\vdash_{H}e_{H}:T$ is derivable.  $\Gamma\vdash_{H}T$ asserts the type $T$ is well-formed within the context $\Gamma$.  Where the context is empty, it is omitted from typing judgments.  Programs that contain free variables or free type variables are ill-typed.  Type equivalence is computed up to alpha-equivalence on bound type variables.  Letter subscripts of type relations denote the language to which they belong.  $T_{1}[T_{2}/X]$ denotes the substitution of type $T_{2}$ for free occurrences of type variable $X$ within type $T_{1}$.  Number subscripts and superscripts of grammar non-terminals in typing rules denote individual instances of them, but are absent where instances are unambigious.
 
+It has a single type is The Scheme Type, $TST$.  
+
+\section{Operational Semantics}
+
 $e_{H}^{1}[e_{H}^{2}/x]$ denotes the substitution of expression $e_{H}^{2}$ for free occurrences of variable $x$ within expression $e_{H}^{1}$.  Variable instances that occur on the right side of a reduction rule, but not its left, are new and unique.  Error reports reduce to errors and terminate the computation.  All reduction rules are defined with an unspecified evaluation context $\mathscr{E}$.  The evaluation of a single language instantiates $\mathscr{E}$ to $E_{H}$ for Haskell, to $E_{M}$ for ML, and to $E_{S}$ for Scheme.  Language interoperation instantiates $\mathscr{E}$ according to the language in which programs begin and end.  $\mathscr{E}$ is implicitly instantiated correctly in later examples.
-
-\subsection{ML Model}
-
-The core ML model is identical to the core Haskell model except that it uses an extended call-by-value (eager) evaluation strategy, which affects list constructions, evaluation contexts, and function applications.  The heads and tails of list construction values must also be values to conform to the notion of eager evaluation, and there must be list construction expressions where the heads and tails are also expressions.  Evaluation contexts for the heads and tails of list constructions must be added.  Function applications can only be reduced if the arguments are values to conform to eager evaluation.
-
-\subsection{Scheme Model}
-
-The core Scheme model is similar to the core ML model.  It does not have type abstractions, type applications, and fixed-point operations and the evaluation contexts, typing rules, and reduction rules that contain them.  Its single type is The Scheme Type, $TST$.  It does not have type annotations for empty lists, functions, and error reports.  Value predicate expressions determine set membership for natural numbers, lists, and functions that reduce to the natural number zero for true and to the natural number one for false.  Evaluation contexts include operands of value predicates.  Conditions use the natural number zero as true and all other values, which may not be natural numbers, as false.
 
 \section{Interoperation Models}
 
-The interoperation calculi extend the core calculi with new expressions, evaluation contexts, typing rules, and rewrite rules to enable interoperation.  They add boundary expressions, which represent values with actual and expected types crossing between languages.  Boundaries are denoted by two-letter acronyms, where the first letter names clients and the second letter names servers.  Expected types are superscripts to the left of the first letters, and actual types are superscripts to the right of the second letters.  Expressions to be reduced to values and cross languages are to the right of the letters and types, separated by a space.  For example, the expression $^{T_{1}}HM^{T_{2}}$ $e_{M}$ denotes $e_{M}$ with expected (Haskell) type $T_{1}$ and actual (ML) type $T_{2}$ crossing from ML to Haskell.  Boundaries can be nested within each other to express interoperation between more than two languages.  Since a set of $n$ interoperable languages requires $n\times(n-1)$ boundaries, this model requires six boundaries.
+The interoperation calculi extend the core calculi with new expressions, evaluation contexts, typing rules, and reduction rules to enable interoperation.  They add boundary expressions, which represent values with actual and expected types crossing between languages.  Boundaries are denoted by two-letter acronyms, where the first letter names clients and the second letter names servers.  Expected types are superscripts to the left of the first letters, and actual types are superscripts to the right of the second letters.  Expressions to be reduced to values and cross languages are to the right of the letters and types, separated by a space.  For example, the expression $^{T_{1}}HM^{T_{2}}$ $e_{M}$ denotes $e_{M}$ with expected (Haskell) type $T_{1}$ and actual (ML) type $T_{2}$ crossing from ML to Haskell.  Boundaries can be nested within each other to express interoperation between more than two languages.  Since a set of $n$ interoperable languages requires $n\times(n-1)$ boundaries, this model requires six boundaries.
 
 They add evaluation contexts for the subexpressions of boundaries ($^{T}HM^{T}$ $E_{M}$ for example).
 
 They add typing rules for boundaries.  Boundaries are well-typed if their expected and actual types are well-formed and equivalent and the types of their subexpressions equal their actual types.  The types of boundaries are their expected types.  $TST$ is omitted from boundary notation because all well-typed Scheme expressions have type $TST$.
 
-They add rewrite rules for every combination of boundary, expected and actual types, and syntactic forms of values.  Rewrite rules for boundaries that contain Scheme values that do not match their expected types reduce to type error reports.
+They add reduction rules for every combination of boundary, expected and actual types, and syntactic forms of values.  Rewrite rules for boundaries that contain Scheme values that do not match their expected types reduce to type error reports.
 
 The expected and actual types of boundaries determine their reduction.
 
@@ -99,6 +87,8 @@ If a boundary has an expected Scheme type and an actual forall type ($SH^{\foral
 \input{figures/forall-3.tex}
 
 If it is a Scheme value wrapped in an inner boundary, the outer boundary reduces to the Scheme value.  For example, $SH^{\forall X.T}$ $(^{\forall X.T}HS$ $v_{S})$ reduces to $v_{S}$.
+
+\clearpage
 
 \input{model/haskell/grammar.tex}
 
