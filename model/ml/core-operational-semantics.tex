@@ -3,7 +3,7 @@
 \begin{tabular}{l}
 \vspace{5pt}
 
-$\mathscr{E}[(\lambda x:T.e_{M})$ $v_{M}]_{M}\rightarrow\mathscr{E}[e_{M}[v_{M}/x]]$ \\
+$\mathscr{E}[(\lambda x:T.e_{M})$ $u_{M}]_{M}\rightarrow\mathscr{E}[e_{M}[u_{M}/x]]$ \\
 
 \vspace{5pt}
 
@@ -52,6 +52,14 @@ $\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{M}\rightarr
 \vspace{5pt}
 
 $\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{M}\rightarrow\mathscr{E}[v_{M}^{2}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{hd}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{M}\rightarrow\mathscr{E}[^{T}MH^{T}$ $e_{H}^{1}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{tl}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{M}\rightarrow\mathscr{E}[^{[T]}MH^{[T]}$ $e_{H}^{2}]$ \\
 
 \vspace{5pt}
 
