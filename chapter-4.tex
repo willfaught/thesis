@@ -1,4 +1,4 @@
-\chapter{Implementation of the Model}
+\chapter{Implementation}
 
 The model was implemented in the DrScheme integrated development environment.  Languages are separated into modules that export sets of definitions, one for each language to import.  Haskell and ML modules are written in subsets of their real syntaxes and compile to equivalent Scheme modules.  Scheme modules are written in a subset of their real syntax.  Type soundness is violated if Scheme modules use language constructs (variable mutation, for example) or export values (non-integer numbers, for example) not supported by the system of interoperation.  Haskell can import ML and Scheme exports, ML can import Scheme exports, and Scheme can import Haskell exports.  Haskell and ML use let-polymorphism instead of System F and use type reconstruction.  All languages use integers as their number domain.  In addition to the model, all languages have boolean values and operations, multiplication and division operations, and lists.  Haskell and Scheme have user-defined composite data types.  The ML implementation extends the implementation by Kinghorn \cite{kinghorn07}.
 
