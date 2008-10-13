@@ -17,7 +17,10 @@ Well-typed Haskell and ML expressions have unique types:
 The types of Haskell and ML values determine their syntactic forms:
 
 \input{proof/lemmas/progress/canonical-forms.tex}
-\input{proof/theorems/progress.tex}
+
+\input{proof/theorems/haskell-ml-progress.tex}
+
+\input{proof/theorems/scheme-progress.tex}
 
 \section{Preservation}
 
@@ -30,5 +33,7 @@ If $e_{A}^{1}$ is substituted for free occurrences of $x$ within $e_{A}^{2}$, $e
 If $T_{1}$ is substituted for free occurrences of $X$ within $e_{A}$ of type $T_{2}$, the type of the result is $T_{1}$ substituted for free occurrences of $X$ within $T_{2}$, where $A\in\lbrace H,M\rbrace$:
 
 \input{proof/lemmas/preservation/type-substitution.tex}
+
 \input{proof/lemmas/preservation/evaluation-context-preservation.tex}
+
 \input{proof/theorems/preservation.tex}
