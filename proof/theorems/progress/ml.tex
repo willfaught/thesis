@@ -1,0 +1,27 @@
+\begin{theorem}
+\label{mps}
+If $\vdash_{A}e_{A}:T$ then $e_{A}$ is a value or $e_{A}\rightarrow e_{A}'$ or $e_{A}\rightarrow$ \emph{\textbf{Error}:\;string} where $A\in\lbrace H,M\rbrace$.
+\begin{proof}
+By structural induction on $e_{A}$.
+\input{proof/cases/progress/haskell-ml/function.tex}
+\input{proof/cases/progress/haskell-ml/type-abstraction.tex}
+\input{proof/cases/progress/haskell-ml/number.tex}
+\input{proof/cases/progress/haskell-ml/nil.tex}
+\input{proof/cases/progress/haskell-ml/cons-hv.tex}
+\input{proof/cases/progress/haskell-ml/cons-mv.tex}
+\input{proof/cases/progress/haskell-ml/variable.tex}
+\input{proof/cases/progress/haskell-ml/function-application-h.tex}
+\input{proof/cases/progress/haskell-ml/function-application-m.tex}
+\input{proof/cases/progress/haskell-ml/type-application.tex}
+\input{proof/cases/progress/haskell-ml/arithmetic.tex}
+\input{proof/cases/progress/haskell-ml/predicate.tex}
+\input{proof/cases/progress/haskell-ml/if0.tex}
+\input{proof/cases/progress/haskell-ml/cons-e.tex}
+\input{proof/cases/progress/haskell-ml/fields-h.tex}
+\input{proof/cases/progress/haskell-ml/fields-m.tex}
+\input{proof/cases/progress/haskell-ml/fix.tex}
+\input{proof/cases/progress/haskell-ml/wrong.tex}
+\input{proof/cases/progress/haskell-ml/haskell-ml.tex}
+\input{proof/cases/progress/haskell-ml/scheme.tex}
+\end{proof}
+\end{theorem}

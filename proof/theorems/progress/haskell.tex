@@ -1,8 +1,8 @@
 \begin{theorem}
-\label{hmps}
-If $\vdash_{A}e_{A}:T$ then $e_{A}$ is a value or $e_{A}\rightarrow e_{A}'$ or $e_{A}\rightarrow$ \emph{\textbf{Error}:\;string} where $A\in\lbrace H,M\rbrace$.
+\label{hps}
+If $\vdash_{H}e_{H}:T$ then $e_{H}$ is a value or $e_{H}\rightarrow e_{H}'$ or $e_{H}\rightarrow$ \emph{\textbf{Error}: string}.
 \begin{proof}
-By structural induction on $e_{A}$.
+By structural induction on $e_{H}$.
 \input{proof/cases/progress/haskell-ml/function.tex}
 \input{proof/cases/progress/haskell-ml/type-abstraction.tex}
 \input{proof/cases/progress/haskell-ml/number.tex}
