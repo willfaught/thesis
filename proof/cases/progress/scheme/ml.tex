@@ -1,38 +1,55 @@
 \begin{case}
-$e_{S}=SA^{T}$ $e_{A}^{1}$ where $A\in\lbrace H,M\rbrace$
 
-$e_{A}^{1}$ is a value or $e_{A}^{1}\rightarrow e_{A}^{2}$ or $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{A}^{1}$ is a value then $T$ determines its reduction.
+$e_{S}=SM^{T}$ $e_{M}^{1}$
+
+$e_{M}^{1}$ is a forced value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by ML progress (Theorem \ref{mps}).  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $SM^{T}$ $e_{M}^{1}\rightarrow SM^{T}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $SM^{T}$ $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{M}^{1}$ is a forced value then $T$ determines the reduction of $e_{S}$.
+
 \begin{subcase}
-$T=N$
 
-$e_{A}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $SA^{N}$ $\overline{n}\rightarrow\overline{n}$.
-\end{subcase}
-\begin{subcase}
-$T=T_{1}\rightarrow T_{2}$
-
-$e_{A}^{1}=\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A}^{3}$ by canonical forms (Lemma \ref{cf}).  $SA^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A}^{3})\rightarrow\lambda x_{2}.(SA^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A}^{3})$ $(^{T_{1}}AS$ $x_{2})))$.
-\end{subcase}
-\begin{subcase}
-$T=\forall X.T_{1}$
-
-$e_{A}^{1}\in\lbrace\Lambda X.e_{A}^{3},{^{\forall X.T_{1}}A}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{A}^{1}=\Lambda X.e_{A}^{3}$ then $SA^{\forall X.T_{1}}$ $(\Lambda X.e_{A}^{3})\rightarrow SA^{T_{1}[L/X]}$ $((\Lambda X.e_{A}^{3})$ $\lbrace L\rbrace)$.  If $e_{A}^{1}={^{\forall X.T_{1}}A}S$ $v_{S}$ then $SA^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}AS$ $v_{S})\rightarrow v_{S}$.
-\end{subcase}
-\begin{subcase}
-$T=[T_{1}]$
-
-If $A=H$ then $e_{H}^{1}\in\lbrace\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2},\mathtt{nil}^{T_{1}}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{H}^{1}=\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}$ then $SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ is a value.  If $e_{H}^{1}=\mathtt{nil}^{T_{1}}$ then $SH^{T_{1}}$ $\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.
-
-If $A=M$ then $e_{M}^{1}\in\lbrace\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},\mathtt{nil}^{T_{1}},{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{M}^{1}=\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}$ then $SM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(SM^{T_{1}}$ $v_{M}^{1})$ $(SM^{[T_{1}]}$ $v_{M}^{2})$.  If $e_{M}^{1}=\mathtt{nil}^{T_{1}}$ then $SM^{T_{1}}$ $\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.  If $e_{M}^{1}={^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ then $SM^{[T_{1}]}$ $({^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.
-\end{subcase}
-\begin{subcase}
 $T=L$
 
-$e_{A}^{1}={^{L}A}S$ $v_{S}$ by canonical forms (Lemma \ref{cf}).  $SA^{L}$ $(^{L}AS$ $v_{S})\rightarrow v_{S}$.
+$e_{M}^{1}={^{L}M}S$ $v_{S}$ by canonical forms (Lemma \ref{cf}).  $SM^{L}$ $(^{L}MS$ $v_{S})\rightarrow v_{S}$.
+
 \end{subcase}
+
 \begin{subcase}
+
+$T=N$
+
+$e_{M}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $SM^{N}$ $\overline{n}\rightarrow\overline{n}$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=[T_{1}]$
+
+$e_{M}^{1}\in\lbrace\mathtt{nil}^{T_{1}},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{M}^{1}=\mathtt{nil}^{T_{1}}$ then $SM^{T_{1}}$ $\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.  If $e_{M}^{1}=\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}$ then $SM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(SM^{T_{1}}$ $v_{M}^{1})$ $(SM^{[T_{1}]}$ $v_{M}^{2})$.  If $e_{M}^{1}={^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ then $SM^{[T_{1}]}$ $({^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.
+
+\end{subcase}
+
+\begin{subcase}
+
 $T=T_{1}^{a}$
 
-$SA^{T_{1}^{a}}$ $e_{A}^{1}$ is a value.
+$SM^{T_{1}^{a}}$ $e_{M}^{1}$ is a forced value.
+
 \end{subcase}
-If $e_{A}^{1}$ is not a value and $A=H$ then $SA^{T_{1}^{a}}$ $e_{A}^{1}$ is a value.  If $e_{A}^{1}\rightarrow e_{A}^{2}$ then $SA^{T}$ $e_{A}^{1}\rightarrow SA^{T}$ $e_{A}^{2}$.  If $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $SA^{T}$ $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string}.
+
+\begin{subcase}
+
+$T=T_{1}\rightarrow T_{2}$
+
+$e_{M}^{1}=\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M}^{3}$ by canonical forms (Lemma \ref{cf}).  $SM^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M}^{3})\rightarrow\lambda x_{2}.(SM^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M}^{3})$ $(^{T_{1}}MS$ $x_{2})))$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=\forall X.T_{1}$
+
+$e_{M}^{1}\in\lbrace\Lambda X.e_{M}^{3},{^{\forall X.T_{1}}M}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{M}^{1}=\Lambda X.e_{M}^{3}$ then $SM^{\forall X.T_{1}}$ $(\Lambda X.e_{M}^{3})\rightarrow SM^{T_{1}[L/X]}$ $((\Lambda X.e_{M}^{3})$ $\lbrace L\rbrace)$.  If $e_{M}^{1}={^{\forall X.T_{1}}M}S$ $v_{S}$ then $SM^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}MS$ $v_{S})\rightarrow v_{S}$.
+
+\end{subcase}
+
 \end{case}

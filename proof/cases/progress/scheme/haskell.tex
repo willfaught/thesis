@@ -2,7 +2,7 @@
 
 $e_{S}=SH^{T}$ $e_{H}^{1}$
 
-$e_{H}^{1}$ is a value or $e_{H}^{1}\rightarrow e_{H}^{2}$ or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} by Haskell progress (Theorem \ref{hps}).  If $e_{H}^{1}$ is a value then $T$ determines the reduction of $e_{S}$.
+$e_{H}^{1}$ is a value or $e_{H}^{1}\rightarrow e_{H}^{2}$ or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} by Haskell progress (Theorem \ref{hps}).  If $e_{H}^{1}\rightarrow e_{H}^{2}$ then $SH^{T}$ $e_{H}^{1}\rightarrow SH^{T}$ $e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $SH^{T}$ $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{H}^{1}$ is a value then $T$ determines the reduction of $e_{S}$.
 
 \begin{subcase}
 
@@ -51,7 +51,5 @@ $T=\forall X.T_{1}$
 $e_{H}^{1}\in\lbrace\Lambda X.e_{H}^{3},{^{\forall X.T_{1}}H}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{H}^{1}=\Lambda X.e_{H}^{3}$ then $SH^{\forall X.T_{1}}$ $(\Lambda X.e_{H}^{3})\rightarrow SH^{T_{1}[L/X]}$ $((\Lambda X.e_{H}^{3})$ $\lbrace L\rbrace)$.  If $e_{H}^{1}={^{\forall X.T_{1}}H}S$ $v_{S}$ then $SH^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}HS$ $v_{S})\rightarrow v_{S}$.
 
 \end{subcase}
-
-If $e_{H}^{1}\rightarrow e_{H}^{2}$ then $SH^{T}$ $e_{H}^{1}\rightarrow SH^{T}$ $e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $SH^{T}$ $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string}.
 
 \end{case}
