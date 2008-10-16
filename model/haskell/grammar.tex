@@ -3,11 +3,11 @@
 \begin{tabular}{lcl}
 \vspace{5pt}
 
-$e_{H}$ & $=$ & $v_{H}$ $\vert$ $x$ $\vert$ $e_{H}$ $e_{H}$ $\vert$ $e_{H}$ $\lbrace T\rbrace$ $\vert$ $o$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{null?}$ $e_{H}$ $\vert$ $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$ \\
+$e_{H}$ & $=$ & $v_{H}$ $\vert$ $x$ $\vert$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{fix}$ $e_{H}$ $\vert$ $e_{H}$ $\lbrace T\rbrace$ $\vert$ $f$ $e_{H}$ $\vert$ $o$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{null?}$ $e_{H}$ \\
 
 \vspace{5pt}
 
-&& $\vert$ $f$ $e_{H}$ $\vert$ $\mathtt{fix}$ $e_{H}$ $\vert$ $\mathtt{wrong}^{T}$ string $\vert$ $^{T}HM^{T}$ $e_{M}$ $\vert$ $^{T}HS$ $e_{S}$ \\
+&& $\vert$ $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{wrong}^{T}$ string $\vert$ $^{T}HM^{T}$ $e_{M}$ $\vert$ $^{T}HS$ $e_{S}$ \\
 
 \vspace{5pt}
 
@@ -27,11 +27,11 @@ $f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
 
 \vspace{5pt}
 
-$E_{H}$ & $=$ & $[\,]_{H}$ $\vert$ $E_{H}$ $e_{H}$ $\vert$ $E_{H}$ $\lbrace T\rbrace$ $\vert$ $o$ $E_{H}$ $e_{H}$ $\vert$ $o$ $\overline{n}$ $E_{H}$ $\vert$ $\mathtt{null?}$ $E_{H}$ \\
+$E_{H}$ & $=$ & $[\,]_{H}$ $\vert$ $E_{H}$ $e_{H}$ $\vert$ $\mathtt{fix}$ $E_{H}$ $\vert$ $E_{H}$ $\lbrace T\rbrace$ $\vert$ $f$ $E_{H}$ $\vert$ $o$ $E_{H}$ $e_{H}$ $\vert$ $o$ $v_{H}$ $E_{H}$ \\
 
 \vspace{5pt}
 
-&& $\vert$ $\mathtt{if0}$ $E_{H}$ $e_{H}$ $e_{H}$ $\vert$ $f$ $E_{H}$ $\vert$ $\mathtt{fix}$ $E_{H}$ $\vert$ $^{T}HM^{T}$ $E_{M}$ $\vert$ $^{T}HS$ $E_{S}$
+&& $\vert$ $\mathtt{null?}$ $E_{H}$ $\vert$ $\mathtt{if0}$ $E_{H}$ $e_{H}$ $e_{H}$ $\vert$ $^{T}HM^{T}$ $E_{M}$ $\vert$ $^{T}HS$ $E_{S}$
 \end{tabular}
 \caption{Haskell grammar and evaluation contexts}
 \label{hg}

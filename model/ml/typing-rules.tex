@@ -33,7 +33,14 @@
 \[
 \frac{\Gamma\vdash_{M}e_{M}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{M}e_{M}^{2}:T_{1}}{\Gamma\vdash_{M}e_{M}^{1}\;e_{M}^{2}:T_{2}}
 \quad
+\frac{\Gamma\vdash_{M}e_{M}:T\rightarrow T}{\Gamma\vdash_{M}\mathtt{fix}\;e_{M}:T}
+\]
+\[
 \frac{\Gamma\vdash_{M}T_{1}\quad\Gamma\vdash_{M}e_{M}:\forall X.T_{2}}{\Gamma\vdash_{M}e_{M}\;\lbrace T_{1}\rbrace:T_{2}[T_{1}/X]}
+\quad
+\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{hd}\;e_{M}:T}
+\quad
+\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{tl}\;e_{M}:[T]}
 \]
 \[
 \frac{\Gamma\vdash_{M}e_{M}^{1}:N\quad\Gamma\vdash_{M}e_{M}^{2}:N}{\Gamma\vdash_{M}o\;e_{M}^{1}\;e_{M}^{2}:N}
@@ -42,20 +49,16 @@
 \]
 \[
 \frac{\Gamma\vdash_{M}e_{M}^{1}:N\quad\Gamma\vdash_{M}e_{M}^{2}:T\quad\Gamma\vdash_{M}e_{M}^{3}:T}{\Gamma\vdash_{M}\mathtt{if0}\;e_{M}^{1}\;e_{M}^{2}\;e_{M}^{3}:T}
-\quad
-\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{hd}\;e_{M}:T}
 \]
 \[
-\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{tl}\;e_{M}:[T]}
-\quad
-\frac{\Gamma\vdash_{M}e_{M}:T\rightarrow T}{\Gamma\vdash_{M}\mathtt{fix}\;e_{M}:T}
-\quad
 \frac{\Gamma\vdash_{M}T}{\Gamma\vdash_{M}\mathtt{wrong}^{T}\;\mathrm{string}:T}
+\quad
+\frac{\Gamma\vdash_{M}e_{M}:T}{\Gamma\vdash_{M}\mathtt{force}\;e_{M}:T}
 \]
 \[
-\frac{\Gamma\vdash_{M}T\quad\Gamma\vdash_{H}T\quad\Gamma\vdash_{H}e_{H}:T}{\Gamma\vdash_{M}\;^{T}MH^{T}\;e_{H}:T}
+\frac{\Gamma\vdash_{M}T\quad\Gamma\vdash_{H}T\quad\Gamma\vdash_{H}e_{H}:T}{\Gamma\vdash_{M}{^{T}M}H^{T}\;e_{H}:T}
 \quad
-\frac{\Gamma\vdash_{M}T\quad\Gamma\vdash_{S}e_{S}:TST}{\Gamma\vdash_{M}\;^{T}MS\;e_{S}:T[T_{i}/T^{a}_{i}]}
+\frac{\Gamma\vdash_{M}T\quad\Gamma\vdash_{S}e_{S}:TST}{\Gamma\vdash_{M}{^{T}M}S\;e_{S}:T[T_{i}/T^{a}_{i}]}
 \]
 \caption{ML typing rules}
 \label{mtr}
