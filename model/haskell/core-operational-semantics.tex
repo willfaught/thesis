@@ -7,7 +7,27 @@ $\mathscr{E}[(\lambda x:T.e_{H}^{1})$ $e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H
 
 \vspace{5pt}
 
+$\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}[(\mathtt{fix}$ $(\lambda x:T.e_{H}))/x]]$ \\
+
+\vspace{5pt}
+
 $\mathscr{E}[(\Lambda X.e_{H})$ $\lbrace T\rbrace]_{H}\rightarrow\mathscr{E}[e_{H}[T/X]]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{hd}$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}^{T}$ ``Empty list"$]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}^{[T]}$ ``Empty list"$]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]_{H}\rightarrow\mathscr{E}[e_{H}^{1}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]_{H}\rightarrow\mathscr{E}[e_{H}^{2}]$ \\
 
 \vspace{5pt}
 
@@ -32,26 +52,6 @@ $\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}\rightarrow
 \vspace{5pt}
 
 $\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{2}]$ $(n\neq0)$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{hd}$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}^{T}$ ``Empty list"$]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}^{[T]}$ ``Empty list"$]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]_{H}\rightarrow\mathscr{E}[e_{H}^{1}]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]_{H}\rightarrow\mathscr{E}[e_{H}^{2}]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}[(\mathtt{fix}$ $(\lambda x:T.e_{H}))/x]]$ \\
 
 \vspace{5pt}
 

@@ -11,6 +11,38 @@ $\mathscr{E}[v_{S}^{1}$ $v_{S}^{2}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``
 
 \vspace{5pt}
 
+$\mathscr{E}[\mathtt{hd}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[v_{S}^{1}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[v_{S}^{2}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{hd}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{T}$ $e_{H}^{1}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{tl}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{[T]}$ $e_{H}^{2}]$ \\
+
+\vspace{5pt}
+
+$\mathscr{E}[f$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ \\
+
+\vspace{5pt}
+
+$\quad(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
+
+\vspace{5pt}
+
 $\mathscr{E}[+$ $\overline{n_{1}}$ $\overline{n_{2}}]_{S}\rightarrow\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
 
 \vspace{5pt}
@@ -84,38 +116,6 @@ $\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e_{S}^{1}$ $e_{S}^{2}]_{S}\rightarrow
 \vspace{5pt}
 
 $\mathscr{E}[\mathtt{if0}$ $v_{S}$ $e_{S}^{1}$ $e_{S}^{2}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a number"$]$ $(v_{S}\neq\overline{n})$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{hd}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[v_{S}^{1}]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[v_{S}^{2}]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{hd}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{T}$ $e_{H}^{1}]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{tl}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{[T]}$ $e_{H}^{2}]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[f$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ \\
-
-\vspace{5pt}
-
-$\quad(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
 
 \vspace{5pt}
 
