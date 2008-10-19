@@ -1,5 +1,7 @@
 \begin{case}
+
 $e_{A}=\mathtt{cons}\;e_{A}^{1}\;e_{A}^{2}$ where $A\in\lbrace M,S\rbrace$
 
 $e_{A}^{1}$ is a value or $e_{A}^{1}\rightarrow e_{A}^{3}$ or $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{A}^{1}\rightarrow e_{A}^{3}$ then $\mathtt{cons}\;e_{A}^{1}\;e_{A}^{2}\rightarrow\mathtt{cons}\;e_{A}^{3}\;e_{A}^{2}$.  If $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $\mathtt{cons}\;e_{A}^{1}\;e_{A}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.  $e_{A}^{2}$ is a value or $e_{A}^{2}\rightarrow e_{A}^{4}$ or $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{A}^{2}\rightarrow e_{A}^{4}$ and $e_{M}^{1}$ is a value then $\mathtt{cons}\;e_{A}^{1}\;e_{A}^{2}\rightarrow\mathtt{cons}\;e_{A}^{1}\;e_{A}^{4}$.  If $e_{A}^{2}\rightarrow$ \emph{\textbf{Error}:\;string} then $\mathtt{cons}\;e_{A}^{1}\;e_{A}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{A}^{1}$ and $e_{A}^{2}$ are values then $\mathtt{cons}\;e_{A}^{1}\;e_{A}^{2}$ is a value.
+
 \end{case}

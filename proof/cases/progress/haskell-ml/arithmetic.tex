@@ -1,5 +1,7 @@
 \begin{case}
+
 $e_{A}=o\;e_{A}^{1}\;e_{A}^{2}$ where $A\in\lbrace H,M\rbrace$
 
 $e_{A}^{1}$ is a value or $e_{A}^{1}\rightarrow e_{A}^{3}$ or $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{A}^{1}$ is a value then $e_{A}^{1}:N$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{A}^{1}=\overline{n_{1}}$ by canonical forms (Lemma \ref{cf}).  If $e_{A}^{1}\rightarrow e_{A}^{3}$ then $o\;e_{A}^{1}\;e_{A}^{2}\rightarrow o\;e_{A}^{3}\;e_{A}^{2}$.  If $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}:\;string} then $o\;e_{A}^{1}\;e_{A}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.  $e_{A}^{2}$ is a value or $e_{A}^{2}\rightarrow e_{A}^{4}$ or $e_{A}^{2}\rightarrow$ \emph{\textbf{Error}:\;string} by the induction hypothesis.  If $e_{A}^{2}$ is a value then $e_{A}^{2}:N$ by inversion and uniqueness of types and $e_{A}^{2}=\overline{n_{2}}$ by canonical forms.  If $e_{A}^{2}\rightarrow e_{A}^{4}$ and $e_{A}^{1}$ is a value then $o\;e_{A}^{1}\;e_{A}^{2}\rightarrow o\;e_{A}^{1}\;e_{A}^{4}$.  If $e_{A}^{2}\rightarrow$ \emph{\textbf{Error}:\;string} and $e_{A}^{1}$ is a value then $o\;e_{A}^{1}\;e_{A}^{2}\rightarrow$ \emph{\textbf{Error}:\;string}.  If $e_{A}^{1}$ and $e_{A}^{2}$ are values then $+\;\overline{n_{1}}\;\overline{n_{2}}\rightarrow\overline{n_{1}+n_{2}}$ and $-\;\overline{n_{1}}\;\overline{n_{2}}\rightarrow\overline{max(n_{1}-n_{2},0)}$.
+
 \end{case}
