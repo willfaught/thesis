@@ -119,7 +119,11 @@ $\mathscr{E}[\mathtt{if0}$ $v_{S}$ $e_{S}^{1}$ $e_{S}^{2}]_{S}\rightarrow\mathsc
 
 \vspace{5pt}
 
-$\mathscr{E}[\mathtt{wrong}$ $\mathrm{string}]_{S}\rightarrow$ \textbf{Error}: string
+$\mathscr{E}[\mathtt{wrong}$ $\mathrm{string}]_{S}\rightarrow$ \textbf{Error}: string \\
+
+\vspace{5pt}
+
+$\mathscr{E}[\mathtt{force}$ $v_{S}]_{S}\rightarrow\mathscr{E}[v_{S}]$ $(v_{S}\neq SH^{T}$ $e_{H}$ or $v_{S}=SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))$
 \end{tabular}
 \caption{Scheme core operational semantics}
 \label{csos}
