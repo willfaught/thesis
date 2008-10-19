@@ -1,0 +1,55 @@
+\begin{case}
+
+$e_{S}=\mathtt{force}$ $e_{S}^{1}$
+
+If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $\mathtt{force}$ $e_{S}^{1}\rightarrow\mathtt{force}$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{force}$ $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{S}^{1}$ is a value and $e_{S}^{1}\neq SH^{T}$ $e_{H}^{1}$ then $\mathtt{force}$ $e_{S}^{1}\rightarrow e_{S}^{1}$.  If $e_{S}^{1}=SH^{T}$ $e_{H}^{1}$ then $e_{H}^{1}$ is a value or $e_{H}^{1}\rightarrow e_{H}^{2}$ or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} by Haskell progress (Theorem \ref{hmps}).  If $e_{H}^{1}\rightarrow e_{H}^{2}$ then $SH^{T}$ $e_{H}^{1}\rightarrow SH^{T}$ $e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $SH^{T}$ $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{H}^{1}$ is a value otherwise and $T$ determines the reduction of $SH^{T}$ $e_{H}^{1}$.
+
+\begin{subcase}
+
+$T=L$
+
+$e_{H}^{1}={^{L}H}S$ $v_{S}$ by canonical forms (Lemma \ref{cf}).  $SH^{L}$ $(^{L}HS$ $v_{S})\rightarrow v_{S}$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=N$
+
+$e_{H}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $SH^{N}$ $\overline{n}\rightarrow\overline{n}$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=[T_{1}]$
+
+$e_{H}^{1}\in\lbrace\mathtt{nil}^{T_{1}},\mathtt{cons}$ $e_{H}^{3}$ $e_{H}^{4}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{H}^{1}=\mathtt{nil}^{T_{1}}$ then $SH^{T_{1}}$ $\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.  If $e_{H}^{1}=\mathtt{cons}$ $e_{H}^{3}$ $e_{H}^{4}$ then $SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{3}$ $e_{H}^{4})$ is a value.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=T_{1}^{a}$
+
+$SH^{T_{1}^{a}}$ $e_{H}^{3}$ is a value.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=T_{1}\rightarrow T_{2}$
+
+$e_{H}^{1}=\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H}^{3}$ by canonical forms (Lemma \ref{cf}).  $SH^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H}^{3})\rightarrow\lambda x_{2}.(SH^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H}^{3})$ $(^{T_{1}}HS$ $x_{2})))$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=\forall X.T_{1}$
+
+$e_{H}^{1}\in\lbrace\Lambda X.e_{H}^{3},{^{\forall X.T_{1}}H}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{H}^{1}=\Lambda X.e_{H}^{3}$ then $SH^{\forall X.T_{1}}$ $(\Lambda X.e_{H}^{3})\rightarrow SH^{T_{1}[L/X]}$ $((\Lambda X.e_{H}^{3})$ $\lbrace L\rbrace)$.  If $e_{H}^{1}={^{\forall X.T_{1}}H}S$ $v_{S}$ then $SH^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}HS$ $v_{S})\rightarrow v_{S}$.
+
+\end{subcase}
+
+\end{case}

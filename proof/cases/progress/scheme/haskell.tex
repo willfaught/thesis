@@ -1,55 +1,7 @@
 \begin{case}
 
-$e_{S}=SH^{T}$ $e_{H}^{1}$
+$e_{S}=SH^{T}$ $e_{H}$
 
-$e_{H}^{1}$ is a value or $e_{H}^{1}\rightarrow e_{H}^{2}$ or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} by Haskell progress (Theorem \ref{hps}).  If $e_{H}^{1}\rightarrow e_{H}^{2}$ then $SH^{T}$ $e_{H}^{1}\rightarrow SH^{T}$ $e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $SH^{T}$ $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{H}^{1}$ is a value then $T$ determines the reduction of $e_{S}$.
-
-\begin{subcase}
-
-$T=L$
-
-$e_{H}^{1}={^{L}H}S$ $v_{S}$ by canonical forms (Lemma \ref{cf}).  $SH^{L}$ $(^{L}HS$ $v_{S})\rightarrow v_{S}$.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=N$
-
-$e_{H}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $SH^{N}$ $\overline{n}\rightarrow\overline{n}$.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=[T_{1}]$
-
-$e_{H}^{1}\in\lbrace\mathtt{nil}^{T_{1}},\mathtt{cons}$ $e_{H}^{3}$ $e_{H}^{4}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{H}^{1}=\mathtt{nil}^{T_{1}}$ then $SH^{T_{1}}$ $\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.  If $e_{H}^{1}=\mathtt{cons}$ $e_{H}^{3}$ $e_{H}^{4}$ then $SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{3}$ $e_{H}^{4})$ is a forced value.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=T_{1}^{a}$
-
-$SH^{T_{1}^{a}}$ $e_{H}^{3}$ is a forced value.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=T_{1}\rightarrow T_{2}$
-
-$e_{H}^{1}=\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H}^{3}$ by canonical forms (Lemma \ref{cf}).  $SH^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H}^{3})\rightarrow\lambda x_{2}.(SH^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H}^{3})$ $(^{T_{1}}HS$ $x_{2})))$.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=\forall X.T_{1}$
-
-$e_{H}^{1}\in\lbrace\Lambda X.e_{H}^{3},{^{\forall X.T_{1}}H}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{H}^{1}=\Lambda X.e_{H}^{3}$ then $SH^{\forall X.T_{1}}$ $(\Lambda X.e_{H}^{3})\rightarrow SH^{T_{1}[L/X]}$ $((\Lambda X.e_{H}^{3})$ $\lbrace L\rbrace)$.  If $e_{H}^{1}={^{\forall X.T_{1}}H}S$ $v_{S}$ then $SH^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}HS$ $v_{S})\rightarrow v_{S}$.
-
-\end{subcase}
+$SH^{T}$ $e_{H}$ is a value.
 
 \end{case}

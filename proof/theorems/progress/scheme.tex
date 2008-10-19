@@ -1,6 +1,6 @@
 \begin{theorem}
 \label{sps}
-If $\vdash_{S}e_{S}:TST$ then $e_{S}$ is a forced value or $e_{S}\rightarrow e_{S}'$ or $e_{S}\rightarrow$ \emph{\textbf{Error}: string}.
+If $\vdash_{S}e_{S}:TST$ then $e_{S}$ is a value or $e_{S}\rightarrow e_{S}'$ or $e_{S}\rightarrow$ \emph{\textbf{Error}: string}.
 \begin{proof}
 By structural induction on $e_{S}$.
 \input{proof/cases/progress/scheme/function.tex}
@@ -10,12 +10,13 @@ By structural induction on $e_{S}$.
 \input{proof/cases/progress/scheme/haskell.tex}
 \input{proof/cases/progress/scheme/variable.tex}
 \input{proof/cases/progress/scheme/application.tex}
+\input{proof/cases/progress/scheme/cons-e.tex}
+\input{proof/cases/progress/scheme/fields.tex}
 \input{proof/cases/progress/scheme/arithmetic.tex}
 \input{proof/cases/progress/scheme/predicates.tex}
 \input{proof/cases/progress/scheme/if0.tex}
-\input{proof/cases/progress/scheme/cons-e.tex}
-\input{proof/cases/progress/scheme/fields.tex}
 \input{proof/cases/progress/scheme/wrong.tex}
+\input{proof/cases/progress/scheme/force.tex}
 \input{proof/cases/progress/scheme/ml.tex}
 \end{proof}
 \end{theorem}
