@@ -2,39 +2,7 @@
 
 $e_{A}={^{T}A}S$ $e_{S}^{1}$ where $A\in\lbrace H,M\rbrace$
 
-$e_{S}^{1}$ is a value or $e_{S}^{1}\rightarrow e_{S}^{2}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{1}$ is a value then $T$ determines its reduction.
-
-\begin{subcase}
-
-$T=N$
-
-If $e_{S}^{1}=\overline{n}$ then $^{N}AS$ $\overline{n}\rightarrow\overline{n}$.  $^{N}AS$ $e_{S}^{1}\rightarrow{^{N}A}S$ $(\mathtt{wrong}$ \emph{``Not a number"}$)$ otherwise.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=T_{1}\rightarrow T_{2}$
-
-If $e_{S}^{1}=\lambda x_{1}.e_{S}^{2}$ then $^{T_{1}\rightarrow T_{2}}AS$ $(\lambda x_{1}.e_{S}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}AS$ $((\lambda x_{1}.e_{S}^{2})$ $(SA^{T_{1}}$ $x_{2})))$.  $^{T_{1}\rightarrow T_{2}}AS$ $e_{S}^{1}\rightarrow{^{T_{1}\rightarrow T_{2}}A}S$ $(\mathtt{wrong}$ \emph{``Not a function"}$)$ otherwise.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=\forall X.T_{1}$
-
-$^{\forall X.T_{1}}AS$ $e_{S}^{1}$ is a value.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=[T_{1}]$
-
-If $e_{S}^{1}=\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2}$ then $^{[T_{1}]}AS$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})\rightarrow\mathtt{cons}$ $(^{T_{1}}AS$ $v_{S}^{1})$ $(^{[T_{1}]}AS$ $v_{S}^{2})$.  If $A=H$ and $e_{S}^{1}=SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{1})$ then $^{[T_{1}]}HS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{1}))\rightarrow\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{1}$.  If $A=M$ and $e_{S}^{1}=SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ then $^{[T_{1}]}MS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.  $^{[T_{1}]}AS$ $e_{S}^{1}\rightarrow{^{[T_{1}]}A}S$ $(\mathtt{wrong}$ \emph{``Not a list"}$)$ otherwise.
-
-\end{subcase}
+$e_{S}^{1}$ is a value or $e_{S}^{1}\rightarrow e_{S}^{2}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by Scheme progress (Theorem \ref{sps}).  If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $^{T}AS$ $e_{S}^{1}\rightarrow{^{T}A}S$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $^{T}AS$ $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{S}^{1}$ is a value then $T$ determines the reduction of $^{T}AS$ $e_{S}^{1}$:
 
 \begin{subcase}
 
@@ -46,12 +14,42 @@ $^{L}AS$ $e_{S}^{1}$ is a value.
 
 \begin{subcase}
 
-$T=T_{1}^{a}$
+$T=N$
 
-If $e_{S}^{1}=SA^{T_{1}^{a}}$ $e_{A}^{1}$ then $^{T_{1}^{a}}AS$ $(SA^{T_{1}^{a}}$ $e_{A}^{1})\rightarrow e_{A}^{1}$.  $^{T_{1}^{a}}AS$ $e_{S}^{1}\rightarrow{^{T_{1}^{a}}A}S$ $(\mathtt{wrong}$ $\mathrm{``Parametricity\;violated"})$ otherwise.
+$^{N}AS$ $\overline{n}\rightarrow\overline{n}$.  $^{N}AS$ $e_{S}^{1}\rightarrow{^{N}A}S$ $(\mathtt{wrong}$ \emph{``Not a number"}$)$ $(e_{S}^{1}\neq\overline{n})$.
 
 \end{subcase}
 
-If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $^{T}AS$ $e_{S}^{1}\rightarrow{^{T}A}S$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $^{T}AS$ $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string}.
+\begin{subcase}
+
+$T=[T_{1}]$
+
+$^{[T_{1}]}AS$ $\mathtt{nil}\rightarrow\mathtt{nil}^{T_{1}}$.  $^{[T_{1}]}AS$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})\rightarrow\mathtt{cons}$ $(^{T_{1}}AS$ $v_{S}^{1})$ $(^{[T_{1}]}AS$ $v_{S}^{2})$.  $^{[T_{1}]}HS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}$.  $^{[T_{1}]}MS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.  $^{[T_{1}]}AS$ $e_{S}^{1}\rightarrow{^{[T_{1}]}A}S$ $(\mathtt{wrong}$ \emph{``Not a list"}$)$ $(e_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=T_{1}^{a}$
+
+$^{T_{1}^{a}}AS$ $(SA^{T_{1}^{a}}$ $e_{A}^{1})\rightarrow e_{A}^{1}$.  $^{T_{1}^{a}}AS$ $e_{S}^{1}\rightarrow{^{T_{1}^{a}}A}S$ $(\mathtt{wrong}$ $\mathrm{``Parametricity\;violated"})$ $(e_{S}^{1}\neq SA^{T_{1}^{a}}$ $e_{A}^{1})$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=T_{1}\rightarrow T_{2}$
+
+$^{T_{1}\rightarrow T_{2}}AS$ $(\lambda x_{1}.e_{S}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}AS$ $((\lambda x_{1}.e_{S}^{2})$ $(SA^{T_{1}}$ $x_{2})))$.  $^{T_{1}\rightarrow T_{2}}AS$ $e_{S}^{1}\rightarrow{^{T_{1}\rightarrow T_{2}}A}S$ $(\mathtt{wrong}$ \emph{``Not a function"}$)$ $(e_{S}^{1}\neq\lambda x_{1}.e_{S}^{2})$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=\forall X.T_{1}$
+
+$^{\forall X.T_{1}}AS$ $e_{S}^{1}$ is a value.
+
+\end{subcase}
 
 \end{case}

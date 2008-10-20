@@ -8,7 +8,7 @@ $e_{M}^{1}$ is a value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightar
 
 $T=L$
 
-$e_{M}^{1}={^{L}B}S$ $v_{S}$ by canonical forms (Lemma \ref{cf}).  $^{L}HM^{L}$ $(^{L}BS$ $v_{S})\rightarrow{^{L}A}S$ $v_{S}$.
+$e_{M}^{1}={^{L}M}S$ $v_{S}$ by canonical forms (Lemma \ref{cf}).  $^{L}HM^{L}$ $(^{L}MS$ $v_{S})\rightarrow{^{L}H}S$ $v_{S}$.
 
 \end{subcase}
 
@@ -24,7 +24,7 @@ $e_{M}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $^{N}HM^{N}$ $\ov
 
 $T=[T_{1}]$
 
-$e_{M}^{1}\in\lbrace\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},\mathtt{nil}^{T_{1}},{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{M}^{1}=\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}$ then $^{[T_{1}]}HM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(^{T_{1}}HM^{T_{1}}$ $v_{M}^{1})$ $(^{[T_{1}]}HM^{[T_{1}]}$ $v_{M}^{2})]$.  If $e_{M}^{1}=\mathtt{nil}^{T_{1}}$ then $^{[T_{1}]}HM^{[T_{1}]}$ $\mathtt{nil}^{T}\rightarrow\mathtt{nil}^{T}$.  If $e_{M}^{1}={^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ then $^{[T_{1}]}HM^{[T_{1}]}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}$.
+$e_{M}^{1}\in\lbrace\mathtt{nil}^{T_{1}},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  $^{[T_{1}]}HM^{[T_{1}]}$ $\mathtt{nil}^{T}\rightarrow\mathtt{nil}^{T}$.  $^{[T_{1}]}HM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(^{T_{1}}HM^{T_{1}}$ $v_{M}^{1})$ $(^{[T_{1}]}HM^{[T_{1}]}$ $v_{M}^{2})]$.  $^{[T_{1}]}HM^{[T_{1}]}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}$.
 
 \end{subcase}
 
@@ -32,7 +32,7 @@ $e_{M}^{1}\in\lbrace\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},\mathtt{nil}^{T_{1}},{
 
 $T=T_{1}^{a}$
 
-Cannot occur because $T_{1}^{a}$ occurs only in $^{T_{1}^{a}}AS$ $e_{S}$.
+Cannot occur because $T_{1}^{a}$ occurs only in $^{T_{1}^{a}}HS$ $e_{S}$.
 
 \end{subcase}
 
@@ -40,7 +40,7 @@ Cannot occur because $T_{1}^{a}$ occurs only in $^{T_{1}^{a}}AS$ $e_{S}$.
 
 $T=T_{1}\rightarrow T_{2}$
 
-$e_{M}^{1}=\lambda x_{1}:T_{1}.e_{M}^{2}$ by canonical forms (Lemma \ref{cf}).  $^{T_{1}\rightarrow T_{2}}HM^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}.e_{M}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HM^{T_{2}}$ $((\lambda x_{1}:T_{1}.e_{M}^{2})$ $(^{T_{1}}MH^{T_{1}}$ $x_{2})))$.
+$e_{M}^{1}=\lambda x_{1}:T_{1}.e_{M}^{2}$ by canonical forms (Lemma \ref{cf}).  $^{T_{1}\rightarrow T_{2}}HM^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}.e_{M}^{2})\rightarrow\lambda x_{2}:T_{1}.(^{T_{2}}HM^{T_{2}}$ $((\lambda x_{1}:T_{1}.e_{M}^{2})$ $(^{T_{1}}MH^{T_{1}}$ $x_{2})))$.
 
 \end{subcase}
 
@@ -48,7 +48,7 @@ $e_{M}^{1}=\lambda x_{1}:T_{1}.e_{M}^{2}$ by canonical forms (Lemma \ref{cf}).  
 
 $T=\forall X.T_{1}$
 
-$e_{M}^{1}\in\lbrace\Lambda X.e_{M}^{2},{^{\forall X.T_{1}}B}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{M}^{1}=\Lambda X.e_{M}^{2}$ then $^{\forall X.T_{1}}HM^{\forall X.T_{1}}$ $(\Lambda X.e_{M}^{2})\rightarrow\Lambda X.(^{T_{1}}HM^{T_{1}}$ $e_{M}^{2})$.  If $e_{M}^{1}={^{\forall X.T_{1}}B}S$ $v_{S}$ then $^{\forall X.T_{1}}HM^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}BS$ $v_{S})\rightarrow{^{\forall X.T_{1}}A}S$ $v_{S}$.
+$e_{M}^{1}\in\lbrace\Lambda X.e_{M}^{2},{^{\forall X.T_{1}}M}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  $^{\forall X.T_{1}}HM^{\forall X.T_{1}}$ $(\Lambda X.e_{M}^{2})\rightarrow\Lambda X.(^{T_{1}}HM^{T_{1}}$ $e_{M}^{2})$.  $^{\forall X.T_{1}}HM^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}MS$ $v_{S})\rightarrow{^{\forall X.T_{1}}H}S$ $v_{S}$.
 
 \end{subcase}
 
