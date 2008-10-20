@@ -2,7 +2,7 @@
 
 $e_{S}=SM^{T}$ $e_{M}^{1}$
 
-$e_{M}^{1}$ is a value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by ML progress (Theorem \ref{hmps}).  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $SM^{T}$ $e_{M}^{1}\rightarrow SM^{T}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $SM^{T}$ $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{M}^{1}$ is a value then $T$ determines the reduction of $e_{S}$.
+$e_{M}^{1}$ is a value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by ML progress (Theorem \ref{hmps}).  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $SM^{T}$ $e_{M}^{1}\rightarrow SM^{T}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $SM^{T}$ $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{M}^{1}$ is a value then $T$ determines the reduction of $SM^{T}$ $e_{M}^{1}$:
 
 \begin{subcase}
 
@@ -24,7 +24,7 @@ $e_{M}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $SM^{N}$ $\overli
 
 $T=[T_{1}]$
 
-$e_{M}^{1}\in\lbrace\mathtt{nil}^{T_{1}},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{M}^{1}=\mathtt{nil}^{T_{1}}$ then $SM^{T_{1}}$ $\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.  If $e_{M}^{1}=\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}$ then $SM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(SM^{T_{1}}$ $v_{M}^{1})$ $(SM^{[T_{1}]}$ $v_{M}^{2})$.  If $e_{M}^{1}={^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ then $SM^{[T_{1}]}$ $({^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.
+$e_{M}^{1}\in\lbrace\mathtt{nil}^{T_{1}},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  $SM^{T_{1}}$ $\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.  $SM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(SM^{T_{1}}$ $v_{M}^{1})$ $(SM^{[T_{1}]}$ $v_{M}^{2})$.  $SM^{[T_{1}]}$ $({^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.
 
 \end{subcase}
 
@@ -48,7 +48,7 @@ $e_{M}^{1}=\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M}^{3}$ by canonical forms (L
 
 $T=\forall X.T_{1}$
 
-$e_{M}^{1}\in\lbrace\Lambda X.e_{M}^{3},{^{\forall X.T_{1}}M}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  If $e_{M}^{1}=\Lambda X.e_{M}^{3}$ then $SM^{\forall X.T_{1}}$ $(\Lambda X.e_{M}^{3})\rightarrow SM^{T_{1}[L/X]}$ $((\Lambda X.e_{M}^{3})$ $\lbrace L\rbrace)$.  If $e_{M}^{1}={^{\forall X.T_{1}}M}S$ $v_{S}$ then $SM^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}MS$ $v_{S})\rightarrow v_{S}$.
+$e_{M}^{1}\in\lbrace\Lambda X.e_{M}^{3},{^{\forall X.T_{1}}M}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  $SM^{\forall X.T_{1}}$ $(\Lambda X.e_{M}^{3})\rightarrow SM^{T_{1}[L/X]}$ $((\Lambda X.e_{M}^{3})$ $\lbrace L\rbrace)$.  $SM^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}MS$ $v_{S})\rightarrow v_{S}$.
 
 \end{subcase}
 
