@@ -1,38 +1,79 @@
 \begin{lemma}
+
 \label{i}
+
 The syntactic forms of well-typed expressions determine the types of their subexpressions.
+
 \begin{enumerate}
+
 \item If $\Gamma\vdash_{A}\lambda x:T_{1}.e_{A}:T$ then $T=T_{1}\rightarrow T_{2}$, $\Gamma\vdash_{A}T_{1}$, and $\Gamma,x:T_{1}\vdash_{A}e_{A}:T_{2}$ where $A\in\lbrace H,M\rbrace$.
+
 \item If $\Gamma\vdash_{S}\lambda x.e_{S}:TST$ then $\Gamma,x:TST\vdash_{S}e_{S}:TST$.
+
 \item If $\Gamma\vdash_{A}\Lambda X.e_{A}:T$ then $T=\forall X.T_{1}$ and $\Gamma,X\vdash_{A}e_{A}:T_{1}$ where $A\in\lbrace H,M\rbrace$.
+
 \item If $\vdash_{A}\overline{n}:T$ then $T=N$ where $A\in\lbrace H,M\rbrace$.
+
 \item $\vdash_{S}\overline{n}:TST$.
+
 \item If $\Gamma\vdash_{A}\mathtt{nil}^{T_{1}}:T$ then $T=[T_{1}]$ and $\Gamma\vdash_{A}T_{1}$ where $A\in\lbrace H,M\rbrace$.
+
 \item $\vdash_{S}\mathtt{nil}:TST$.
+
 \item If $\Gamma\vdash_{A}\mathtt{cons}$ $e_{A}^{1}$ $e_{A}^{2}:T$ then $T=[T_{1}]$, $\Gamma\vdash_{A}e_{A}^{1}:T_{1}$, and $\Gamma\vdash_{A}e_{A}^{2}:[T_{1}]$ where $A\in\lbrace H,M\rbrace$.
+
 \item If $\Gamma\vdash_{S}\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$ and $\Gamma\vdash_{S}e_{S}^{2}:TST$.
+
 \item If $\Gamma\vdash_{A}x:T$ then $T=T_{1}$ and $x:T_{1}\in\Gamma$ where $A\in\lbrace H,M\rbrace$.
+
 \item If $\Gamma\vdash_{S}x:TST$ then $x:TST\in\Gamma$.
+
 \item If $\Gamma\vdash_{A}e_{A}^{1}$ $e_{A}^{2}:T$ then $T=T_{2}$, $\Gamma\vdash_{A}e_{A}^{1}:T_{1}\rightarrow T_{2}$, and $\Gamma\vdash_{A}e_{A}^{2}:T_{1}$ where $A\in\lbrace H,M\rbrace$.
+
 \item If $\Gamma\vdash_{S}e_{S}^{1}$ $e_{S}^{2}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$ and $\Gamma\vdash_{S}e_{S}^{2}:TST$.
-\item If $\Gamma\vdash_{A}e_{A}$ $\lbrace T_{1}\rbrace:T$ then $T=T_{2}[T_{1}/X]$, $\Gamma\vdash_{A}T_{1}$, and $\Gamma\vdash_{A}e_{A}:\forall X.T_{2}$ where $A\in\lbrace H,M\rbrace$.
-\item If $\Gamma\vdash_{A}o$ $e_{A}^{1}$ $e_{A}^{2}:T$ then $T=N$, $\Gamma\vdash_{A}e_{A}^{1}:N$, and $\Gamma\vdash_{A}e_{A}^{2}:N$ where $A\in\lbrace H,M\rbrace$.
-\item If $\Gamma\vdash_{S}o$ $e_{S}^{1}$ $e_{S}^{2}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$ and $\Gamma\vdash_{S}e_{S}^{2}:TST$.
-\item If $\Gamma\vdash_{A}\mathtt{null?}$ $e_{A}:T$ then $T=N$ and $\Gamma\vdash_{A}e_{A}:[T_{1}]$ where $A\in\lbrace H,M\rbrace$.
-\item If $\Gamma\vdash_{S}p$ $e_{S}:TST$ then $\Gamma\vdash_{S}e_{S}:TST$.
-\item If $\Gamma\vdash_{A}\mathtt{if0}$ $e_{A}^{1}$ $e_{A}^{2}$ $e_{A}^{3}:T$ then $T=T_{1}$, $\Gamma\vdash_{A}e_{A}^{1}:N$, $\Gamma\vdash_{A}e_{A}^{2}:T_{1}$, and $\Gamma\vdash_{A}e_{A}^{3}:T_{1}$ where $A\in\lbrace H,M\rbrace$.
-\item If $\Gamma\vdash_{S}\mathtt{if0}$ $e_{S}^{1}$ $e_{S}^{2}$ $e_{S}^{3}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$, $\Gamma\vdash_{S}e_{S}^{2}:TST$, and $\Gamma\vdash_{S}e_{S}^{3}:TST$.
-\item If $\Gamma\vdash_{A}\mathtt{hd}$ $e_{A}:T$ then $T=T_{1}$ and $\Gamma\vdash_{A}e_{A}:[T_{1}]$ where $A\in\lbrace H,M\rbrace$.
-\item If $\Gamma\vdash_{A}\mathtt{tl}$ $e_{A}:T$ then $T=[T_{1}]$ and $\Gamma\vdash_{A}e_{A}:[T_{1}]$ where $A\in\lbrace H,M\rbrace$.
-\item If $\Gamma\vdash_{S}f$ $e_{S}:TST$ then $\Gamma\vdash_{S}e_{S}:TST$.
+
 \item If $\Gamma\vdash_{A}\mathtt{fix}$ $e_{A}:T$ then $T=T_{1}$ and $\Gamma\vdash_{A}e_{A}:T_{1}\rightarrow T_{1}$ where $A\in\lbrace H,M\rbrace$.
+
+\item If $\Gamma\vdash_{A}e_{A}$ $\lbrace T_{1}\rbrace:T$ then $T=T_{2}[T_{1}/X]$, $\Gamma\vdash_{A}T_{1}$, and $\Gamma\vdash_{A}e_{A}:\forall X.T_{2}$ where $A\in\lbrace H,M\rbrace$.
+
+\item If $\Gamma\vdash_{A}\mathtt{hd}$ $e_{A}:T$ then $T=T_{1}$ and $\Gamma\vdash_{A}e_{A}:[T_{1}]$ where $A\in\lbrace H,M\rbrace$.
+
+\item If $\Gamma\vdash_{A}\mathtt{tl}$ $e_{A}:T$ then $T=[T_{1}]$ and $\Gamma\vdash_{A}e_{A}:[T_{1}]$ where $A\in\lbrace H,M\rbrace$.
+
+\item If $\Gamma\vdash_{S}f$ $e_{S}:TST$ then $\Gamma\vdash_{S}e_{S}:TST$.
+
+\item If $\Gamma\vdash_{A}o$ $e_{A}^{1}$ $e_{A}^{2}:T$ then $T=N$, $\Gamma\vdash_{A}e_{A}^{1}:N$, and $\Gamma\vdash_{A}e_{A}^{2}:N$ where $A\in\lbrace H,M\rbrace$.
+
+\item If $\Gamma\vdash_{S}o$ $e_{S}^{1}$ $e_{S}^{2}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$ and $\Gamma\vdash_{S}e_{S}^{2}:TST$.
+
+\item If $\Gamma\vdash_{A}\mathtt{null?}$ $e_{A}:T$ then $T=N$ and $\Gamma\vdash_{A}e_{A}:[T_{1}]$ where $A\in\lbrace H,M\rbrace$.
+
+\item If $\Gamma\vdash_{S}p$ $e_{S}:TST$ then $\Gamma\vdash_{S}e_{S}:TST$.
+
+\item If $\Gamma\vdash_{A}\mathtt{if0}$ $e_{A}^{1}$ $e_{A}^{2}$ $e_{A}^{3}:T$ then $T=T_{1}$, $\Gamma\vdash_{A}e_{A}^{1}:N$, $\Gamma\vdash_{A}e_{A}^{2}:T_{1}$, and $\Gamma\vdash_{A}e_{A}^{3}:T_{1}$ where $A\in\lbrace H,M\rbrace$.
+
+\item If $\Gamma\vdash_{S}\mathtt{if0}$ $e_{S}^{1}$ $e_{S}^{2}$ $e_{S}^{3}:TST$ then $\Gamma\vdash_{S}e_{S}^{1}:TST$, $\Gamma\vdash_{S}e_{S}^{2}:TST$, and $\Gamma\vdash_{S}e_{S}^{3}:TST$.
+
 \item If $\Gamma\vdash_{A}\mathtt{wrong}^{T_{1}}$ $\mathrm{string}:T$ then $T=T_{1}$ where $A\in\lbrace H,M\rbrace$.
+
 \item $\vdash_{S}\mathtt{wrong}$ $\mathrm{string}:TST$.
+
+\item If $\Gamma\vdash_{M}\mathtt{force}$ $e_{M}:T$ then $T=T_{1}$ and $\Gamma\vdash_{M}e_{M}:T_{1}$.
+
+\item If $\Gamma\vdash_{S}\mathtt{force}$ $e_{S}:TST$ then $\Gamma\vdash_{S}e_{S}:TST$.
+
 \item If $\Gamma\vdash_{A}{^{T_{1}}A}B^{T_{1}}$ $e_{B}:T$ then $T=T_{1}$, $\Gamma\vdash_{A}T_{1}$, $\Gamma\vdash_{B}T_{1}$, and $\Gamma\vdash_{B}e_{B}:T_{1}$ where $(A,B)\in\lbrace(H,M),(M,H)\rbrace$.
+
 \item If $\Gamma\vdash_{A}{^{T_{1}}A}S$ $e_{S}:T$ then $T=T_{1}[T_{i}/T_{i}^{a}]$, $\Gamma\vdash_{A}T_{1}$, and $\Gamma\vdash_{S}e_{S}:TST$ where $A\in\lbrace H,M\rbrace$.
+
 \item $\Gamma\vdash_{S}SA^{T_{1}}$ $e_{A}:TST$, $\Gamma\vdash_{A}T_{1}$, and $\Gamma\vdash_{A}e_{A}:T_{1}[T_{i}/T_{i}^{a}]$ where $A\in\lbrace H,M\rbrace$.
+
 \end{enumerate}
+
 \begin{proof}
+
 Immediate from the definitions of the typing relations.
+
 \end{proof}
+
 \end{lemma}
