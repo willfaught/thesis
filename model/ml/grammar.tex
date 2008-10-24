@@ -23,11 +23,11 @@ $T$ & $=$ & $L$ $\vert$ $N$ $\vert$ $X$ $\vert$ $[T]$ $\vert$ $T^{a}$ $\vert$ $T
 
 \vspace{5pt}
 
-$o$ & $=$ & $+$ $\vert$ $-$ \\
+$f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
 
 \vspace{5pt}
 
-$f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
+$o$ & $=$ & $+$ $\vert$ $-$ \\
 
 \vspace{5pt}
 
@@ -39,7 +39,11 @@ $E_{M}$ & $=$ & $[\,]_{M}$ $\vert$ $E_{M}$ $e_{M}$ $\vert$ $v_{M}$ $E_{M}$ $\ver
 
 \vspace{5pt}
 
-&& $\vert$ $\mathtt{if0}$ $E_{M}$ $e_{M}$ $e_{M}$ $\vert$ $\mathtt{force}$ $E_{M}$ $\vert$ $\mathtt{force}$ $(^{T}MH^{T}$ $E_{H})$ $\vert$ $^{T}MS$ $E_{S}$
+&& $\vert$ $\mathtt{if0}$ $E_{M}$ $e_{M}$ $e_{M}$ $\vert$ $\mathtt{force}$ $F_{M}$ $\vert$ $^{T}MS$ $E_{S}$ \\
+
+\vspace{5pt}
+
+$F_{M}$ & $=$ & $[\,]_{F}$ $\vert$ $E_{M}$ $\vert$ $^{T}MH^{T}$ $E_{H}$
 \end{tabular}
 \caption{ML grammar and evaluation contexts}
 \label{mg}

@@ -1,0 +1,50 @@
+\begin{figure}[p]
+\centering
+\begin{tabular}{l}
+\vspace{5pt}
+
+% hm - mh
+$\mathscr{E}[^{T}HM^{T}$ $(^{T}MH^{T}$ $e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}]$ \\
+
+\vspace{5pt}
+
+% hm - lump
+$\mathscr{E}[^{L}HM^{L}$ $(^{L}MS$ $v_{S})]_{H}\rightarrow\mathscr{E}[^{L}HS$ $v_{S}]$ \\
+
+\vspace{5pt}
+
+% hm - number
+$\mathscr{E}[^{N}HM^{N}$ $\overline{n}]_{H}\rightarrow\mathscr{E}[\overline{n}]$ \\
+
+\vspace{5pt}
+
+% hm - list - nil
+$\mathscr{E}[^{[T]}HM^{[T]}$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\mathtt{nil}^{T}]$ \\
+
+\vspace{5pt}
+
+% hm - list - cons
+$\mathscr{E}[^{[T]}HM^{[T]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{H}\rightarrow\mathscr{E}[\mathtt{cons}$ $(^{T}HM^{T}$ $v_{M}^{1})$ $(^{[T]}HM^{[T]}$ $v_{M}^{2})]$ \\
+
+\vspace{5pt}
+
+% hm - function
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}HM^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}.e_{M})]_{H}\rightarrow$ \\
+
+\vspace{5pt}
+
+$\quad\mathscr{E}[\lambda x_{2}:T_{1}.(^{T_{2}}HM^{T_{2}}$ $((\lambda x_{1}:T_{1}.e_{M})$ $(^{T_{1}}MH^{T_{1}}$ $x_{2})))]$ \\
+
+\vspace{5pt}
+
+% hm - universal
+$\mathscr{E}[^{\forall X.T}HM^{\forall X.T}$ $(\Lambda X.e_{M})]_{H}\rightarrow\mathscr{E}[\Lambda X.(^{T}HM^{T}$ $e_{M})]$ \\
+
+\vspace{5pt}
+
+% hm - universal ms
+$\mathscr{E}[^{\forall X.T}HM^{\forall X.T}$ $(^{\forall X.T}MS$ $v_{S})]_{H}\rightarrow\mathscr{E}[^{\forall X.T}HS$ $v_{S}]$ \\
+\end{tabular}
+\caption{Haskell-ML operational semantics}
+\label{hmos}
+\end{figure}

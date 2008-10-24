@@ -15,6 +15,10 @@ $v_{S}$ & $=$ & $\lambda x.e_{S}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}$ 
 
 \vspace{5pt}
 
+$f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
+
+\vspace{5pt}
+
 $o$ & $=$ & $+$ $\vert$ $-$ \\
 
 \vspace{5pt}
@@ -23,17 +27,15 @@ $p$ & $=$ & $\mathtt{fun?}$ $\vert$ $\mathtt{list?}$ $\vert$ $\mathtt{null?}$ $\
 
 \vspace{5pt}
 
-$f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
-
-\vspace{5pt}
-
 $E_{S}$ & $=$ & $[\,]_{S}$ $\vert$ $E_{S}$ $e_{S}$ $\vert$ $v_{S}$ $E_{S}$ $\vert$ $\mathtt{cons}$ $E_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $E_{S}$ $\vert$ $f$ $E_{S}$ $\vert$ $o$ $E_{S}$ $e_{S}$ \\
 
 \vspace{5pt}
 
-&& $\vert$ $o$ $v_{S}$ $E_{S}$ $\vert$ $p$ $E_{S}$ $\vert$ $\mathtt{if0}$ $E_{S}$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{force}$ $E_{S}$ $\vert$ $\mathtt{force}$ $(SH^{T}$ $E_{H})$ \\
+&& $\vert$ $o$ $v_{S}$ $E_{S}$ $\vert$ $p$ $E_{S}$ $\vert$ $\mathtt{if0}$ $E_{S}$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{force}$ $F_{S}$ $\vert$ $SM^{T}$ $E_{M}$ \\
 
-&& $\vert$ $SM^{T}$ $E_{M}$
+\vspace{5pt}
+
+$F_{S}$ & $=$ & $[\,]_{F}$ $\vert$ $E_{S}$ $\vert$ $SH^{T}$ $E_{H}$
 \end{tabular}
 \caption{Scheme grammar and evaluation contexts}
 \label{sg}

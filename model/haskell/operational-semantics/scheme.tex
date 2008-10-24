@@ -1,0 +1,60 @@
+\begin{figure}[p]
+\centering
+\begin{tabular}{l}
+\vspace{5pt}
+
+% hs - sh
+$\mathscr{E}[^{T}HS$ $(SH^{T}$ $e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}]$ \\
+
+\vspace{5pt}
+
+% hs - number
+$\mathscr{E}[^{N}HS$ $\overline{n}]_{H}\rightarrow\mathscr{E}[\overline{n}]$ \\
+
+\vspace{5pt}
+
+% hs - number error
+$\mathscr{E}[^{N}HS$ $v_{S}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}^{N}$ ``Not a number"$]$ $(v_{S}\neq\overline{n})$ \\
+
+\vspace{5pt}
+
+% hs - list - nil
+$\mathscr{E}[^{[T]}HS$ $\mathtt{nil}]_{H}\rightarrow\mathscr{E}[\mathtt{nil}^{T[T_{i}/T_{i}^{a}]}]$ \\
+
+\vspace{5pt}
+
+% hs - list - cons
+$\mathscr{E}[^{[T]}HS$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{H}\rightarrow\mathscr{E}[\mathtt{cons}$ $(^{T}HS$ $v_{S}^{1})$ $(^{[T]}HS$ $v_{S}^{2})]$ \\
+
+\vspace{5pt}
+
+% hs - list error
+$\mathscr{E}[^{[T]}HS$ $v_{S}^{1}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}^{[T]}$ ``Not a list"$]$ \\
+
+\vspace{5pt}
+
+$\quad(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
+
+\vspace{5pt}
+
+% hs - label error
+$\mathscr{E}[^{T^{a}}HS$ $v_{S}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}^{T}$ ``Parametricity violated"$]$ $(v_{S}\neq SH^{T^{a}}$ $e_{H})$ \\
+
+\vspace{5pt}
+
+% hs - function
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}HS$ $(\lambda x_{1}.e_{S})]_{H}\rightarrow\mathscr{E}[\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}HS$ $((\lambda x_{1}.e_{S})$ $(SH^{T_{1}}$ $x_{2})))]$ \\
+
+\vspace{5pt}
+
+% hs - function error
+$\mathscr{E}[^{T_{1}\rightarrow T_{2}}HS$ $v_{S}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}^{T_{1}\rightarrow T_{2}}$ ``Not a function"$]$ $(v_{S}\neq\lambda x.e_{S})$ \\
+
+\vspace{5pt}
+
+% hs - universal
+$\mathscr{E}[(^{\forall X.T_{1}}HS$ $v_{S})$ $\lbrace T_{2}\rbrace]_{H}\rightarrow\mathscr{E}[^{T_{1}[T^{a}_{2}/X]}HS$ $v_{S}]$
+\end{tabular}
+\caption{Haskell-Scheme operational semantics}
+\label{hsos}
+\end{figure}
