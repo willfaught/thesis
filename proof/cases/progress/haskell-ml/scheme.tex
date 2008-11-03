@@ -16,7 +16,7 @@ $^{L}AS$ $e_{S}^{1}$ is a value.
 
 $T=N$
 
-$^{N}AS$ $\overline{n}\rightarrow\overline{n}$.  $^{N}AS$ $e_{S}^{1}\rightarrow{^{N}A}S$ $(\mathtt{wrong}$ \emph{``Not a number"}$)$ $(e_{S}^{1}\neq\overline{n})$.
+$^{N}AS$ $\overline{n}\rightarrow\overline{n}$.  $^{N}AS$ $e_{S}^{1}\rightarrow\mathtt{wrong}^{N}$ \emph{``Not a number"} $(e_{S}^{1}\neq\overline{n})$.
 
 \end{subcase}
 
@@ -24,7 +24,7 @@ $^{N}AS$ $\overline{n}\rightarrow\overline{n}$.  $^{N}AS$ $e_{S}^{1}\rightarrow{
 
 $T=[T_{1}]$
 
-$^{[T_{1}]}AS$ $\mathtt{nil}\rightarrow\mathtt{nil}^{T_{1}}$.  $^{[T_{1}]}AS$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})\rightarrow\mathtt{cons}$ $(^{T_{1}}AS$ $v_{S}^{1})$ $(^{[T_{1}]}AS$ $v_{S}^{2})$.  $^{[T_{1}]}HS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}$.  $^{[T_{1}]}MS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.  $^{[T_{1}]}AS$ $e_{S}^{1}\rightarrow{^{[T_{1}]}A}S$ $(\mathtt{wrong}$ \emph{``Not a list"}$)$ $(e_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.
+$^{[T_{1}]}AS$ $\mathtt{nil}\rightarrow\mathtt{nil}^{T_{1}}$.  $^{[T_{1}]}AS$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})\rightarrow\mathtt{cons}$ $(^{T_{1}}AS$ $v_{S}^{1})$ $(^{[T_{1}]}AS$ $v_{S}^{2})$.  $^{[T_{1}]}HS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}$.  $^{[T_{1}]}MS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.  $^{[T_{1}]}AS$ $e_{S}^{1}\rightarrow\mathtt{wrong}^{[T_{1}[T_{i}/T_{i}^{a}]]}$ \emph{``Not a list"} $(e_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.
 
 \end{subcase}
 
@@ -32,7 +32,7 @@ $^{[T_{1}]}AS$ $\mathtt{nil}\rightarrow\mathtt{nil}^{T_{1}}$.  $^{[T_{1}]}AS$ $(
 
 $T=T_{1}^{a}$
 
-$^{T_{1}^{a}}AS$ $(SA^{T_{1}^{a}}$ $e_{A}^{1})\rightarrow e_{A}^{1}$.  $^{T_{1}^{a}}AS$ $e_{S}^{1}\rightarrow{^{T_{1}^{a}}A}S$ $(\mathtt{wrong}$ \emph{``Parametricity violated"}$)$ $(e_{S}^{1}\neq SA^{T_{1}^{a}}$ $e_{A}^{1})$.
+$^{T_{1}^{a}}HS$ $(SH^{T_{1}^{a}}$ $e_{H})\rightarrow e_{H}$.  $^{T_{1}^{a}}HS$ $e_{S}^{1}\rightarrow\mathtt{wrong}^{T_{1}}$ \emph{``Parametricity violated"} $(e_{S}^{1}\neq SH^{T_{1}^{a}}$ $e_{H})$.  $^{T_{1}^{a}}MS$ $(SM^{T_{1}^{a}}$ $v_{M})\rightarrow v_{M}$.  $^{T_{1}^{a}}MS$ $e_{S}^{1}\rightarrow\mathtt{wrong}^{T_{1}}$ \emph{``Parametricity violated"} $(e_{S}^{1}\neq SM^{T_{1}^{a}}$ $v_{M})$.
 
 \end{subcase}
 
@@ -40,7 +40,7 @@ $^{T_{1}^{a}}AS$ $(SA^{T_{1}^{a}}$ $e_{A}^{1})\rightarrow e_{A}^{1}$.  $^{T_{1}^
 
 $T=T_{1}\rightarrow T_{2}$
 
-$^{T_{1}\rightarrow T_{2}}AS$ $(\lambda x_{1}.e_{S}^{2})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}AS$ $((\lambda x_{1}.e_{S}^{2})$ $(SA^{T_{1}}$ $x_{2})))$.  $^{T_{1}\rightarrow T_{2}}AS$ $e_{S}^{1}\rightarrow{^{T_{1}\rightarrow T_{2}}A}S$ $(\mathtt{wrong}$ \emph{``Not a function"}$)$ $(e_{S}^{1}\neq\lambda x_{1}.e_{S}^{2})$.
+$^{T_{1}\rightarrow T_{2}}AS$ $(\lambda x_{1}.e_{S}^{3})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}AS$ $((\lambda x_{1}.e_{S}^{3})$ $(SA^{T_{1}}$ $x_{2})))$.  $^{T_{1}\rightarrow T_{2}}AS$ $e_{S}^{1}\rightarrow\mathtt{wrong}^{(T_{1}\rightarrow T_{2})[T_{i}/T_{i}^{a}]]}$ \emph{``Not a function"} $(e_{S}^{1}\neq\lambda x_{1}.e_{S}^{3})$.
 
 \end{subcase}
 
