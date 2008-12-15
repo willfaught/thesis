@@ -2,7 +2,7 @@
 
 $e_{S}=\mathtt{force}$ $e_{S}^{1}$
 
-If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $\mathtt{force}$ $e_{S}^{1}\rightarrow\mathtt{force}$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{force}$ $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{1}$ is a value otherwise.  $\mathtt{force}$ $e_{S}^{1}\rightarrow e_{S}^{1}$ $(e_{S}^{1}\neq SH^{T}$ $e_{H}^{1}$ or $e_{S}^{1}=SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{3}$ $e_{H}^{4}))$.  If $e_{S}^{1}=SH^{T}$ $e_{H}^{1}$ and $e_{S}^{1}\neq SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{3}$ $e_{H}^{4})$ then $e_{H}^{1}$ is a value or $e_{H}^{1}\rightarrow e_{H}^{2}$ or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} by Haskell progress (Theorem \ref{hmps}).  If $e_{H}^{1}\rightarrow e_{H}^{2}$ then $SH^{T}$ $e_{H}^{1}\rightarrow SH^{T}$ $e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $SH^{T}$ $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{H}^{1}$ is a value then $T$ determines the reduction of $SH^{T}$ $e_{H}^{1}$:
+If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $\mathtt{force}$ $e_{S}^{1}\rightarrow\mathtt{force}$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{force}$ $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{1}$ is a value otherwise.  $\mathtt{force}$ $e_{S}^{1}\rightarrow e_{S}^{1}$ $(e_{S}^{1}\neq SH^{T}$ $e_{H}^{1}$ or $e_{S}^{1}=SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))$.  If $e_{S}^{1}=SH^{T}$ $e_{H}^{1}$ and $e_{S}^{1}\neq SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$ then $e_{H}^{1}$ is a value or $e_{H}^{1}\rightarrow e_{H}^{2}$ or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} by Haskell progress (Theorem \ref{hmps}).  If $e_{H}^{1}\rightarrow e_{H}^{2}$ then $SH^{T}$ $e_{H}^{1}\rightarrow SH^{T}$ $e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $SH^{T}$ $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{H}^{1}$ is a value then $T$ determines the reduction of $SH^{T}$ $e_{H}^{1}$:
 
 \begin{subcase}
 
@@ -24,7 +24,7 @@ $e_{H}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $SH^{N}$ $\overli
 
 $T=[T_{1}]$
 
-$e_{H}^{1}=\mathtt{nil}^{T_{1}}$ by canonical forms (Lemma \ref{cf}).  $SH^{T_{1}}$ $\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.
+$e_{H}^{1}=\mathtt{nil}^{T_{1}[T_{i}/T_{i}^{a}]}$ by canonical forms (Lemma \ref{cf}).  $SH^{T_{1}}$ $\mathtt{nil}^{T_{1}[T_{i}/T_{i}^{a}]}\rightarrow\mathtt{nil}$.
 
 \end{subcase}
 
