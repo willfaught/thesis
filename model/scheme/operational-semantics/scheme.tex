@@ -3,7 +3,7 @@
 \begin{tabular}{l}
 \vspace{5pt}
 
-$\mathscr{E}[(\lambda x.e_{S})$ $v_{S}]_{S}\rightarrow\mathscr{E}[e_{S}[v_{S}/x]]$ \\
+$\mathscr{E}[(\lambda x.e_{S})$ $u_{S}]_{S}\rightarrow\mathscr{E}[e_{S}[u_{S}/x]]$ \\
 
 \vspace{5pt}
 
@@ -119,11 +119,7 @@ $\mathscr{E}[\mathtt{if0}$ $v_{S}$ $e_{S}^{1}$ $e_{S}^{2}]_{S}\rightarrow\mathsc
 
 \vspace{5pt}
 
-$\mathscr{E}[\mathtt{wrong}$ $\mathrm{string}]_{S}\rightarrow$ \textbf{Error}: string \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{force}$ $v_{S}]_{S}\rightarrow\mathscr{E}[v_{S}]$ $(v_{S}\neq SH^{T}$ $e_{H}$ or $v_{S}=SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))$
+$\mathscr{E}[\mathtt{wrong}$ $\mathrm{string}]_{S}\rightarrow$ \textbf{Error}: string
 \end{tabular}
 \caption{Scheme operational semantics}
 \label{sos}

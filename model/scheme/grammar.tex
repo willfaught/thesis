@@ -3,15 +3,19 @@
 \begin{tabular}{lcl}
 \vspace{5pt}
 
-$e_{S}$ & $=$ & $v_{S}$ $\vert$ $x$ $\vert$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $e_{S}$ $e_{S}$ $\vert$ $f$ $e_{S}$ $\vert$ $o$ $e_{S}$ $e_{S}$ $\vert$ $p$ $e_{S}$ $\vert$ $\mathtt{if0}$ $e_{S}$ $e_{S}$ $e_{S}$ \\
+$e_{S}$ & $=$ & $u_{S}$ $\vert$ $x$ $\vert$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $e_{S}$ $e_{S}$ $\vert$ $f$ $e_{S}$ $\vert$ $o$ $e_{S}$ $e_{S}$ $\vert$ $p$ $e_{S}$ $\vert$ $\mathtt{if0}$ $e_{S}$ $e_{S}$ $e_{S}$ \\
 
 \vspace{5pt}
 
-&& $\vert$ $\mathtt{wrong}$ string $\vert$ $\mathtt{force}$ $e_{S}$ $\vert$ $SM^{T}$ $e_{M}$ \\
+&& $\vert$ $\mathtt{wrong}$ string $\vert$ $SM^{T}$ $e_{M}$ \\
 
 \vspace{5pt}
 
-$v_{S}$ & $=$ & $\lambda x.e_{S}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $v_{S}$ $\vert$ $SH^{T}$ $e_{H}$ $\vert$ $SM^{T^{a}}$ $v_{M}$ \\
+$u_{S}$ & $=$ & $v_{S}$ $\vert$ $SH^{T}$ $e_{H}$ \\
+
+\vspace{5pt}
+
+$v_{S}$ & $=$ & $\lambda x.e_{S}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $v_{S}$ $\vert$ $SM^{T^{a}}$ $v_{M}$ \\
 
 \vspace{5pt}
 
@@ -27,15 +31,15 @@ $p$ & $=$ & $\mathtt{fun?}$ $\vert$ $\mathtt{list?}$ $\vert$ $\mathtt{null?}$ $\
 
 \vspace{5pt}
 
-$E_{S}$ & $=$ & $[\,]_{S}$ $\vert$ $E_{S}$ $e_{S}$ $\vert$ $v_{S}$ $E_{S}$ $\vert$ $\mathtt{cons}$ $E_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $E_{S}$ $\vert$ $f$ $E_{S}$ $\vert$ $o$ $E_{S}$ $e_{S}$ \\
+$E_{S}$ & $=$ & $[\,]_{S}$ $\vert$ $F_{S}$ $e_{S}$ $\vert$ $v_{S}$ $E_{S}$ $\vert$ $\mathtt{cons}$ $E_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $E_{S}$ $\vert$ $f$ $F_{S}$ $\vert$ $o$ $F_{S}$ $e_{S}$ \\
 
 \vspace{5pt}
 
-&& $\vert$ $o$ $v_{S}$ $E_{S}$ $\vert$ $p$ $E_{S}$ $\vert$ $\mathtt{if0}$ $E_{S}$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{force}$ $F_{S}$ $\vert$ $SM^{T}$ $E_{M}$ \\
+&& $\vert$ $o$ $v_{S}$ $F_{S}$ $\vert$ $p$ $F_{S}$ $\vert$ $\mathtt{if0}$ $F_{S}$ $e_{S}$ $e_{S}$ $\vert$ $SM^{T}$ $E_{M}$ \\
 
 \vspace{5pt}
 
-$F_{S}$ & $=$ & $[\,]_{F}$ $\vert$ $E_{S}$ $\vert$ $SH^{T}$ $E_{H}$
+$F_{S}$ & $=$ & $E_{S}$ $\vert$ $SH^{T}$ $E_{H}$
 \end{tabular}
 \caption{Scheme grammar and evaluation contexts}
 \label{sg}
