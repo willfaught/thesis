@@ -3,7 +3,7 @@
 \begin{tabular}{lcl}
 \vspace{5pt}
 
-$e_{M}$ & $=$ & $u_{M}$ $\vert$ $x$ $\vert$ $e_{M}$ $e_{M}$ $\vert$ $\mathtt{fix}$ $e_{M}$ $\vert$ $e_{M}$ $\lbrace T\rbrace$ $\vert$ $\mathtt{cons}$ $e_{M}$ $e_{M}$ $\vert$ $f$ $e_{M}$ $\vert$ $o$ $e_{M}$ $e_{M}$ \\
+$e_{M}$ & $=$ & $v_{M}$ $\vert$ $x$ $\vert$ $e_{M}$ $e_{M}$ $\vert$ $\mathtt{fix}$ $e_{M}$ $\vert$ $e_{M}$ $\lbrace T\rbrace$ $\vert$ $\mathtt{cons}$ $e_{M}$ $e_{M}$ $\vert$ $f$ $e_{M}$ $\vert$ $o$ $e_{M}$ $e_{M}$ \\
 
 \vspace{5pt}
 
@@ -11,11 +11,11 @@ $e_{M}$ & $=$ & $u_{M}$ $\vert$ $x$ $\vert$ $e_{M}$ $e_{M}$ $\vert$ $\mathtt{fix
 
 \vspace{5pt}
 
-$u_{M}$ & $=$ & $v_{M}$ $\vert$ $^{T}MH^{T}$ $e_{H}$ \\
+$v_{M}$ & $=$ & $w_{M}$ $\vert$ $^{T}MH^{T}$ $e_{H}$ \\
 
 \vspace{5pt}
 
-$v_{M}$ & $=$ & $\lambda x:T.e_{M}$ $\vert$ $\Lambda X.e_{M}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}^{T}$ $\vert$ $\mathtt{cons}$ $v_{M}$ $v_{M}$ $\vert$ $^{L}MS$ $v_{S}$ $\vert$ $^{\forall X.T}MS$ $v_{S}$ \\
+$w_{M}$ & $=$ & $\lambda x:T.e_{M}$ $\vert$ $\Lambda X.e_{M}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}^{T}$ $\vert$ $\mathtt{cons}$ $v_{M}$ $v_{M}$ $\vert$ $^{L}MS$ $w_{S}$ $\vert$ $^{\forall X.T}MS$ $w_{S}$ \\
 
 \vspace{5pt}
 
@@ -31,11 +31,11 @@ $o$ & $=$ & $+$ $\vert$ $-$ \\
 
 \vspace{5pt}
 
-$E_{M}$ & $=$ & $[\,]_{M}$ $\vert$ $F_{M}$ $e_{M}$ $\vert$ $v_{M}$ $E_{M}$ $\vert$ $\mathtt{fix}$ $F_{M}$ $\vert$ $F_{M}$ $\lbrace T\rbrace$ $\vert$ $\mathtt{cons}$ $E_{M}$ $e_{M}$ \\
+$E_{M}$ & $=$ & $[\,]_{M}$ $\vert$ $F_{M}$ $e_{M}$ $\vert$ $w_{M}$ $E_{M}$ $\vert$ $\mathtt{fix}$ $F_{M}$ $\vert$ $F_{M}$ $\lbrace T\rbrace$ $\vert$ $\mathtt{cons}$ $E_{M}$ $e_{M}$ \\
 
 \vspace{5pt}
 
-&& $\vert$ $\mathtt{cons}$ $v_{M}$ $E_{M}$ $\vert$ $f$ $F_{M}$ $\vert$ $o$ $F_{M}$ $e_{M}$ $\vert$ $o$ $v_{M}$ $F_{M}$ $\vert$ $\mathtt{null?}$ $F_{M}$ \\
+&& $\vert$ $\mathtt{cons}$ $v_{M}$ $E_{M}$ $\vert$ $f$ $F_{M}$ $\vert$ $o$ $F_{M}$ $e_{M}$ $\vert$ $o$ $w_{M}$ $F_{M}$ $\vert$ $\mathtt{null?}$ $F_{M}$ \\
 
 \vspace{5pt}
 

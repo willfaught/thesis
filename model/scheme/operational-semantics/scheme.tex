@@ -3,7 +3,7 @@
 \begin{tabular}{l}
 \vspace{5pt}
 
-$\mathscr{E}[(\lambda x.e_{S})$ $u_{S}]_{S}\rightarrow\mathscr{E}[e_{S}[u_{S}/x]]$ \\
+$\mathscr{E}[(\lambda x.e_{S})$ $v_{S}]_{S}\rightarrow\mathscr{E}[e_{S}[v_{S}/x]]$ \\
 
 \vspace{5pt}
 
@@ -11,11 +11,7 @@ $\mathscr{E}[v_{S}^{1}$ $v_{S}^{2}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``
 
 \vspace{5pt}
 
-$\mathscr{E}[\mathtt{hd}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
-
-\vspace{5pt}
-
-$\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
+$\mathscr{E}[f$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
 
 \vspace{5pt}
 
@@ -75,7 +71,7 @@ $\mathscr{E}[\mathtt{list?}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}
 
 \vspace{5pt}
 
-$\mathscr{E}[\mathtt{list?}$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\overline{1}]$ $(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
+$\mathscr{E}[\mathtt{list?}$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\overline{1}]$ $(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
 
 \vspace{5pt}
 
