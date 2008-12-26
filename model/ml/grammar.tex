@@ -1,49 +1,25 @@
 \begin{figure}[p]
 \centering
-\begin{tabular}{lcl}
-\vspace{5pt}
-
-$e_{M}$ & $=$ & $v_{M}$ $\vert$ $x$ $\vert$ $e_{M}$ $e_{M}$ $\vert$ $\mathtt{fix}$ $e_{M}$ $\vert$ $e_{M}$ $\lbrace T\rbrace$ $\vert$ $\mathtt{cons}$ $e_{M}$ $e_{M}$ $\vert$ $f$ $e_{M}$ $\vert$ $o$ $e_{M}$ $e_{M}$ \\
-
-\vspace{5pt}
-
-&& $\vert$ $\mathtt{null?}$ $e_{M}$ $\vert$ $\mathtt{if0}$ $e_{M}$ $e_{M}$ $e_{M}$ $\vert$ $\mathtt{wrong}^{T}$ string $\vert$ $^{T}MS$ $e_{S}$ \\
-
-\vspace{5pt}
-
-$v_{M}$ & $=$ & $w_{M}$ $\vert$ $^{T}MH^{T}$ $e_{H}$ \\
-
-\vspace{5pt}
-
-$w_{M}$ & $=$ & $\lambda x:T.e_{M}$ $\vert$ $\Lambda X.e_{M}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}^{T}$ $\vert$ $\mathtt{cons}$ $v_{M}$ $v_{M}$ $\vert$ $^{L}MS$ $w_{S}$ $\vert$ $^{\forall X.T}MS$ $w_{S}$ \\
-
-\vspace{5pt}
-
-$T$ & $=$ & $L$ $\vert$ $N$ $\vert$ $X$ $\vert$ $[T]$ $\vert$ $T^{a}$ $\vert$ $T\rightarrow T$ $\vert$ $\forall X.T$ \\
-
-\vspace{5pt}
-
-$f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
-
-\vspace{5pt}
-
-$o$ & $=$ & $+$ $\vert$ $-$ \\
-
-\vspace{5pt}
-
-$E_{M}$ & $=$ & $[\,]_{M}$ $\vert$ $F_{M}$ $e_{M}$ $\vert$ $w_{M}$ $E_{M}$ $\vert$ $\mathtt{fix}$ $F_{M}$ $\vert$ $F_{M}$ $\lbrace T\rbrace$ $\vert$ $\mathtt{cons}$ $E_{M}$ $e_{M}$ \\
-
-\vspace{5pt}
-
-&& $\vert$ $\mathtt{cons}$ $v_{M}$ $E_{M}$ $\vert$ $f$ $F_{M}$ $\vert$ $o$ $F_{M}$ $e_{M}$ $\vert$ $o$ $w_{M}$ $F_{M}$ $\vert$ $\mathtt{null?}$ $F_{M}$ \\
-
-\vspace{5pt}
-
-&& $\vert$ $\mathtt{if0}$ $F_{M}$ $e_{M}$ $e_{M}$ $\vert$ $^{T}MS$ $E_{S}$ \\
-
-\vspace{5pt}
-
-$F_{M}$ & $=$ & $E_{M}$ $\vert$ $^{T}MH^{T}$ $E_{H}$
+\begin{tabular}{rcl}
+% Expressions
+$e_{M}$ & $=$ & $v_{M}\;|\;x\;|\;e_{M}\;e_{M}\;|\;\mathtt{fix}\;e_{M}\;|\;e_{M}\;\lbrace T\rbrace\;|\;\mathtt{cons}\;e_{M}\;e_{M}\;|\;f\;e_{M}\;|\;o\;e_{M}\;e_{M}$ \\
+&& $|\;\mathtt{null?}\;e_{M}\;|\;\mathtt{if0}\;e_{M}\;e_{M}\;e_{M}\;|\;\mathtt{wrong}^{T}$ string $|\;^{T}MS\;e_{S}$ \\
+% Unforced values
+$v_{M}$ & $=$ & $w_{M}\;|\;^{T}MH\;e_{H}$ \\
+% Forced values
+$w_{M}$ & $=$ & $\lambda x:T.e_{M}\;|\;\Lambda X.e_{M}\;|\;\overline{n}\;|\;\mathtt{nil}^{T}\;|\;\mathtt{cons}\;v_{M}\;v_{M}\;|\;^{L}MS\;w_{S}\;|\;^{\forall X.T}MS\;w_{S}$ \\
+% Types
+$T$ & $=$ & $L\;|\;N\;|\;X\;|\;[T]\;|\;T^{a}\;|\;T\rightarrow T\;|\;\forall X.T$ \\
+% List operators
+$f$ & $=$ & $\mathtt{hd}\;|\;\mathtt{tl}$ \\
+% Arithmetic operators
+$o$ & $=$ & $+\;|\;-$ \\
+% Unforced evaluation contexts
+$E_{M}$ & $=$ & $[\,]_{M}\;|\;F_{M}\;e_{M}\;|\;w_{M}\;E_{M}\;|\;\mathtt{fix}\;F_{M}\;|\;F_{M}\;\lbrace T\rbrace\;|\;\mathtt{cons}\;E_{M}\;e_{M}$ \\
+&& $|\;\mathtt{cons}\;v_{M}\;E_{M}\;|\;f\;F_{M}\;|\;o\;F_{M}\;e_{M}\;|\;o\;w_{M}\;F_{M}\;|\;\mathtt{null?}\;F_{M}$ \\
+&& $|\;\mathtt{if0}\;F_{M}\;e_{M}\;e_{M}\;|\;^{T}MS\;E_{S}$ \\
+% Forced evaluation contexts
+$F_{M}$ & $=$ & $E_{M}\;|\;^{T}MH\;E_{H}$
 \end{tabular}
 \caption{ML grammar and evaluation contexts}
 \label{mg}

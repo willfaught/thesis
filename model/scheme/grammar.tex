@@ -1,44 +1,23 @@
 \begin{figure}[p]
 \centering
 \begin{tabular}{lcl}
-\vspace{5pt}
-
+% Expressions
 $e_{S}$ & $=$ & $v_{S}$ $\vert$ $x$ $\vert$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $e_{S}$ $e_{S}$ $\vert$ $f$ $e_{S}$ $\vert$ $o$ $e_{S}$ $e_{S}$ $\vert$ $p$ $e_{S}$ $\vert$ $\mathtt{if0}$ $e_{S}$ $e_{S}$ $e_{S}$ \\
-
-\vspace{5pt}
-
 && $\vert$ $\mathtt{wrong}$ string $\vert$ $SM^{T}$ $e_{M}$ \\
-
-\vspace{5pt}
-
+% Unforced values
 $v_{S}$ & $=$ & $w_{S}$ $\vert$ $SH^{T}$ $e_{H}$ \\
-
-\vspace{5pt}
-
+% Forced values
 $w_{S}$ & $=$ & $\lambda x.e_{S}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $v_{S}$ $\vert$ $SM^{T^{a}}$ $w_{M}$ \\
-
-\vspace{5pt}
-
+% List operators
 $f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
-
-\vspace{5pt}
-
+% Arithmetic operators
 $o$ & $=$ & $+$ $\vert$ $-$ \\
-
-\vspace{5pt}
-
+% Predicates
 $p$ & $=$ & $\mathtt{fun?}$ $\vert$ $\mathtt{list?}$ $\vert$ $\mathtt{null?}$ $\vert$ $\mathtt{num?}$ \\
-
-\vspace{5pt}
-
+% Unforced evaluation contexts
 $E_{S}$ & $=$ & $[\,]_{S}$ $\vert$ $F_{S}$ $e_{S}$ $\vert$ $v_{S}$ $E_{S}$ $\vert$ $\mathtt{cons}$ $E_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $E_{S}$ $\vert$ $f$ $F_{S}$ $\vert$ $o$ $F_{S}$ $e_{S}$ \\
-
-\vspace{5pt}
-
 && $\vert$ $o$ $v_{S}$ $F_{S}$ $\vert$ $p$ $F_{S}$ $\vert$ $\mathtt{if0}$ $F_{S}$ $e_{S}$ $e_{S}$ $\vert$ $SM^{T}$ $E_{M}$ \\
-
-\vspace{5pt}
-
+% Forced evaluation contexts
 $F_{S}$ & $=$ & $E_{S}$ $\vert$ $SH^{T}$ $E_{H}$
 \end{tabular}
 \caption{Scheme grammar and evaluation contexts}

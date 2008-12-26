@@ -1,120 +1,34 @@
 \begin{figure}[p]
 \centering
 \begin{tabular}{l}
-\vspace{5pt}
-
 $\mathscr{E}[(\lambda x.e_{S})$ $v_{S}]_{S}\rightarrow\mathscr{E}[e_{S}[v_{S}/x]]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[v_{S}^{1}$ $v_{S}^{2}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a function"$]$ $(v_{S}^{1}\neq\lambda x.e_{S})$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[f$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[v_{S}^{1}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[v_{S}^{2}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{hd}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{T}$ $e_{H}^{1}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{tl}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{[T]}$ $e_{H}^{2}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[f$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ \\
-
-\vspace{5pt}
-
 $\quad(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[+$ $\overline{n_{1}}$ $\overline{n_{2}}]_{S}\rightarrow\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[-$ $\overline{n_{1}}$ $\overline{n_{2}}]_{S}\rightarrow\mathscr{E}[\overline{max(n_{1}-n_{2},0)}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[o$ $v_{S}^{1}$ $v_{S}^{2}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a number"$]$ $(v_{S}^{1}\neq\overline{n}$ or $v_{S}^{2}\neq\overline{n})$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{fun?}$ $(\lambda x.e_{S})]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{fun?}$ $v_{S}]_{S}\rightarrow\mathscr{E}[\overline{1}]$ ($v_{S}\neq\lambda x.e_{S}$) \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{list?}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{list?}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{list?}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{list?}$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\overline{1}]$ $(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{null?}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{null?}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[\overline{1}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{null?}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[\overline{1}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{null?}$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ \\
-
-\vspace{5pt}
-
 $\quad(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{num?}$ $\overline{n}]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{num?}$ $v_{S}]_{S}\rightarrow\mathscr{E}[\overline{1}]$ $(v_{S}\neq\overline{n})$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e_{S}^{1}$ $e_{S}^{2}]_{S}\rightarrow\mathscr{E}[e_{S}^{1}]$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e_{S}^{1}$ $e_{S}^{2}]_{S}\rightarrow\mathscr{E}[e_{S}^{2}]$ $(n\neq 0)$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{if0}$ $v_{S}$ $e_{S}^{1}$ $e_{S}^{2}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a number"$]$ $(v_{S}\neq\overline{n})$ \\
-
-\vspace{5pt}
-
 $\mathscr{E}[\mathtt{wrong}$ $\mathrm{string}]_{S}\rightarrow$ \textbf{Error}: string
 \end{tabular}
 \caption{Scheme operational semantics}

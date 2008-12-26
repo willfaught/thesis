@@ -1,37 +1,20 @@
 \begin{figure}[p]
 \centering
-\begin{tabular}{lcl}
-\vspace{5pt}
-
-$e_{H}$ & $=$ & $v_{H}$ $\vert$ $x$ $\vert$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{fix}$ $e_{H}$ $\vert$ $e_{H}$ $\lbrace T\rbrace$ $\vert$ $f$ $e_{H}$ $\vert$ $o$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{null?}$ $e_{H}$ \\
-
-\vspace{5pt}
-
-&& $\vert$ $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$ $\vert$ $\mathtt{wrong}^{T}$ string $\vert$ $^{T}HM^{T}$ $e_{M}$ $\vert$ $^{T}HS$ $e_{S}$ \\
-
-\vspace{5pt}
-
-$v_{H}$ & $=$ & $\lambda x:T.e_{H}$ $\vert$ $\Lambda X.e_{H}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}^{T}$ $\vert$ $\mathtt{cons}$ $e_{H}$ $e_{H}$ $\vert$ $^{L}HS$ $v_{S}$ $\vert$ $^{\forall X.T}HS$ $v_{S}$ \\
-
-\vspace{5pt}
-
-$T$ & $=$ & $L$ $\vert$ $N$ $\vert$ $X$ $\vert$ $[T]$ $\vert$ $T^{a}$ $\vert$ $T\rightarrow T$ $\vert$ $\forall X.T$ \\
-
-\vspace{5pt}
-
-$f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
-
-\vspace{5pt}
-
-$o$ & $=$ & $+$ $\vert$ $-$ \\
-
-\vspace{5pt}
-
-$E_{H}$ & $=$ & $[\,]_{H}$ $\vert$ $E_{H}$ $e_{H}$ $\vert$ $\mathtt{fix}$ $E_{H}$ $\vert$ $E_{H}$ $\lbrace T\rbrace$ $\vert$ $f$ $E_{H}$ $\vert$ $o$ $E_{H}$ $e_{H}$ $\vert$ $o$ $v_{H}$ $E_{H}$ \\
-
-\vspace{5pt}
-
-&& $\vert$ $\mathtt{null?}$ $E_{H}$ $\vert$ $\mathtt{if0}$ $E_{H}$ $e_{H}$ $e_{H}$ $\vert$ $^{T}HM^{T}$ $E_{M}$ $\vert$ $^{T}HS$ $E_{S}$
+\begin{tabular}{rcl}
+% Expressions
+$e_{H}$ & $=$ & $v_{H}\;|\;x\;|\;e_{H}\;e_{H}\;|\;\mathtt{fix}\;e_{H}\;|\;e_{H}\;\lbrace T\rbrace\;|\;f\;e_{H}\;|\;o\;e_{H}\;e_{H}\;|\;\mathtt{null?}\;e_{H}$ \\
+&& $|\;\mathtt{if0}\;e_{H}\;e_{H}\;e_{H}\;|\;\mathtt{wrong}^{T}$ string $|\;^{T}HM\;e_{M}\;|\;^{T}HS\;e_{S}$ \\
+% Unforced values
+$v_{H}$ & $=$ & $\lambda x:T.e_{H}\;|\;\Lambda X.e_{H}\;|\;\overline{n}\;|\;\mathtt{nil}^{T}\;|\;\mathtt{cons}\;e_{H}\;e_{H}\;|\;^{L}HS\;v_{S}\;|\;^{\forall X.T}HS\;v_{S}$ \\
+% Types
+$T$ & $=$ & $L\;|\;N\;|\;X\;|\;[T]\;|\;T^{a}\;|\;T\rightarrow T\;|\;\forall X.T$ \\
+% List operators
+$f$ & $=$ & $\mathtt{hd}\;|\;\mathtt{tl}$ \\
+% Arithmetic operators
+$o$ & $=$ & $+\;|\;-$ \\
+% Unforced evaluation contexts
+$E_{H}$ & $=$ & $[\,]_{H}\;|\;E_{H}\;e_{H}\;|\;\mathtt{fix}\;E_{H}\;|\;E_{H}\;\lbrace T\rbrace\;|\;f\;E_{H}\;|\;o\;E_{H}\;e_{H}\;|\;o\;v_{H}\;E_{H}$ \\
+&& $|\;\mathtt{null?}\;E_{H}\;|\;\mathtt{if0}\;E_{H}\;e_{H}\;e_{H}\;|\;^{T}HM\;E_{M}\;|\;^{T}HS\;E_{S}$
 \end{tabular}
 \caption{Haskell grammar and evaluation contexts}
 \label{hg}
