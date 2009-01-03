@@ -7,7 +7,7 @@ $e_{S}$ & $=$ & $v_{S}$ $\vert$ $x$ $\vert$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{con
 % Unforced values
 $v_{S}$ & $=$ & $w_{S}$ $\vert$ $SH^{T}$ $e_{H}$ \\
 % Forced values
-$w_{S}$ & $=$ & $\lambda x.e_{S}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $v_{S}$ $\vert$ $SM^{T^{a}}$ $w_{M}$ \\
+$w_{S}$ & $=$ & $\lambda x.e_{S}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $v_{S}$ $\vert$ $SM^{T^{a}}$ $v_{M}$ \\
 % List operators
 $f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
 % Arithmetic operators
@@ -15,8 +15,8 @@ $o$ & $=$ & $+$ $\vert$ $-$ \\
 % Predicates
 $p$ & $=$ & $\mathtt{fun?}$ $\vert$ $\mathtt{list?}$ $\vert$ $\mathtt{null?}$ $\vert$ $\mathtt{num?}$ \\
 % Unforced evaluation contexts
-$E_{S}$ & $=$ & $[\,]_{S}$ $\vert$ $F_{S}$ $e_{S}$ $\vert$ $v_{S}$ $E_{S}$ $\vert$ $\mathtt{cons}$ $E_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $E_{S}$ $\vert$ $f$ $F_{S}$ $\vert$ $o$ $F_{S}$ $e_{S}$ \\
-&& $\vert$ $o$ $v_{S}$ $F_{S}$ $\vert$ $p$ $F_{S}$ $\vert$ $\mathtt{if0}$ $F_{S}$ $e_{S}$ $e_{S}$ $\vert$ $SM^{T}$ $E_{M}$ \\
+$E_{S}$ & $=$ & $[\,]_{S}$ $\vert$ $F_{S}$ $e_{S}$ $\vert$ $w_{S}$ $E_{S}$ $\vert$ $\mathtt{cons}$ $E_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $E_{S}$ $\vert$ $f$ $F_{S}$ $\vert$ $o$ $F_{S}$ $e_{S}$ \\
+&& $\vert$ $o$ $w_{S}$ $F_{S}$ $\vert$ $p$ $F_{S}$ $\vert$ $\mathtt{if0}$ $F_{S}$ $e_{S}$ $e_{S}$ $\vert$ $SM^{T}$ $E_{M}$ \\
 % Forced evaluation contexts
 $F_{S}$ & $=$ & $E_{S}$ $\vert$ $SH^{T}$ $E_{H}$
 \end{tabular}
