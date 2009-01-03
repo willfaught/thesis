@@ -1,15 +1,29 @@
 \begin{lemma}
+
 \label{cf}
-The syntactic forms of values of various types.
+
+The syntactic forms of unforced values of various types.
+
 \begin{enumerate}
+
 \item If $v_{A}:L$ then $v_{A}={^{L}A}S$ $v_{S}$ where $A\in\lbrace H,M\rbrace$.
+
 \item If $v_{A}:N$ then $v_{A}=\overline{n}$ where $A\in\lbrace H,M\rbrace$.
+
 \item If $v_{H}:[T]$ then $v_{H}\in\lbrace\mathtt{nil}^{T},\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}\rbrace$.
+
 \item If $v_{M}:[T]$ then $v_{M}\in\lbrace\mathtt{nil}^{T},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$.
+
 \item If $v_{A}:T_{1}\rightarrow T_{2}$ then $v_{A}=\lambda x:T_{1}.e_{A}$ where $A\in\lbrace H,M\rbrace$.
+
 \item If $v_{A}:\forall X.T$ then $v_{A}\in\lbrace\Lambda X.e_{A},{^{\forall X.T}A}S$ $v_{S}\rbrace$ where $A\in\lbrace H,M\rbrace$.
+
 \end{enumerate}
+
 \begin{proof}
-Immediate from the definitions of values and the typing relations.
+
+Immediate from the definitions of unforced values and the typing relations.
+
 \end{proof}
+
 \end{lemma}
