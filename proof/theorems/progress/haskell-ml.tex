@@ -2,7 +2,7 @@
 
 \label{hmps}
 
-If $\vdash_{A}e_{A}:T$ then $e_{A}$ is a value or $e_{A}\rightarrow e_{A}'$ or $e_{A}\rightarrow$ \emph{\textbf{Error}: string} where $A\in\lbrace H,M\rbrace$.
+If $\vdash_{A}e_{A}:T$ then $e_{A}$ is an unforced value or $e_{A}\rightarrow e_{A}'$ or $e_{A}\rightarrow$ \emph{\textbf{Error}: string} where $A\in\lbrace H,M\rbrace$.
 
 \begin{proof}
 
@@ -47,8 +47,6 @@ By structural induction on $e_{A}$.
 \input{proof/cases/progress/haskell-ml/if0.tex}
 
 \input{proof/cases/progress/haskell-ml/wrong.tex}
-
-\input{proof/cases/progress/haskell-ml/force.tex}
 
 \input{proof/cases/progress/haskell-ml/ml.tex}
 

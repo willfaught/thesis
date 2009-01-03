@@ -2,6 +2,6 @@
 
 $e_{A}=\mathtt{fix}$ $e_{A}^{1}$ where $A\in\lbrace H,M\rbrace$
 
-$e_{A}^{1}$ is a value or $e_{A}^{1}\rightarrow e_{A}^{2}$ or $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{A}^{1}$ is a value then $e_{A}^{1}:T\rightarrow T$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{A}^{1}=\lambda x:T.e_{A}^{3}$ by canonical forms (Lemma \ref{cf}).  $\mathtt{fix}$ $(\lambda x:T.e_{A}^{3})\rightarrow e_{A}^{3}[\mathtt{fix}$ $(\lambda x:T.e_{A}^{3})/x]$.  If $e_{A}^{1}\rightarrow e_{A}^{2}$ then $\mathtt{fix}$ $e_{A}^{1}\rightarrow\mathtt{fix}$ $e_{A}^{2}$.  If $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{fix}$ $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}: string}.
+$e_{A}^{1}$ is an unforced value or $e_{A}^{1}\rightarrow e_{A}^{2}$ or $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{A}^{1}$ is an unforced value then $e_{A}^{1}:T\rightarrow T$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{A}^{1}=\lambda x:T.e_{A}^{3}$ by canonical forms (Lemma \ref{cf}).  $\mathtt{fix}$ $(\lambda x:T.e_{A}^{3})\rightarrow e_{A}^{3}[\mathtt{fix}$ $(\lambda x:T.e_{A}^{3})/x]$.  If $e_{A}^{1}\rightarrow e_{A}^{2}$ then $\mathtt{fix}$ $e_{A}^{1}\rightarrow\mathtt{fix}$ $e_{A}^{2}$.  If $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{fix}$ $e_{A}^{1}\rightarrow$ \emph{\textbf{Error}: string}.
 
 \end{case}

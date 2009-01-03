@@ -1,10 +1,10 @@
 \chapter{Proof of Type Soundness}
 
-Proving the progress of expressions and the preservation of types proves the type soundness of the model of computation.  Progress ensures that a well-typed, closed expression is either a value, reducible to another expression, or reducible to an error.  Preservation ensures that if a well-typed expression reduces to another expression, the other expression is well-typed and has the same type.  The proof extends the proof by Kinghorn \cite{kinghorn07}, which was based on proofs by Pierce \cite{pierce02} and Matthews and Findler \cite{matthews07}.
+Proving the progress of expressions and the preservation of types proves the type soundness of the model of computation.  Progress ensures that a well-typed, closed expression is either an unforced value, reducible to another expression, or reducible to an error.  Preservation ensures that if a well-typed expression reduces to another expression, the other expression is well-typed and has the same type.  The proof extends the proof by Kinghorn \cite{kinghorn07}, which was based on proofs by Pierce \cite{pierce02} and Matthews and Findler \cite{matthews07}.
 
 \section{Progress}
 
-Progress will be proven by structural induction on a well-typed, closed expression of each syntactic form.  In each case, the expression will be proven to be either a value, reducible to another expression, or reducible to an error.  The reduction of a subexpression is the reduction of its parent expression.  If a subexpression reduces to an error, its parent expression reduces to the error.  In some cases, the syntactic form of a subexpression must be determined to reduce its parent expression.  Determining the unique type of a subexpression determines its syntactic form.
+Progress will be proven by structural induction on a well-typed, closed expression of each syntactic form.  In each case, the expression will be proven to be either an unforced value, reducible to another expression, or reducible to an error.  The reduction of a subexpression is the reduction of its parent expression.  If a subexpression reduces to an error, its parent expression reduces to the error.  In some cases, the syntactic form of a subexpression must be determined to reduce its parent expression.  Determining the unique type of a subexpression determines its syntactic form.
 
 \subsection{Inversion Lemma}
 
