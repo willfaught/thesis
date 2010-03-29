@@ -1,0 +1,67 @@
+\documentclass[12pt]{ucthesis}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[letterpaper]{geometry}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\usepackage[overload]{textcase}
+\usepackage{array}
+\begin{document}
+
+\begin{figure}[p]
+\centering
+\begin{tabular}{rcl}
+$e^L$ & $=$ & $x^L$ $|$ $\lambda x^L.e^L$ $|$ $e^L$ $e^L$ $|$ $LE$ $e^E$ \\
+$E^L$ & $=$ & $[\;]^L$ $|$ $E^L$ $e^L$
+\end{tabular}
+\[
+\frac{}{\vdash^LTST}
+\quad
+\frac{}{\Gamma,x^L:TST\vdash^Lx^L:TST}
+\]
+\[
+\frac{\Gamma,x^L:TST\vdash^Le:TST}{\Gamma\vdash^L\lambda x^L.e:TST}
+\quad
+\frac{\Gamma\vdash^Le^L_1:TST\quad\Gamma\vdash^Le^L_2:TST}{\Gamma\vdash^Le^L_1\;e^L_2:TST}
+\quad
+\frac{\Gamma\vdash^Ee^E:TST}{\Gamma\vdash^LLE\;e^E:TST}
+\]
+\begin{tabular}{l}
+$\mathscr{E}[(\lambda x^L.e^L_1)$ $e^L_2]^L\rightarrow\mathscr{E}[e^L_1[e^L_2/x^L]]$
+\end{tabular}
+\caption{Lazy model}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\begin{tabular}{rcl}
+$e^E$ & $=$ & $x^E$ $|$ $v^E$ $|$ $e^E$ $e^E$ \\
+$v^E$ & $=$ & $\lambda x^E.e^E$ $|$ $EL$ $e^L$ \\
+$E^E$ & $=$ & $[\;]^E$ $|$ $F$ $e^E$ $|$ $(\lambda x^E.e^E)$ $E^E$ \\
+$F$ & $=$ & $E^E$ $|$ $EL$ $E^L$
+\end{tabular}
+\[
+\frac{}{\vdash^ETST}
+\quad
+\frac{}{\Gamma,x^E:TST\vdash^Ex^E:TST}
+\]
+\[
+\frac{\Gamma,x^E:TST\vdash^Ee:TST}{\Gamma\vdash^E\lambda x^E.e:TST}
+\quad
+\frac{\Gamma\vdash^Ee^E_1:TST\quad\Gamma\vdash^Ee^E_2:TST}{\Gamma\vdash^Ee^L_1\;e^E_2:TST}
+\quad
+\frac{\Gamma\vdash^Le^L:TST}{\Gamma\vdash^EEL\;e^L:TST}
+\]
+\begin{tabular}{l}
+$\mathscr{E}[(\lambda x^E.e^E)$ $v^E]^E\rightarrow\mathscr{E}[e^E[v^E/x^E]]$
+\end{tabular}
+\caption{Eager model}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+$\mathscr{E}$ $=$ $E^L$
+\end{figure}
+
+\end{document}
