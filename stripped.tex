@@ -13,7 +13,7 @@
 \centering
 \begin{tabular}{rcl}
 $e^L$ & $=$ & $x^L$ $|$ $\lambda x^L.e^L$ $|$ $e^L$ $e^L$ $|$ $LE$ $e^E$ \\
-$E^L$ & $=$ & $[\;]^L$ $|$ $E^L$ $e^L$
+$E^L$ & $=$ & $[\;]^L$ $|$ $E^L$ $e^L$ $|$ $LE$ $E^E$
 \end{tabular}
 \[
 \frac{}{\vdash^LTST}
@@ -27,8 +27,10 @@ $E^L$ & $=$ & $[\;]^L$ $|$ $E^L$ $e^L$
 \quad
 \frac{\Gamma\vdash^Ee^E:TST}{\Gamma\vdash^LLE\;e^E:TST}
 \]
-\begin{tabular}{l}
-$\mathscr{E}[(\lambda x^L.e^L_1)$ $e^L_2]^L\rightarrow\mathscr{E}[e^L_1[e^L_2/x^L]]$
+\begin{tabular}{rcl}
+$\mathscr{E}[(\lambda x^L.e^L_1)$ $e^L_2]^L$ & $\rightarrow$ & $\mathscr{E}[e^L_1[e^L_2/x^L]]$ \\
+$\mathscr{E}[LE$ $(\lambda x^E.e^E)]^L$ & $\rightarrow$ & $\mathscr{E}[\lambda x^L.(LE$ $((\lambda x^E.e^E)$ $(EL$ $x^L)))]$ \\
+$\mathscr{E}[LE$ $(EL$ $e^L)]^L$ & $\rightarrow$ & $\mathscr{E}[e^L]$
 \end{tabular}
 \caption{Lazy model}
 \end{figure}
@@ -53,8 +55,10 @@ $F$ & $=$ & $E^E$ $|$ $EL$ $E^L$
 \quad
 \frac{\Gamma\vdash^Le^L:TST}{\Gamma\vdash^EEL\;e^L:TST}
 \]
-\begin{tabular}{l}
-$\mathscr{E}[(\lambda x^E.e^E)$ $v^E]^E\rightarrow\mathscr{E}[e^E[v^E/x^E]]$
+\begin{tabular}{rcl}
+$\mathscr{E}[(\lambda x^E.e^E)$ $v^E]^E$ & $\rightarrow$ & $\mathscr{E}[e^E[v^E/x^E]]$ \\
+$\mathscr{E}[EL$ $(\lambda x^L.e^L)]^E$ & $\rightarrow$ & $\mathscr{E}[\lambda x^E.(EL$ $((\lambda x^L.e^L)$ $(LE$ $x^E)))]$ \\
+$\mathscr{E}[EL$ $(LE$ $e^E)]^E$ & $\rightarrow$ & $\mathscr{E}[e^E]$
 \end{tabular}
 \caption{Eager model}
 \end{figure}
