@@ -4,5 +4,39 @@
 \margl1440\margr1440\vieww9000\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
-\f0\fs24 \cf0 EL e^L = e^L?\
-LE e^E = e^E?}
+\f0\fs24 \cf0 EL e^L =~ e^L?\
+LE e^E =~ e^E?\
+\
+(K 0) (LE \\omega)\
+(K 0) (EL \\omega)\
+\
+((LE K) I) \\omega\
+\
+Potential problems: diverge, error (if in model!)\
+\
+L's K is NOT E's K, it's equivalent!\
+L's K doesn't use 2nd arg, no diverge.\
+LE K (L's K) MUST NOT cause diverge!\
+LE K is an L fct!\
+\
+Changing which exps are evaluated changes what fcts compute\
+Restricting eval's exps (lazy) restricts the places where exps diverge\
+\
+Interop ought not to change what functions compute\
+Converted functions ought not to diverge where they did not before, and vice versa\
+Assumed types add arg/result checks and conversions, but do not change fcts\
+\
+Restricted eval exps must be mirrored in other langs to preserve fct behavior\
+More strict veal can cause new behavior: diverge, errors\
+\
+Lazy behavior is superset of eager behavior, more expressible that does not change fct behavior\
+\
+Eager fct converted to lazy that diverges: K\
+	Illustrates need for force/unforce evaluation cxts\
+\
+Lazy fct translated to eager that diverges: Y\
+	Cannot mechanically translate terms: Y combinator diverges\
+\
+No lazy fct exists that, when converted to eager without extra force points, computes differently/diverges\
+\
+}
