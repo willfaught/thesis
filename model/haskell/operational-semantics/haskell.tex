@@ -3,59 +3,59 @@
 \begin{tabular}{l}
 %\vspace{5pt}
 
-$\mathscr{E}[(\lambda x:T.e_{H_1})$ $e_{H_2}]_{H}\rightarrow\mathscr{E}[e_{H_1}[e_{H_2}/x]]$ \\
+$\mathscr{E}[(\lambda x^h:t.e^h_1)$ $e^h_2]^h\rightarrow\mathscr{E}[e^h_1[e^h_2/x^h]]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}[(\mathtt{fix}$ $(\lambda x:T.e_{H}))/x]]$ \\
+$\mathscr{E}[(\Lambda x^h.e^h)$ $\lbrace t\rbrace]^h\rightarrow\mathscr{E}[e^h[t/x^h]]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[(\Lambda X.e_{H})$ $\lbrace T\rbrace]_{H}\rightarrow\mathscr{E}[e_{H}[T/X]]$ \\
+$\mathscr{E}[\mathtt{fix}$ $(\lambda x^h:t.e^h)]^h\rightarrow\mathscr{E}[e^h[(\mathtt{fix}$ $(\lambda x^h:t.e^h))/x^h]]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[\mathtt{hd}$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}^{T}$ ``Empty list"$]$ \\
+$\mathscr{E}[+$ $\overline{n_1}$ $\overline{n_2}]^h\rightarrow\mathscr{E}[\overline{n_1+n_2}]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\mathtt{wrong}^{[T]}$ ``Empty list"$]$ \\
+$\mathscr{E}[-$ $\overline{n_1}$ $\overline{n_2}]^h\rightarrow\mathscr{E}[\overline{max(n_1-n_2,0)}]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]_{H}\rightarrow\mathscr{E}[e_{H}^{1}]$ \\
+$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e^h_1$ $e^h_2]^h\rightarrow\mathscr{E}[e^h_1]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]_{H}\rightarrow\mathscr{E}[e_{H}^{2}]$ \\
+$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e^h_1$ $e^h_2]^h\rightarrow\mathscr{E}[e^h_2]$ $(n\neq0)$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[+$ $\overline{n_{1}}$ $\overline{n_{2}}]_{H}\rightarrow\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
+$\mathscr{E}[\mathtt{hd}$ $(\mathtt{nil}\;t)]^h\rightarrow\mathscr{E}[\mathtt{wrong}\;t$ ``Empty list"$]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[-$ $\overline{n_{1}}$ $\overline{n_{2}}]_{H}\rightarrow\mathscr{E}[\overline{max(n_{1}-n_{2},0)}]$ \\
+$\mathscr{E}[\mathtt{tl}$ $(\mathtt{nil}\;t)]^h\rightarrow\mathscr{E}[\mathtt{wrong}\;[t]$ ``Empty list"$]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[\mathtt{null?}$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\overline{0}]$ \\
+$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^h\rightarrow\mathscr{E}[e^h_1]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[\mathtt{null?}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})]_{H}\rightarrow\mathscr{E}[\overline{1}]$ \\
+$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^h\rightarrow\mathscr{E}[e^h_2]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{1}]$ \\
+$\mathscr{E}[\mathtt{null?}$ $(\mathtt{nil}\;t)]^h\rightarrow\mathscr{E}[\overline{0}]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e_{H}^{1}$ $e_{H}^{2}]_{H}\rightarrow\mathscr{E}[e_{H}^{2}]$ $(n\neq0)$ \\
+$\mathscr{E}[\mathtt{null?}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^h\rightarrow\mathscr{E}[\overline{1}]$ \\
 
 %\vspace{5pt}
 
-$\mathscr{E}[\mathtt{wrong}^{T}$ string$]_{H}\rightarrow$ \textbf{Error}: string
+$\mathscr{E}[\mathtt{wrong}\;t$ string$]^h\rightarrow$ \textbf{Error}: string
 \end{tabular}
 \caption{Haskell operational semantics}
 \label{hos}

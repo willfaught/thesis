@@ -2,19 +2,19 @@
 \centering
 \begin{tabular}{rcl}
 % Expressions
-$e_{H}$ & $=$ & $v_{H}\;|\;x\;|\;e_{H}\;e_{H}\;|\;\mathtt{fix}\;e_{H}\;|\;e_{H}\;\lbrace T\rbrace\;|\;f\;e_{H}\;|\;o\;e_{H}\;e_{H}\;|\;\mathtt{null?}\;e_{H}$ \\
-&& $|\;\mathtt{if0}\;e_{H}\;e_{H}\;e_{H}\;|\;\mathtt{wrong}^{T}$ string $|\;^{T}HM\;e_{M}\;|\;^{T}HS\;e_{S}$ \\
+$e^h$ & $=$ & $x^h\;|\;v^h\;|\;e^h\;e^h\;|\;e^h\;\lbrace t\rbrace\;|\;\mathtt{fix}\;e^h\;|\;o\;e^h\;e^h\;|\;\mathtt{if0}\;e^h\;e^h\;e^h\;|\;f\;e^h\;|\;\mathtt{null?}\;e^h$ \\
+&& $\mathtt{wrong}\;t$ string $|\;\mathtt{hm}\;t\;e^m\;|\;\mathtt{hs}\;t\;e^s$ \\
 % Unforced values
-$v_{H}$ & $=$ & $\lambda x:T.e_{H}\;|\;\Lambda X.e_{H}\;|\;\overline{n}\;|\;\mathtt{nil}^{T}\;|\;\mathtt{cons}\;e_{H}\;e_{H}\;|\;^{L}HS\;v_{S}\;|\;^{\forall X.T}HS\;v_{S}$ \\
-% Types
-$T$ & $=$ & $L\;|\;N\;|\;X\;|\;[T]\;|\;T^{a}\;|\;T\rightarrow T\;|\;\forall X.T$ \\
-% List operators
+$v^h$ & $=$ & $\lambda x^h:t.e^h\;|\;\Lambda x^h.e^h\;|\;\overline{n}\;|\;\mathtt{nil}\;t\;|\;\mathtt{cons}\;e^h\;e^h\;|\;\mathtt{hs}\;\mathtt{L}\;v^s\;|\;\mathtt{hs}\;(\forall x^h.t)\;v^s$ \\
+% types
+$t$ & $=$ & $\mathtt{L}\;|\;\mathtt{N}\;|\;x^h\;|\;[t]\;|\;t.x^h\;|\;t\rightarrow t\;|\;\forall x^h.t$ \\
+% list operators
 $f$ & $=$ & $\mathtt{hd}\;|\;\mathtt{tl}$ \\
 % Arithmetic operators
 $o$ & $=$ & $+\;|\;-$ \\
 % Unforced evaluation contexts
-$E_{H}$ & $=$ & $[\,]_{H}\;|\;E_{H}\;e_{H}\;|\;\mathtt{fix}\;E_{H}\;|\;E_{H}\;\lbrace T\rbrace\;|\;f\;E_{H}\;|\;o\;E_{H}\;e_{H}\;|\;o\;v_{H}\;E_{H}$ \\
-&& $|\;\mathtt{null?}\;E_{H}\;|\;\mathtt{if0}\;E_{H}\;e_{H}\;e_{H}\;|\;^{T}HM\;E_{M}\;|\;^{T}HS\;E_{S}$
+$E^h$ & $=$ & $[\,]^h\;|\;E^h\;e^h\;|\;E^h\;\lbrace t\rbrace\;|\;\mathtt{fix}\;E^h\;|\;o\;E^h\;e^h\;|\;o\;v^h\;E^h\;|\;\mathtt{if0}\;E^h\;e^h\;e^h$ \\
+&& $f\;E^h\;|\;\mathtt{null?}\;E^h\;|\;\mathtt{hm}\;t\;E^m\;|\;\mathtt{hs}\;t\;E^s$
 \end{tabular}
 \caption{Haskell grammar and evaluation contexts}
 \label{hg}

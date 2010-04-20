@@ -1,61 +1,61 @@
 \begin{figure}[p]
 \[
-\frac{}{\vdash_{H}L}
+\frac{}{\vdash^h\mathtt{L}}
 \quad
-\frac{}{\vdash_{H}N}
+\frac{}{\vdash^h\mathtt{N}}
 \quad
-\frac{X\in\Gamma}{\Gamma\vdash_{H}X}
+\frac{}{\Gamma,x^h\vdash^hx^h}
 \]
 \[
-\frac{\Gamma\vdash_{H}T}{\Gamma\vdash_{H}[T]}
+\frac{\Gamma\vdash^ht}{\Gamma\vdash^h[t]}
 \quad
-\frac{\Gamma\vdash_{H}T}{\Gamma\vdash_{H}T^{a}}
+\frac{\Gamma\vdash^ht}{\Gamma\vdash^ht.x^h}
 \quad
-\frac{\Gamma\vdash_{H}T_{1}\quad\Gamma\vdash_{H}T_{2}}{\Gamma\vdash_{H}T_{1}\rightarrow T_{2}}
+\frac{\Gamma\vdash^ht_1\quad\Gamma\vdash^ht_2}{\Gamma\vdash^ht_1\rightarrow t_2}
 \quad
-\frac{\Gamma ,X\vdash_{H}T}{\Gamma\vdash_{H}\forall X.T}
+\frac{\Gamma,x^h\vdash^ht}{\Gamma\vdash^h\forall x^h.t}
 \]
 \bigskip
 \[
-\frac{\Gamma\vdash_{H}T_{1}\quad\Gamma,x:T_{1}\vdash_{H}e_{H}:T_{2}}{\Gamma\vdash_{H}\lambda x:T_{1}.e_{H}:T_{1}\rightarrow T_{2}}
+\frac{\Gamma\vdash^ht_1\quad\Gamma,x^h:t_1\vdash^he^h:t_2}{\Gamma\vdash^h\lambda x^h:t_1.e^h:t_1\rightarrow t_2}
 \quad
-\frac{\Gamma,X\vdash_{H}e_{H}:T}{\Gamma\vdash_{H}\Lambda X.e_{H}:\forall X.T}
+\frac{\Gamma,x^h\vdash^he^h:t}{\Gamma\vdash^h\Lambda x^h.e^h:\forall x^h.t}
 \quad
-\frac{}{\vdash_{H}\overline{n}:N}
+\frac{}{\vdash^h\overline{n}:\mathtt{N}}
 \]
 \[
-\frac{\Gamma\vdash_{H}T}{\Gamma\vdash_{H}\mathtt{nil}^{T}:[T]}
+\frac{\Gamma\vdash^ht}{\Gamma\vdash^h\mathtt{nil}\;t:[t]}
 \quad
-\frac{\Gamma\vdash_{H}e_{H}^{1}:T\quad\Gamma\vdash_{H}e_{H}^{2}:[T]}{\Gamma\vdash_{H}\mathtt{cons}\;e_{H}^{1}\;e_{H}^{2}:[T]}
+\frac{\Gamma\vdash^he^h_1:t\quad\Gamma\vdash^he^h_2:[t]}{\Gamma\vdash^h\mathtt{cons}\;e^h_1\;e^h_2:[t]}
 \quad
-\frac{x:T\in\Gamma}{\Gamma\vdash_{H}x:T}
+\frac{}{\Gamma,x^h:t\vdash^hx^h:t}
 \]
 \[
-\frac{\Gamma\vdash_{H}e_{H}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{H}e_{H}^{2}:T_{1}}{\Gamma\vdash_{H}e_{H}^{1}\;e_{H}^{2}:T_{2}}
+\frac{\Gamma\vdash^he^h_1:t_1\rightarrow t_2\quad\Gamma\vdash^he^h_2:t_1}{\Gamma\vdash^he^h_1\;e^h_2:t_2}
 \quad
-\frac{\Gamma\vdash_{H}e_{H}:T\rightarrow T}{\Gamma\vdash_{H}\mathtt{fix}\;e_{H}:T}
+\frac{\Gamma\vdash^he^h:t\rightarrow t}{\Gamma\vdash^h\mathtt{fix}\;e^h:t}
 \]
 \[
-\frac{\Gamma\vdash_{H}T_{1}\quad\Gamma\vdash_{H}e_{H}:\forall X.T_{2}}{\Gamma\vdash_{H}e_{H}\;\lbrace T_{1}\rbrace:T_{2}[T_{1}/X]}
+\frac{\Gamma\vdash^ht_1\quad\Gamma\vdash^he^h:\forall x^h.t_2}{\Gamma\vdash^he^h\;\lbrace t_1\rbrace:t_2[t_1/x^h]}
 \quad
-\frac{\Gamma\vdash_{H}e_{H}:[T]}{\Gamma\vdash_{H}\mathtt{hd}\;e_{H}:T}
+\frac{\Gamma\vdash^he^h:[t]}{\Gamma\vdash^h\mathtt{hd}\;e^h:t}
 \quad
-\frac{\Gamma\vdash_{H}e_{H}:[T]}{\Gamma\vdash_{H}\mathtt{tl}\;e_{H}:[T]}
+\frac{\Gamma\vdash^he^h:[t]}{\Gamma\vdash^h\mathtt{tl}\;e^h:[t]}
 \]
 \[
-\frac{\Gamma\vdash_{H}e_{H}^{1}:N\quad\Gamma\vdash_{H}e_{H}^{2}:N}{\Gamma\vdash_{H}o\;e_{H}^{1}\;e_{H}^{2}:N}
+\frac{\Gamma\vdash^he^h_1:n\quad\Gamma\vdash^he^h_2:n}{\Gamma\vdash^ho\;e^h_1\;e^h_2:n}
 \quad
-\frac{\Gamma\vdash_{H}e_{H}:[T]}{\Gamma\vdash_{H}\mathtt{null?}\;e_{H}:N}
+\frac{\Gamma\vdash^he^h:[t]}{\Gamma\vdash^h\mathtt{null?}\;e^h:n}
 \]
 \[
-\frac{\Gamma\vdash_{H}e_{H}^{1}:N\quad\Gamma\vdash_{H}e_{H}^{2}:T\quad\Gamma\vdash_{H}e_{H}^{3}:T}{\Gamma\vdash_{H}\mathtt{if0}\;e_{H}^{1}\;e_{H}^{2}\;e_{H}^{3}:T}
+\frac{\Gamma\vdash^he^h_1:n\quad\Gamma\vdash^he^h_2:t\quad\Gamma\vdash^he^h_3:t}{\Gamma\vdash^h\mathtt{if0}\;e^h_1\;e^h_2\;e^h_3:t}
 \quad
-\frac{\Gamma\vdash_{H}T}{\Gamma\vdash_{H}\mathtt{wrong}^{T}\;\mathrm{string}:T}
+\frac{\Gamma\vdash^ht}{\Gamma\vdash^h\mathtt{wrong}\;t\;\mathrm{string}:t}
 \]
 \[
-\frac{\Gamma\vdash_{H}T\quad\Gamma\vdash_{M}T\quad\Gamma\vdash_{M}e_{M}:T}{\Gamma\vdash_{H}{^{T}H}M\;e_{M}:T}
+\frac{\Gamma\vdash^ht\quad\Gamma\vdash^me^m:t}{\Gamma\vdash^h\mathtt{hm}\;t\;e^m:t}
 \quad
-\frac{\Gamma\vdash_{H}T\quad\Gamma\vdash_{S}e_{S}:TST}{\Gamma\vdash_{H}{^{T}H}S\;e_{S}:T[T_{i}/T_{i}^{a}]}
+\frac{\Gamma\vdash^ht\quad\Gamma\vdash^se^s:TST}{\Gamma\vdash^h\mathtt{hs}\;t\;e^s:t[t_i/t_i.x^h]}
 \]
 \caption{Haskell typing rules}
 \label{htr}
