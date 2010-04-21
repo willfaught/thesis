@@ -22,15 +22,15 @@ $\mathscr{E}[\mathtt{hm}$ $[t]$ $(\mathtt{nil}$ $t)]^h\rightarrow\mathscr{E}[\ma
 
 $\mathscr{E}[\mathtt{hm}$ $[t]$ $(\mathtt{cons}$ $v^m_1$ $v^m_2)]^h\rightarrow\mathscr{E}[\mathtt{cons}$ $(\mathtt{hm}$ $t$ $v^m_1)$ $(\mathtt{hm}$ $[t]$ $v^m_2)]$ \\
 
-% hm (t -> t) (\ x : t . e)
+% hm (t->t) (\x:t.e)
 
-$\mathscr{E}[\mathtt{hm}$ $(t_1\rightarrow t_2)$ $(\lambda x^m:t_1.e^m)]^h\rightarrow\mathscr{E}[\lambda x^h:t_1.(\mathtt{hm}$ $t_2$ $((\lambda x^m:t_1.e^m)$ $(\mathtt{mh}$ $t_1$ $x^h)))]$ \\
+$\mathscr{E}[\mathtt{hm}$ $(t_1\rightarrow t_2)$ $(\lambda x^m:t_1.e^m)]^h\rightarrow\mathscr{E}[\lambda x^h:t_1.\mathtt{hm}$ $t_2$ $((\lambda x^m:t_1.e^m)$ $(\mathtt{mh}$ $t_1$ $x^h))]$ \\
 
-% hm (A x . t) (\\ x . e)
+% hm (Ax.t) (\\x.e)
 
 $\mathscr{E}[\mathtt{hm}$ $(\forall x^h.t)$ $(\Lambda x^m.e^m)]^h\rightarrow\mathscr{E}[\Lambda x^h.\mathtt{hm}$ $t$ $e^m]$ \\
 
-% hm (A x . t) (ms (A x . t) v)
+% hm (Ax.t) (ms (Ax.t) v)
 
 $\mathscr{E}[\mathtt{hm}$ $(\forall x^h.t)$ $(\mathtt{ms}$ $(\forall x^h.t)$ $v^s)]^h\rightarrow\mathscr{E}[\mathtt{hs}$ $(\forall x^h.t)$ $v^s]$ \\
 
