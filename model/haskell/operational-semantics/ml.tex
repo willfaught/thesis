@@ -2,22 +2,22 @@
 \centering
 \begin{tabular}{l}
 % hm - mh
-$\mathscr{E}[^{T}HM$ $(^{T}MH$ $e_{H})]_{H}\rightarrow\mathscr{E}[e_{H}]$ \\
-% hm - lump
-$\mathscr{E}[^{L}HM$ $(^{L}MS$ $v_{S})]_{H}\rightarrow\mathscr{E}[^{L}HS$ $v_{S}]$ \\
-% hm - number
-$\mathscr{E}[^{N}HM$ $\overline{n}]_{H}\rightarrow\mathscr{E}[\overline{n}]$ \\
-% hm - list - nil
-$\mathscr{E}[^{[T]}HM$ $\mathtt{nil}^{T}]_{H}\rightarrow\mathscr{E}[\mathtt{nil}^{T}]$ \\
-% hm - list - cons
-$\mathscr{E}[^{[T]}HM$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{H}\rightarrow\mathscr{E}[\mathtt{cons}$ $(^{T}HM$ $v_{M}^{1})$ $(^{[T]}HM$ $v_{M}^{2})]$ \\
-% hm - function
-$\mathscr{E}[^{T_{1}\rightarrow T_{2}}HM$ $(\lambda x_{1}:T_{1}.e_{M})]_{H}\rightarrow$ \\
-$\quad\mathscr{E}[\lambda x_{2}:T_{1}.(^{T_{2}}HM$ $((\lambda x_{1}:T_{1}.e_{M})$ $(^{T_{1}}MH$ $x_{2})))]$ \\
-% hm - universal
-$\mathscr{E}[^{\forall X.T}HM$ $(\Lambda X.e_{M})]_{H}\rightarrow\mathscr{E}[\Lambda X.(^{T}HM$ $e_{M})]$ \\
-% hm - universal ms
-$\mathscr{E}[^{\forall X.T}HM$ $(^{\forall X.T}MS$ $v_{S})]_{H}\rightarrow\mathscr{E}[^{\forall X.T}HS$ $v_{S}]$ \\
+$\mathscr{E}[\mathtt{hm}$ $t$ $(\mathtt{mh}$ $t$ $e^h)]^h\rightarrow\mathscr{E}[e^h]$
+% \mathtt{hm} - lump
+$\mathscr{E}[\mathtt{hm}$ $\mathtt{L}$ $(\mathtt{ms}$ $\mathtt{L}$ $v^s)]^h\rightarrow\mathscr{E}[\mathtt{hs}$ $\mathtt{L}$ $v^s]$ \\
+% \mathtt{hm} - number
+$\mathscr{E}[\mathtt{hm}$ $\mathtt{N}$ $\overline{n}]^h\rightarrow\mathscr{E}[\overline{n}]$ \\
+% \mathtt{hm} - list - nil
+$\mathscr{E}[\mathtt{hm}$ $[t]$ $(\mathtt{nil}$ $t)]^h\rightarrow\mathscr{E}[\mathtt{nil}$ $t]$ \\
+% \mathtt{hm} - list - cons
+$\mathscr{E}[\mathtt{hm}$ $[t]$ $(\mathtt{cons}$ $v^m_1$ $v^m_2)]^h\rightarrow\mathscr{E}[\mathtt{cons}$ $(\mathtt{hm}$ $$ $v^m_1)$ $(^{[t]}\mathtt{hm}$ $v^m_2)]$ \\
+% \mathtt{hm} - function
+$\mathscr{E}[^{t_{1}\rightarrow t_{2}}\mathtt{hm}$ $(\lambda x^h_{1}:t_{1}.e^m)]^h\rightarrow$ \\
+$\quad\mathscr{E}[\lambda x^h_{2}:t_{1}.(^{t_{2}}\mathtt{hm}$ $((\lambda x^h_{1}:t_{1}.e^m)$ $(^{t_{1}}\mathtt{mh}$ $x^h_{2})))]$ \\
+% \mathtt{hm} - universal
+$\mathscr{E}[^{\forall x^h.t}\mathtt{hm}$ $(\Lambda x^h.e^m)]^h\rightarrow\mathscr{E}[\Lambda x^h.(\mathtt{hm}$ $$ $e^m)]$ \\
+% \mathtt{hm} - universal \mathtt{ms}
+$\mathscr{E}[^{\forall x^h.t}\mathtt{hm}$ $(^{\forall x^h.t}\mathtt{ms}$ $v^s)]^h\rightarrow\mathscr{E}[\mathtt{hs}$ $\forall x^h.t$ $v^s]$ \\
 \end{tabular}
 \caption{Haskell-ML operational semantics}
 \label{hmos}
