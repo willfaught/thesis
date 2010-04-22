@@ -1,25 +1,29 @@
 \begin{figure}[p]
 \centering
 \begin{tabular}{rcl}
-% Expressions
-$e_{M}$ & $=$ & $v_{M}\;|\;x\;|\;e_{M}\;e_{M}\;|\;\mathtt{fix}\;e_{M}\;|\;e_{M}\;\lbrace T\rbrace\;|\;\mathtt{cons}\;e_{M}\;e_{M}\;|\;f\;e_{M}\;|\;o\;e_{M}\;e_{M}$ \\
-&& $|\;\mathtt{null?}\;e_{M}\;|\;\mathtt{if0}\;e_{M}\;e_{M}\;e_{M}\;|\;\mathtt{wrong}^{T}$ string $|\;^{T}MS\;e_{S}$ \\
-% Unforced values
-$v_{M}$ & $=$ & $w_{M}\;|\;^{T}MH\;e_{H}$ \\
-% Forced values
-$w_{M}$ & $=$ & $\lambda x:T.e_{M}\;|\;\Lambda X.e_{M}\;|\;\overline{n}\;|\;\mathtt{nil}^{T}\;|\;\mathtt{cons}\;v_{M}\;v_{M}\;|\;^{L}MS\;v_{S}\;|\;^{\forall X.T}MS\;v_{S}$ \\
-% Types
-$T$ & $=$ & $L\;|\;N\;|\;X\;|\;[T]\;|\;T^{a}\;|\;T\rightarrow T\;|\;\forall X.T$ \\
-% List operators
-$f$ & $=$ & $\mathtt{hd}\;|\;\mathtt{tl}$ \\
-% Arithmetic operators
-$o$ & $=$ & $+\;|\;-$ \\
-% Unforced evaluation contexts
-$E_{M}$ & $=$ & $[\,]_{M}\;|\;F_{M}\;e_{M}\;|\;w_{M}\;E_{M}\;|\;\mathtt{fix}\;F_{M}\;|\;F_{M}\;\lbrace T\rbrace\;|\;\mathtt{cons}\;E_{M}\;e_{M}$ \\
-&& $|\;\mathtt{cons}\;v_{M}\;E_{M}\;|\;f\;F_{M}\;|\;o\;F_{M}\;e_{M}\;|\;o\;w_{M}\;F_{M}\;|\;\mathtt{null?}\;F_{M}$ \\
-&& $|\;\mathtt{if0}\;F_{M}\;e_{M}\;e_{M}\;|\;^{T}MS\;E_{S}$ \\
-% Forced evaluation contexts
-$F_{M}$ & $=$ & $E_{M}\;|\;^{T}MH\;E_{H}$
+
+$e^m$ & $=$ & $x^m$ $|$ $v^m$ $|$ $e^m$ $e^m$ $|$ $e^m$ $\lbrace t\rbrace$ $|$ $\mathtt{fix}$ $e^m$ $|$ $o$ $e^m$ $e^m$ $|$ $\mathtt{if0}$ $e^m$ $e^m$ $e^m$ \\
+
+&& $\mathtt{cons}$ $e^m$ $e^m$ $|$ $f$ $e^m$ $|$ $\mathtt{null?}$ $e^m$ $|$ $\mathtt{wrong}$ $t$ string $|$ $\mathtt{ms}$ $t$ $e^s$ \\
+
+$v^m$ & $=$ & $w^m$ $|$ $\mathtt{mh}$ $t$ $e^h$ \\
+
+$w^m$ & $=$ & $\lambda x^m:t.e^m$ $|$ $\Lambda x^m.e^m$ $|$ $\overline{n}$ $|$ $\mathtt{nil}$ $t$ $|$ $\mathtt{cons}$ $v^m$ $v^m$ $|$ $\mathtt{ms}$ $\mathtt{L}$ $v^s$ $|$ $\mathtt{ms}$ $(\forall x^m.t)$ $v^s$ \\
+
+$t$ & $=$ & $\mathtt{L}$ $|$ $\mathtt{N}$ $|$ $x^m$ $|$ $[t]$ $|$ $t.x^m$ $|$ $t\rightarrow t$ $|$ $\forall x^m.t$ \\
+
+$o$ & $=$ & $+$ $|$ $-$ \\
+
+$f$ & $=$ & $\mathtt{hd}$ $|$ $\mathtt{tl}$ \\
+
+$E^m$ & $=$ & $[\,]^m$ $|$ $F^m$ $e^m$ $|$ $w^m$ $E^m$ $|$ $F^m$ $\lbrace t\rbrace$ $|$ $\mathtt{fix}$ $F^m$ $|$ $o$ $F^m$ $e^m$ $|$ $o$ $w^m$ $F^m$ \\
+
+&& $\mathtt{if0}$ $F^m$ $e^m$ $e^m$ $|$ $\mathtt{cons}$ $E^m$ $e^m$ $|$ $\mathtt{cons}$ $v^m$ $E^m$ $|$ $f$ $F^m$ $|$ $\mathtt{null?}$ $F^m$ \\
+
+&& $\mathtt{ms}$ $t$ $E^s$ \\
+
+$F^m$ & $=$ & $E^m$ $|$ $\mathtt{mh}$ $t$ $E^h$
+
 \end{tabular}
 \caption{ML grammar and evaluation contexts}
 \label{mg}

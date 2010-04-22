@@ -1,20 +1,22 @@
 \begin{figure}[p]
 \centering
 \begin{tabular}{rcl}
-% Expressions
-$e^h$ & $=$ & $x^h\;|\;v^h\;|\;e^h\;e^h\;|\;e^h\;\lbrace t\rbrace\;|\;\mathtt{fix}\;e^h\;|\;o\;e^h\;e^h\;|\;\mathtt{if0}\;e^h\;e^h\;e^h\;|\;f\;e^h\;|\;\mathtt{null?}\;e^h$ \\
-&& $\mathtt{wrong}\;t$ string $|\;\mathtt{hm}\;t\;e^m\;|\;\mathtt{hs}\;t\;e^s$ \\
-% Unforced values
-$v^h$ & $=$ & $\lambda x^h:t.e^h\;|\;\Lambda x^h.e^h\;|\;\overline{n}\;|\;\mathtt{nil}\;t\;|\;\mathtt{cons}\;e^h\;e^h\;|\;\mathtt{hs}\;\mathtt{L}\;v^s\;|\;\mathtt{hs}\;(\forall x^h.t)\;v^s$ \\
-% types
-$t$ & $=$ & $\mathtt{L}\;|\;\mathtt{N}\;|\;x^h\;|\;[t]\;|\;t.x^h\;|\;t\rightarrow t\;|\;\forall x^h.t$ \\
-% list operators
-$f$ & $=$ & $\mathtt{hd}\;|\;\mathtt{tl}$ \\
-% Arithmetic operators
-$o$ & $=$ & $+\;|\;-$ \\
-% Unforced evaluation contexts
-$E^h$ & $=$ & $[\,]^h\;|\;E^h\;e^h\;|\;E^h\;\lbrace t\rbrace\;|\;\mathtt{fix}\;E^h\;|\;o\;E^h\;e^h\;|\;o\;v^h\;E^h\;|\;\mathtt{if0}\;E^h\;e^h\;e^h$ \\
-&& $f\;E^h\;|\;\mathtt{null?}\;E^h\;|\;\mathtt{hm}\;t\;E^m\;|\;\mathtt{hs}\;t\;E^s$
+
+$e^h$ & $=$ & $x^h$ $|$ $v^h$ $|$ $e^h$ $e^h$ $|$ $e^h$ $\lbrace t\rbrace$ $|$ $\mathtt{fix}$ $e^h$ $|$ $o$ $e^h$ $e^h$ $|$ $\mathtt{if0}$ $e^h$ $e^h$ $e^h$ $|$ $f$ $e^h$ $|$ $\mathtt{null?}$ $e^h$ \\
+
+&& $\mathtt{wrong}$ $t$ string $|$ $\mathtt{hm}$ $t$ $e^m$ $|$ $\mathtt{hs}$ $t$ $e^s$ \\
+
+$v^h$ & $=$ & $\lambda x^h:t.e^h$ $|$ $\Lambda x^h.e^h$ $|$ $\overline{n}$ $|$ $\mathtt{nil}$ $t$ $|$ $\mathtt{cons}$ $e^h$ $e^h$ $|$ $\mathtt{hs}$ $\mathtt{L}$ $v^s$ $|$ $\mathtt{hs}$ $(\forall x^h.t)$ $v^s$ \\
+
+$t$ & $=$ & $\mathtt{L}$ $|$ $\mathtt{N}$ $|$ $x^h$ $|$ $[t]$ $|$ $t.x^h$ $|$ $t\rightarrow t$ $|$ $\forall x^h.t$ \\
+
+$o$ & $=$ & $+$ $|$ $-$ \\
+
+$f$ & $=$ & $\mathtt{hd}$ $|$ $\mathtt{tl}$ \\
+
+$E^h$ & $=$ & $[\,]^h$ $|$ $E^h$ $e^h$ $|$ $E^h$ $\lbrace t\rbrace$ $|$ $\mathtt{fix}$ $E^h$ $|$ $o$ $E^h$ $e^h$ $|$ $o$ $v^h$ $E^h$ $|$ $\mathtt{if0}$ $E^h$ $e^h$ $e^h$ \\
+&& $f$ $E^h$ $|$ $\mathtt{null?}$ $E^h$ $|$ $\mathtt{hm}$ $t$ $E^m$ $|$ $\mathtt{hs}$ $t$ $E^s$
+
 \end{tabular}
 \caption{Haskell grammar and evaluation contexts}
 \label{hg}

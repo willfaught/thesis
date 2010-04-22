@@ -1,61 +1,61 @@
 \begin{figure}[p]
 \[
-\frac{}{\vdash_{H}L}
+\frac{}{\vdash^m\mathtt{L}}
 \quad
-\frac{}{\vdash_{H}N}
+\frac{}{\vdash^m\mathtt{\mathtt{N}}}
 \quad
-\frac{X\in\Gamma}{\Gamma\vdash_{H}X}
+\frac{}{\Gamma,x^m\vdash^mx^m}
 \]
 \[
-\frac{\Gamma\vdash_{H}T}{\Gamma\vdash_{H}[T]}
+\frac{\Gamma\vdash^mt}{\Gamma\vdash^m[t]}
 \quad
-\frac{\Gamma\vdash_{H}T}{\Gamma\vdash_{H}T^{a}}
+\frac{\Gamma\vdash^mt}{\Gamma\vdash^mt.x^m}
 \quad
-\frac{\Gamma\vdash_{H}T_{1}\quad\Gamma\vdash_{H}T_{2}}{\Gamma\vdash_{H}T_{1}\rightarrow T_{2}}
+\frac{\Gamma\vdash^mt_{1}\quad\Gamma\vdash^mt_{2}}{\Gamma\vdash^mt_{1}\rightarrow t_{2}}
 \quad
-\frac{\Gamma ,X\vdash_{H}T}{\Gamma\vdash_{H}\forall X.T}
+\frac{\Gamma ,x^m\vdash^mt}{\Gamma\vdash^m\forall x^m.t}
 \]
 \bigskip
 \[
-\frac{\Gamma\vdash_{M}T_{1}\quad\Gamma,x:T_{1}\vdash_{M}e_{M}:T_{2}}{\Gamma\vdash_{M}\lambda x:T_{1}.e_{M}:T_{1}\rightarrow T_{2}}
+\frac{\Gamma\vdash^mt_{1}\quad\Gamma,x:t_{1}\vdash^me^m:t_{2}}{\Gamma\vdash^m\lambda x:t_{1}.e^m:t_{1}\rightarrow t_{2}}
 \quad
-\frac{\Gamma,X\vdash_{M}e_{M}:T}{\Gamma\vdash_{M}\Lambda X.e_{M}:\forall X.T}
+\frac{\Gamma,x^m\vdash^me^m:t}{\Gamma\vdash^m\Lambda x^m.e^m:\forall x^m.t}
 \quad
-\frac{}{\vdash_{M}\overline{n}:N}
+\frac{}{\vdash^m\overline{n}:\mathtt{N}}
 \]
 \[
-\frac{\Gamma\vdash_{M}T}{\Gamma\vdash_{M}\mathtt{nil}^{T}:[T]}
+\frac{\Gamma\vdash^mt}{\Gamma\vdash^m\mathtt{nil}\;t:[t]}
 \quad
-\frac{\Gamma\vdash_{M}e_{M}^{1}:T\quad\Gamma\vdash_{M}e_{M}^{2}:[T]}{\Gamma\vdash_{M}\mathtt{cons}\;e_{M}^{1}\;e_{M}^{2}:[T]}
+\frac{\Gamma\vdash^me^m_1:t\quad\Gamma\vdash^me^m_2:[t]}{\Gamma\vdash^m\mathtt{cons}\;e^m_1\;e^m_2:[t]}
 \quad
-\frac{x:T\in\Gamma}{\Gamma\vdash_{M}x:T}
+\frac{}{\Gamma,x^m:t\vdash^mx^m:t}
 \]
 \[
-\frac{\Gamma\vdash_{M}e_{M}^{1}:T_{1}\rightarrow T_{2}\quad\Gamma\vdash_{M}e_{M}^{2}:T_{1}}{\Gamma\vdash_{M}e_{M}^{1}\;e_{M}^{2}:T_{2}}
+\frac{\Gamma\vdash^me^m_1:t_{1}\rightarrow t_{2}\quad\Gamma\vdash^me^m_2:t_{1}}{\Gamma\vdash^me^m_1\;e^m_2:t_{2}}
 \quad
-\frac{\Gamma\vdash_{M}e_{M}:T\rightarrow T}{\Gamma\vdash_{M}\mathtt{fix}\;e_{M}:T}
+\frac{\Gamma\vdash^me^m:t\rightarrow t}{\Gamma\vdash^m\mathtt{fix}\;e^m:t}
 \]
 \[
-\frac{\Gamma\vdash_{M}T_{1}\quad\Gamma\vdash_{M}e_{M}:\forall X.T_{2}}{\Gamma\vdash_{M}e_{M}\;\lbrace T_{1}\rbrace:T_{2}[T_{1}/X]}
+\frac{\Gamma\vdash^mt_{1}\quad\Gamma\vdash^me^m:\forall x^m.t_{2}}{\Gamma\vdash^me^m\;\lbrace t_{1}\rbrace:t_{2}[t_{1}/x^m]}
 \quad
-\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{hd}\;e_{M}:T}
+\frac{\Gamma\vdash^me^m:[t]}{\Gamma\vdash^m\mathtt{hd}\;e^m:t}
 \quad
-\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{tl}\;e_{M}:[T]}
+\frac{\Gamma\vdash^me^m:[t]}{\Gamma\vdash^m\mathtt{tl}\;e^m:[t]}
 \]
 \[
-\frac{\Gamma\vdash_{M}e_{M}^{1}:N\quad\Gamma\vdash_{M}e_{M}^{2}:N}{\Gamma\vdash_{M}o\;e_{M}^{1}\;e_{M}^{2}:N}
+\frac{\Gamma\vdash^me^m_1:\mathtt{N}\quad\Gamma\vdash^me^m_2:\mathtt{N}}{\Gamma\vdash^mo\;e^m_1\;e^m_2:\mathtt{N}}
 \quad
-\frac{\Gamma\vdash_{M}e_{M}:[T]}{\Gamma\vdash_{M}\mathtt{null?}\;e_{M}:N}
+\frac{\Gamma\vdash^me^m:[t]}{\Gamma\vdash^m\mathtt{null?}\;e^m:\mathtt{N}}
 \]
 \[
-\frac{\Gamma\vdash_{M}e_{M}^{1}:N\quad\Gamma\vdash_{M}e_{M}^{2}:T\quad\Gamma\vdash_{M}e_{M}^{3}:T}{\Gamma\vdash_{M}\mathtt{if0}\;e_{M}^{1}\;e_{M}^{2}\;e_{M}^{3}:T}
+\frac{\Gamma\vdash^me^m_1:\mathtt{N}\quad\Gamma\vdash^me^m_2:t\quad\Gamma\vdash^me^m_3:t}{\Gamma\vdash^m\mathtt{if0}\;e^m_1\;e^m_2\;e^m_3:t}
 \quad
-\frac{\Gamma\vdash_{M}T}{\Gamma\vdash_{M}\mathtt{wrong}^{T}\;\mathrm{string}:T}
+\frac{\Gamma\vdash^mt}{\Gamma\vdash^m\mathtt{wrong}\;t\;\mathrm{string}:t}
 \]
 \[
-\frac{\Gamma\vdash_{M}T\quad\Gamma\vdash_{H}T\quad\Gamma\vdash_{H}e_{H}:T}{\Gamma\vdash_{M}{^{T}M}H\;e_{H}:T}
+\frac{\Gamma\vdash^mt\quad\Gamma\vdash^he^h:t}{\Gamma\vdash^m\mathtt{mh}\;t\;e^h:t}
 \quad
-\frac{\Gamma\vdash_{M}T\quad\Gamma\vdash_{S}e_{S}:TST}{\Gamma\vdash_{M}{^{T}M}S\;e_{S}:T[T_{i}/T^{a}_{i}]}
+\frac{\Gamma\vdash^mt\quad\Gamma\vdash^se^s:TST}{\Gamma\vdash^m\mathtt{ms}\;t\;e^s:t[t_{i}/t.x^m_{i}]}
 \]
 \caption{ML typing rules}
 \label{mtr}
