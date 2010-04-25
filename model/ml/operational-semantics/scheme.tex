@@ -1,29 +1,31 @@
 \begin{figure}[p]
 \centering
 \begin{tabular}{l}
-% ms - sh
-$\mathscr{E}[^{[T]}MS$ $(SH^{[T]}$ $e_{H})]_{M}\rightarrow\mathscr{E}[^{[T]}MH^{[T]}$ $e_{H}]$ \\
-% ms - number
-$\mathscr{E}[^{N}MS$ $\overline{n}]_{M}\rightarrow\mathscr{E}[\overline{n}]$ \\
-% ms - number error
-$\mathscr{E}[^{N}MS$ $v_{S}]_{M}\rightarrow\mathscr{E}[\mathtt{wrong}^{N}$ ``Not a number"$]$ $(v_{S}\neq\overline{n})$ \\
-% ms - list - nil
-$\mathscr{E}[^{[T]}MS$ $\mathtt{nil}]_{M}\rightarrow\mathscr{E}[\mathtt{nil}^{T[T_{i}/T_{i}^{a}]}]$ \\
-% ms - list - cons
-$\mathscr{E}[^{[T]}MS$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{M}\rightarrow\mathscr{E}[\mathtt{cons}$ $(^{T}MS$ $v_{S}^{1})$ $(^{[T]}MS$ $v_{S}^{2})]$ \\
-% ms - list error
-$\mathscr{E}[^{[T]}MS$ $v_{S}^{1}]_{M}\rightarrow\mathscr{E}[\mathtt{wrong}^{[T[T_{i}/T_{i}^{a}]]}$ ``Not a list"$]$ \\
-$\quad(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
-% ms - label
-$\mathscr{E}[^{T^{a}}MS$ $(SM^{T^{a}}$ $v_{M})]_{M}\rightarrow\mathscr{E}[v_{M}]$ \\
-% ms - label error
-$\mathscr{E}[^{T^{a}}MS$ $v_{S}]_{M}\rightarrow\mathscr{E}[\mathtt{wrong}^{T}$ ``Parametricity violated"$]$ $(v_{S}\neq SM^{T^{a}}$ $v_{M})$ \\
-% ms - function
-$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS$ $(\lambda x_{1}.e_{S})]_{M}\rightarrow\mathscr{E}[\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}MS$ $((\lambda x_{1}.e_{S})$ $(SM^{T_{1}}$ $x_{2})))]$ \\
-% ms - function error
-$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MS$ $v_{S}]_{M}\rightarrow\mathscr{E}[\mathtt{wrong}^{(T_{1}\rightarrow T_{2})[T_{i}/T_{i}^{a}]}$ ``Not a function"$]$ $(v_{S}\neq\lambda x.e_{S})$ \\
-% ms - universal
-$\mathscr{E}[(^{\forall X.T_{1}}MS$ $v_{S})$ $\lbrace T_{2}\rbrace]_{M}\rightarrow\mathscr{E}[^{T_{1}[T^{a}_{2}/X]}MS$ $v_{S}]$
+
+$\mathscr{E}[\mathtt{ms}$ $[t]$ $(\mathtt{sh}$ $[t]$ $e^h)]^m\rightarrow\mathscr{E}[\mathtt{mh}$ $[t]$ $e^h]$ \\
+
+$\mathscr{E}[\mathtt{ms}$ $\mathtt{N}$ $\overline{n}]^m\rightarrow\mathscr{E}[\overline{n}]$ \\
+
+$\mathscr{E}[\mathtt{ms}$ $\mathtt{N}$ $v^s]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $\mathtt{N}$ ``Not a number"$]$ $(v^s\neq\overline{n})$ \\
+
+$\mathscr{E}[\mathtt{ms}$ $[t]$ $\mathtt{nil}]^m\rightarrow\mathscr{E}[\mathtt{nil}$ $t[t_i/t_i.x^m]]$ \\
+
+$\mathscr{E}[\mathtt{ms}$ $[t]$ $(\mathtt{cons}$ $v^s_1$ $v^s_2)]^m\rightarrow\mathscr{E}[\mathtt{cons}$ $(\mathtt{ms}$ $t$ $v^s_1)$ $(\mathtt{ms}$ $[t]$ $v^s_2)]$ \\
+
+$\mathscr{E}[\mathtt{ms}$ $[t]$ $v^s_1]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $t[t_i/t_i.x^m]$ ``Not a list"$]$ \\
+
+$\quad\quad(v^s_1\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v^s_2$ $v^s_3,\mathtt{sh}$ $[t]$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)\rbrace)$ \\
+
+$\mathscr{E}[\mathtt{ms}$ $(t.x^m)$ $(\mathtt{sm}$ $(t.x^m)$ $v^m)]^m\rightarrow\mathscr{E}[v^m]$ \\
+
+$\mathscr{E}[\mathtt{ms}$ $(t.x^m)$ $v^s]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $t$ ``Parametricity violated"$]$ $(v^s\neq \mathtt{sm}$ $(t.x^m)$ $v^m)$ \\
+
+$\mathscr{E}[\mathtt{ms}$ $(t_1\rightarrow t_2)$ $(\lambda x^s.e^s)]^m\rightarrow\mathscr{E}[\lambda x^m:t_1[t_i/t_i.x^m].\mathtt{ms}$ $t_2$ $((\lambda x^s.e^s)$ $(\mathtt{sm}$ $t_1$ $x^m))]$ \\
+
+$\mathscr{E}[\mathtt{ms}$ $(t_1\rightarrow t_2)$ $v^s]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $(t_1\rightarrow t_2)[t_i/t_i.x^m]$ ``Not a function"$]$ $(v^s\neq\lambda x^s.e^s)$ \\
+
+$\mathscr{E}[(\mathtt{ms}$ $(\forall x^m.t_1)$ $v^s)$ $\lbrace t_2\rbrace]^m\rightarrow\mathscr{E}[\mathtt{ms}$ $t_1[t_2.x^m/x^m]$ $v^s]$
+
 \end{tabular}
 \caption{ML-Scheme operational semantics}
 \label{msos}

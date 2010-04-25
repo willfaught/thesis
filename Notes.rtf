@@ -61,4 +61,21 @@ Eager: works, value, must force thunks\
 REDUCTION RULES PUTTING TYPE FROM ONE LANG IN ANOTHER\
 \
 Okay since can't have tyvars inside, otherwise wouldn't be reducing or ill-typed\
-}
+\
+==\
+\
+FIXED POINT OPERATIONS\
+\
+Operand types are the same for H and M (t->t) because the same definition works for both H and M, it doesn't diverge in M because application isn't used to substitute.\
+\
+==\
+\
+STRIPPING LABELS\
+\
+Reduction rules must strip labels because the expressions the underlying types are put into are expected to have the underlying types.  If not, the outer expression would be ill-typed.  An alternative would be to strip the labels in the typing rules, like they are for guards.\
+\
+==\
+\
+WHY LABELS ON H/M IMPORTATIONS ARE NEEDED\
+\
+For the matching labels mechanism. Otherwise, not needed.}
