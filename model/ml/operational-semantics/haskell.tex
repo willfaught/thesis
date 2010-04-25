@@ -1,19 +1,21 @@
 \begin{figure}[p]
 \centering
 \begin{tabular}{l}
-% mh - lump
-$\mathscr{E}[^{L}MH$ $(^{L}HS$ $v_{S})]_{M}\rightarrow\mathscr{E}[^{L}MS$ $v_{S}]$ \\
-% mh - number
-$\mathscr{E}[^{N}MH$ $\overline{n}]_{M}\rightarrow\mathscr{E}[\overline{n}]$ \\
-% mh - list - nil
-$\mathscr{E}[^{[T]}MH$ $\mathtt{nil}^{T}]_{M}\rightarrow\mathscr{E}[\mathtt{nil}^{T}]$ \\
-% mh - function
-$\mathscr{E}[^{T_{1}\rightarrow T_{2}}MH$ $(\lambda x_{1}:T_{1}.e_{H})]_{M}\rightarrow$ \\
-$\quad\mathscr{E}[\lambda x_{2}:T_{1}.(^{T_{2}}MH$ $((\lambda x_{1}:T_{1}.e_{H})$ $(^{T_{1}}HM$ $x_{2})))]$ \\
-% mh - universal
-$\mathscr{E}[^{\forall X.T}MH$ $(\Lambda X.e_{H})]_{M}\rightarrow\mathscr{E}[\Lambda X.(^{T}MH$ $e_{H})]$ \\
-% mh - universal hs
-$\mathscr{E}[^{\forall X.T}MH$ $(^{\forall X.T}HS$ $v_{S})]_{M}\rightarrow\mathscr{E}[^{\forall X.T}MS$ $v_{S}]$ \\
+
+$\mathscr{E}[\mathtt{mh}$ $\mathtt{L}$ $(\mathtt{hs}$ $\mathtt{L}$ $v^s)]^m\rightarrow\mathscr{E}[\mathtt{ms}$ $\mathtt{L}$ $v^s]$ \\
+
+$\mathscr{E}[\mathtt{mh}$ $\mathtt{N}$ $\overline{n}]^m\rightarrow\mathscr{E}[\overline{n}]$ \\
+
+$\mathscr{E}[\mathtt{mh}$ $[t]$ $(\mathtt{nil}$ $t)]^m\rightarrow\mathscr{E}[\mathtt{nil}$ $t]$ \\
+
+$\mathscr{E}[\mathtt{mh}$ $[t]$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^m\rightarrow\mathscr{E}[\mathtt{cons}$ $(\mathtt{mh}$ $t$ $e^h_1)$ $(\mathtt{mh}$ $[t]$ $e^h_2)]$ \\
+
+$\mathscr{E}[\mathtt{mh}$ $(t_1\rightarrow t_2)$ $(\lambda x^h:t_1.e^h)]^m\rightarrow\mathscr{E}[\lambda x^m:t_1.\mathtt{mh}$ $t_2$ $((\lambda x^h:t_1.e^h)$ $(\mathtt{hm}$ $t_1$ $x^m))]$ \\
+
+$\mathscr{E}[\mathtt{mh}$ $(\forall x^m.t)$ $(\Lambda x^m.e^h)]^m\rightarrow\mathscr{E}[\Lambda x^m.\mathtt{mh}$ $t$ $e^h]$ \\
+
+$\mathscr{E}[\mathtt{mh}$ $(\forall x^m.t)$ $(\mathtt{hs}$ $(\forall x^h.t)$ $v^s)]^m\rightarrow\mathscr{E}[\mathtt{ms}$ $(\forall x^m.t)$ $v^s]$ \\
+
 \end{tabular}
 \caption{ML-Haskell operational semantics}
 \label{mhos}
