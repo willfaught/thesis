@@ -1,23 +1,41 @@
 \begin{figure}[p]
 \centering
 \begin{tabular}{l}
-$\mathscr{E}[(\lambda x:T.e_{M})$ $v_{M}]_{M}\rightarrow\mathscr{E}[e_{M}[v_{M}/x]]$ \\
-$\mathscr{E}[\mathtt{fix}$ $(\lambda x:T.e_{M})]_{M}\rightarrow\mathscr{E}[e_{M}[(\mathtt{fix}$ $(\lambda x:T.e_{M}))/x]]$ \\
-$\mathscr{E}[(\Lambda X.e_{M})$ $\lbrace T\rbrace]]_{M}\rightarrow\mathscr{E}[e_{M}[T/X]]$ \\
-$\mathscr{E}[\mathtt{hd}$ $\mathtt{nil}^{T}]_{M}\rightarrow\mathscr{E}[\mathtt{wrong}^{T}$ ``Empty list"$]$ \\
-$\mathscr{E}[\mathtt{tl}$ $\mathtt{nil}^{T}]_{M}\rightarrow\mathscr{E}[\mathtt{wrong}^{[T]}$ ``Empty list"$]$ \\
-$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{M}\rightarrow\mathscr{E}[v_{M}^{1}]$ \\
-$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{M}\rightarrow\mathscr{E}[v_{M}^{2}]$ \\
-$\mathscr{E}[\mathtt{hd}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{M}\rightarrow\mathscr{E}[^{T}MH^{T}$ $e_{H}^{1}]$ \\
-$\mathscr{E}[\mathtt{tl}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{M}\rightarrow\mathscr{E}[^{[T]}MH^{[T]}$ $e_{H}^{2}]$ \\
-$\mathscr{E}[+$ $\overline{n_{1}}$ $\overline{n_{2}}]_{M}\rightarrow\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
-$\mathscr{E}[-$ $\overline{n_{1}}$ $\overline{n_{2}}]_{M}\rightarrow\mathscr{E}[\overline{max(n_{1}-n_{2},0)}]$ \\
-$\mathscr{E}[\mathtt{null?}$ $\mathtt{nil}^{T}]_{M}\rightarrow\mathscr{E}[\overline{0}]$ \\
-$\mathscr{E}[\mathtt{null?}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})]_{M}\rightarrow\mathscr{E}[\overline{1}]$ \\
-$\mathscr{E}[\mathtt{null?}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{M}\rightarrow\mathscr{E}[\overline{1}]$ \\
-$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e_{M}^{1}$ $e_{M}^{2}]_{M}\rightarrow\mathscr{E}[e_{M}^{1}]$ \\
-$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e_{M}^{1}$ $e_{M}^{2}]_{M}\rightarrow\mathscr{E}[e_{M}^{2}]$ $(n\neq0)$ \\
-$\mathscr{E}[\mathtt{wrong}^{T}$ string$]_{M}\rightarrow$ \textbf{Error}: string
+
+$\mathscr{E}[(\lambda x^m:t.e^m)$ $v^m]^m\rightarrow\mathscr{E}[e^m[v^m/x^m]]$ \\
+
+$\mathscr{E}[(\Lambda x^m.e^m)$ $\lbrace t\rbrace]]^m\rightarrow\mathscr{E}[e^m[t/x^m]]$ \\
+
+$\mathscr{E}[\mathtt{fix}$ $(\lambda x^m:t.e^m)]^m\rightarrow\mathscr{E}[e^m[(\mathtt{fix}$ $(\lambda x^m:t.e^m))/x^m]]$ \\
+
+$\mathscr{E}[+$ $\overline{n_{1}}$ $\overline{n_{2}}]^m\rightarrow\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
+
+$\mathscr{E}[-$ $\overline{n_{1}}$ $\overline{n_{2}}]^m\rightarrow\mathscr{E}[\overline{max^m(n_{1}-n_{2},0)}]$ \\
+
+$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e^m_1$ $e^m_2]^m\rightarrow\mathscr{E}[e^m_1]$ \\
+
+$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e^m_1$ $e^m_2]^m\rightarrow\mathscr{E}[e^m_2]$ $(n\neq0)$ \\
+
+$\mathscr{E}[\mathtt{hd}$ $(\mathtt{nil}$ $t)]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $t$ ``Empty list"$]$ \\
+
+$\mathscr{E}[\mathtt{tl}$ $(\mathtt{nil}$ $t)]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $[t]$ ``Empty list"$]$ \\
+
+$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v^m_1$ $v^m_2)]^m\rightarrow\mathscr{E}[v^m_1]$ \\
+
+$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v^m_1$ $v^m_2)]^m\rightarrow\mathscr{E}[v^m_2]$ \\
+
+$\mathscr{E}[\mathtt{hd}$ $(\mathtt{mh}$ $[t]$ $(\mathtt{cons}$ $e^h_1$ $e^h_2))]^m\rightarrow\mathscr{E}[\mathtt{mh}$ $t$ $e^h_1]$ \\
+
+$\mathscr{E}[\mathtt{tl}$ $(\mathtt{mh}$ $[t]$ $(\mathtt{cons}$ $e^h_1$ $e^h_2))]^m\rightarrow\mathscr{E}[\mathtt{mh}$ $[t]$ $e^h_2]$ \\
+
+$\mathscr{E}[\mathtt{null?}$ $(\mathtt{nil}$ $t)]^m\rightarrow\mathscr{E}[\overline{0}]$ \\
+
+$\mathscr{E}[\mathtt{null?}$ $(\mathtt{cons}$ $v^m_1$ $v^m_2)]^m\rightarrow\mathscr{E}[\overline{1}]$ \\
+
+$\mathscr{E}[\mathtt{null?}$ $(\mathtt{mh}$ $[t]$ $(\mathtt{cons}$ $e^h_1$ $e^h_2))]^m\rightarrow\mathscr{E}[\overline{1}]$ \\
+
+$\mathscr{E}[\mathtt{wrong}$ $t$ string$]^m\rightarrow$ \textbf{Error}: string
+
 \end{tabular}
 \caption{ML operational semantics}
 \label{mos}
