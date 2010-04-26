@@ -1,24 +1,27 @@
 \begin{figure}[p]
 \centering
 \begin{tabular}{lcl}
-% Expressions
-$e_{S}$ & $=$ & $v_{S}$ $\vert$ $x$ $\vert$ $e_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $e_{S}$ $e_{S}$ $\vert$ $f$ $e_{S}$ $\vert$ $o$ $e_{S}$ $e_{S}$ $\vert$ $p$ $e_{S}$ $\vert$ $\mathtt{if0}$ $e_{S}$ $e_{S}$ $e_{S}$ \\
-&& $\vert$ $\mathtt{wrong}$ string $\vert$ $SM^{T}$ $e_{M}$ \\
-% Unforced values
-$v_{S}$ & $=$ & $w_{S}$ $\vert$ $SH^{T}$ $e_{H}$ \\
-% Forced values
-$w_{S}$ & $=$ & $\lambda x.e_{S}$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $v_{S}$ $\vert$ $SM^{T^{a}}$ $v_{M}$ \\
-% List operators
+
+$e^s$ & $=$ & $v^s$ $\vert$ $x^s$ $\vert$ $e^s$ $e^s$ $\vert$ $\mathtt{cons}$ $e^s$ $e^s$ $\vert$ $f$ $e^s$ $\vert$ $o$ $e^s$ $e^s$ $\vert$ $p$ $e^s$ $\vert$ $\mathtt{if0}$ $e^s$ $e^s$ $e^s$ \\
+
+&& $\vert$ $\mathtt{wrong}$ string $\vert$ $\mathtt{sm}$ $t$ $e^m$ \\
+
+$v^s$ & $=$ & $w^s$ $\vert$ $\mathtt{sh}$ $t$ $e^h$ \\
+
+$w^s$ & $=$ & $\lambda x^s.e^s$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}$ $\vert$ $\mathtt{cons}$ $v^s$ $v^s$ $\vert$ $\mathtt{sm}$ $(t.x^m)$ $v^m$ \\
+
 $f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
-% Arithmetic operators
+
 $o$ & $=$ & $+$ $\vert$ $-$ \\
-% Predicates
+
 $p$ & $=$ & $\mathtt{fun?}$ $\vert$ $\mathtt{list?}$ $\vert$ $\mathtt{null?}$ $\vert$ $\mathtt{num?}$ \\
-% Unforced evaluation contexts
-$E_{S}$ & $=$ & $[\,]_{S}$ $\vert$ $F_{S}$ $e_{S}$ $\vert$ $v_{S}$ $E_{S}$ $\vert$ $\mathtt{cons}$ $E_{S}$ $e_{S}$ $\vert$ $\mathtt{cons}$ $v_{S}$ $E_{S}$ $\vert$ $f$ $F_{S}$ $\vert$ $o$ $F_{S}$ $e_{S}$ \\
-&& $\vert$ $o$ $v_{S}$ $F_{S}$ $\vert$ $p$ $F_{S}$ $\vert$ $\mathtt{if0}$ $F_{S}$ $e_{S}$ $e_{S}$ $\vert$ $SM^{T}$ $E_{M}$ \\
-% Forced evaluation contexts
-$F_{S}$ & $=$ & $E_{S}$ $\vert$ $SH^{T}$ $E_{H}$
+
+$E^s$ & $=$ & $[\,]^s$ $\vert$ $F^s$ $e^s$ $\vert$ $v^s$ $E^s$ $\vert$ $\mathtt{cons}$ $E^s$ $e^s$ $\vert$ $\mathtt{cons}$ $v^s$ $E^s$ $\vert$ $f$ $F^s$ $\vert$ $o$ $F^s$ $e^s$ \\
+
+&& $\vert$ $o$ $v^s$ $F^s$ $\vert$ $p$ $F^s$ $\vert$ $\mathtt{if0}$ $F^s$ $e^s$ $e^s$ $\vert$ $\mathtt{sm}$ $t$ $E^m$ \\
+
+$F^s$ & $=$ & $E^s$ $\vert$ $\mathtt{sh}$ $t$ $E^h$
+
 \end{tabular}
 \caption{Scheme grammar and evaluation contexts}
 \label{sg}

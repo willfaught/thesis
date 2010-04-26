@@ -78,4 +78,10 @@ Reduction rules must strip labels because the expressions the underlying types a
 \
 WHY LABELS ON H/M IMPORTATIONS ARE NEEDED\
 \
-For the matching labels mechanism. Otherwise, not needed.}
+For the matching labels mechanism. Otherwise, not needed.\
+\
+==\
+\
+TYVARS AS LABELS IS SAFE\
+\
+Label confusion not possible because no free tyvars.  If nested forall, outer forall will go away when reducing inner forall.  Reduction of HS/MS is referentially transparent.}
