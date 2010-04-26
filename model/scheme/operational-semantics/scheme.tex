@@ -1,35 +1,51 @@
 \begin{figure}[p]
 \centering
 \begin{tabular}{l}
-$\mathscr{E}[(\lambda x.e_{S})$ $v_{S}]_{S}\rightarrow\mathscr{E}[e_{S}[v_{S}/x]]$ \\
-$\mathscr{E}[v_{S}^{1}$ $v_{S}^{2}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a function"$]$ $(v_{S}^{1}\neq\lambda x.e_{S})$ \\
-$\mathscr{E}[f$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
-$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[v_{S}^{1}]$ \\
-$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[v_{S}^{2}]$ \\
-$\mathscr{E}[\mathtt{hd}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{T}$ $e_{H}^{1}]$ \\
-$\mathscr{E}[\mathtt{tl}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[SH^{[T]}$ $e_{H}^{2}]$ \\
-$\mathscr{E}[f$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ \\
-$\quad(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
-$\mathscr{E}[+$ $\overline{n_{1}}$ $\overline{n_{2}}]_{S}\rightarrow\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
-$\mathscr{E}[-$ $\overline{n_{1}}$ $\overline{n_{2}}]_{S}\rightarrow\mathscr{E}[\overline{max(n_{1}-n_{2},0)}]$ \\
-$\mathscr{E}[o$ $v_{S}^{1}$ $v_{S}^{2}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a number"$]$ $(v_{S}^{1}\neq\overline{n}$ or $v_{S}^{2}\neq\overline{n})$ \\
-$\mathscr{E}[\mathtt{fun?}$ $(\lambda x.e_{S})]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-$\mathscr{E}[\mathtt{fun?}$ $v_{S}]_{S}\rightarrow\mathscr{E}[\overline{1}]$ ($v_{S}\neq\lambda x.e_{S}$) \\
-$\mathscr{E}[\mathtt{list?}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-$\mathscr{E}[\mathtt{list?}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-$\mathscr{E}[\mathtt{list?}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-$\mathscr{E}[\mathtt{list?}$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\overline{1}]$ $(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
-$\mathscr{E}[\mathtt{null?}$ $\mathtt{nil}]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-$\mathscr{E}[\mathtt{null?}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})]_{S}\rightarrow\mathscr{E}[\overline{1}]$ \\
-$\mathscr{E}[\mathtt{null?}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))]_{S}\rightarrow\mathscr{E}[\overline{1}]$ \\
-$\mathscr{E}[\mathtt{null?}$ $v_{S}^{1}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ \\
-$\quad(v_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{2}$ $v_{S}^{3},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$ \\
-$\mathscr{E}[\mathtt{num?}$ $\overline{n}]_{S}\rightarrow\mathscr{E}[\overline{0}]$ \\
-$\mathscr{E}[\mathtt{num?}$ $v_{S}]_{S}\rightarrow\mathscr{E}[\overline{1}]$ $(v_{S}\neq\overline{n})$ \\
-$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e_{S}^{1}$ $e_{S}^{2}]_{S}\rightarrow\mathscr{E}[e_{S}^{1}]$ \\
-$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e_{S}^{1}$ $e_{S}^{2}]_{S}\rightarrow\mathscr{E}[e_{S}^{2}]$ $(n\neq 0)$ \\
-$\mathscr{E}[\mathtt{if0}$ $v_{S}$ $e_{S}^{1}$ $e_{S}^{2}]_{S}\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a number"$]$ $(v_{S}\neq\overline{n})$ \\
-$\mathscr{E}[\mathtt{wrong}$ $\mathrm{string}]_{S}\rightarrow$ \textbf{Error}: string
+
+$\mathscr{E}[(\lambda x^s.e^s)$ $v^s]^s\rightarrow\mathscr{E}[e^s[v^s/x^s]]$ \\
+
+$\mathscr{E}[v^s_1$ $v^s_2]^s\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a function"$]$ $(v^s_1\neq\lambda x^s.e^s)$ \\
+
+$\mathscr{E}[+$ $\overline{n_1}$ $\overline{n_2}]^s\rightarrow\mathscr{E}[\overline{n_1+n_2}]$ \\
+
+$\mathscr{E}[-$ $\overline{n_1}$ $\overline{n_2}]^s\rightarrow\mathscr{E}[\overline{max(n_1-n_2,0)}]$ \\
+
+$\mathscr{E}[o$ $v^s_1$ $v^s_2]^s\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a number"$]$ $(v^s_1\neq\overline{n}$ or $v^s_2\neq\overline{n})$ \\
+
+$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e^s_1$ $e^s_2]^s\rightarrow\mathscr{E}[e^s_1]$ \\
+
+$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e^s_1$ $e^s_2]^s\rightarrow\mathscr{E}[e^s_2]$ $(n\neq 0)$ \\
+
+$\mathscr{E}[\mathtt{if0}$ $v^s$ $e^s_1$ $e^s_2]^s\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a number"$]$ $(v^s\neq\overline{n})$ \\
+
+$\mathscr{E}[f$ $\mathtt{nil}]^s\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
+
+$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v^s_1$ $v^s_2)]^s\rightarrow\mathscr{E}[v^s_1]$ \\
+
+$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v^s_1$ $v^s_2)]^s\rightarrow\mathscr{E}[v^s_2]$ \\
+
+$\mathscr{E}[f$ $v^s_1]^s\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ $(v^s_1\neq\mathtt{nil}$ and $v^s_1\neq\mathtt{cons}$ $v^s_2$ $v^s_3)$ \\
+
+$\mathscr{E}[\mathtt{fun?}$ $(\lambda x^s.e^s)]^s\rightarrow\mathscr{E}[\overline{0}]$ \\
+
+$\mathscr{E}[\mathtt{fun?}$ $v^s]^s\rightarrow\mathscr{E}[\overline{1}]$ ($v^s\neq\lambda x^s.e^s$) \\
+
+$\mathscr{E}[\mathtt{list?}$ $\mathtt{nil}]^s\rightarrow\mathscr{E}[\overline{0}]$ \\
+
+$\mathscr{E}[\mathtt{list?}$ $(\mathtt{cons}$ $v^s_1$ $v^s_2)]^s\rightarrow\mathscr{E}[\overline{0}]$ \\
+
+$\mathscr{E}[\mathtt{list?}$ $v^s_1]^s\rightarrow\mathscr{E}[\overline{1}]$ $(v^s_1\neq\mathtt{nil}$ and $v^s_1\neq\mathtt{cons}$ $v^s_2$ $v^s_3)$ \\
+
+$\mathscr{E}[\mathtt{null?}$ $\mathtt{nil}]^s\rightarrow\mathscr{E}[\overline{0}]$ \\
+
+$\mathscr{E}[\mathtt{null?}$ $v^s]^s\rightarrow\mathscr{E}[\overline{1}]$ $(v^s\neq\mathtt{nil})$ \\
+
+$\mathscr{E}[\mathtt{num?}$ $\overline{n}]^s\rightarrow\mathscr{E}[\overline{0}]$ \\
+
+$\mathscr{E}[\mathtt{num?}$ $v^s]^s\rightarrow\mathscr{E}[\overline{1}]$ $(v^s\neq\overline{n})$ \\
+
+$\mathscr{E}[\mathtt{wrong}$ $\mathrm{string}]^s\rightarrow$ \textbf{Error}: string
+
 \end{tabular}
 \caption{Scheme operational semantics}
 \label{sos}
