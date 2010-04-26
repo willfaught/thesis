@@ -1,25 +1,24 @@
 \begin{figure}[p]
 \centering
 \begin{tabular}{l}
-% sh - lump
-$\mathscr{E}[SH^{L}$ $(^{L}HS$ $v_{S})]_{S}\rightarrow\mathscr{E}[v_{S}]$ \\
-% sh - number
-$\mathscr{E}[SH^{N}$ $\overline{n}]_{S}\rightarrow\mathscr{E}[\overline{n}]$ \\
-% sh - list - nil
-$\mathscr{E}[SH^{[T]}$ $\mathtt{nil}^{T[T_{i}/T_{i}^{a}]}]_{S}\rightarrow\mathscr{E}[\mathtt{nil}]$ \\
-% sh - function
-$\mathscr{E}[SH^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H})]_{S}\rightarrow$ \\
-$\quad\mathscr{E}[\lambda x_{2}.(SH^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{H})$ $(^{T_{1}}HS$ $x_{2})))]$ \\
-% sh - universal
-$\mathscr{E}[SH^{\forall X.T}$ $(\Lambda X.e_{H})]_{S}\rightarrow\mathscr{E}[SH^{T[L/X]}$ $((\Lambda X.e_{H})$ $\lbrace L\rbrace)]$ \\
-% sh - universal - hs
-$\mathscr{E}[SH^{\forall X.T}$ $(^{\forall X.T}HS$ $v_{S})]_{S}\rightarrow\mathscr{E}[v_{S}]$ \\
 
-$\mathscr{E}[\mathtt{hd}$ $(\mathtt{sh}^{[t]}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2))]^s\rightarrow\mathscr{E}[\mathtt{sh}^{t}$ $e^h_1]$ \\
+$\mathscr{E}[\mathtt{sh}$ $\mathtt{L}$ $(\mathtt{hs}$ $\mathtt{L}$ $v^s)]^s\rightarrow\mathscr{E}[v^s]$ \\
 
-$\mathscr{E}[\mathtt{tl}$ $(\mathtt{sh}^{[t]}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2))]^s\rightarrow\mathscr{E}[\mathtt{sh}^{[t]}$ $e^h_2]$ \\
+$\mathscr{E}[\mathtt{sh}$ $\mathtt{N}$ $\overline{n}]^s\rightarrow\mathscr{E}[\overline{n}]$ \\
+
+$\mathscr{E}[\mathtt{sh}$ $[t]$ $(\mathtt{nil}$ $t[t_i/t_i.x^h])]^s\rightarrow\mathscr{E}[\mathtt{nil}]$ \\
+
+$\mathscr{E}[\mathtt{sh}$ $[t]$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^s\rightarrow\mathscr{E}[\mathtt{cons}$ $(\mathtt{sh}$ $t$ $e^h_1)$ $(\mathtt{sh}$ $[t]$ $e^h_2)]$ \\
+
+$\mathscr{E}[\mathtt{sh}$ $(t_1\rightarrow t_2)$ $(\lambda x^h:t_1[t_i/t_i.x^h].e^h)]^s\rightarrow$ \\
+
+$\quad\quad\mathscr{E}[\lambda x^s.\mathtt{sh}$ $t_2$ $((\lambda x^h:t_1[t_i/t_i.x^h].e^h)$ $(\mathtt{hs}$ $t_1$ $x^s))]$ \\
+
+$\mathscr{E}[\mathtt{sh}$ $(\forall x^h.t)$ $(\Lambda x^h.e^h)]^s\rightarrow\mathscr{E}[\mathtt{sh}$ $t[\mathtt{L}/x^h]$ $e^h[\mathtt{L}/x^h]]$ \\
+
+$\mathscr{E}[\mathtt{sh}$ $(\forall x^h.t)$ $(\mathtt{hs}$ $(\forall x^h.t)$ $v^s)]^s\rightarrow\mathscr{E}[v^s]$ \\
 
 \end{tabular}
 \caption{Scheme-Haskell operational semantics}
-\label{isos}
+\label{shos}
 \end{figure}
