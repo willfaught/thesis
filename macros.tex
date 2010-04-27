@@ -1,0 +1,124 @@
+% Symbols
+
+\newcommand{\symadd}{+}
+\newcommand{\symcons}{cons}
+\newcommand{\symconu}{E}
+\newcommand{\symconf}{F}
+\newcommand{\symexp}{e}
+\newcommand{\symfield}{f}
+\newcommand{\symfix}{fix}
+\newcommand{\symhd}{hd}
+\newcommand{\symhm}{hm}
+\newcommand{\symholeh}{\ensuremath{[\,]\langh}\xspace}
+\newcommand{\symholem}{\ensuremath{[\,]\langm}\xspace}
+\newcommand{\symholes}{\ensuremath{[\,]\langs}\xspace}
+\newcommand{\symhs}{hs}
+\newcommand{\symif}{if0}
+\newcommand{\symlangh}{h}
+\newcommand{\symlangm}{m}
+\newcommand{\symlangs}{s}
+\newcommand{\symlump}{L}
+\newcommand{\symmh}{mh}
+\newcommand{\symms}{ms}
+\newcommand{\symnat}{N}
+\newcommand{\symnil}{nil}
+\newcommand{\symnull}{null?}
+\newcommand{\symnum}{n}
+\newcommand{\symop}{o}
+\newcommand{\symsh}{sh}
+\newcommand{\symsm}{sm}
+\newcommand{\symstr}{string}
+\newcommand{\symsub}{-}
+\newcommand{\symtl}{tl}
+\newcommand{\symtype}{t}
+\newcommand{\symvalf}{w}
+\newcommand{\symvalu}{v}
+\newcommand{\symvar}{x}
+\newcommand{\symwrong}{wrong}
+
+% Languages
+
+\newcommand{\langh}{\formlang{\symlangh}}
+\newcommand{\langm}{\formlang{\symlangm}}
+\newcommand{\langs}{\formlang{\symlangs}}
+
+% Variables
+
+\newcommand{\varexph}{\ensuremath{\symexp\langh}\xspace}
+\newcommand{\varexpm}{\ensuremath{\symexp\langm}\xspace}
+\newcommand{\varexps}{\ensuremath{\symexp\langs}\xspace}
+\newcommand{\varvarh}{\ensuremath{\symvar\langh}\xspace}
+\newcommand{\varvarm}{\ensuremath{\symvar\langm}\xspace}
+\newcommand{\varvars}{\ensuremath{\symvar\langs}\xspace}
+\newcommand{\varvaluh}{\ensuremath{\symvalu\langh}\xspace}
+\newcommand{\varvalum}{\ensuremath{\symvalu\langm}\xspace}
+\newcommand{\varvalus}{\ensuremath{\symvalu\langs}\xspace}
+\newcommand{\varvalfm}{\ensuremath{\symvalf\langm}\xspace}
+\newcommand{\varvalfs}{\ensuremath{\symvalf\langs}\xspace}
+\newcommand{\vartyh}{\ensuremath{\symtype\langh}\xspace}
+\newcommand{\vartym}{\ensuremath{\symtype\langm}\xspace}
+\newcommand{\vartys}{\ensuremath{\symtype\langs}\xspace}
+\newcommand{\varconm}{\ensuremath{\mathscr{\symconu}\xspace}}
+\newcommand{\varconuh}{\ensuremath{\symconu\langh}\xspace}
+\newcommand{\varconum}{\ensuremath{\symconu\langm}\xspace}
+\newcommand{\varconus}{\ensuremath{\symconu\langs}\xspace}
+\newcommand{\varconfm}{\ensuremath{\symconf\langm}\xspace}
+\newcommand{\varconfs}{\ensuremath{\symconf\langs}\xspace}
+
+% Expressions
+
+\newcommand{\expfabs}[3]{\ensuremath{\lambda #1 : #2 . #3}}
+\newcommand{\exptabs}[3]{\ensuremath{\Lambda #1 . #2}}
+\newcommand{\expnum}[1]{\ensuremath{\formnum{#1}}}
+\newcommand{\expnil}[1]{\ensuremath{\formsym{\symnil} \; #1}}
+\newcommand{\expcons}[2]{\ensuremath{\formsym{\symcons} \; #1 \; #2}}
+\newcommand{\expfapp}[2]{\ensuremath{#1 \; #2}}
+\newcommand{\exptapp}[2]{\ensuremath{#1 \; \lbrace #2 \rbrace}}
+\newcommand{\expfix}[1]{\ensuremath{\formsym{\symfix} \; #1}}
+\newcommand{\expop}[2]{\ensuremath{\formvar{\symop} \; #1 \; #2}}
+\newcommand{\expadd}[2]{\ensuremath{\formsym{\symadd} \; #1 \; #2}}
+\newcommand{\expsub}[2]{\ensuremath{\formsym{\symsub} \; #1 \; #2}}
+\newcommand{\expifzero}[3]{\ensuremath{\formsym{\symif} \; #1 \; #2 \; #3}}
+\newcommand{\expfield}[1]{\ensuremath{\formvar{\symfield} \; #1}}
+\newcommand{\exphd}[1]{\ensuremath{\formsym{\symhd} \; #1}}
+\newcommand{\exptl}[1]{\ensuremath{\formsym{\symtl} \; #1}}
+\newcommand{\expnull}[1]{\ensuremath{\formsym{\symnull} \; #1}}
+\newcommand{\expwrongs}[2]{\ensuremath{\formsym{\symwrong} \; #1 \; #2}}
+\newcommand{\expwrongd}[1]{\ensuremath{\formsym{\symwrong} \; #1}}
+\newcommand{\exphm}[2]{\ensuremath{\formsym{\symhm} \; #1 \; #2}}
+\newcommand{\exphs}[2]{\ensuremath{\formsym{\symhs} \; #1 \; #2}}
+\newcommand{\expmh}[2]{\ensuremath{\formsym{\symmh} \; #1 \; #2}}
+\newcommand{\expms}[2]{\ensuremath{\formsym{\symms} \; #1 \; #2}}
+\newcommand{\expsh}[2]{\ensuremath{\formsym{\symsh} \; #1 \; #2}}
+\newcommand{\expsm}[2]{\ensuremath{\formsym{\symsm} \; #1 \; #2}}
+
+% Types
+
+\newcommand{\tylump}{\ensuremath{\formsym{L}}\xspace}
+\newcommand{\tynat}{\ensuremath{\formsym{N}}\xspace}
+\newcommand{\tyvarh}{\ensuremath{\symvar\langh}\xspace}
+\newcommand{\tyvarm}{\ensuremath{\symvar\langm}\xspace}
+\newcommand{\tylist}[1]{\ensuremath{[#1]}\xspace}
+\newcommand{\tylabel}[2]{\ensuremath{#1 . #2}\xspace}
+\newcommand{\tyfun}[2]{\ensuremath{#1 \rightarrow #2}\xspace}
+\newcommand{\tyfor}[2]{\ensuremath{\forall #1 . #2}\xspace}
+
+% Formats
+
+\newcommand{\formvar}[1]{\ensuremath{#1}}
+\newcommand{\formsym}[1]{\ensuremath{\mathtt{#1}}}
+\newcommand{\formnum}[1]{\ensuremath{\overline{#1}}}
+\newcommand{\formstr}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand{\formlang}[1]{\ensuremath{^{#1}}}
+\newcommand{\formindex}[2]{\ensuremath{#1_{#2}}}
+
+% Indices
+
+\newcommand{\numa}[1]{\formindex{#1}{1}}
+\newcommand{\numb}[1]{\formindex{#1}{2}}
+\newcommand{\numc}[1]{\formindex{#1}{3}}
+\newcommand{\numi}[1]{\formindex{#1}{i}}
+
+% Miscellaneous
+
+\newcommand{\str}[1]{\ensuremath{\formstr{``#1"}}}

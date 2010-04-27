@@ -2,11 +2,11 @@
 \centering
 \begin{tabular}{l}
 
-$\mathscr{E}[(\lambda x^h:t.e^h_1)$ $e^h_2]^h\rightarrow\mathscr{E}[e^h_1[e^h_2/x^h]]$ \\
+$\mathscr{E}[(\lambda x^h:t^h.e^h_1)$ $e^h_2]^h\rightarrow\mathscr{E}[e^h_1[e^h_2/x^h]]$ \\
 
-$\mathscr{E}[(\Lambda x^h.e^h)$ $\lbrace t\rbrace]^h\rightarrow\mathscr{E}[e^h[t/x^h]]$ \\
+$\mathscr{E}[(\Lambda x^h.e^h)$ $\lbrace t^h\rbrace]^h\rightarrow\mathscr{E}[e^h[t^h/x^h]]$ \\
 
-$\mathscr{E}[\mathtt{fix}$ $(\lambda x^h:t.e^h)]^h\rightarrow\mathscr{E}[e^h[(\mathtt{fix}$ $(\lambda x^h:t.e^h))/x^h]]$ \\
+$\mathscr{E}[\mathtt{fix}$ $(\lambda x^h:t^h.e^h)]^h\rightarrow\mathscr{E}[e^h[(\mathtt{fix}$ $(\lambda x^h:t^h.e^h))/x^h]]$ \\
 
 $\mathscr{E}[+$ $\overline{n_1}$ $\overline{n_2}]^h\rightarrow\mathscr{E}[\overline{n_1+n_2}]$ \\
 
@@ -16,19 +16,19 @@ $\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e^h_1$ $e^h_2]^h\rightarrow\mathscr{E
 
 $\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e^h_1$ $e^h_2]^h\rightarrow\mathscr{E}[e^h_2]$ $(n\neq0)$ \\
 
-$\mathscr{E}[\mathtt{hd}$ $(\mathtt{nil}\;t)]^h\rightarrow\mathscr{E}[\mathtt{wrong}\;t$ ``Empty list"$]$ \\
+$\mathscr{E}[\mathtt{hd}$ $(\mathtt{nil}$ $t^h)]^h\rightarrow\mathscr{E}[\mathtt{wrong}$ $t^h$ \str{Empty\;list}$]$ \\
 
-$\mathscr{E}[\mathtt{tl}$ $(\mathtt{nil}\;t)]^h\rightarrow\mathscr{E}[\mathtt{wrong}\;[t]$ ``Empty list"$]$ \\
+$\mathscr{E}[\mathtt{tl}$ $(\mathtt{nil}$ $t^h)]^h\rightarrow\mathscr{E}[\mathtt{wrong}$ $[t^h]$ ``Empty list"$]$ \\
 
 $\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^h\rightarrow\mathscr{E}[e^h_1]$ \\
 
 $\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^h\rightarrow\mathscr{E}[e^h_2]$ \\
 
-$\mathscr{E}[\mathtt{null?}$ $(\mathtt{nil}\;t)]^h\rightarrow\mathscr{E}[\overline{0}]$ \\
+$\mathscr{E}[\mathtt{null?}$ $(\mathtt{nil}$ $t^h)]^h\rightarrow\mathscr{E}[\overline{0}]$ \\
 
 $\mathscr{E}[\mathtt{null?}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^h\rightarrow\mathscr{E}[\overline{1}]$ \\
 
-$\mathscr{E}[\mathtt{wrong}\;t$ string$]^h\rightarrow$ \textbf{Error}: string
+$\mathscr{E}[\mathtt{wrong}$ $t^h$ string$]^h\rightarrow$ \textbf{Error}: string
 
 \end{tabular}
 \caption{Haskell operational semantics}

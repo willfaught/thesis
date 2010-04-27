@@ -1,21 +1,23 @@
 \begin{figure}[p]
 \centering
+
 \begin{tabular}{rcl}
 
-$e^h$ & $=$ & $x^h$ $|$ $v^h$ $|$ $e^h$ $e^h$ $|$ $e^h$ $\lbrace t\rbrace$ $|$ $\mathtt{fix}$ $e^h$ $|$ $o$ $e^h$ $e^h$ $|$ $\mathtt{if0}$ $e^h$ $e^h$ $e^h$ $|$ $f$ $e^h$ $|$ $\mathtt{null?}$ $e^h$ \\
+\varexph & $=$ & \varvarh $|$ \varvaluh $|$ \expfapp{\varexph}{\varexph} $|$ \exptapp{\varexph}{\vartyh} $|$ \expfix{\varexph} $|$ \expop{\varexph}{\varexph} $|$ \expifzero{\varexph}{\varexph}{\varexph} $|$ \expfield{\varexph} $|$ \expnull{\varexph} \\
 
-&& $\mathtt{wrong}$ $t$ string $|$ $\mathtt{hm}$ $t$ $e^m$ $|$ $\mathtt{hs}$ $t$ $e^s$ \\
+&& \expwrongs{\vartyh}{\formvar{string}} $|$ \exphm{\vartyh}{\varexpm} $|$ \exphs{\vartyh}{\varexps} \\
 
-$v^h$ & $=$ & $\lambda x^h:t.e^h$ $|$ $\Lambda x^h.e^h$ $|$ $\overline{n}$ $|$ $\mathtt{nil}$ $t$ $|$ $\mathtt{cons}$ $e^h$ $e^h$ $|$ $\mathtt{hs}$ $\mathtt{L}$ $v^s$ $|$ $\mathtt{hs}$ $(\forall x^h.t)$ $v^s$ \\
+$v^h$ & $=$ & $\lambda \varvarh:t.\varexph$ $|$ $\Lambda \varvarh.\varexph$ $|$ $\overline{n}$ $|$ $\mathtt{nil}$ $\vartyh$ $|$ $\mathtt{cons}$ $\varexph$ $\varexph$ $|$ $\mathtt{hs}$ $\tylump$ $v^s$ $|$ $\mathtt{hs}$ $(\forall \varvarh.\vartyh)$ $v^s$ \\
 
-$t$ & $=$ & $\mathtt{L}$ $|$ $\mathtt{N}$ $|$ $x^h$ $|$ $[t]$ $|$ $t.x^h$ $|$ $t\rightarrow t$ $|$ $\forall x^h.t$ \\
+\vartyh & $=$ & \tylump $|$ \tynat $|$ \tyvarh $|$ \tylist{\tyvarh} $|$ \tylabel{\vartyh}{\tyvarh} $|$ \tyfun{\vartyh}{\vartyh} $|$ \tyfor{\tyvarh}{\vartyh} \\
 
-$o$ & $=$ & $+$ $|$ $-$ \\
+\formvar{\symop} & $=$ & \formsym{\symadd} $|$ \formsym{\symsub} \\
 
-$f$ & $=$ & $\mathtt{hd}$ $|$ $\mathtt{tl}$ \\
+\formvar{\symfield} & $=$ & \formsym{\symhd} $|$ \formsym{\symtl} \\
 
-$E^h$ & $=$ & $[\,]^h$ $|$ $E^h$ $e^h$ $|$ $E^h$ $\lbrace t\rbrace$ $|$ $\mathtt{fix}$ $E^h$ $|$ $o$ $E^h$ $e^h$ $|$ $o$ $v^h$ $E^h$ $|$ $\mathtt{if0}$ $E^h$ $e^h$ $e^h$ \\
-&& $f$ $E^h$ $|$ $\mathtt{null?}$ $E^h$ $|$ $\mathtt{hm}$ $t$ $E^m$ $|$ $\mathtt{hs}$ $t$ $E^s$
+\varconuh & $=$ & \symholeh $|$ \expfapp{\varconuh}{\varexph} $|$ \exptapp{\varconuh}{\vartyh} $|$ \expfix{\varconuh} $|$ \expop{\varconuh}{\varexph} $|$ \expop{\varvaluh}{\varconuh} $|$ \expifzero{\varconuh}{\varexph}{\varexph} \\
+
+&& \expfield{\varconuh} $|$ \expnull{\varconuh} $|$ \exphm{\vartyh}{\varconum} $|$ \exphs{\vartyh}{\varconus}
 
 \end{tabular}
 \caption{Haskell grammar and evaluation contexts}

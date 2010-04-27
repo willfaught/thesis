@@ -9,53 +9,53 @@
 \[
 \frac{\Gamma\vdash^ht}{\Gamma\vdash^h[t]}
 \quad
-\frac{\Gamma\vdash^ht}{\Gamma\vdash^ht.x^h}
+\frac{\Gamma\vdash^ht^h}{\Gamma\vdash^ht^h.x^h}
 \quad
-\frac{\Gamma\vdash^ht_1\quad\Gamma\vdash^ht_2}{\Gamma\vdash^ht_1\rightarrow t_2}
+\frac{\Gamma\vdash^ht^h_1\quad\Gamma\vdash^ht^h_2}{\Gamma\vdash^ht^h_1\rightarrow t^h_2}
 \quad
-\frac{\Gamma,x^h\vdash^ht}{\Gamma\vdash^h\forall x^h.t}
+\frac{\Gamma,x^h\vdash^ht^h}{\Gamma\vdash^h\forall x^h.t^h}
 \]
 \bigskip
 \[
-\frac{\Gamma\vdash^ht_1\quad\Gamma,x^h:t_1\vdash^he^h:t_2}{\Gamma\vdash^h\lambda x^h:t_1.e^h:t_1\rightarrow t_2}
+\frac{\Gamma\vdash^ht^h_1\quad\Gamma,x^h:t^h_1\vdash^h\varexph:t^h_2}{\Gamma\vdash^h\lambda x^h:t^h_1.e^h:t^h_1\rightarrow\numb{\vartyh}}
 \quad
-\frac{\Gamma,x^h\vdash^he^h:t}{\Gamma\vdash^h\Lambda x^h.e^h:\forall x^h.t}
+\frac{\Gamma,x^h\vdash^he^h:t^h}{\Gamma\vdash^h\Lambda x^h.e^h:\forall x^h.t^h}
 \quad
 \frac{}{\vdash^h\overline{n}:\mathtt{N}}
 \]
 \[
-\frac{\Gamma\vdash^ht}{\Gamma\vdash^h\mathtt{nil}\;t:[t]}
+\frac{\Gamma\vdash^ht^h}{\Gamma\vdash^h\mathtt{nil}\;t^h:[t^h]}
 \quad
-\frac{\Gamma\vdash^he^h_1:t\quad\Gamma\vdash^he^h_2:[t]}{\Gamma\vdash^h\mathtt{cons}\;e^h_1\;e^h_2:[t]}
+\frac{\Gamma\vdash^he^h_1:t^h\quad\Gamma\vdash^he^h_2:[t^h]}{\Gamma\vdash^h\mathtt{cons}\;e^h_1\;e^h_2:[t^h]}
 \quad
-\frac{}{\Gamma,x^h:t\vdash^hx^h:t}
+\frac{}{\Gamma,x^h:t^h\vdash^hx^h:t^h}
 \]
 \[
-\frac{\Gamma\vdash^he^h_1:t_1\rightarrow t_2\quad\Gamma\vdash^he^h_2:t_1}{\Gamma\vdash^he^h_1\;e^h_2:t_2}
+\frac{\Gamma\vdash^he^h_1:t^h_1\rightarrow t^h_2\quad\Gamma\vdash^he^h_2:t^h_1}{\Gamma\vdash^h\expfapp{\numa{\varexph}}{\numb{\varexph}}:t^h_2}
 \quad
-\frac{\Gamma\vdash^he^h:t\rightarrow t}{\Gamma\vdash^h\mathtt{fix}\;e^h:t}
+\frac{\Gamma\vdash^he^h:t^h\rightarrow t^h}{\Gamma\vdash^h\mathtt{fix}\;e^h:t^h}
 \]
 \[
-\frac{\Gamma\vdash^ht_1\quad\Gamma\vdash^he^h:\forall x^h.t_2}{\Gamma\vdash^he^h\;\lbrace t_1\rbrace:t_2[t_1/x^h]}
+\frac{\Gamma\vdash^ht^h_1\quad\Gamma\vdash^he^h:\forall x^h.t^h_2}{\Gamma\vdash^he^h\;\lbrace t^h_1\rbrace:t^h_2[t^h_1/x^h]}
 \quad
-\frac{\Gamma\vdash^he^h:[t]}{\Gamma\vdash^h\mathtt{hd}\;e^h:t}
+\frac{\Gamma\vdash^he^h:[t^h]}{\Gamma\vdash^h\mathtt{hd}\;e^h:t^h}
 \quad
-\frac{\Gamma\vdash^he^h:[t]}{\Gamma\vdash^h\mathtt{tl}\;e^h:[t]}
+\frac{\Gamma\vdash^he^h:[t^h]}{\Gamma\vdash^h\mathtt{tl}\;e^h:[t^h]}
 \]
 \[
 \frac{\Gamma\vdash^he^h_1:n\quad\Gamma\vdash^he^h_2:n}{\Gamma\vdash^ho\;e^h_1\;e^h_2:n}
 \quad
-\frac{\Gamma\vdash^he^h:[t]}{\Gamma\vdash^h\mathtt{null?}\;e^h:n}
+\frac{\Gamma\vdash^he^h:[t^h]}{\Gamma\vdash^h\mathtt{null?}\;e^h:n}
 \]
 \[
-\frac{\Gamma\vdash^he^h_1:n\quad\Gamma\vdash^he^h_2:t\quad\Gamma\vdash^he^h_3:t}{\Gamma\vdash^h\mathtt{if0}\;e^h_1\;e^h_2\;e^h_3:t}
+\frac{\Gamma\vdash^he^h_1:n\quad\Gamma\vdash^he^h_2:t^h\quad\Gamma\vdash^he^h_3:t^h}{\Gamma\vdash^h\mathtt{if0}\;e^h_1\;e^h_2\;e^h_3:t^h}
 \quad
-\frac{\Gamma\vdash^ht}{\Gamma\vdash^h\mathtt{wrong}\;t\;\mathrm{string}:t}
+\frac{\Gamma\vdash^ht^h}{\Gamma\vdash^h\mathtt{wrong}\;t^h\;\mathrm{string}:t^h}
 \]
 \[
-\frac{\Gamma\vdash^ht\quad\Gamma\vdash^me^m:t}{\Gamma\vdash^h\mathtt{hm}\;t\;e^m:t}
+\frac{\Gamma\vdash^ht^h\quad\Gamma\vdash^me^m:t^m\quad t^h=t^m}{\Gamma\vdash^h\mathtt{hm}\;t^h\;e^m:t^h}
 \quad
-\frac{\Gamma\vdash^ht\quad\Gamma\vdash^se^s:TST}{\Gamma\vdash^h\mathtt{hs}\;t\;e^s:t[t_i/t_i.x^h]}
+\frac{\Gamma\vdash^ht^h\quad\Gamma\vdash^se^s:TST}{\Gamma\vdash^h\mathtt{hs}\;t^h\;e^s:t^h[t^h_i/t^h_i.x^h]}
 \]
 \caption{Haskell typing rules}
 \label{htr}
