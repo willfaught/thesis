@@ -1,61 +1,87 @@
 \begin{figure}[p]
 \[
-\frac{}{\vdash^h\mathtt{L}}
+\frac
+{}
+{\judth{}{\tylump}}
 \quad
-\frac{}{\vdash^h\mathtt{N}}
+\frac
+{}
+{\judth{}{\tynum}}
 \quad
-\frac{}{\Gamma,x^h\vdash^hx^h}
+\frac
+{}
+{\judth{\envextt{\tyvarh}}{\tyvarh}}
 \]
 \[
-\frac{\Gamma\vdash^ht}{\Gamma\vdash^h[t]}
+\frac
+{\judth{\env}{\vartyh}}
+{\judth{\env}{\tylist{\vartyh}}}
 \quad
-\frac{\Gamma\vdash^ht^h}{\Gamma\vdash^ht^h.x^h}
+\frac
+{\judth{\env}{\vartyh}}
+{\judth{\env}{\tylabel{\vartyh}{\tyvarh}}}
 \quad
-\frac{\Gamma\vdash^ht^h_1\quad\Gamma\vdash^ht^h_2}{\Gamma\vdash^ht^h_1\rightarrow t^h_2}
+\frac
+{\judth{\env}{\first{\vartyh}} \quad \judth{\env}{\second{\vartyh}}}
+{\judth{\env}{\tyfun{\first{\vartyh}}{\second{\vartyh}}}}
 \quad
-\frac{\Gamma,x^h\vdash^ht^h}{\Gamma\vdash^h\forall x^h.t^h}
+\frac
+{\judth{\env, \tyvarh}{\vartyh}}
+{\judth{\env}{\tyfor{\tyvarh}{\vartyh}}}
 \]
 \bigskip
 \[
-\frac{\Gamma\vdash^ht^h_1\quad\Gamma,x^h:t^h_1\vdash^h\varexph:t^h_2}{\Gamma\vdash^h\lambda x^h:t^h_1.e^h:t^h_1\rightarrow\numb{\vartyh}}
+\frac
+{\judth{}{\first{\vartyh}} \quad \judeh{\envexte{\varvarh}{\first{\vartyh}}}{\varexph}{\second{\vartyh}}}
+{\judeh{\env}{(\expfabs{\varvarh}{\first{\vartyh}}{\varexph})}{\tyfor{\first{\vartyh}}{\second{\vartyh}}}}
 \quad
-\frac{\Gamma,x^h\vdash^he^h:t^h}{\Gamma\vdash^h\Lambda x^h.e^h:\forall x^h.t^h}
+\frac
+{\judeh{\envextt{\tyvarh}}{\varexph}{\vartyh}}
+{\judeh{\env}{\exptabs{\tyvarh}{\varexph}}{\tyfor{\tyvarh}{\vartyh}}}
 \quad
-\frac{}{\vdash^h\overline{n}:\mathtt{N}}
+\frac
+{}
+{\judeh{}{\expnum{n}}{\tynum}}
 \]
 \[
-\frac{\Gamma\vdash^ht^h}{\Gamma\vdash^h\mathtt{nil}\;t^h:[t^h]}
+\frac
+{\judeh{\env}{\vartyh}}
+{\judeh{\env}{\expnil{\vartyh}}{\tylist{\vartyh}}}
 \quad
-\frac{\Gamma\vdash^he^h_1:t^h\quad\Gamma\vdash^he^h_2:[t^h]}{\Gamma\vdash^h\mathtt{cons}\;e^h_1\;e^h_2:[t^h]}
+\frac
+{\judeh{\env}{\first{\varexph}}{\vartyh} \quad \judeh{\env}{\second{\varexph}}{\tylist{\vartyh}}}
+{\judeh{\env}{\expcons{\first{\varexph}}{\second{\varexph}}}{\tylist{\vartyh}}}
 \quad
-\frac{}{\Gamma,x^h:t^h\vdash^hx^h:t^h}
+\frac
+{}
+{\judeh{\envexte{\tyvarh}{\vartyh}}{\tyvarh}{\vartyh}}
 \]
 \[
-\frac{\Gamma\vdash^he^h_1:t^h_1\rightarrow t^h_2\quad\Gamma\vdash^he^h_2:t^h_1}{\Gamma\vdash^h\expfapp{\numa{\varexph}}{\numb{\varexph}}:t^h_2}
+\frac{\env\symjudh \varexph_1:\vartyh_1\rightarrow \vartyh_2\quad\env\symjudh \varexph_2:\vartyh_1}{\env\symjudh\expfapp{\first{\varexph}}{\second{\varexph}}:\vartyh_2}
 \quad
-\frac{\Gamma\vdash^he^h:t^h\rightarrow t^h}{\Gamma\vdash^h\mathtt{fix}\;e^h:t^h}
+\frac{\env\symjudh \varexph:\vartyh\rightarrow \vartyh}{\env\symjudh\mathtt{fix}\;\varexph:\vartyh}
 \]
 \[
-\frac{\Gamma\vdash^ht^h_1\quad\Gamma\vdash^he^h:\forall x^h.t^h_2}{\Gamma\vdash^he^h\;\lbrace t^h_1\rbrace:t^h_2[t^h_1/x^h]}
+\frac{\env\symjudh \vartyh_1\quad\env\symjudh \varexph:\forall \tyvarh.\vartyh_2}{\env\symjudh \varexph\;\lbrace \vartyh_1\rbrace:\vartyh_2[\vartyh_1/\tyvarh]}
 \quad
-\frac{\Gamma\vdash^he^h:[t^h]}{\Gamma\vdash^h\mathtt{hd}\;e^h:t^h}
+\frac{\env\symjudh \varexph:[\vartyh]}{\env\symjudh\mathtt{hd}\;\varexph:\vartyh}
 \quad
-\frac{\Gamma\vdash^he^h:[t^h]}{\Gamma\vdash^h\mathtt{tl}\;e^h:[t^h]}
+\frac{\env\symjudh \varexph:[\vartyh]}{\env\symjudh\mathtt{tl}\;\varexph:[\vartyh]}
 \]
 \[
-\frac{\Gamma\vdash^he^h_1:n\quad\Gamma\vdash^he^h_2:n}{\Gamma\vdash^ho\;e^h_1\;e^h_2:n}
+\frac{\env\symjudh \varexph_1:n\quad\env\symjudh \varexph_2:n}{\env\symjudh o\;\varexph_1\;\varexph_2:n}
 \quad
-\frac{\Gamma\vdash^he^h:[t^h]}{\Gamma\vdash^h\mathtt{null?}\;e^h:n}
+\frac{\env\symjudh \varexph:[\vartyh]}{\env\symjudh\mathtt{null?}\;\varexph:n}
 \]
 \[
-\frac{\Gamma\vdash^he^h_1:n\quad\Gamma\vdash^he^h_2:t^h\quad\Gamma\vdash^he^h_3:t^h}{\Gamma\vdash^h\mathtt{if0}\;e^h_1\;e^h_2\;e^h_3:t^h}
+\frac{\env\symjudh \varexph_1:n\quad\env\symjudh \varexph_2:\vartyh\quad\env\symjudh \varexph_3:\vartyh}{\env\symjudh\mathtt{if0}\;\varexph_1\;\varexph_2\;\varexph_3:\vartyh}
 \quad
-\frac{\Gamma\vdash^ht^h}{\Gamma\vdash^h\mathtt{wrong}\;t^h\;\mathrm{string}:t^h}
+\frac{\env\symjudh \vartyh}{\env\symjudh\mathtt{wrong}\;\vartyh\;\mathrm{string}:\vartyh}
 \]
 \[
-\frac{\Gamma\vdash^ht^h\quad\Gamma\vdash^me^m:t^m\quad t^h=t^m}{\Gamma\vdash^h\mathtt{hm}\;t^h\;e^m:t^h}
+\frac{\env\symjudh \vartyh\quad\env\vdash^me^m:t^m\quad \vartyh=t^m}{\env\symjudh\mathtt{hm}\;\vartyh\;e^m:\vartyh}
 \quad
-\frac{\Gamma\vdash^ht^h\quad\Gamma\vdash^se^s:TST}{\Gamma\vdash^h\mathtt{hs}\;t^h\;e^s:t^h[t^h_i/t^h_i.x^h]}
+\frac{\env\symjudh \vartyh\quad\env\vdash^se^s:TST}{\env\symjudh\mathtt{hs}\;\vartyh\;e^s:\vartyh[\vartyh_i/\vartyh_i.\tyvarh]}
 \]
 \caption{Haskell typing rules}
 \label{htr}
