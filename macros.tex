@@ -37,6 +37,7 @@
 \newcommand{\symstr}{string}
 \newcommand{\symsub}{-}
 \newcommand{\symtl}{tl}
+\newcommand{\symtst}{TST}
 \newcommand{\symtype}{t}
 \newcommand{\symvalf}{w}
 \newcommand{\symvalu}{v}
@@ -98,6 +99,7 @@
 \newcommand{\expms}[2]{\ensuremath{\formsym{\symms} \; #1 \; #2}}
 \newcommand{\expsh}[2]{\ensuremath{\formsym{\symsh} \; #1 \; #2}}
 \newcommand{\expsm}[2]{\ensuremath{\formsym{\symsm} \; #1 \; #2}}
+\newcommand{\expsubst}[3]{\ensuremath{\subst{#1}{#2}{#3}}}
 
 % Types
 
@@ -109,6 +111,11 @@
 \newcommand{\tylabel}[2]{\ensuremath{#1 . #2}\xspace}
 \newcommand{\tyfun}[2]{\ensuremath{#1 \rightarrow #2}\xspace}
 \newcommand{\tyfor}[2]{\ensuremath{\forall #1 . #2}\xspace}
+\newcommand{\tysubst}[3]{\ensuremath{\subst{#1}{#2}{#3}}}
+\newcommand{\tyunlab}[3]{\ensuremath{\tysubst{#1}{\ith{#2}}{\tylabel{\ith{#2}}{#3}}}\xspace}
+\newcommand{\tyunlabh}[1]{\ensuremath{\tyunlab{#1}{\vartyh}{\tyvarh}}\xspace}
+\newcommand{\tyunlabm}[1]{\ensuremath{\tyunlab{#1}{\vartym}{\tyvarh}}\xspace}
+\newcommand{\tytst}{\ensuremath{\formsym{\symtst}}\xspace}
 
 % Typing rules
 
@@ -141,3 +148,4 @@
 % Miscellaneous
 
 \newcommand{\str}[1]{\ensuremath{\formstr{``#1"}}}
+\newcommand{\subst}[3]{\ensuremath{#1[#2/#3]}}

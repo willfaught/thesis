@@ -1,87 +1,133 @@
 \begin{figure}[p]
 \[
+% Lump
 \frac
 {}
 {\judth{}{\tylump}}
 \quad
+% Number
 \frac
 {}
 {\judth{}{\tynum}}
 \quad
+% Variable
 \frac
 {}
 {\judth{\envextt{\tyvarh}}{\tyvarh}}
 \]
 \[
+% List
 \frac
 {\judth{\env}{\vartyh}}
 {\judth{\env}{\tylist{\vartyh}}}
 \quad
+% Label
 \frac
 {\judth{\env}{\vartyh}}
 {\judth{\env}{\tylabel{\vartyh}{\tyvarh}}}
 \quad
+% Function
 \frac
 {\judth{\env}{\first{\vartyh}} \quad \judth{\env}{\second{\vartyh}}}
 {\judth{\env}{\tyfun{\first{\vartyh}}{\second{\vartyh}}}}
 \quad
+% Forall
 \frac
 {\judth{\env, \tyvarh}{\vartyh}}
 {\judth{\env}{\tyfor{\tyvarh}{\vartyh}}}
 \]
 \bigskip
 \[
+% Function abstraction
 \frac
 {\judth{}{\first{\vartyh}} \quad \judeh{\envexte{\varvarh}{\first{\vartyh}}}{\varexph}{\second{\vartyh}}}
 {\judeh{\env}{(\expfabs{\varvarh}{\first{\vartyh}}{\varexph})}{\tyfor{\first{\vartyh}}{\second{\vartyh}}}}
 \quad
+% Type abstraction
 \frac
 {\judeh{\envextt{\tyvarh}}{\varexph}{\vartyh}}
 {\judeh{\env}{\exptabs{\tyvarh}{\varexph}}{\tyfor{\tyvarh}{\vartyh}}}
 \quad
+% Number
 \frac
 {}
 {\judeh{}{\expnum{n}}{\tynum}}
 \]
 \[
+% Nil
 \frac
 {\judeh{\env}{\vartyh}}
 {\judeh{\env}{\expnil{\vartyh}}{\tylist{\vartyh}}}
 \quad
+% Cons
 \frac
 {\judeh{\env}{\first{\varexph}}{\vartyh} \quad \judeh{\env}{\second{\varexph}}{\tylist{\vartyh}}}
 {\judeh{\env}{\expcons{\first{\varexph}}{\second{\varexph}}}{\tylist{\vartyh}}}
 \quad
+% Variable
 \frac
 {}
 {\judeh{\envexte{\tyvarh}{\vartyh}}{\tyvarh}{\vartyh}}
 \]
 \[
-\frac{\env\symjudh \varexph_1:\vartyh_1\rightarrow \vartyh_2\quad\env\symjudh \varexph_2:\vartyh_1}{\env\symjudh\expfapp{\first{\varexph}}{\second{\varexph}}:\vartyh_2}
+% Function application
+\frac
+{\judeh{\env}{\first{\varexph}}{\tyfun{\first{\vartyh}}{\second{\vartyh}}} \quad \judeh{\env}{\second{\varexph}}{\first{\vartyh}}}
+{\env\symjudh\expfapp{\first{\varexph}}{\second{\varexph}}:\vartyh_2}
 \quad
-\frac{\env\symjudh \varexph:\vartyh\rightarrow \vartyh}{\env\symjudh\mathtt{fix}\;\varexph:\vartyh}
+% Fix
+\frac
+{\judeh{\env}{\varexph}{\tyfun{\vartyh}{\vartyh}}}
+{\judeh{\env}{\expfix{\varexph}}{\vartyh}}
 \]
 \[
-\frac{\env\symjudh \vartyh_1\quad\env\symjudh \varexph:\forall \tyvarh.\vartyh_2}{\env\symjudh \varexph\;\lbrace \vartyh_1\rbrace:\vartyh_2[\vartyh_1/\tyvarh]}
+% Type application
+\frac
+{\judth{\env}{\first{\vartyh}} \quad \judeh{\env}{\varexph}{\tyfor{\tyvarh}{\second{\vartyh}}}}
+{\judeh{\env}{\exptapp{\varexph}{\first{\vartyh}}}{\tysubst{\second{\vartyh}}{\first{\vartyh}}{\tyvarh}}}
 \quad
-\frac{\env\symjudh \varexph:[\vartyh]}{\env\symjudh\mathtt{hd}\;\varexph:\vartyh}
+% Head
+\frac
+{\judeh{\env}{\varexph}{\tylist{\vartyh}}}
+{\judeh{\env}{\exphd{\varexph}}{\vartyh}}
 \quad
-\frac{\env\symjudh \varexph:[\vartyh]}{\env\symjudh\mathtt{tl}\;\varexph:[\vartyh]}
+% Tail
+\frac
+{\judeh{\env}{\varexph}{\tylist{\vartyh}}}
+{\judeh{\env}{\exptl{\varexph}}{\tylist{\vartyh}}}
 \]
 \[
-\frac{\env\symjudh \varexph_1:n\quad\env\symjudh \varexph_2:n}{\env\symjudh o\;\varexph_1\;\varexph_2:n}
+% Arithmetic
+\frac
+{\judeh{\env}{\first{\varexph}}{\tynum} \quad \judeh{\env}{\second{\varexph}}{\tynum}}
+{\judeh{\env}{\expop{\first{\varexph}}{\second{\varexph}}}{\tynum}}
 \quad
-\frac{\env\symjudh \varexph:[\vartyh]}{\env\symjudh\mathtt{null?}\;\varexph:n}
+% Null
+\frac
+{\judeh{\env}{\varexph}{\tylist{\vartyh}}}
+{\judeh{\env}{\expnull{\varexph}}{\tynum}}
 \]
 \[
-\frac{\env\symjudh \varexph_1:n\quad\env\symjudh \varexph_2:\vartyh\quad\env\symjudh \varexph_3:\vartyh}{\env\symjudh\mathtt{if0}\;\varexph_1\;\varexph_2\;\varexph_3:\vartyh}
+% If0
+\frac
+{\judeh{\env}{\first{\varexph}}{\tynum} \quad \judeh{\env}{\second{\varexph}}{\vartyh} \quad \judeh{\env}{\third{\varexph}}{\vartyh}}
+{\judeh{\env}{\expifzero{\first{\varexph}}{\second{\varexph}}{\third{\varexph}}}{\vartyh}}
 \quad
-\frac{\env\symjudh \vartyh}{\env\symjudh\mathtt{wrong}\;\vartyh\;\mathrm{string}:\vartyh}
+% Wrong
+\frac
+{\judth{\env}{\vartyh}}
+{\judeh{\env}{\expwrongs{\vartyh}{\formvar{string}}}{\vartyh}}
 \]
 \[
-\frac{\env\symjudh \vartyh\quad\env\vdash^me^m:t^m\quad \vartyh=t^m}{\env\symjudh\mathtt{hm}\;\vartyh\;e^m:\vartyh}
+% ML
+\frac
+{\judth{\env}{\vartyh} \quad \judem{\env}{\varexpm}{\vartym} \quad \vartyh=\vartym}
+{\judeh{\env}{\exphm{\vartyh}{\varexpm}}{\vartyh}}
 \quad
-\frac{\env\symjudh \vartyh\quad\env\vdash^se^s:TST}{\env\symjudh\mathtt{hs}\;\vartyh\;e^s:\vartyh[\vartyh_i/\vartyh_i.\tyvarh]}
+% Scheme
+\frac
+{\judth{\env}{\vartyh} \quad \judeh{\env}{\varexps}{\tytst}}
+{\judeh{\env}{\exphs{\vartyh}{\varexps}}{\tyunlabh{\vartyh}}}
 \]
 \caption{Haskell typing rules}
 \label{htr}
