@@ -63,6 +63,7 @@
 \newcommand{\varvalus}{\ensuremath{\symvalu\langs}\xspace}
 \newcommand{\varvalfm}{\ensuremath{\symvalf\langm}\xspace}
 \newcommand{\varvalfs}{\ensuremath{\symvalf\langs}\xspace}
+\newcommand{\varnum}{\ensuremath{\symnum}\xspace}
 \newcommand{\vartyh}{\ensuremath{\symtype\langh}\xspace}
 \newcommand{\vartym}{\ensuremath{\symtype\langm}\xspace}
 \newcommand{\vartys}{\ensuremath{\symtype\langs}\xspace}
@@ -128,6 +129,13 @@
 \newcommand{\env}{\ensuremath{\symenv}}
 \newcommand{\envexte}[2]{\ensuremath{\symenv \symext #1 \symexpty #2}}
 \newcommand{\envextt}[1]{\ensuremath{\symenv \symext #1}}
+
+% Reduction rules
+
+\newcommand{\redenv}[1]{\ensuremath{\varconm[#1]}}
+\newcommand{\redenvh}[1]{\ensuremath{\varconm[#1]\langh}}
+\newcommand{\redrule}[2]{\ensuremath{#1 \rightarrow #2}}
+\newcommand{\redruleh}[2]{\ensuremath{\redenvh{#1} \rightarrow \redenv{#2}}}
 
 % Formats
 
