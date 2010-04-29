@@ -34,41 +34,58 @@
 
 % If0 true
 
-%\redruleh
-%{\expifz
-$\varconm[\mathtt{if0}$ $\overline{0}$ $e^h_1$ $e^h_2]^h\rightarrow\varconm[e^h_1]$ \\
+\redruleh
+{\expif{\expnum{0}}{\first{\varexph}}{\second{\varexph}}}
+{\first{\varexph}} \\
 
 % If0 false
 
-$\varconm[\mathtt{if0}$ $\overline{n}$ $e^h_1$ $e^h_2]^h\rightarrow\varconm[e^h_2]$ $(n\neq0)$ \\
+\redruleh
+{\expif{\expnum{\varnum}}{\first{\varexph}}{\second{\varexph}}}
+{\second{\varexph}}
+$(\varnum \neq 0)$ \\
 
 % Head nil
 
-$\varconm[\mathtt{hd}$ $(\mathtt{nil}$ $t^h)]^h\rightarrow\varconm[\mathtt{wrong}$ $t^h$ \str{Empty\;list}$]$ \\
+\redruleh
+{\exphd{(\expnil{\vartyh})}}
+{\expwrongs{\vartyh}{\str{Empty\;list}}} \\
 
 % Tail nil
 
-$\varconm[\mathtt{tl}$ $(\mathtt{nil}$ $t^h)]^h\rightarrow\varconm[\mathtt{wrong}$ $[t^h]$ ``Empty list"$]$ \\
+\redruleh
+{\exptl{(\expnil{\vartyh})}}
+{\expwrongs{\tylist{\vartyh}}{\str{Empty\;list}}} \\
 
 % Head cons
 
-$\varconm[\mathtt{hd}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^h\rightarrow\varconm[e^h_1]$ \\
+\redruleh
+{\exphd{(\expcons{\first{\varexph}}{\second{\varexph}})}}
+{\first{\varexph}} \\
 
 % Tail cons
 
-$\varconm[\mathtt{tl}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^h\rightarrow\varconm[e^h_2]$ \\
+\redruleh
+{\exptl{(\expcons{\first{\varexph}}{\second{\varexph}})}}
+{\second{\varexph}} \\
 
 % Null nil
 
-$\varconm[\mathtt{null?}$ $(\mathtt{nil}$ $t^h)]^h\rightarrow\varconm[\overline{0}]$ \\
+\redruleh
+{\expnull{(\expnil{\vartyh})}}
+{\expnum{0}} \\
 
 % Null cons
 
-$\varconm[\mathtt{null?}$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^h\rightarrow\varconm[\overline{1}]$ \\
+\redruleh
+{\expnull{(\expcons{\first{\varexph}}{\second{\varexph}})}}
+{\expnum{1}} \\
 
 % Wrong
 
-$\varconm[\mathtt{wrong}$ $t^h$ string$]^h\rightarrow$ \textbf{Error}: string
+\redrule
+{\redenvh{\expwrongs{\vartyh}{\formvar{string}}}}
+{\experr{\varstr}}
 
 \end{tabular}
 \caption{Haskell operational semantics}

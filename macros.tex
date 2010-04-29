@@ -76,6 +76,7 @@
 \newcommand{\varconus}{\ensuremath{\symconu\langs}\xspace}
 \newcommand{\varconfm}{\ensuremath{\symconf\langm}\xspace}
 \newcommand{\varconfs}{\ensuremath{\symconf\langs}\xspace}
+\newcommand{\varstr}{\ensuremath{\formvar{\symstr}}\xspace}
 
 % Expressions
 
@@ -104,6 +105,7 @@
 \newcommand{\expsh}[2]{\ensuremath{\formsym{\symsh} \; #1 \; #2}}
 \newcommand{\expsm}[2]{\ensuremath{\formsym{\symsm} \; #1 \; #2}}
 \newcommand{\expsubst}[3]{\ensuremath{\subst{#1}{#2}{#3}}}
+\newcommand{\experr}[1]{\ensuremath{\formstr{\textbf{Error:}\;#1}}}
 
 % Types
 
@@ -147,11 +149,11 @@
 
 % Formats
 
-\newcommand{\formvar}[1]{\ensuremath{#1}}
+\newcommand{\formvar}[1]{\ensuremath{\mathit{#1}}}
 \newcommand{\formsym}[1]{\ensuremath{\mathtt{#1}}}
 \newcommand{\formnum}[1]{\ensuremath{\overline{#1}}}
 \newcommand{\formstr}[1]{\ensuremath{\mathrm{#1}}}
-\newcommand{\formlang}[1]{\ensuremath{^{#1}}}
+\newcommand{\formlang}[1]{\ensuremath{\mathit{^{#1}}}}
 \newcommand{\formindex}[2]{\ensuremath{#1_{#2}}}
 
 % Numberings
