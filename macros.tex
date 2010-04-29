@@ -10,6 +10,8 @@
 \newcommand{\symexpty}{:}
 \newcommand{\symfield}{f}
 \newcommand{\symfix}{fix}
+\newcommand{\symfor}{\forall}
+\newcommand{\symfun}{\rightarrow}
 \newcommand{\symhd}{hd}
 \newcommand{\symhm}{hm}
 \newcommand{\symholeh}{\ensuremath{[\,]\langh}\xspace}
@@ -32,6 +34,7 @@
 \newcommand{\symnull}{null?}
 \newcommand{\symnum}{n}
 \newcommand{\symop}{o}
+\newcommand{\symred}{\rightarrow}
 \newcommand{\symsh}{sh}
 \newcommand{\symsm}{sm}
 \newcommand{\symstr}{string}
@@ -87,7 +90,7 @@
 \newcommand{\expop}[2]{\ensuremath{\formvar{\symop} \; #1 \; #2}}
 \newcommand{\expadd}[2]{\ensuremath{\formsym{\symadd} \; #1 \; #2}}
 \newcommand{\expsub}[2]{\ensuremath{\formsym{\symsub} \; #1 \; #2}}
-\newcommand{\expifzero}[3]{\ensuremath{\formsym{\symif} \; #1 \; #2 \; #3}}
+\newcommand{\expif}[3]{\ensuremath{\formsym{\symif} \; #1 \; #2 \; #3}}
 \newcommand{\expfield}[1]{\ensuremath{\formvar{\symfield} \; #1}}
 \newcommand{\exphd}[1]{\ensuremath{\formsym{\symhd} \; #1}}
 \newcommand{\exptl}[1]{\ensuremath{\formsym{\symtl} \; #1}}
@@ -110,8 +113,8 @@
 \newcommand{\tyvarm}{\ensuremath{\symvar\langm}\xspace}
 \newcommand{\tylist}[1]{\ensuremath{[#1]}\xspace}
 \newcommand{\tylabel}[2]{\ensuremath{#1 . #2}\xspace}
-\newcommand{\tyfun}[2]{\ensuremath{#1 \rightarrow #2}\xspace}
-\newcommand{\tyfor}[2]{\ensuremath{\forall #1 . #2}\xspace}
+\newcommand{\tyfun}[2]{\ensuremath{#1 \symfun #2}\xspace}
+\newcommand{\tyfor}[2]{\ensuremath{\symfor #1 . #2}\xspace}
 \newcommand{\tysubst}[3]{\ensuremath{\subst{#1}{#2}{#3}}}
 \newcommand{\tyunlab}[3]{\ensuremath{\tysubst{#1}{\ith{#2}}{\tylabel{\ith{#2}}{#3}}}\xspace}
 \newcommand{\tyunlabh}[1]{\ensuremath{\tyunlab{#1}{\vartyh}{\tyvarh}}\xspace}
@@ -132,10 +135,15 @@
 
 % Reduction rules
 
+\newcommand{\red}{\ensuremath{\symred}\xspace}
 \newcommand{\redenv}[1]{\ensuremath{\varconm[#1]}}
 \newcommand{\redenvh}[1]{\ensuremath{\varconm[#1]\langh}}
-\newcommand{\redrule}[2]{\ensuremath{#1 \rightarrow #2}}
-\newcommand{\redruleh}[2]{\ensuremath{\redenvh{#1} \rightarrow \redenv{#2}}}
+\newcommand{\redenvm}[1]{\ensuremath{\varconm[#1]\langm}}
+\newcommand{\redenvs}[1]{\ensuremath{\varconm[#1]\langs}}
+\newcommand{\redrule}[2]{\ensuremath{#1 \red #2}}
+\newcommand{\redruleh}[2]{\ensuremath{\redrule{\redenvh{#1}}{\redenv{#2}}}}
+\newcommand{\redrulem}[2]{\ensuremath{\redrule{\redenvm{#1}}{\redenv{#2}}}}
+\newcommand{\redrules}[2]{\ensuremath{\redrule{\redenvs{#1}}{\redenv{#2}}}}
 
 % Formats
 
