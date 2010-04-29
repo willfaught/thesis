@@ -2,21 +2,53 @@
 \centering
 \begin{tabular}{l}
 
-$\mathscr{E}[\mathtt{hm}$ $t^h$ $(\mathtt{mh}$ $t^h$ $e^h)]^h\rightarrow\mathscr{E}[e^h]$ \\
+% hm t (mh t e)
 
-$\mathscr{E}[\mathtt{hm}$ $\mathtt{L}$ $(\mathtt{ms}$ $\mathtt{L}$ $v^s)]^h\rightarrow\mathscr{E}[\mathtt{hs}$ $\mathtt{L}$ $v^s]$ \\
+\redruleh
+{\exphm{\vartyh}{(\expmh{\vartyh}{\varexph})}}
+{\varexph} \\
 
-$\mathscr{E}[\mathtt{hm}$ $\mathtt{N}$ $\overline{n}]^h\rightarrow\mathscr{E}[\overline{n}]$ \\
+% hm L (ms L v)
 
-$\mathscr{E}[\mathtt{hm}$ $[t]$ $(\mathtt{nil}$ $t)]^h\rightarrow\mathscr{E}[\mathtt{nil}$ $t]$ \\
+\redruleh
+{\exphm{\tylump}{(\expms{\tylump}{\varvalus})}}
+{\exphs{\tylump}{\varvalus}} \\
 
-$\mathscr{E}[\mathtt{hm}$ $[t]$ $(\mathtt{cons}$ $v^m_1$ $v^m_2)]^h\rightarrow\mathscr{E}[\mathtt{cons}$ $(\mathtt{hm}$ $t$ $v^m_1)$ $(\mathtt{hm}$ $[t]$ $v^m_2)]$ \\
+% hm N n
 
-$\mathscr{E}[\mathtt{hm}$ $(t_1\rightarrow t_2)$ $(\lambda x^m:t_1.e^m)]^h\rightarrow\mathscr{E}[\lambda x^h:t_1.\mathtt{hm}$ $t_2$ $((\lambda x^m:t_1.e^m)$ $(\mathtt{mh}$ $t_1$ $x^h))]$ \\
+\redruleh
+{\exphm{\tynum}{\expnum{\varnum}}}
+{\expnum{\varnum}} \\
 
-$\mathscr{E}[\mathtt{hm}$ $(\forall x^h.t)$ $(\Lambda x^m.e^m)]^h\rightarrow\mathscr{E}[\Lambda x^h.\mathtt{hm}$ $t$ $e^m]$ \\
+% hm [t] (nil t)
 
-$\mathscr{E}[\mathtt{hm}$ $(\forall x^h.t)$ $(\mathtt{ms}$ $(\forall x^h.t)$ $v^s)]^h\rightarrow\mathscr{E}[\mathtt{hs}$ $(\forall x^h.t)$ $v^s]$ \\
+\redruleh
+{\exphm{\tylist{\vartyh}}{(\expnil{\vartym})}}
+{\expnil{\vartyh}} \\
+
+% hm [t] (cons v v)
+
+\redruleh
+{\exphm{\tylist{\vartyh}}{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
+{\expcons{(\exphm{\vartyh}{\first{\varvalum}})}{(\exphm{\tylist{\vartyh}}{\second{\varvalum}})}} \\
+
+% hm (t->t) (\x:t.e)
+
+\redruleh
+{\exphm{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{(\expfabs{\varvarm}{\first{\vartym}}{\varexpm})}}
+{\expfabs{\varvarh}{\first{\vartyh}}{\exphm{\second{\vartyh}}{\expfapp{((\expfabs{\varvarm}{\first{\vartym}}{\varexpm})}{(\expmh{\first{\vartym}}{\varvarh})})}}} \\
+
+% hm (Ax.t) (\\x.e)
+
+\redruleh
+{\exphm{(\tyfor{\tyvarh}{\vartyh})}{(\exptabs{\tyvarm}{\varexpm})}}
+{\exptabs{\tyvarh}{\exphm{\vartyh}{\varexpm}}} \\
+
+% hm (Ax.t) (ms (Ax.t) v)
+
+\redruleh
+{\exphm{(\tyfor{\tyvarh}{\vartyh})}{(\expms{(\tyfor{\tyvarh}{\vartyh})}{\varvalus}})}
+{\exphs{(\tyfor{\tyvarh}{\vartyh})}{\varvalus}}
 
 \end{tabular}
 \caption{Haskell-ML operational semantics}
