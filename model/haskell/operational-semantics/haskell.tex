@@ -5,7 +5,7 @@
 % Function application
 
 \redruleh
-{\expfapp{(\expfabs{\varvarh}{\vartyh}{\first{\varexph}})}{\second{\varexph}}}
+{\expfapp{(\expfabss{\varvarh}{\vartyh}{\first{\varexph}})}{\second{\varexph}}}
 {\expsubst{\first{\varexph}}{\second{\varexph}}{\varvarh}} \\
 
 % Type application
@@ -17,8 +17,8 @@
 % Fix
 
 \redruleh
-{\expfix{(\expfabs{\varvarh}{\vartyh}{\varexph})}}
-{\expsubst{\varexph}{\expfix{(\expfabs{\varvarh}{\vartyh}{\varexph})}}{\varvarh}} \\
+{\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}}
+{\expsubst{\varexph}{\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}}{\varvarh}} \\
 
 % Add
 
@@ -48,13 +48,13 @@ $(\varnum \neq 0)$ \\
 % Head nil
 
 \redruleh
-{\exphd{(\expnil{\vartyh})}}
+{\exphd{(\expnils{\vartyh})}}
 {\expwrongs{\vartyh}{\str{Empty\;list}}} \\
 
 % Tail nil
 
 \redruleh
-{\exptl{(\expnil{\vartyh})}}
+{\exptl{(\expnils{\vartyh})}}
 {\expwrongs{\tylist{\vartyh}}{\str{Empty\;list}}} \\
 
 % Head cons
@@ -72,7 +72,7 @@ $(\varnum \neq 0)$ \\
 % Null nil
 
 \redruleh
-{\expnull{(\expnil{\vartyh})}}
+{\expnull{(\expnils{\vartyh})}}
 {\expnum{0}} \\
 
 % Null cons

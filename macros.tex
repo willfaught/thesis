@@ -80,10 +80,12 @@
 
 % Expressions
 
-\newcommand{\expfabs}[3]{\ensuremath{\lambda #1 : #2 . #3}}
+\newcommand{\expfabss}[3]{\ensuremath{\lambda #1 : #2 . #3}}
+\newcommand{\expfabsd}[2]{\ensuremath{\lambda #1 . #2}}
 \newcommand{\exptabs}[2]{\ensuremath{\Lambda #1 . #2}}
 \newcommand{\expnum}[1]{\ensuremath{\formnum{#1}}}
-\newcommand{\expnil}[1]{\ensuremath{\formsym{\symnil} \; #1}}
+\newcommand{\expnils}[1]{\ensuremath{\formsym{\symnil} \; #1}}
+\newcommand{\expnild}{\ensuremath{\formsym{\symnil}}}
 \newcommand{\expcons}[2]{\ensuremath{\formsym{\symcons} \; #1 \; #2}}
 \newcommand{\expfapp}[2]{\ensuremath{#1 \; #2}}
 \newcommand{\exptapp}[2]{\ensuremath{#1 \; \lbrace #2 \rbrace}}
@@ -146,6 +148,7 @@
 \newcommand{\redruleh}[2]{\ensuremath{\redrule{\redenvh{#1}}{\redenv{#2}}}}
 \newcommand{\redrulem}[2]{\ensuremath{\redrule{\redenvm{#1}}{\redenv{#2}}}}
 \newcommand{\redrules}[2]{\ensuremath{\redrule{\redenvs{#1}}{\redenv{#2}}}}
+\newcommand{\redsp}{\ensuremath{\quad \quad}}
 
 % Formats
 

@@ -2,27 +2,67 @@
 \centering
 \begin{tabular}{l}
 
-$\mathscr{E}[\mathtt{hs}$ $t$ $(\mathtt{sh}$ $t$ $e^h)]^h\rightarrow\mathscr{E}[e^h]$ \\
+% hs N n
 
-$\mathscr{E}[\mathtt{hs}$ $\mathtt{N}$ $\overline{n}]^h\rightarrow\mathscr{E}[\overline{n}]$ \\
+\redruleh
+{\exphs{\tynum}{\expnum{\varnum}}}
+{{\expnum{\varnum}}} \\
 
-$\mathscr{E}[\mathtt{hs}$ $\mathtt{N}$ $v^s]^h\rightarrow\mathscr{E}[\mathtt{wrong}$ $\mathtt{N}$ ``Not a number"$]$ $(v^s\neq\overline{n})$ \\
+% hs N v
 
-$\mathscr{E}[\mathtt{hs}$ $[t]$ $\mathtt{nil}]^h\rightarrow\mathscr{E}[\mathtt{nil}$ $t[t_i/t_i.x^h]]$ \\
+\redruleh
+{\exphs{\tynum}{\varvalus}}
+{\expwrongs{\tynum}{\str{Not \; a \; number}}} $(\varvalus \neq \expnum{\varnum})$ \\
 
-$\mathscr{E}[\mathtt{hs}$ $[t]$ $(\mathtt{cons}$ $v^s_1$ $v^s_2)]^h\rightarrow\mathscr{E}[\mathtt{cons}$ $(\mathtt{hs}$ $t$ $v^s_1)$ $(\mathtt{hs}$ $[t]$ $v^s_2)]$ \\
+% hs [t] nil
 
-$\mathscr{E}[\mathtt{hs}$ $[t]$ $v^s_1]^h\rightarrow\mathscr{E}[\mathtt{wrong}$ $[t[t_i/t_i.x^h]]$ ``Not a list"$]$ \\
+\redruleh
+{\exphs{\tylist{\vartyh}}{\expnild}}
+{\expnils{\tyunlabh{\vartyh}}} \\
 
-$\quad(v^s_1\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v^s_2$ $v^s_3,\mathtt{sh}$ $[t]$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)\rbrace)$ \\
+% hs [t] (cons v v)
 
-$\mathscr{E}[\mathtt{hs}$ $(t.x^h)$ $v^s]^h\rightarrow\mathscr{E}[\mathtt{wrong}$ $t$ ``Parametricity violated"$]$ $(v^s\neq \mathtt{sh}$ $(t.x^h)$ $e^h)$ \\
+\redruleh
+{\exphs{\tylist{\vartyh}}{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
+{\expcons{(\exphs{\vartyh}{\first{\varvalus}})}{(\exphs{\tylist{\vartyh}}{\second{\varvalus}})}} \\
 
-$\mathscr{E}[\mathtt{hs}$ $(t_1\rightarrow t_2)$ $(\lambda x^s.e^s)]^h\rightarrow\mathscr{E}[\lambda x^h:t_1[t_i/t_i.x^h].\mathtt{hs}$ $t_2$ $((\lambda x^s.e^s)$ $(\mathtt{sh}$ $t_1$ $x^h))]$ \\
+% hs [t] v
 
-$\mathscr{E}[\mathtt{hs}$ $(t_1\rightarrow t_2)$ $v^s]^h\rightarrow\mathscr{E}[\mathtt{wrong}$ $(t_1\rightarrow t_2)[t_i/t_i.x^h]$ ``Not a function"$]$ $(v^s\neq\lambda x^s.e^s)$ \\
+\redruleh
+{\exphs{\tylist{\vartyh}}{\first{\varvalus}}}
+{\expwrongs{\tyunlabh{\vartyh}}{\str{Not \; a \; list}}} \\
 
-$\mathscr{E}[(\mathtt{hs}$ $(\forall x^h.t_1)$ $v^s)$ $\lbrace t_2\rbrace]^h\rightarrow\mathscr{E}[\mathtt{hs}$ $t_1[t_2.x^h/x^h]$ $v^s]$
+\redsp $(\first{\varvalus} \neq \expnild$ and $\first{\varvalus} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
+
+% hs (t.x) (sh (t.x) e)
+
+\redruleh
+{\exphs{(\tylabel{\vartyh}{\tyvarh})}{(\expsh{(\tylabel{\vartyh}{\tyvarh})}{\varexph})}}
+{\varexph} \\
+
+% hs (t.x) v
+
+\redruleh
+{\exphs{(\tylabel{\vartyh}{\tyvarh})}{\varvalus}}
+{\expwrongs{\vartyh}{\str{Parametricity \; violated}}} $(\varvalus \neq \expsh{(\tylabel{\vartyh}{\tyvarh})}{\varexph})$ \\
+
+% hs (t->t) (\x.e)
+
+\redruleh
+{\exphs{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{(\expfabsd{\varvars}{\varexps})}}
+{\expfabss{\varvarh}{\tyunlabh{\first{\vartyh}}}{\exphs{\second{\vartyh}}{(\expfapp{(\expfabsd{\varvars}{\varexps})}{(\expsh{\first{\vartyh}}{\varvarh})})}}} \\
+
+% hs (t->t) v
+
+\redruleh
+{\exphs{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{\varvalus}}
+{\expwrongs{\tyunlabh{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}}{\str{Not \; a \; function}}} $(\varvalus \neq \expfabsd{\varvars}{\varexps})$ \\
+
+% (hs (Ax.t) v) {t}
+
+\redruleh
+{\exptapp{(\exphs{(\tyfor{\tyvarh}{\first{\vartyh}})}{\varvalus})}{\second{\vartyh}}}
+{\exphs{\tysubst{\first{\vartyh}}{\tylabel{\second{\vartyh}}{\tyvarh}}{\tyvarh}}{\varvalus}} \\
 
 \end{tabular}
 \caption{Haskell-Scheme operational semantics}
