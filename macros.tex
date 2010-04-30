@@ -140,14 +140,14 @@
 % Reduction rules
 
 \newcommand{\red}{\ensuremath{\symred}\xspace}
-\newcommand{\redenv}[1]{\ensuremath{\varconm[#1]}}
-\newcommand{\redenvh}[1]{\ensuremath{\varconm[#1]\langh}}
-\newcommand{\redenvm}[1]{\ensuremath{\varconm[#1]\langm}}
-\newcommand{\redenvs}[1]{\ensuremath{\varconm[#1]\langs}}
+\newcommand{\redcon}[1]{\ensuremath{\varconm[#1]}}
+\newcommand{\redconh}[1]{\ensuremath{\varconm[#1]\langh}}
+\newcommand{\redconm}[1]{\ensuremath{\varconm[#1]\langm}}
+\newcommand{\redcons}[1]{\ensuremath{\varconm[#1]\langs}}
 \newcommand{\redrule}[2]{\ensuremath{#1 \red #2}}
-\newcommand{\redruleh}[2]{\ensuremath{\redrule{\redenvh{#1}}{\redenv{#2}}}}
-\newcommand{\redrulem}[2]{\ensuremath{\redrule{\redenvm{#1}}{\redenv{#2}}}}
-\newcommand{\redrules}[2]{\ensuremath{\redrule{\redenvs{#1}}{\redenv{#2}}}}
+\newcommand{\redruleh}[2]{\ensuremath{\redrule{\redconh{#1}}{\redcon{#2}}}}
+\newcommand{\redrulem}[2]{\ensuremath{\redrule{\redconm{#1}}{\redcon{#2}}}}
+\newcommand{\redrules}[2]{\ensuremath{\redrule{\redcons{#1}}{\redcon{#2}}}}
 \newcommand{\redsp}{\ensuremath{\quad \quad}}
 
 % Formats
