@@ -2,21 +2,49 @@
 \centering
 \begin{tabular}{l}
 
-$\mathscr{E}[\mathtt{sh}$ $\mathtt{L}$ $(\mathtt{hs}$ $\mathtt{L}$ $v^s)]^s\rightarrow\mathscr{E}[v^s]$ \\
+% sh L (ms L v)
 
-$\mathscr{E}[\mathtt{sh}$ $\mathtt{N}$ $\overline{n}]^s\rightarrow\mathscr{E}[\overline{n}]$ \\
+\redrules
+{\expsh{\tylump}{(\exphs{\tylump}{\varvalus})}}
+{\varvalus} \\
 
-$\mathscr{E}[\mathtt{sh}$ $[t]$ $(\mathtt{nil}$ $t[t_i/t_i.x^h])]^s\rightarrow\mathscr{E}[\mathtt{nil}]$ \\
+% sh N n
 
-$\mathscr{E}[\mathtt{sh}$ $[t]$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)]^s\rightarrow\mathscr{E}[\mathtt{cons}$ $(\mathtt{sh}$ $t$ $e^h_1)$ $(\mathtt{sh}$ $[t]$ $e^h_2)]$ \\
+\redrules
+{\expsh{\tynum}{\expnum{\varnum}}}
+{\expnum{\varnum}} \\
 
-$\mathscr{E}[\mathtt{sh}$ $(t_1\rightarrow t_2)$ $(\lambda x^h:t_1[t_i/t_i.x^h].e^h)]^s\rightarrow$ \\
+% sh [t] (nil t)
 
-$\quad\quad\mathscr{E}[\lambda x^s.\mathtt{sh}$ $t_2$ $((\lambda x^h:t_1[t_i/t_i.x^h].e^h)$ $(\mathtt{hs}$ $t_1$ $x^s))]$ \\
+\redrules
+{\expsh{\tylist{\vartyh}}{(\expnils{\tyunlabh{\vartyh}})}}
+{\expnild} \\
 
-$\mathscr{E}[\mathtt{sh}$ $(\forall x^h.t)$ $(\Lambda x^h.e^h)]^s\rightarrow\mathscr{E}[\mathtt{sh}$ $t[\mathtt{L}/x^h]$ $e^h[\mathtt{L}/x^h]]$ \\
+% sh [t] (cons e e)
 
-$\mathscr{E}[\mathtt{sh}$ $(\forall x^h.t)$ $(\mathtt{hs}$ $(\forall x^h.t)$ $v^s)]^s\rightarrow\mathscr{E}[v^s]$ \\
+\redrules
+{\expsh{\tylist{\vartyh}}{(\expcons{\first{\varexph}}{\second{\varexph}})}}
+{\expcons{(\expsh{\vartyh}{\first{\varexph}})}{(\expsh{\tylist{\vartyh}}{\second{\varexph}})}} \\
+
+% sh (t->t) (\x:t.e)
+
+\redrule
+{\redcons{\expsh{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{(\expfabss{\varvarh}{\tyunlabh{\first{\vartyh}}}{\varexph})}}}
+{} \\
+
+\redsp \redcon{{\expfabsd{\varvars}{\expsh{\second{\vartyh}}{\expfapp{((\expfabss{\varvarh}{\tyunlabh{\first{\vartyh}}}{\varexph})}{(\exphs{\first{\vartyh}}{\varvars})})}}}} \\
+
+% sh (Ax.t) (hs (Ax.t) v)
+
+\redrules
+{\expsh{(\tyfor{\tyvarh}{\vartyh})}{(\exptabs{\tyvarh}{\varexph})}}
+{\expsh{\tysubst{\vartyh}{\tylump}{\tyvarh}}{\expsubst{\varexph}{\tylump}{\tyvarh}}} \\
+
+% sh (Ax.t) (ms (Ax.t) v)
+
+\redrules
+{\expsh{(\tyfor{\tyvarh}{\vartyh})}{(\exphs{(\tyfor{\tyvarh}{\vartyh})}{\varvalus}})}
+{\varvalus}
 
 \end{tabular}
 \caption{Scheme-Haskell operational semantics}
