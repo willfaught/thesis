@@ -2,23 +2,49 @@
 \centering
 \begin{tabular}{l}
 
-$\mathscr{E}[\mathtt{sm}$ $t$ $(\mathtt{mh}$ $t$ $e^h)]^s\rightarrow\mathscr{E}[\mathtt{sh}$ $t$ $e^h]$ \\
+% sm L (ms L v)
 
-$\mathscr{E}[\mathtt{sm}$ $\mathtt{L}$ $(\mathtt{ms}$ $\mathtt{L}$ $v^s)]^s\rightarrow\mathscr{E}[v^s]$ \\
+\redrules
+{\expsm{\tylump}{(\expms{\tylump}{\varvalus})}}
+{\varvalus} \\
 
-$\mathscr{E}[\mathtt{sm}$ $\mathtt{N}$ $\overline{n}]^s\rightarrow\mathscr{E}[\overline{n}]$ \\
+% sm N n
 
-$\mathscr{E}[\mathtt{sm}$ $[t]$ $(\mathtt{nil}$ $t[t_i/t_i.x^m])]^s\rightarrow\mathscr{E}[\mathtt{nil}]$ \\
+\redrules
+{\expsm{\tynum}{\expnum{\varnum}}}
+{\expnum{\varnum}} \\
 
-$\mathscr{E}[\mathtt{sm}$ $[t]$ $(\mathtt{cons}$ $v^m_1$ $v^m_2)]^s\rightarrow\mathscr{E}[\mathtt{cons}$ $(\mathtt{sm}$ $t$ $v^m_1)$ $(\mathtt{sm}$ $[t]$ $v^m_2)]$ \\
+% sm [t] (nil t)
 
-$\mathscr{E}[\mathtt{sm}$ $(t_1\rightarrow t_2)$ $(\lambda x^m:t_1[t_i/t_i.x^m].e^m)]^s\rightarrow$ \\
+\redrules
+{\expsm{\tylist{\vartym}}{(\expnils{\tyunlabm{\vartym}})}}
+{\expnild} \\
 
-$\quad\quad\mathscr{E}[\lambda x^s.\mathtt{sm}$ $t_2$ $((\lambda x^m:t_1[t_i/t_i.x^m].e^m)$ $(\mathtt{ms}$ $t_1$ $x^s))]$ \\
+% sm [t] (cons v v)
 
-$\mathscr{E}[\mathtt{sm}$ $(\forall x^m.t)$ $(\Lambda x^m.e^m)]^s\rightarrow\mathscr{E}[\mathtt{sm}$ $t[\mathtt{L}/x^m]$ $e^m[\mathtt{L}/x^m]]$ \\
+\redrules
+{\expsm{\tylist{\vartym}}{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
+{\expcons{(\expsm{\vartym}{\first{\varvalum}})}{(\expsm{\tylist{\vartym}}{\second{\varvalum}})}} \\
 
-$\mathscr{E}[\mathtt{sm}$ $(\forall x^m.t)$ $(\mathtt{ms}$ $(\forall x^m.t)$ $v^s)]^s\rightarrow\mathscr{E}[v^s]$
+% sm (t->t) (\x:t.e)
+
+\redrule
+{\redcons{\expsm{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabss{\varvarm}{\tyunlabm{\first{\vartym}}}{\varexpm})}}}
+{} \\
+
+\redsp \redcon{{\expfabsd{\varvars}{\expsm{\second{\vartym}}{\expfapp{((\expfabss{\varvarm}{\tyunlabm{\first{\vartym}}}{\varexpm})}{(\expms{\first{\vartym}}{\varvars})})}}}} \\
+
+% sm (Ax.t) (hs (Ax.t) v)
+
+\redrules
+{\expsm{(\tyfor{\tyvarm}{\vartym})}{(\exptabs{\tyvarm}{\varexpm})}}
+{\expsm{\tysubst{\vartym}{\tylump}{\tyvarm}}{\expsubst{\varexpm}{\tylump}{\tyvarm}}} \\
+
+% sm (Ax.t) (ms (Ax.t) v)
+
+\redrules
+{\expsm{(\tyfor{\tyvarm}{\vartym})}{(\expms{(\tyfor{\tyvarm}{\vartym})}{\varvalus}})}
+{\varvalus}
 
 \end{tabular}
 \caption{Scheme-ML operational semantics}
