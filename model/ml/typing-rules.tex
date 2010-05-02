@@ -1,61 +1,133 @@
 \begin{figure}[p]
 \[
-\frac{}{\vdash^m\mathtt{L}}
+% Lump
+\frac
+{}
+{\judtm{}{\tylump}}
 \quad
-\frac{}{\vdash^m\mathtt{\mathtt{N}}}
+% Number
+\frac
+{}
+{\judtm{}{\tynum}}
 \quad
-\frac{}{\Gamma,x^m\vdash^mx^m}
+% Variable
+\frac
+{}
+{\judtm{\envextt{\tyvarm}}{\tyvarm}}
 \]
 \[
-\frac{\Gamma\vdash^mt}{\Gamma\vdash^m[t]}
+% List
+\frac
+{\judtm{\env}{\vartym}}
+{\judtm{\env}{\tylist{\vartym}}}
 \quad
-\frac{\Gamma\vdash^mt}{\Gamma\vdash^mt.x^m}
+% Label
+\frac
+{\judtm{\env}{\vartym}}
+{\judtm{\env}{\tylabel{\vartym}{\tyvarm}}}
 \quad
-\frac{\Gamma\vdash^mt_{1}\quad\Gamma\vdash^mt_{2}}{\Gamma\vdash^mt_{1}\rightarrow t_{2}}
+% Function
+\frac
+{\judtm{\env}{\first{\vartym}} \quad \judtm{\env}{\second{\vartym}}}
+{\judtm{\env}{\tyfun{\first{\vartym}}{\second{\vartym}}}}
 \quad
-\frac{\Gamma ,x^m\vdash^mt}{\Gamma\vdash^m\forall x^m.t}
+% Forall
+\frac
+{\judtm{\env, \tyvarm}{\vartym}}
+{\judtm{\env}{\tyfor{\tyvarm}{\vartym}}}
 \]
 \bigskip
 \[
-\frac{\Gamma\vdash^mt_{1}\quad\Gamma,x:t_{1}\vdash^me^m:t_{2}}{\Gamma\vdash^m\lambda x:t_{1}.e^m:t_{1}\rightarrow t_{2}}
+% Function abstraction
+\frac
+{\judtm{}{\first{\vartym}} \quad \judem{\envexte{\varvarm}{\first{\vartym}}}{\varexpm}{\second{\vartym}}}
+{\judem{\env}{(\expfabss{\varvarm}{\first{\vartym}}{\varexpm})}{\tyfor{\first{\vartym}}{\second{\vartym}}}}
 \quad
-\frac{\Gamma,x^m\vdash^me^m:t}{\Gamma\vdash^m\Lambda x^m.e^m:\forall x^m.t}
+% Type abstraction
+\frac
+{\judem{\envextt{\tyvarm}}{\varexpm}{\vartym}}
+{\judem{\env}{\exptabs{\tyvarm}{\varexpm}}{\tyfor{\tyvarm}{\vartym}}}
 \quad
-\frac{}{\vdash^m\overline{n}:\mathtt{N}}
+% Number
+\frac
+{}
+{\judem{}{\expnum{n}}{\tynum}}
 \]
 \[
-\frac{\Gamma\vdash^mt}{\Gamma\vdash^m\mathtt{nil}\;t:[t]}
+% Nil
+\frac
+{\judem{\env}{\vartym}}
+{\judem{\env}{\expnils{\vartym}}{\tylist{\vartym}}}
 \quad
-\frac{\Gamma\vdash^me^m_1:t\quad\Gamma\vdash^me^m_2:[t]}{\Gamma\vdash^m\mathtt{cons}\;e^m_1\;e^m_2:[t]}
+% Cons
+\frac
+{\judem{\env}{\first{\varexpm}}{\vartym} \quad \judem{\env}{\second{\varexpm}}{\tylist{\vartym}}}
+{\judem{\env}{\expcons{\first{\varexpm}}{\second{\varexpm}}}{\tylist{\vartym}}}
 \quad
-\frac{}{\Gamma,x^m:t\vdash^mx^m:t}
+% Variable
+\frac
+{}
+{\judem{\envexte{\tyvarm}{\vartym}}{\tyvarm}{\vartym}}
 \]
 \[
-\frac{\Gamma\vdash^me^m_1:t_{1}\rightarrow t_{2}\quad\Gamma\vdash^me^m_2:t_{1}}{\Gamma\vdash^me^m_1\;e^m_2:t_{2}}
+% Function application
+\frac
+{\judem{\env}{\first{\varexpm}}{\tyfun{\first{\vartym}}{\second{\vartym}}} \quad \judem{\env}{\second{\varexpm}}{\first{\vartym}}}
+{\env\symjudh\expfapp{\first{\varexpm}}{\second{\varexpm}}:\vartym_2}
 \quad
-\frac{\Gamma\vdash^me^m:t\rightarrow t}{\Gamma\vdash^m\mathtt{fix}\;e^m:t}
+% Fix
+\frac
+{\judem{\env}{\varexpm}{\tyfun{\vartym}{\vartym}}}
+{\judem{\env}{\expfix{\varexpm}}{\vartym}}
 \]
 \[
-\frac{\Gamma\vdash^mt_{1}\quad\Gamma\vdash^me^m:\forall x^m.t_{2}}{\Gamma\vdash^me^m\;\lbrace t_{1}\rbrace:t_{2}[t_{1}/x^m]}
+% Type application
+\frac
+{\judtm{\env}{\first{\vartym}} \quad \judem{\env}{\varexpm}{\tyfor{\tyvarm}{\second{\vartym}}}}
+{\judem{\env}{\exptapp{\varexpm}{\first{\vartym}}}{\tysubst{\second{\vartym}}{\first{\vartym}}{\tyvarm}}}
 \quad
-\frac{\Gamma\vdash^me^m:[t]}{\Gamma\vdash^m\mathtt{hd}\;e^m:t}
+% Head
+\frac
+{\judem{\env}{\varexpm}{\tylist{\vartym}}}
+{\judem{\env}{\exphd{\varexpm}}{\vartym}}
 \quad
-\frac{\Gamma\vdash^me^m:[t]}{\Gamma\vdash^m\mathtt{tl}\;e^m:[t]}
+% Tail
+\frac
+{\judem{\env}{\varexpm}{\tylist{\vartym}}}
+{\judem{\env}{\exptl{\varexpm}}{\tylist{\vartym}}}
 \]
 \[
-\frac{\Gamma\vdash^me^m_1:\mathtt{N}\quad\Gamma\vdash^me^m_2:\mathtt{N}}{\Gamma\vdash^mo\;e^m_1\;e^m_2:\mathtt{N}}
+% Arithmetic
+\frac
+{\judem{\env}{\first{\varexpm}}{\tynum} \quad \judem{\env}{\second{\varexpm}}{\tynum}}
+{\judem{\env}{\expop{\first{\varexpm}}{\second{\varexpm}}}{\tynum}}
 \quad
-\frac{\Gamma\vdash^me^m:[t]}{\Gamma\vdash^m\mathtt{null?}\;e^m:\mathtt{N}}
+% Null
+\frac
+{\judem{\env}{\varexpm}{\tylist{\vartym}}}
+{\judem{\env}{\expnull{\varexpm}}{\tynum}}
 \]
 \[
-\frac{\Gamma\vdash^me^m_1:\mathtt{N}\quad\Gamma\vdash^me^m_2:t\quad\Gamma\vdash^me^m_3:t}{\Gamma\vdash^m\mathtt{if0}\;e^m_1\;e^m_2\;e^m_3:t}
+% If0
+\frac
+{\judem{\env}{\first{\varexpm}}{\tynum} \quad \judem{\env}{\second{\varexpm}}{\vartym} \quad \judem{\env}{\third{\varexpm}}{\vartym}}
+{\judem{\env}{\expif{\first{\varexpm}}{\second{\varexpm}}{\third{\varexpm}}}{\vartym}}
 \quad
-\frac{\Gamma\vdash^mt}{\Gamma\vdash^m\mathtt{wrong}\;t\;\mathrm{string}:t}
+% Wrong
+\frac
+{\judtm{\env}{\vartym}}
+{\judem{\env}{\expwrongs{\vartym}{\formvar{string}}}{\vartym}}
 \]
 \[
-\frac{\Gamma\vdash^mt\quad\Gamma\vdash^he^h:t}{\Gamma\vdash^m\mathtt{mh}\;t\;e^h:t}
+% ML
+\frac
+{\judtm{\env}{\vartym} \quad \judeh{\env}{\varexph}{\vartyh} \quad \vartym=\vartyh}
+{\judem{\env}{\expmh{\vartym}{\varexph}}{\vartym}}
 \quad
-\frac{\Gamma\vdash^mt\quad\Gamma\vdash^se^s:\mathtt{TST}}{\Gamma\vdash^m\mathtt{ms}\;t\;e^s:t[t_{i}/t.x^m_{i}]}
+% Scheme
+\frac
+{\judtm{\env}{\vartym} \quad \judes{\env}{\varexps}{\tytst}}
+{\judem{\env}{\expms{\vartym}{\varexps}}{\tyunlabm{\vartym}}}
 \]
 \caption{ML typing rules}
 \label{mtr}
