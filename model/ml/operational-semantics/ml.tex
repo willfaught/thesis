@@ -2,35 +2,90 @@
 \centering
 \begin{tabular}{l}
 
-$\mathscr{E}[(\lambda x^m:t.e^m)$ $v^m]^m\rightarrow\mathscr{E}[e^m[v^m/x^m]]$ \\
+% Function application
 
-$\mathscr{E}[(\Lambda x^m.e^m)$ $\lbrace t\rbrace]]^m\rightarrow\mathscr{E}[e^m[t/x^m]]$ \\
+\redrulem
+{\expfapp{(\expfabss{\varvarm}{\vartym}{\varexpm})}{\varvalum}}
+{\expsubst{\varexpm}{\varvalum}{\varvarm}} \\
 
-$\mathscr{E}[\mathtt{fix}$ $(\lambda x^m:t.e^m)]^m\rightarrow\mathscr{E}[e^m[(\mathtt{fix}$ $(\lambda x^m:t.e^m))/x^m]]$ \\
+% Type application
 
-$\mathscr{E}[+$ $\overline{n_{1}}$ $\overline{n_{2}}]^m\rightarrow\mathscr{E}[\overline{n_{1}+n_{2}}]$ \\
+\redrulem
+{\exptapp{(\exptabs{\tyvarm}{\varexpm})}{\vartym}}
+{\expsubst{\varexpm}{\vartym}{\tyvarm}} \\
 
-$\mathscr{E}[-$ $\overline{n_{1}}$ $\overline{n_{2}}]^m\rightarrow\mathscr{E}[\overline{max^m(n_{1}-n_{2},0)}]$ \\
+% Fix
 
-$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e^m_1$ $e^m_2]^m\rightarrow\mathscr{E}[e^m_1]$ \\
+\redrulem
+{\expfix{(\expfabss{\varvarm}{\vartym}{\varexpm})}}
+{\expsubst{\varexpm}{\expfix{(\expfabss{\varvarm}{\vartym}{\varexpm})}}{\varvarm}} \\
 
-$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e^m_1$ $e^m_2]^m\rightarrow\mathscr{E}[e^m_2]$ $(n\neq0)$ \\
+% Add
 
-$\mathscr{E}[\mathtt{hd}$ $(\mathtt{nil}$ $t)]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $t$ ``Empty list"$]$ \\
+\redrulem
+{\expadd{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
+{\expnum{\first{\varnum} + \second{\varnum}}} \\
 
-$\mathscr{E}[\mathtt{tl}$ $(\mathtt{nil}$ $t)]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $[t]$ ``Empty list"$]$ \\
+% Subtract
 
-$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v^m_1$ $v^m_2)]^m\rightarrow\mathscr{E}[v^m_1]$ \\
+\redrulem
+{\expsub{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
+{\expnum{\formvar{max}(\first{\varnum} - \second{\varnum}, 0)}} \\
 
-$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v^m_1$ $v^m_2)]^m\rightarrow\mathscr{E}[v^m_2]$ \\
+% If0 true
 
-$\mathscr{E}[\mathtt{null?}$ $(\mathtt{nil}$ $t)]^m\rightarrow\mathscr{E}[\overline{0}]$ \\
+\redrulem
+{\expif{\expnum{0}}{\first{\varexpm}}{\second{\varexpm}}}
+{\first{\varexpm}} \\
 
-$\mathscr{E}[\mathtt{null?}$ $(\mathtt{cons}$ $v^m_1$ $v^m_2)]^m\rightarrow\mathscr{E}[\overline{1}]$ \\
+% If0 false
 
-$\mathscr{E}[\mathtt{null?}$ $(\mathtt{mh}$ $[t]$ $(\mathtt{cons}$ $e^h_1$ $e^h_2))]^m\rightarrow\mathscr{E}[\overline{1}]$ \\
+\redrulem
+{\expif{\expnum{\varnum}}{\first{\varexpm}}{\second{\varexpm}}}
+{\second{\varexpm}}
+$(\varnum \neq 0)$ \\
 
-$\mathscr{E}[\mathtt{wrong}$ $t$ string$]^m\rightarrow$ \textbf{Error}: string
+% Head nil
+
+\redrulem
+{\exphd{(\expnils{\vartym})}}
+{\expwrongs{\vartym}{\str{Empty\;list}}} \\
+
+% Tail nil
+
+\redrulem
+{\exptl{(\expnils{\vartym})}}
+{\expwrongs{\tylist{\vartym}}{\str{Empty\;list}}} \\
+
+% Head cons
+
+\redrulem
+{\exphd{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
+{\first{\varvalum}} \\
+
+% Tail cons
+
+\redrulem
+{\exptl{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
+{\second{\varvalum}} \\
+
+% Null nil
+
+\redrulem
+{\expnull{(\expnils{\vartym})}}
+{\expnum{0}} \\
+
+% Null cons
+
+\redrulem
+{\expnull{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
+{\expnum{1}} \\
+
+% Wrong
+
+\redrule
+{\redconh{\expwrongs{\vartym}{\formvar{string}}}}
+{\experr{\varstr}}
 
 \end{tabular}
 \caption{ML operational semantics}
