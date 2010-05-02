@@ -2,25 +2,25 @@
 \centering
 \begin{tabular}{lcl}
 
-$e^s$ & $=$ & $v^s$ $\vert$ $x^s$ $\vert$ $e^s$ $e^s$ $\vert$ $\mathtt{cons}$ $e^s$ $e^s$ $\vert$ $f$ $e^s$ $\vert$ $o$ $e^s$ $e^s$ $\vert$ $p$ $e^s$ $\vert$ $\mathtt{if0}$ $e^s$ $e^s$ $e^s$ \\
+\varexps & $=$ & \varvars $|$ \varvalus $|$ \expfapp{\varexps}{\varexps} $|$ \expop{\varexps}{\varexps} $|$ \exppred{\varexps} $|$ \expif{\varexps}{\varexps}{\varexps} $|$ \expcons{\varexps}{\varexps} $|$ \expfield{\varexps} \\
 
-&& $\vert$ $\mathtt{wrong}$ string $\vert$ $\mathtt{sm}$ $t$ $e^m$ \\
+&& \expwrongd{\formvar{string}} $|$ \expsm{\vartym}{\varexpm} \\
 
-$v^s$ & $=$ & $w^s$ $\vert$ $\mathtt{sh}$ $t$ $e^h$ \\
+\varvalus & $=$ & \varvalfs $|$ \expsh{\vartyh}{\varexph} \\
 
-$w^s$ & $=$ & $\lambda x^s.e^s$ $\vert$ $\overline{n}$ $\vert$ $\mathtt{nil}$ $\vert$ $\mathtt{cons}$ $v^s$ $v^s$ $\vert$ $\mathtt{sm}$ $(t.x^m)$ $v^m$ \\
+\varvalfs & $=$ & \expfabsd{\varvars}{\varexps} $|$ \expnum{\varnum} $|$ \expnild $|$ \expcons{\varvalus}{\varvalus} $|$ \expsm{(\tylabel{\vartym}{\tyvarm})}{\varvalum} \\
 
-$f$ & $=$ & $\mathtt{hd}$ $\vert$ $\mathtt{tl}$ \\
+\formvar{\symop} & $=$ & \formsym{\symadd} $|$ \formsym{\symsub} \\
 
-$o$ & $=$ & $+$ $\vert$ $-$ \\
+\formvar{\symfield} & $=$ & \formsym{\symhd} $|$ \formsym{\symtl} \\
 
-$p$ & $=$ & $\mathtt{fun?}$ $\vert$ $\mathtt{list?}$ $\vert$ $\mathtt{null?}$ $\vert$ $\mathtt{num?}$ \\
+\formvar{\sympred} & $=$ & \formsym{\sympfun} $|$ \formsym{\symplist} $|$ \formsym{\sympnull} $|$ \formsym{\sympnum} \\
 
-$E^s$ & $=$ & $[\,]^s$ $\vert$ $F^s$ $e^s$ $\vert$ $v^s$ $E^s$ $\vert$ $\mathtt{cons}$ $E^s$ $e^s$ $\vert$ $\mathtt{cons}$ $v^s$ $E^s$ $\vert$ $f$ $F^s$ $\vert$ $o$ $F^s$ $e^s$ \\
+\varconfs & $=$ & \varconus $|$ \expsh{\vartyh}{\varconfh} \\
 
-&& $\vert$ $o$ $v^s$ $F^s$ $\vert$ $p$ $F^s$ $\vert$ $\mathtt{if0}$ $F^s$ $e^s$ $e^s$ $\vert$ $\mathtt{sm}$ $t$ $E^m$ \\
+\varconus & $=$ & \symholes $|$ \expfapp{\varconfs}{\varexps} $|$ \expfapp{\varvalfs}{\varconus} $|$ \expop{\varconfs}{\varexps} $|$ \expop{\varvalfs}{\varconfs} $|$ \exppred{\varconfs} $|$ \expif{\varconfs}{\varexps}{\varexps} \\
 
-$F^s$ & $=$ & $E^s$ $\vert$ $\mathtt{sh}$ $t$ $E^h$
+&& \expcons{\varconus}{\varexps} $|$ \expcons{\varvalus}{\varconus} $|$ \expfield{\varconfs} $|$ \expsm{\vartym}{\varconfm}
 
 \end{tabular}
 \caption{Scheme grammar and evaluation contexts}
