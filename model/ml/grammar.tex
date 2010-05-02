@@ -2,27 +2,29 @@
 \centering
 \begin{tabular}{rcl}
 
-$e^m$ & $=$ & $x^m$ $|$ $v^m$ $|$ $e^m$ $e^m$ $|$ $e^m$ $\lbrace t\rbrace$ $|$ $\mathtt{fix}$ $e^m$ $|$ $o$ $e^m$ $e^m$ $|$ $\mathtt{if0}$ $e^m$ $e^m$ $e^m$ \\
+\varexpm & $=$ & \varvarm $|$ \varvalum $|$ \expfapp{\varexpm}{\varexpm} $|$ \exptapp{\varexpm}{\vartym} $|$ \expfix{\varexpm} $|$ \expop{\varexpm}{\varexpm} $|$ \expif{\varexpm}{\varexpm}{\varexpm} \\
 
-&& $\mathtt{cons}$ $e^m$ $e^m$ $|$ $f$ $e^m$ $|$ $\mathtt{null?}$ $e^m$ $|$ $\mathtt{wrong}$ $t$ string $|$ $\mathtt{ms}$ $t$ $e^s$ \\
+&& \expcons{\varexpm}{\varexpm} $|$ \expfield{\varexpm} $|$ \expnull{\varexpm} $|$ \expwrongs{\vartym}{\formvar{string}} $|$ \expms{\vartym}{\varexps} \\
 
-$v^m$ & $=$ & $w^m$ $|$ $\mathtt{mh}$ $t$ $e^h$ \\
+\varvalum & $=$ & \varvalfm $|$ \expmh{\vartym}{\varexph} \\
 
-$w^m$ & $=$ & $\lambda x^m:t.e^m$ $|$ $\Lambda x^m.e^m$ $|$ $\overline{n}$ $|$ $\mathtt{nil}$ $t$ $|$ $\mathtt{cons}$ $v^m$ $v^m$ $|$ $\mathtt{ms}$ $\mathtt{L}$ $v^s$ $|$ $\mathtt{ms}$ $(\forall x^m.t)$ $v^s$ \\
+\varvalfm & $=$ & \expfabss{\varvarm}{\vartym}{\varexpm} $|$ \exptabs{\tyvarm}{\varexpm} $|$ \expnum{\varnum} $|$ \expnils{\vartym} $|$ \expcons{\varvalum}{\varvalum} $|$ \expms{\tylump}{\varvalus} \\
 
-$t$ & $=$ & $\mathtt{L}$ $|$ $\mathtt{N}$ $|$ $x^m$ $|$ $[t]$ $|$ $t.x^m$ $|$ $t\rightarrow t$ $|$ $\forall x^m.t$ \\
+&& \expms{(\tyfor{\tyvarm}{\vartym})}{\varvalus} \\
 
-$o$ & $=$ & $+$ $|$ $-$ \\
+\vartym & $=$ & \tylump $|$ \tynum $|$ \tyvarm $|$ \tylist{\vartym} $|$ \tylabel{\vartym}{\tyvarm} $|$ \tyfun{\vartym}{\vartym} $|$ \tyfor{\tyvarm}{\vartym} \\
 
-$f$ & $=$ & $\mathtt{hd}$ $|$ $\mathtt{tl}$ \\
+\formvar{\symop} & $=$ & \formsym{\symadd} $|$ \formsym{\symsub} \\
 
-$E^m$ & $=$ & $[\,]^m$ $|$ $F^m$ $e^m$ $|$ $w^m$ $E^m$ $|$ $F^m$ $\lbrace t\rbrace$ $|$ $\mathtt{fix}$ $F^m$ $|$ $o$ $F^m$ $e^m$ $|$ $o$ $w^m$ $F^m$ \\
+\formvar{\symfield} & $=$ & \formsym{\symhd} $|$ \formsym{\symtl} \\
 
-&& $\mathtt{if0}$ $F^m$ $e^m$ $e^m$ $|$ $\mathtt{cons}$ $E^m$ $e^m$ $|$ $\mathtt{cons}$ $v^m$ $E^m$ $|$ $f$ $F^m$ $|$ $\mathtt{null?}$ $F^m$ \\
+\varconfm & $=$ & \varconum $|$ \expmh{\vartym}{\varconfh} \\
 
-&& $\mathtt{ms}$ $t$ $E^s$ \\
+\varconum & $=$ & \symholem $|$ \expfapp{\varconfm}{\varexpm} $|$ \expfapp{\varvalfm}{\varconum} $|$ \exptapp{\varconfm}{\vartym} $|$ \expfix{\varconfm} $|$ \expop{\varconfm}{\varexpm} $|$ \expop{\varvalfm}{\varconfm} \\
 
-$F^m$ & $=$ & $E^m$ $|$ $\mathtt{mh}$ $t$ $E^h$
+&& \expif{\varconfm}{\varexpm}{\varexpm} $|$ \expcons{\varconum}{\varexpm} $|$ \expcons{\varvalum}{\varconum} $|$ \expfield{\varconfm} $|$ \expnull{\varconfm} \\
+
+&& $|$ \expms{\vartym}{\varconfs}
 
 \end{tabular}
 \caption{ML grammar and evaluation contexts}
