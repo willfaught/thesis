@@ -49,13 +49,13 @@ $(\varnum \neq 0)$ \\
 
 \redrulem
 {\exphd{(\expnils{\vartym})}}
-{\expwrongs{\vartym}{\str{Empty\;list}}} \\
+{\expwrongs{\vartym}{\str{Empty \; list}}} \\
 
 % Tail nil
 
 \redrulem
 {\exptl{(\expnils{\vartym})}}
-{\expwrongs{\tylist{\vartym}}{\str{Empty\;list}}} \\
+{\expwrongs{\tylist{\vartym}}{\str{Empty \; list}}} \\
 
 % Head cons
 
@@ -72,16 +72,16 @@ $(\varnum \neq 0)$ \\
 % Null nil
 
 \redrulem
-{\expnull{(\expnils{\vartym})}}
+{\exppnull{(\expnils{\vartym})}}
 {\expnum{0}} \\
 
 % Null cons
 
 \redrulem
-{\expnull{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
+{\exppnull{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
 {\expnum{1}} \\
 
-% Wrong
+% wrong t string
 
 \redrule
 {\redconh{\expwrongs{\vartym}{\formvar{string}}}}

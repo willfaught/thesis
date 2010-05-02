@@ -2,49 +2,146 @@
 \centering
 \begin{tabular}{l}
 
-$\mathscr{E}[(\lambda x^s.e^s)$ $v^s]^s\rightarrow\mathscr{E}[e^s[v^s/x^s]]$ \\
+% (\x.e) v
 
-$\mathscr{E}[v^s_1$ $v^s_2]^s\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a function"$]$ $(v^s_1\neq\lambda x^s.e^s)$ \\
+\redrules
+{\expfapp{(\expfabsd{\varvars}{\varexps})}{\varvalus}}
+{\expsubst{\varexps}{\varvalus}{\varvars}} \\
 
-$\mathscr{E}[+$ $\overline{n_1}$ $\overline{n_2}]^s\rightarrow\mathscr{E}[\overline{n_1+n_2}]$ \\
+% v v
 
-$\mathscr{E}[-$ $\overline{n_1}$ $\overline{n_2}]^s\rightarrow\mathscr{E}[\overline{max(n_1-n_2,0)}]$ \\
+\redrules
+{\expfapp{\first{\varvalus}}{\second{\varvalus}}}
+{\expwrongd{\str{Not \; a \; function}}}
+$(\first{\varvalus} \neq \expfabsd{\varvars}{\varexps})$ \\
 
-$\mathscr{E}[o$ $v^s_1$ $v^s_2]^s\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a number"$]$ $(v^s_1\neq\overline{n}$ or $v^s_2\neq\overline{n})$ \\
+% + n n
 
-$\mathscr{E}[\mathtt{if0}$ $\overline{0}$ $e^s_1$ $e^s_2]^s\rightarrow\mathscr{E}[e^s_1]$ \\
+\redrules
+{\expadd{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
+{\expnum{\first{\varnum} + \second{\varnum}}} \\
 
-$\mathscr{E}[\mathtt{if0}$ $\overline{n}$ $e^s_1$ $e^s_2]^s\rightarrow\mathscr{E}[e^s_2]$ $(n\neq 0)$ \\
+% - n n
 
-$\mathscr{E}[\mathtt{if0}$ $v^s$ $e^s_1$ $e^s_2]^s\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a number"$]$ $(v^s\neq\overline{n})$ \\
+\redrules
+{\expsub{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
+{\expnum{\formvar{max}(\first{\varnum} - \second{\varnum}, 0)}} \\
 
-$\mathscr{E}[f$ $\mathtt{nil}]^s\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Empty list"$]$ \\
+% o n n
 
-$\mathscr{E}[\mathtt{hd}$ $(\mathtt{cons}$ $v^s_1$ $v^s_2)]^s\rightarrow\mathscr{E}[v^s_1]$ \\
+\redrules
+{\expop{\first{\varvalus}}{\second{\varvalus}}}
+{\expwrongd{\str{Not \; a \; number}}}
+$(\first{\varvalus} \neq \expnum{\varnum}$ or $\second{\varvalus} \neq \expnum{\varnum})$ \\
 
-$\mathscr{E}[\mathtt{tl}$ $(\mathtt{cons}$ $v^s_1$ $v^s_2)]^s\rightarrow\mathscr{E}[v^s_2]$ \\
+% if0 0 e e
 
-$\mathscr{E}[f$ $v^s_1]^s\rightarrow\mathscr{E}[\mathtt{wrong}$ ``Not a list"$]$ $(v^s_1\neq\mathtt{nil}$ and $v^s_1\neq\mathtt{cons}$ $v^s_2$ $v^s_3)$ \\
+\redrules
+{\expif{\expnum{0}}{\first{\varexps}}{\second{\varexps}}}
+{\first{\varexps}} \\
 
-$\mathscr{E}[\mathtt{fun?}$ $(\lambda x^s.e^s)]^s\rightarrow\mathscr{E}[\overline{0}]$ \\
+% if0 n e e
 
-$\mathscr{E}[\mathtt{fun?}$ $v^s]^s\rightarrow\mathscr{E}[\overline{1}]$ ($v^s\neq\lambda x^s.e^s$) \\
+\redrules
+{\expif{\expnum{\varnum}}{\first{\varexps}}{\second{\varexps}}}
+{\second{\varexps}}
+$(\varnum \neq 0)$ \\
 
-$\mathscr{E}[\mathtt{list?}$ $\mathtt{nil}]^s\rightarrow\mathscr{E}[\overline{0}]$ \\
+% if0 v e e
 
-$\mathscr{E}[\mathtt{list?}$ $(\mathtt{cons}$ $v^s_1$ $v^s_2)]^s\rightarrow\mathscr{E}[\overline{0}]$ \\
+\redrules
+{\expif{\varvalus}{\first{\varexps}}{\second{\varexps}}}
+{\expwrongd{\str{Not \; a \; number}}}
+$(\varvalus \neq \expnum{\varnum})$ \\
 
-$\mathscr{E}[\mathtt{list?}$ $v^s_1]^s\rightarrow\mathscr{E}[\overline{1}]$ $(v^s_1\neq\mathtt{nil}$ and $v^s_1\neq\mathtt{cons}$ $v^s_2$ $v^s_3)$ \\
+% f nil
 
-$\mathscr{E}[\mathtt{null?}$ $\mathtt{nil}]^s\rightarrow\mathscr{E}[\overline{0}]$ \\
+\redrules
+{\expfield{\expnild}}
+{\expwrongd{\str{Empty \; list}}} \\
 
-$\mathscr{E}[\mathtt{null?}$ $v^s]^s\rightarrow\mathscr{E}[\overline{1}]$ $(v^s\neq\mathtt{nil})$ \\
+% hd (cons v v)
 
-$\mathscr{E}[\mathtt{num?}$ $\overline{n}]^s\rightarrow\mathscr{E}[\overline{0}]$ \\
+\redrules
+{\exphd{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
+{\first{\varvalus}} \\
 
-$\mathscr{E}[\mathtt{num?}$ $v^s]^s\rightarrow\mathscr{E}[\overline{1}]$ $(v^s\neq\overline{n})$ \\
+% tl (cons v v)
 
-$\mathscr{E}[\mathtt{wrong}$ $\mathrm{string}]^s\rightarrow$ \textbf{Error}: string
+\redrules
+{\exptl{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
+{\second{\varvalus}} \\
+
+% f v
+
+\redrules
+{\expfield{\first{\varvalus}}}
+{\expwrongd{\str{Not \; a \; list}}}
+$(\first{\varvalus} \neq \expnild$ and $\first{\varvalus} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
+
+% fun? (\x.e)
+
+\redrules
+{\exppfun{(\expfabsd{\varvars}{\varexps})}}
+{\expnum{0}} \\
+
+% fun? v
+
+\redrules
+{\exppfun{\varvalus}}
+{\expnum{1}}
+$(\varvalus \neq \expfabsd{\varvars}{\varexps})$ \\
+
+% list? nil
+
+\redrules
+{\expplist{\expnild}}
+{\expnum{0}} \\
+
+% list? (cons v v)
+
+\redrules
+{\expplist{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
+{\expnum{0}} \\
+
+% list? v
+
+\redrules
+{\expplist{\first{\varvalus}}}
+{\expnum{1}}
+$(\first{\varvalus} \neq \expnild$ and $\first{\varvalus} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
+
+% null? nil
+
+\redrules
+{\exppnull{\expnild}}
+{\expnum{0}} \\
+
+% null? v
+
+\redrules
+{\exppnull{\varvalus}}
+{\expnum{1}}
+$(\varvalus \neq \expnild)$ \\
+
+% num? n
+
+\redrules
+{\exppnum{\expnum{\varnum}}}
+{\expnum{0}} \\
+
+% num? v
+
+\redrules
+{\exppnum{\varvalus}}
+{\expnum{1}}
+$(\varvalus \neq \expnum{\varnum})$ \\
+
+% wrong string
+
+\redrule
+{\redcons{\expwrongd{\formvar{string}}}}
+{\experr{\varstr}}
 
 \end{tabular}
 \caption{Scheme operational semantics}

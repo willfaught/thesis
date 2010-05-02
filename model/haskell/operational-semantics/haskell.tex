@@ -49,13 +49,13 @@ $(\varnum \neq 0)$ \\
 
 \redruleh
 {\exphd{(\expnils{\vartyh})}}
-{\expwrongs{\vartyh}{\str{Empty\;list}}} \\
+{\expwrongs{\vartyh}{\str{Empty \; list}}} \\
 
 % Tail nil
 
 \redruleh
 {\exptl{(\expnils{\vartyh})}}
-{\expwrongs{\tylist{\vartyh}}{\str{Empty\;list}}} \\
+{\expwrongs{\tylist{\vartyh}}{\str{Empty \; list}}} \\
 
 % Head cons
 
@@ -72,13 +72,13 @@ $(\varnum \neq 0)$ \\
 % Null nil
 
 \redruleh
-{\expnull{(\expnils{\vartyh})}}
+{\exppnull{(\expnils{\vartyh})}}
 {\expnum{0}} \\
 
 % Null cons
 
 \redruleh
-{\expnull{(\expcons{\first{\varexph}}{\second{\varexph}})}}
+{\exppnull{(\expcons{\first{\varexph}}{\second{\varexph}})}}
 {\expnum{1}} \\
 
 % Wrong
