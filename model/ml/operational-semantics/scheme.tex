@@ -2,29 +2,69 @@
 \centering
 \begin{tabular}{l}
 
-$\mathscr{E}[\mathtt{ms}$ $[t]$ $(\mathtt{sh}$ $[t]$ $e^h)]^m\rightarrow\mathscr{E}[\mathtt{mh}$ $[t]$ $e^h]$ \\
+% ms N n
 
-$\mathscr{E}[\mathtt{ms}$ $\mathtt{N}$ $\overline{n}]^m\rightarrow\mathscr{E}[\overline{n}]$ \\
+\redrulem
+{\expms{\tynum}{\expnum{\varnum}}}
+{{\expnum{\varnum}}} \\
 
-$\mathscr{E}[\mathtt{ms}$ $\mathtt{N}$ $v^s]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $\mathtt{N}$ ``Not a number"$]$ $(v^s\neq\overline{n})$ \\
+% ms N v
 
-$\mathscr{E}[\mathtt{ms}$ $[t]$ $\mathtt{nil}]^m\rightarrow\mathscr{E}[\mathtt{nil}$ $t[t_i/t_i.x^m]]$ \\
+\redrulem
+{\expms{\tynum}{\varvalus}}
+{\expwrongs{\tynum}{\str{Not \; a \; number}}} $(\varvalus \neq \expnum{\varnum})$ \\
 
-$\mathscr{E}[\mathtt{ms}$ $[t]$ $(\mathtt{cons}$ $v^s_1$ $v^s_2)]^m\rightarrow\mathscr{E}[\mathtt{cons}$ $(\mathtt{ms}$ $t$ $v^s_1)$ $(\mathtt{ms}$ $[t]$ $v^s_2)]$ \\
+% ms [t] nil
 
-$\mathscr{E}[\mathtt{ms}$ $[t]$ $v^s_1]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $t[t_i/t_i.x^m]$ ``Not a list"$]$ \\
+\redrulem
+{\expms{\tylist{\vartym}}{\expnild}}
+{\expnils{\tyunlabm{\vartym}}} \\
 
-$\quad\quad(v^s_1\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v^s_2$ $v^s_3,\mathtt{sh}$ $[t]$ $(\mathtt{cons}$ $e^h_1$ $e^h_2)\rbrace)$ \\
+% ms [t] (cons v v)
 
-$\mathscr{E}[\mathtt{ms}$ $(t.x^m)$ $(\mathtt{sm}$ $(t.x^m)$ $v^m)]^m\rightarrow\mathscr{E}[v^m]$ \\
+\redrulem
+{\expms{\tylist{\vartym}}{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
+{\expcons{(\expms{\vartym}{\first{\varvalus}})}{(\expms{\tylist{\vartym}}{\second{\varvalus}})}} \\
 
-$\mathscr{E}[\mathtt{ms}$ $(t.x^m)$ $v^s]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $t$ ``Parametricity violated"$]$ $(v^s\neq \mathtt{sm}$ $(t.x^m)$ $v^m)$ \\
+% ms [t] v
 
-$\mathscr{E}[\mathtt{ms}$ $(t_1\rightarrow t_2)$ $(\lambda x^s.e^s)]^m\rightarrow\mathscr{E}[\lambda x^m:t_1[t_i/t_i.x^m].\mathtt{ms}$ $t_2$ $((\lambda x^s.e^s)$ $(\mathtt{sm}$ $t_1$ $x^m))]$ \\
+\redrulem
+{\expms{\tylist{\vartym}}{\first{\varvalus}}}
+{\expwrongs{\tyunlabm{\vartym}}{\str{Not \; a \; list}}} \\
 
-$\mathscr{E}[\mathtt{ms}$ $(t_1\rightarrow t_2)$ $v^s]^m\rightarrow\mathscr{E}[\mathtt{wrong}$ $(t_1\rightarrow t_2)[t_i/t_i.x^m]$ ``Not a function"$]$ $(v^s\neq\lambda x^s.e^s)$ \\
+\redsp $(\first{\varvalus} \neq \expnild$ and $\first{\varvalus} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
 
-$\mathscr{E}[(\mathtt{ms}$ $(\forall x^m.t_1)$ $v^s)$ $\lbrace t_2\rbrace]^m\rightarrow\mathscr{E}[\mathtt{ms}$ $t_1[t_2.x^m/x^m]$ $v^s]$
+% ms (t.x) (sm (t.x) v)
+
+\redrulem
+{\expms{(\tylabel{\vartym}{\tyvarm})}{(\expsm{(\tylabel{\vartyh}{\tyvarh})}{\varvalum})}}
+{\varvalum} \\
+
+% ms (t.x) v
+
+\redrulem
+{\expms{(\tylabel{\vartym}{\tyvarm})}{\varvalus}}
+{\expwrongs{\vartym}{\str{Parametricity \; violated}}} $(\varvalus \neq \expsm{(\tylabel{\vartym}{\tyvarm})}{\varexpm})$ \\
+
+% ms (t->t) (\x.e)
+
+\redrulem
+{\expms{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabsd{\varvars}{\varexps})}}
+{\expfabss{\varvarm}{\tyunlabm{\first{\vartym}}}{\expms{\second{\vartym}}{(\expfapp{(\expfabsd{\varvars}{\varexps})}{(\expsm{\first{\vartym}}{\varvarm})})}}} \\
+
+% ms (t->t) v
+
+\redrulem
+{\expms{(\tyfun{\first{\vartym}}{\second{\vartym}})}{\varvalus}}
+{\expwrongs{\tyunlabm{(\tyfun{\first{\vartym}}{\second{\vartym}})}}{\str{Not \; a \; function}}} \\
+
+\redsp $(\varvalus \neq \expfabsd{\varvars}{\varexps})$ \\
+
+% (ms (Ax.t) v) {t}
+
+\redrulem
+{\exptapp{(\expms{(\tyfor{\tyvarm}{\first{\vartym}})}{\varvalus})}{\second{\vartym}}}
+{\expms{\tysubst{\first{\vartym}}{\tylabel{\second{\vartym}}{\tyvarm}}{\tyvarm}}{\varvalus}} \\
 
 \end{tabular}
 \caption{ML-Scheme operational semantics}

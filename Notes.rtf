@@ -106,4 +106,12 @@ are Scheme importation guards, e.g. HS or MS:\
 \
 HM L (MS L 0)\
 \
-Anything else would not be well-typed, so you don't have to account for it in the op seem.}
+Anything else would not be well-typed, so you don't have to account for it in the op seem.\
+\
+==\
+\
+TYPE LABEL USE\
+\
+Eval contexts guarantee that type labels created by applying an imported type abstraction from Scheme cannot be nested, so the type label removal substitution notation t[ti/ti.x] can mean to remove all type labels. Also why the Parametricity Violated red rule can strip the label. BUT THE PROGRAMMER CAN WRITE THEM NESTED!\
+\
+}
