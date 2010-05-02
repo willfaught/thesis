@@ -45,14 +45,17 @@ $(\varvalus \neq \expnum{\varnum})$ \\
 
 \redrulem
 {\expms{(\tylabel{\vartym}{\tyvarm})}{\varvalus}}
-{\expwrongs{\vartym}{\str{Parametricity \; violated}}}
-$(\varvalus \neq \expsm{(\tylabel{\vartym}{\tyvarm})}{\varexpm})$ \\
+{\expwrongs{\vartym}{\str{Parametricity \; violated}}} \\
+
+\redsp $(\varvalus \neq \expsm{(\tylabel{\vartym}{\tyvarm})}{\varexpm})$ \\
 
 % ms (t->t) (\x.e)
 
-\redrulem
-{\expms{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabsd{\varvars}{\varexps})}}
-{\expfabss{\varvarm}{\tyunlabm{\first{\vartym}}}{\expms{\second{\vartym}}{(\expfapp{(\expfabsd{\varvars}{\varexps})}{(\expsm{\first{\vartym}}{\varvarm})})}}} \\
+\redrule
+{\redconm{\expms{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabsd{\varvars}{\varexps})}}}
+{} \\
+
+\redsp \redcon{\expfabss{\varvarm}{\tyunlabm{\first{\vartym}}}{\expms{\second{\vartym}}{(\expfapp{(\expfabsd{\varvars}{\varexps})}{(\expsm{\first{\vartym}}{\varvarm})})}}} \\
 
 % ms (t->t) v
 

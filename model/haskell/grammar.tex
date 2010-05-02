@@ -3,11 +3,13 @@
 
 \begin{tabular}{rcl}
 
-\varexph & $=$ & \varvarh $|$ \varvaluh $|$ \expfapp{\varexph}{\varexph} $|$ \exptapp{\varexph}{\vartyh} $|$ \expfix{\varexph} $|$ \expop{\varexph}{\varexph} $|$ \expif{\varexph}{\varexph}{\varexph} $|$ \expfield{\varexph} $|$ \exppnull{\varexph} \\
+\varexph & $=$ & \varvarh $|$ \varvaluh $|$ \expfapp{\varexph}{\varexph} $|$ \exptapp{\varexph}{\vartyh} $|$ \expfix{\varexph} $|$ \expop{\varexph}{\varexph} $|$ \expif{\varexph}{\varexph}{\varexph} $|$ \expfield{\varexph} \\
 
-&& \expwrongs{\vartyh}{\formvar{string}} $|$ \exphm{\vartyh}{\varexpm} $|$ \exphs{\vartyh}{\varexps} \\
+&& \exppnull{\varexph} $|$ \expwrongs{\vartyh}{\formvar{string}} $|$ \exphm{\vartyh}{\varexpm} $|$ \exphs{\vartyh}{\varexps} \\
 
-\varvaluh & $=$ & \expfabss{\varvarh}{\vartyh}{\varexph} $|$ \exptabs{\tyvarh}{\varexph} $|$ \expnum{\varnum} $|$ \expnils{\vartyh} $|$ \expcons{\varexph}{\varexph} $|$ \exphs{\tylump}{\varvalus} $|$ \exphs{(\tyfor{\tyvarh}{\vartyh})}{\varvalus} \\
+\varvaluh & $=$ & \expfabss{\varvarh}{\vartyh}{\varexph} $|$ \exptabs{\tyvarh}{\varexph} $|$ \expnum{\varnum} $|$ \expnils{\vartyh} $|$ \expcons{\varexph}{\varexph} $|$ \exphs{\tylump}{\varvalus} \\
+
+&& \exphs{(\tyfor{\tyvarh}{\vartyh})}{\varvalus} \\
 
 \vartyh & $=$ & \tylump $|$ \tynum $|$ \tyvarh $|$ \tylist{\vartyh} $|$ \tylabel{\vartyh}{\tyvarh} $|$ \tyfun{\vartyh}{\vartyh} $|$ \tyfor{\tyvarh}{\vartyh} \\
 

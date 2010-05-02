@@ -28,9 +28,11 @@
 
 % mh (t->t) (\x:t.e)
 
-\redrulem
-{\expmh{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabss{\varvarm}{\first{\vartym}}{\varexpm})}}
-{\expfabss{\varvarh}{\first{\vartym}}{\expmh{\second{\vartym}}{\expfapp{((\expfabss{\varvarm}{\first{\vartym}}{\varexpm})}{(\expmh{\first{\vartym}}{\varvarh})})}}} \\
+\redrule
+{\redconm{\expmh{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabss{\varvarm}{\first{\vartym}}{\varexpm})}}}
+{} \\
+
+\redsp \redcon{\expfabss{\varvarh}{\first{\vartym}}{\expmh{\second{\vartym}}{\expfapp{((\expfabss{\varvarm}{\first{\vartym}}{\varexpm})}{(\expmh{\first{\vartym}}{\varvarh})})}}} \\
 
 % mh (Ax.t) (\\x.e)
 
