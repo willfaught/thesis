@@ -60,7 +60,13 @@ Eager: works, value, must force thunks\
 \
 REDUCTION RULES PUTTING TYPE FROM ONE LANG IN ANOTHER\
 \
-Okay since can't have tyvars inside, otherwise wouldn't be reducing or ill-typed\
+Okay since can't have tyvars inside, otherwise wouldn't be reducing or ill-typed. Idea being that types are coerced if not lang-specific.  H and M have their own list type, and coercion turns one into the other.\
+\
+See the red rules for importation of forall types for type abstractions, e.g.:\
+\
+hm (Ax.t) (\\\\x.e) -> \\\\x.hm t e\
+\
+The subsequent type application's type substitution performs type coercion when substituting the type application argument into ML's exp.\
 \
 ==\
 \
@@ -84,4 +90,20 @@ For the matching labels mechanism. Otherwise, not needed.\
 \
 TYVARS AS LABELS IS SAFE\
 \
-Label confusion not possible because no free tyvars.  If nested forall, outer forall will go away when reducing inner forall.  Reduction of HS/MS is referentially transparent.}
+Label confusion not possible because no free tyvars.  If nested forall, outer forall will go away when reducing inner forall.  Reduction of HS/MS is referentially transparent.\
+\
+==\
+\
+LUMP TYPES\
+\
+The only H and M expressions that can have lump types, as in:\
+\
+HM L ?\
+\
+MH L ?\
+\
+are Scheme importation guards, e.g. HS or MS:\
+\
+HM L (MS L 0)\
+\
+Anything else would not be well-typed, so you don't have to account for it in the op seem.}
