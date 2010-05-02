@@ -1,39 +1,81 @@
 \begin{figure}[p]
 \[
-\frac{}{\vdash^s\mathtt{TST}}
+% TST
+\frac
+{}
+{\judts{}{\tytst}}
 \]
 \bigskip
 \[
-\frac{\Gamma,x^s:\mathtt{TST}\vdash^se^s:\mathtt{TST}}{\Gamma\vdash^s\lambda x^s.e^s:\mathtt{TST}}
+% Function abstraction
+\frac
+{\judes{\envexte{\varvars}{\tytst}}{\varexps}{\tytst}}
+{\judes{\env}{\expfabsd{\varvars}{\varexps}}{\tytst}}
 \quad
-\frac{}{\vdash^s\overline{n}:\mathtt{TST}}
+% Number
+\frac
+{}
+{\judes{}{\expnum{n}}{\tytst}}
 \quad
-\frac{}{\vdash^s\mathtt{nil}:\mathtt{TST}}
+% Nil
+\frac
+{}
+{\judes{}{\expnild}{\tytst}}
 \]
 \[
-\frac{\Gamma\vdash^se^s_1:\mathtt{TST}\quad\Gamma\vdash^se^s_2:\mathtt{TST}}{\Gamma\vdash^s\mathtt{cons}\;e^s_1\;e^s_2:\mathtt{TST}}
+% Cons
+\frac
+{\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst}}
+{\judes{\env}{\expcons{\first{\varexps}}{\second{\varexps}}}{\tytst}}
 \quad
-\frac{}{\Gamma,x^s:\mathtt{TST}\vdash^sx^s:\mathtt{TST}}
+% Variable
+\frac
+{}
+{\judes{\envexte{\varvars}{\tytst}}{\varvars}{\tytst}}
 \]
 \[
-\frac{\Gamma\vdash^se^s_1:\mathtt{TST}\quad\Gamma\vdash^se^s_2:\mathtt{TST}}{\Gamma\vdash^se^s_1\;e^s_2:\mathtt{TST}}
+% Function application
+\frac
+{\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst}}
+{\env\symjudh\expfapp{\first{\varexps}}{\second{\varexps}}:\tytst}
 \quad
-\frac{\Gamma\vdash^se^s:\mathtt{TST}}{\Gamma\vdash^sf\;e^s:\mathtt{TST}}
+% Field
+\frac
+{\judes{\env}{\varexps}{\tytst}}
+{\judes{\env}{\expfield{\varexps}}{\tytst}}
 \]
 \[
-\frac{\Gamma\vdash^se^s_1:\mathtt{TST}\quad\Gamma\vdash^se^s_2:\mathtt{TST}}{\Gamma\vdash^so\;e^s_1\;e^s_2:\mathtt{TST}}
+% Arithmetic
+\frac
+{\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst}}
+{\judes{\env}{\expop{\first{\varexps}}{\second{\varexps}}}{\tytst}}
 \quad
-\frac{\Gamma\vdash^se^s:\mathtt{TST}}{\Gamma\vdash^sp\;e^s:\mathtt{TST}}
+% Predicate
+\frac
+{\judes{\env}{\varexps}{\tytst}}
+{\judes{\env}{\exppred{\varexps}}{\tytst}}
 \]
 \[
-\frac{\Gamma\vdash^se^s_1:\mathtt{TST}\quad\Gamma\vdash^se^s_2:\mathtt{TST}\quad\Gamma\vdash^se^s_3:\mathtt{TST}}{\Gamma\vdash^s\mathtt{if0}\;e^s_1\;e^s_2\;e^s_3:\mathtt{TST}}
+% If0
+\frac
+{\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst} \quad \judes{\env}{\third{\varexps}}{\tytst}}
+{\judes{\env}{\expif{\first{\varexps}}{\second{\varexps}}{\third{\varexps}}}{\tytst}}
 \quad
-\frac{}{\vdash^s\mathtt{wrong}\;\mathrm{string}:\mathtt{TST}}
+% Wrong
+\frac
+{}
+{\judes{}{\expwrongd{\formvar{string}}}{\tytst}}
 \]
 \[
-\frac{\Gamma\vdash^ht\quad\Gamma\vdash^he^h:t[t_i/t_i.x^h]}{\Gamma\vdash^s\mathtt{sh}\;t\;e^h:\mathtt{TST}}
+% Haskell
+\frac
+{\judth{\env}{\vartyh} \quad \judeh{\env}{\varexph}{\tyunlabh{\vartyh}}}
+{\judes{\env}{\expsh{\vartyh}{\varexph}}{\tytst}}
 \quad
-\frac{\Gamma\vdash^mt\quad\Gamma\vdash^me^m:t[t_i/t_i.x^m]}{\Gamma\vdash^s\mathtt{sm}\;t\;e^m:\mathtt{TST}}
+% ML
+\frac
+{\judtm{\env}{\vartym} \quad \judem{\env}{\varexpm}{\tyunlabm{\vartym}}}
+{\judes{\env}{\expsm{\vartym}{\varexpm}}{\tytst}}
 \]
 \caption{Scheme typing rules}
 \label{str}
