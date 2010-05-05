@@ -41,8 +41,6 @@ No lazy fct exists that, when converted to eager without extra force points, com
 \
 Labels can use tyvars after all, since labels are well-formed only if the underlying type is well-formed, the mark is irrelevant, can be tyvar!!\
 \
-Change type non-terminal T to lower-case t.\
-\
 ==\
 \
 SOME VALUES EXPRESSIBLE IN LAZY AND NOT EAGER ONES\
@@ -114,4 +112,22 @@ TYPE LABEL USE\
 \
 Eval contexts guarantee that type labels created by applying an imported type abstraction from Scheme cannot be nested, so the type label removal substitution notation t[ti/ti.x] can mean to remove all type labels. Also why the Parametricity Violated red rule can strip the label. BUT THE PROGRAMMER CAN WRITE THEM NESTED!\
 \
-}
+==\
+\
+LABELS STRIPPED ON HS AND MS GUARD REDUCTIONS\
+\
+Because the typing rules for the expressions that are the results of these reduction rules do not account for labels, and for these reductions to be useful to outer expressions that do not anticipate label types, the types must be stripped.  This happens for any reduction which produces an expression that contains a type that originates from the guard type.\
+\
+==\
+\
+VARIABLE LANGUAGE SUPERSCRIPTS\
+\
+MUST add language subscripts to variables 'x' and type variables 'X' because otherwise \\x:N.(N^HM x) and \\\\X.^(X->N)HM (\\x:X.0) are well typed! Explaining that vars/tyvars separate between langs and losing subscripts will make syntax unreadable, not enough fonts to distinguish.\
+\
+==\
+\
+LABEL AND LUMP TYPES ONLY FOR INTEROP\
+\
+Uses elsewhere by the programmer are errors.  This allows me to not address the guard reduction cases for these types, which is beyond the scope of this paper.\
+\
+As such, HS L v uses 'v' because L is only used for the importation of type abstractions into Scheme, which, if the type variable is ever used and the inner expression is well-typed, should yield a function at some point, and since function arguments are unforced, the only expressions in HS L ? would be unforced Scheme values 'v^s'.}

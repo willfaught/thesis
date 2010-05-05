@@ -9,24 +9,16 @@
 - Use 'forall type' consistently.  No 'universally quantified', 'universal', 'polymorphic', etc.\
 - H/M progress theorem: Case 1.7 (MH) is wrong, each case assumes the exp is in the hole, so use Fig. 2.14. Check other cases/theorems! PROOF IS WRONG ABOUT FORCED/UNFORCED VALUE PROGRESS!\
 - Incorporate Clements' old email feedback\
-- Change fix operand type to (T1->T2)->(T1->T2)\
 - Get parametricity def from Pierce\
 - Note that you kept the fix operand type the same in your summary email of the final draft\
-- MUST add language subscripts to variables 'x' and type variables 'X' because otherwise \\x:N.(N^HM x) and \\\\X.^(X->N)HM (\\x:X.0) are well typed! Explaining that vars/tyvars separate between langs and losing subscripts will make syntax unreadable, not enough fonts to distinguish.\
-- Change v to w/w to v\
-- Add second evaluation context to Haskell? Proof that it doesn't need it?\
-- Change language subscripts to superscripts/number superscripts to subscripts\
-- Change variable typing rules to use all under the line\
-- Reorder expressions and evaluation contexts in model defs\
 - Mention labels only used by system; programmer error can foul it up\
 - Recheck proof for forced/unforced value usage - see ML app in progress!!!\
 - Revise whole paper to use the new syntax!!\
-- Make types language specific: letter superscripts!!\
 - Verify using tyvars for labels is okay for nested forall types\
-- Does HM/MH need to be stripped of labels in typing rules?\
-- Change H/M real cxts to be forced by default, update symbols so E is forced, U is unforced.\
-- Send Clements an update\
+- Does HM/MH need to be stripped of labels in typing rules? YES?\
 - Stuck state for MH/HM op sem for label types?\
 - Use forced value variables in guard op seem?\
-- Fix the width issues in the Haskell model\
+- Should labels be able to be used generally, or only supported by uses of the system for interop?\
+- Importation of type abstractions into Scheme loses the type abstraction, cannot roundtrip the value from and to Haskell or ML. Maybe some sort of auto L abstraction for Scheme functions imported into H/M?\
+- Labels on lumps to preserve parametricity?\
 }
