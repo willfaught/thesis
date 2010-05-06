@@ -130,4 +130,20 @@ LABEL AND LUMP TYPES ONLY FOR INTEROP\
 \
 Uses elsewhere by the programmer are errors.  This allows me to not address the guard reduction cases for these types, which is beyond the scope of this paper.\
 \
-As such, HS L v uses 'v' because L is only used for the importation of type abstractions into Scheme, which, if the type variable is ever used and the inner expression is well-typed, should yield a function at some point, and since function arguments are unforced, the only expressions in HS L ? would be unforced Scheme values 'v^s'.}
+As such, HS L v uses 'v' because L is only used for the importation of type abstractions into Scheme, which, if the type variable is ever used and the inner expression is well-typed, should yield a function at some point, and since function arguments are unforced, the only expressions in HS L ? would be unforced Scheme values 'v^s'.\
+\
+==\
+\
+UNFORCED VALUE USED IN H/MS L V^S\
+\
+Unforced because lumps are special, only used by the system. Where the system uses them (for functions), the possible expressions that could be substituted into an HS L ? is exactly represented by v^s, since all Scheme arguments are v^s (doesn't force H/M importation guards).\
+\
+==\
+\
+FORCED VALUE USED IN H/MS (AX.T) W^S\
+\
+Forced because HS (Ax.t) v^s is reducible via HS t E^s, which reduces inside SH guards, so we use forced value w^s to exclude the possibility of SH guards.\
+\
+==\
+\
+}
