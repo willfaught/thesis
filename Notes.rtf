@@ -104,13 +104,13 @@ are Scheme importation guards, e.g. HS or MS:\
 \
 HM L (MS L 0)\
 \
-Anything else would not be well-typed, so you don't have to account for it in the op seem.\
+Anything else would not be well-typed, so you don't have to account for it in the op sem.\
 \
 ==\
 \
 TYPE LABEL USE\
 \
-Eval contexts guarantee that type labels created by applying an imported type abstraction from Scheme cannot be nested, so the type label removal substitution notation t[ti/ti.x] can mean to remove all type labels. Also why the Parametricity Violated red rule can strip the label. BUT THE PROGRAMMER CAN WRITE THEM NESTED!\
+Eval contexts guarantee that type labels created by applying an imported type abstraction from Scheme cannot be nested, so the type label removal substitution notation t[ti/ti.x] can mean to remove all type labels. Also why the Parametricity Violated red rule can strip the label.\
 \
 ==\
 \
@@ -146,4 +146,12 @@ Forced because HS (Ax.t) v^s is reducible via HS t E^s, which reduces inside SH 
 \
 ==\
 \
-}
+LABELS AND LUMPS USABLE ONLY BY THE SYSTEM\
+\
+Any uses by the programmer is an error like type errors.  Thus there are missing reduction rules/other missing considerations that would result in stuck states, maybe bad types, etc. if this is ignored.\
+\
+==\
+\
+SH/SM FORALL TYPE ABSTRACTIONS CANNOT ROUNDTRIP\
+\
+SH/M (Ax.t) (\\\\x.e) loses the type abstraction, so you cannot roundtrip a type abstraction into and then out of Scheme.  This is okay, though, because the only kind of polymorphic function in Scheme is just a regular function, or the function might be inside another value.  The roundtrip side of this is (H/MS (Ax.t) w^s) \{t\}, which defers importing these (ad-hoc) polymorphic functions until H/M has a use for them, then it doesn't have to worry about converting the Scheme forced value into a type abstraction if it's necessary.  So we lose the type abstraction going from an explicitly (parametric) polymorphic value in H/M to an implicitly (ad-hoc) polymorphic value in S using lumps, and we reverse the process by deferring the conversion of polymorphic values into H/M until applied to a type, and verified with labels.  Two sides of the same coin, or something.}
