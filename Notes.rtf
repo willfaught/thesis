@@ -154,4 +154,24 @@ Any uses by the programmer is an error like type errors.  Thus there are missing
 \
 SH/SM FORALL TYPE ABSTRACTIONS CANNOT ROUNDTRIP\
 \
-SH/M (Ax.t) (\\\\x.e) loses the type abstraction, so you cannot roundtrip a type abstraction into and then out of Scheme.  This is okay, though, because the only kind of polymorphic function in Scheme is just a regular function, or the function might be inside another value.  The roundtrip side of this is (H/MS (Ax.t) w^s) \{t\}, which defers importing these (ad-hoc) polymorphic functions until H/M has a use for them, then it doesn't have to worry about converting the Scheme forced value into a type abstraction if it's necessary.  So we lose the type abstraction going from an explicitly (parametric) polymorphic value in H/M to an implicitly (ad-hoc) polymorphic value in S using lumps, and we reverse the process by deferring the conversion of polymorphic values into H/M until applied to a type, and verified with labels.  Two sides of the same coin, or something.}
+SH/M (Ax.t) (\\\\x.e) loses the type abstraction, so you cannot roundtrip a type abstraction into and then out of Scheme.  This is okay, though, because the only kind of polymorphic function in Scheme is just a regular function, or the function might be inside another value.  The roundtrip side of this is (H/MS (Ax.t) w^s) \{t\}, which defers importing these (ad-hoc) polymorphic functions until H/M has a use for them, then it doesn't have to worry about converting the Scheme forced value into a type abstraction if it's necessary.  So we lose the type abstraction going from an explicitly (parametric) polymorphic value in H/M to an implicitly (ad-hoc) polymorphic value in S using lumps, and we reverse the process by deferring the conversion of polymorphic values into H/M until applied to a type, and verified with labels.  Two sides of the same coin, or something.\
+\
+NOTE: You now get the type abstraction back if you're expecting a polymorphic value back.\
+\
+==\
+\
+REMOVED H/MS FORALL FORCED VALUES\
+\
+Convert to wrapped type abstraction instead. Improvement to David's model.\
+\
+==\
+\
+CONVERSION OF TYPE ABSTRACTIONS FOR HM/MH CONVERTS H TYPES TO/FROM M TYPES\
+\
+The conversion wraps the imported type abstraction in a proxy type abstraction, but the mechanism that substitutes the type argument into the imported type abstraction must first convert the type into an equivalent form in the other language.  This is new, and should be discussed.  You may have to define what equality of types and conversion of types means very explicitly.\
+\
+==\
+\
+DIFFERENT H/M TYPES TO PREVENT TYPE APPLICATIONS SUBSTITUTING TYVARS IN OTHER LANG\
+\
+Don't want to substitute an H type for x^m, etc.}
