@@ -11,18 +11,14 @@
 - Incorporate Clements' old email feedback\
 - Get parametricity def from Pierce\
 - Note that you kept the fix operand type the same in your summary email of the final draft\
-- Mention labels only used by system; programmer error can foul it up\
 - Recheck proof for forced/unforced value usage - see ML app in progress!!!\
 - Revise whole paper to use the new syntax!!\
-- Verify using tyvars for labels is okay for nested forall types\
-- Does HM/MH need to be stripped of labels in typing rules? YES?\
-- Stuck state for MH/HM op sem for label types?\
-- Use forced value variables in guard op seem?\
-- Should labels be able to be used generally, or only supported by uses of the system for interop?\
-- Importation of type abstractions into Scheme loses the type abstraction, cannot roundtrip the value from and to Haskell or ML. Maybe some sort of auto L abstraction for Scheme functions imported into H/M?\
 - Labels on lumps to preserve parametricity?\
-- Ask Clements about conversion of type abstractions between H and M, specifically about how I turn H types into M types and vice versa\
+- Ask Clements about conversion of type abstractions between H and M, specifically about how to turn H types into M types and vice versa\
 - Point out to Clements all the model changes: label syntax, language symbol position, dropped HS/MS import forall forced values, separate H/M types, etc.\
 - Change unlabel syntax to add an "i" subscript for the variable part of the label\
 - Ask Clements if okay to omit parts of M proof for brevity where identical to H?\
-}
+- Adding second type to HM/MH guards to enable lumps for HM/MH for forall types\
+- Don't remove unlabeling in reduction rules! Can't let labels get out of outer guard! MADNESS!\
+- Use lump embedding for type abstractions in HM/MH scenarios\
+- Strip labels from SH/M forall guard types?}

@@ -180,4 +180,28 @@ Don't want to substitute an H type for x^m, etc.\
 \
 LUMPS PERMIT SCHEME TO SUPPLY ARGUMENTS OF ANY TYPE\
 \
-Okay, doesn't break H/M's type system. Scheme has no expectations, it supplies what it wants, it has to check what it gets back, just like everything else.}
+Okay, doesn't break H/M's type system. Scheme has no expectations, it supplies what it wants, it has to check what it gets back, just like everything else.\
+\
+==\
+\
+HM/MH SHOULD NOT BE STRIPPED OF LABELS IN TYPING RULES\
+\
+Labels inserted/removed by the system for Scheme importations.  Anything happening inside Scheme should keep the labels so they can eventually work their way back to the outer Scheme importation and be removed.\
+\
+==\
+\
+TYVARS AS LABELS SAFE FOR NESTED FORALL TYPES WITH IDENTICAL PARAMETERS\
+\
+Safe in all two cases: (1) forall appears in function argument type position, in which case lumps are involved instead of labels, and (2) forall appears in function result position, in which case the same reduction happens, and the identical labels never make it outside the original guard for the nested forall type.\
+\
+==\
+\
+LABELS STRIPPED IN REDUCTION RULES AND TYPING RULES\
+\
+Reduction rules, to keep labels from spreading outside the original, outermost guard.  Typing rules, so expressions outside the outermost guard don't have to know about labels as an interop mechanism.\
+\
+==\
+\
+EMBEDDINGS\
+\
+My model uses both natural and lump embeddings (see Matthews).}
