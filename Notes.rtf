@@ -82,7 +82,7 @@ Reduction rules must strip labels because the expressions the underlying types a
 \
 WHY LABELS ON H/M IMPORTATIONS ARE NEEDED\
 \
-For the matching labels mechanism. Otherwise, not needed.\
+For the matching labels mechanism, and for type-directed value conversion in guards, which represent language boundaries.\
 \
 ==\
 \
@@ -204,4 +204,10 @@ Reduction rules, to keep labels from spreading outside the original, outermost g
 \
 EMBEDDINGS\
 \
-My model uses both natural and lump embeddings (see Matthews).}
+My model uses both natural and lump embeddings (see Matthews).\
+\
+==\
+\
+TYVAR IN LABEL IS NOT FREE\
+\
+Cannot substitute it, like the forall tyvar.}
