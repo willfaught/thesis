@@ -11,9 +11,9 @@
 % hs N v
 
 \redruleh
-{\exphs{\tynum}{\varvalus}}
+{\exphs{\tynum}{\varvalfs}}
 {\expwrongs{\tynum}{\str{Not \; a \; number}}}
-$(\varvalus \neq \expnum{\varnum})$ \\
+$(\varvalfs \neq \expnum{\varnum})$ \\
 
 % hs [t] nil
 
@@ -25,15 +25,15 @@ $(\varvalus \neq \expnum{\varnum})$ \\
 
 \redruleh
 {\exphs{\tylist{\vartyh}}{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
-{\expcons{(\exphs{\vartyh}{\first{\varvalus}})}{(\exphs{\tylist{\vartyh}}{\second{\varvalus}})}} \\
+{\expcons{(\exphs{\vartyh??}{\first{\varvalus}})}{(\exphs{\tylist{\vartyh}??}{\second{\varvalus}})}} \\
 
 % hs [t] v
 
 \redruleh
-{\exphs{\tylist{\vartyh}}{\first{\varvalus}}}
+{\exphs{\tylist{\vartyh}}{\first{\varvalfs}}}
 {\expwrongs{\tyunlabh{\vartyh}}{\str{Not \; a \; list}}} \\
 
-\redsp $(\first{\varvalus} \neq \expnild$ and $\first{\varvalus} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
+\redsp $(\first{\varvalfs} \neq \expnild$ and $\first{\varvalfs} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
 
 % hs (t.x) (sh (t.x) e)
 
@@ -44,9 +44,9 @@ $(\varvalus \neq \expnum{\varnum})$ \\
 % hs (t.x) v
 
 \redruleh
-{\exphs{(\tylabel{\vartyh}{\tyvarh})}{\varvalus}}
+{\exphs{(\tylabel{\vartyh}{\tyvarh})}{\varvalfs}}
 {\expwrongs{\vartyh}{\str{Parametricity \; violated}}}
-$(\varvalus \neq \expsh{(\tylabel{\vartyh}{\tyvarh})}{\varexph})$ \\
+$(\varvalfs \neq \expsh{(\tylabel{\vartyh}{\tyvarh})}{\varexph})$ \\
 
 % hs (t->t) (\x.e)
 
@@ -57,16 +57,16 @@ $(\varvalus \neq \expsh{(\tylabel{\vartyh}{\tyvarh})}{\varexph})$ \\
 % hs (t->t) v
 
 \redruleh
-{\exphs{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{\varvalus}}
+{\exphs{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{\varvalfs}}
 {\expwrongs{\tyunlabh{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}}{\str{Not \; a \; function}}} \\
 
-\redsp $(\varvalus \neq \expfabsd{\varvars}{\varexps})$ \\
+\redsp $(\varvalfs \neq \expfabsd{\varvars}{\varexps})$ \\
 
-% (hs (Ax.t) v) {t}
+% hs (Ax.t) w
 
 \redruleh
-{\exptapp{(\exphs{(\tyfor{\tyvarh}{\first{\vartyh}})}{\varvalus})}{\second{\vartyh}}}
-{\exphs{\tysubst{\first{\vartyh}}{\tylabel{\second{\vartyh}}{\tyvarh}}{\tyvarh}}{\varvalus}} \\
+{\exphs{(\tyfor{\tyvarh}{\vartyh})}{\varvalfs}}
+{\exptabs{\tyvarh}{\exptapp{((\exptabs{\tyvarh}{\exphs{\vartyh}{\varvalfs}})}{\tylabel{\tyvarh}{\tyvarh}})}}
 
 \end{tabular}
 \caption{Haskell-Scheme operational semantics}

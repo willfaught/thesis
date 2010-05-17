@@ -40,8 +40,8 @@
 \[
 % Function abstraction
 \frac
-{\judtm{}{\first{\vartym}} \quad \judem{\envexte{\varvarm}{\first{\vartym}}}{\varexpm}{\second{\vartym}}}
-{\judem{\env}{(\expfabss{\varvarm}{\first{\vartym}}{\varexpm})}{\tyfor{\first{\vartym}}{\second{\vartym}}}}
+{\judtm{\env}{\first{\vartym}} \quad \judem{\envexte{\varvarm}{\first{\vartym}}}{\varexpm}{\second{\vartym}}}
+{\judem{\env}{(\expfabss{\varvarm}{\first{\vartym}}{\varexpm})}{\tyfun{\first{\vartym}}{\second{\vartym}}}}
 \quad
 % Type abstraction
 \frac
@@ -56,7 +56,7 @@
 \[
 % Nil
 \frac
-{\judem{\env}{\vartym}}
+{\judtm{\env}{\vartym}}
 {\judem{\env}{\expnils{\vartym}}{\tylist{\vartym}}}
 \quad
 % Cons
@@ -121,8 +121,8 @@
 \[
 % ML
 \frac
-{\judtm{\env}{\vartym} \quad \judeh{\env}{\varexph}{\vartyh} \quad \vartym=\vartyh}
-{\judem{\env}{\expmh{\vartym}{\varexph}}{\vartym}}
+{\judtm{\env}{\vartym} \quad \judth{\env}{\vartyh} \quad \judeh{\env}{\varexph}{\vartyh} \quad \vartym=\vartyh}
+{\judem{\env}{\expmh{\vartym}{\vartyh}{\varexph}}{\vartym}}
 \quad
 % Scheme
 \frac

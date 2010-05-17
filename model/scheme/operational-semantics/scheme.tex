@@ -8,12 +8,12 @@
 {\expfapp{(\expfabsd{\varvars}{\varexps})}{\varvalus}}
 {\expsubst{\varexps}{\varvalus}{\varvars}} \\
 
-% v v
+% w v
 
 \redrules
-{\expfapp{\first{\varvalus}}{\second{\varvalus}}}
+{\expfapp{\varvalfs}{\varvalus}}
 {\expwrongd{\str{Not \; a \; function}}}
-$(\first{\varvalus} \neq \expfabsd{\varvars}{\varexps})$ \\
+$(\varvalfs \neq \expfabsd{\varvars}{\varexps})$ \\
 
 % + n n
 
@@ -27,12 +27,12 @@ $(\first{\varvalus} \neq \expfabsd{\varvars}{\varexps})$ \\
 {\expsub{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
 {\expnum{\formvar{max}(\first{\varnum} - \second{\varnum}, 0)}} \\
 
-% o n n
+% o w w
 
 \redrules
-{\expop{\first{\varvalus}}{\second{\varvalus}}}
+{\expop{\first{\varvalfs}}{\second{\varvalfs}}}
 {\expwrongd{\str{Not \; a \; number}}}
-$(\first{\varvalus} \neq \expnum{\varnum}$ or $\second{\varvalus} \neq \expnum{\varnum})$ \\
+$(\first{\varvalfs} \neq \expnum{\varnum}$ or $\second{\varvalfs} \neq \expnum{\varnum})$ \\
 
 % if0 0 e e
 
@@ -47,12 +47,12 @@ $(\first{\varvalus} \neq \expnum{\varnum}$ or $\second{\varvalus} \neq \expnum{\
 {\second{\varexps}}
 $(\varnum \neq 0)$ \\
 
-% if0 v e e
+% if0 w e e
 
 \redrules
-{\expif{\varvalus}{\first{\varexps}}{\second{\varexps}}}
+{\expif{\varvalfs}{\first{\varexps}}{\second{\varexps}}}
 {\expwrongd{\str{Not \; a \; number}}}
-$(\varvalus \neq \expnum{\varnum})$ \\
+$(\varvalfs \neq \expnum{\varnum})$ \\
 
 % f nil
 
@@ -72,12 +72,12 @@ $(\varvalus \neq \expnum{\varnum})$ \\
 {\exptl{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
 {\second{\varvalus}} \\
 
-% f v
+% f w
 
 \redrules
-{\expfield{\first{\varvalus}}}
+{\expfield{\varvalfs}}
 {\expwrongd{\str{Not \; a \; list}}}
-$(\first{\varvalus} \neq \expnild$ and $\first{\varvalus} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
+$(\varvalfs \neq \expnild$ and $\varvalfs \neq \expcons{\first{\varvalus}}{\second{\varvalus}})$ \\
 
 % fun? (\x.e)
 
@@ -85,12 +85,12 @@ $(\first{\varvalus} \neq \expnild$ and $\first{\varvalus} \neq \expcons{\second{
 {\exppfun{(\expfabsd{\varvars}{\varexps})}}
 {\expnum{0}} \\
 
-% fun? v
+% fun? w
 
 \redrules
-{\exppfun{\varvalus}}
+{\exppfun{\varvalfs}}
 {\expnum{1}}
-$(\varvalus \neq \expfabsd{\varvars}{\varexps})$ \\
+$(\varvalfs \neq \expfabsd{\varvars}{\varexps})$ \\
 
 % list? nil
 
@@ -104,12 +104,12 @@ $(\varvalus \neq \expfabsd{\varvars}{\varexps})$ \\
 {\expplist{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
 {\expnum{0}} \\
 
-% list? v
+% list? w
 
 \redrules
-{\expplist{\first{\varvalus}}}
+{\expplist{\varvalfs}}
 {\expnum{1}}
-$(\first{\varvalus} \neq \expnild$ and $\first{\varvalus} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
+$(\varvalfs \neq \expnild$ and $\varvalfs \neq \expcons{\first{\varvalus}}{\second{\varvalus}})$ \\
 
 % null? nil
 
@@ -117,12 +117,12 @@ $(\first{\varvalus} \neq \expnild$ and $\first{\varvalus} \neq \expcons{\second{
 {\exppnull{\expnild}}
 {\expnum{0}} \\
 
-% null? v
+% null? w
 
 \redrules
-{\exppnull{\varvalus}}
+{\exppnull{\varvalfs}}
 {\expnum{1}}
-$(\varvalus \neq \expnild)$ \\
+$(\varvalfs \neq \expnild)$ \\
 
 % num? n
 
@@ -130,12 +130,12 @@ $(\varvalus \neq \expnild)$ \\
 {\exppnum{\expnum{\varnum}}}
 {\expnum{0}} \\
 
-% num? v
+% num? w
 
 \redrules
-{\exppnum{\varvalus}}
+{\exppnum{\varvalfs}}
 {\expnum{1}}
-$(\varvalus \neq \expnum{\varnum})$ \\
+$(\varvalfs \neq \expnum{\varnum})$ \\
 
 % wrong string
 

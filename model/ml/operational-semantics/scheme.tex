@@ -8,12 +8,12 @@
 {\expms{\tynum}{\expnum{\varnum}}}
 {{\expnum{\varnum}}} \\
 
-% ms N v
+% ms N w
 
 \redrulem
-{\expms{\tynum}{\varvalus}}
+{\expms{\tynum}{\varvalfs}}
 {\expwrongs{\tynum}{\str{Not \; a \; number}}}
-$(\varvalus \neq \expnum{\varnum})$ \\
+$(\varvalfs \neq \expnum{\varnum})$ \\
 
 % ms [t] nil
 
@@ -27,13 +27,13 @@ $(\varvalus \neq \expnum{\varnum})$ \\
 {\expms{\tylist{\vartym}}{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
 {\expcons{(\expms{\vartym}{\first{\varvalus}})}{(\expms{\tylist{\vartym}}{\second{\varvalus}})}} \\
 
-% ms [t] v
+% ms [t] w
 
 \redrulem
-{\expms{\tylist{\vartym}}{\first{\varvalus}}}
+{\expms{\tylist{\vartym}}{\first{\varvalfs}}}
 {\expwrongs{\tyunlabm{\vartym}}{\str{Not \; a \; list}}} \\
 
-\redsp $(\first{\varvalus} \neq \expnild$ and $\first{\varvalus} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
+\redsp $(\first{\varvalfs} \neq \expnild$ and $\first{\varvalfs} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
 
 % ms (t.x) (sm (t.x) v)
 
@@ -44,10 +44,10 @@ $(\varvalus \neq \expnum{\varnum})$ \\
 % ms (t.x) v
 
 \redrulem
-{\expms{(\tylabel{\vartym}{\tyvarm})}{\varvalus}}
+{\expms{(\tylabel{\vartym}{\tyvarm})}{\varvalfs}}
 {\expwrongs{\vartym}{\str{Parametricity \; violated}}} \\
 
-\redsp $(\varvalus \neq \expsm{(\tylabel{\vartym}{\tyvarm})}{\varexpm})$ \\
+\redsp $(\varvalfs \neq \expsm{(\tylabel{\vartym}{\tyvarm})}{\varexpm})$ \\
 
 % ms (t->t) (\x.e)
 
@@ -60,16 +60,16 @@ $(\varvalus \neq \expnum{\varnum})$ \\
 % ms (t->t) v
 
 \redrulem
-{\expms{(\tyfun{\first{\vartym}}{\second{\vartym}})}{\varvalus}}
+{\expms{(\tyfun{\first{\vartym}}{\second{\vartym}})}{\varvalfs}}
 {\expwrongs{\tyunlabm{(\tyfun{\first{\vartym}}{\second{\vartym}})}}{\str{Not \; a \; function}}} \\
 
-\redsp $(\varvalus \neq \expfabsd{\varvars}{\varexps})$ \\
+\redsp $(\varvalfs \neq \expfabsd{\varvars}{\varexps})$ \\
 
-% (ms (Ax.t) v) {t}
+% ms (Ax.t) w
 
 \redrulem
-{\exptapp{(\expms{(\tyfor{\tyvarm}{\first{\vartym}})}{\varvalus})}{\second{\vartym}}}
-{\expms{\tysubst{\first{\vartym}}{\tylabel{\second{\vartym}}{\tyvarm}}{\tyvarm}}{\varvalus}} \\
+{\expms{(\tyfor{\tyvarm}{\vartym})}{\varvalfs}}
+{\exptabs{\tyvarm}{\exptapp{((\exptabs{\tyvarm}{\expms{\vartym}{\varvalfs}})}{\tylabel{\tyvarm}{\tyvarm}})}}
 
 \end{tabular}
 \caption{ML-Scheme operational semantics}
