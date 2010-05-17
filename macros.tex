@@ -46,6 +46,7 @@
 \newcommand{\symtl}{tl}
 \newcommand{\symtst}{TST}
 \newcommand{\symtype}{t}
+\newcommand{\symtyvar}{u}
 \newcommand{\symvalf}{w}
 \newcommand{\symvalu}{v}
 \newcommand{\symvar}{x}
@@ -84,45 +85,45 @@
 
 % Expressions
 
-\newcommand{\expfabss}[3]{\ensuremath{\lambda #1 : #2 . #3}}
-\newcommand{\expfabsd}[2]{\ensuremath{\lambda #1 . #2}}
-\newcommand{\exptabs}[2]{\ensuremath{\Lambda #1 . #2}}
-\newcommand{\expnum}[1]{\ensuremath{\formnum{#1}}}
-\newcommand{\expnils}[1]{\ensuremath{\formsym{\symnil} \; #1}}
-\newcommand{\expnild}{\ensuremath{\formsym{\symnil}}\xspace}
-\newcommand{\expcons}[2]{\ensuremath{\formsym{\symcons} \; #1 \; #2}}
-\newcommand{\expfapp}[2]{\ensuremath{#1 \; #2}}
-\newcommand{\exptapp}[2]{\ensuremath{#1 \; \lbrace #2 \rbrace}}
-\newcommand{\expfix}[1]{\ensuremath{\formsym{\symfix} \; #1}}
-\newcommand{\expop}[2]{\ensuremath{\formvar{\symop} \; #1 \; #2}}
-\newcommand{\exppred}[1]{\ensuremath{\formvar{\sympred} \; #1}}
-\newcommand{\expplist}[1]{\ensuremath{\formsym{\symplist} \; #1}}
-\newcommand{\exppfun}[1]{\ensuremath{\formsym{\sympfun} \; #1}}
-\newcommand{\exppnum}[1]{\ensuremath{\formsym{\sympnum} \; #1}}
 \newcommand{\expadd}[2]{\ensuremath{\formsym{\symadd} \; #1 \; #2}}
-\newcommand{\expsub}[2]{\ensuremath{\formsym{\symsub} \; #1 \; #2}}
-\newcommand{\expif}[3]{\ensuremath{\formsym{\symif} \; #1 \; #2 \; #3}}
+\newcommand{\expcons}[2]{\ensuremath{\formsym{\symcons} \; #1 \; #2}}
+\newcommand{\experr}[1]{\ensuremath{\formstr{\textbf{Error:}\;#1}}}
+\newcommand{\expfabsd}[2]{\ensuremath{\lambda #1 . #2}}
+\newcommand{\expfabss}[3]{\ensuremath{\lambda #1 : #2 . #3}}
+\newcommand{\expfapp}[2]{\ensuremath{#1 \; #2}}
+\newcommand{\expfix}[1]{\ensuremath{\formsym{\symfix} \; #1}}
 \newcommand{\expfield}[1]{\ensuremath{\formvar{\symfield} \; #1}}
 \newcommand{\exphd}[1]{\ensuremath{\formsym{\symhd} \; #1}}
-\newcommand{\exptl}[1]{\ensuremath{\formsym{\symtl} \; #1}}
-\newcommand{\exppnull}[1]{\ensuremath{\formsym{\sympnull} \; #1}}
-\newcommand{\expwrongs}[2]{\ensuremath{\formsym{\symwrong} \; #1 \; #2}}
-\newcommand{\expwrongd}[1]{\ensuremath{\formsym{\symwrong} \; #1}}
 \newcommand{\exphm}[3]{\ensuremath{\formsym{\symhm} \; #1 \; #2 \; #3}}
 \newcommand{\exphs}[2]{\ensuremath{\formsym{\symhs} \; #1 \; #2}}
+\newcommand{\expif}[3]{\ensuremath{\formsym{\symif} \; #1 \; #2 \; #3}}
 \newcommand{\expmh}[3]{\ensuremath{\formsym{\symmh} \; #1 \; #2 \; #3}}
 \newcommand{\expms}[2]{\ensuremath{\formsym{\symms} \; #1 \; #2}}
+\newcommand{\expnild}{\ensuremath{\formsym{\symnil}}\xspace}
+\newcommand{\expnils}[1]{\ensuremath{\formsym{\symnil} \; #1}}
+\newcommand{\expnum}[1]{\ensuremath{\formnum{#1}}}
+\newcommand{\expop}[2]{\ensuremath{\formvar{\symop} \; #1 \; #2}}
+\newcommand{\exppred}[1]{\ensuremath{\formvar{\sympred} \; #1}}
+\newcommand{\exppfun}[1]{\ensuremath{\formsym{\sympfun} \; #1}}
+\newcommand{\expplist}[1]{\ensuremath{\formsym{\symplist} \; #1}}
+\newcommand{\exppnull}[1]{\ensuremath{\formsym{\sympnull} \; #1}}
+\newcommand{\exppnum}[1]{\ensuremath{\formsym{\sympnum} \; #1}}
 \newcommand{\expsh}[2]{\ensuremath{\formsym{\symsh} \; #1 \; #2}}
 \newcommand{\expsm}[2]{\ensuremath{\formsym{\symsm} \; #1 \; #2}}
+\newcommand{\expsub}[2]{\ensuremath{\formsym{\symsub} \; #1 \; #2}}
 \newcommand{\expsubst}[3]{\ensuremath{\subst{#1}{#2}{#3}}}
-\newcommand{\experr}[1]{\ensuremath{\formstr{\textbf{Error:}\;#1}}}
+\newcommand{\exptabs}[2]{\ensuremath{\Lambda #1 . #2}}
+\newcommand{\exptapp}[2]{\ensuremath{#1 \langle #2 \rangle}}
+\newcommand{\exptl}[1]{\ensuremath{\formsym{\symtl} \; #1}}
+\newcommand{\expwrongd}[1]{\ensuremath{\formsym{\symwrong} \; #1}}
+\newcommand{\expwrongs}[2]{\ensuremath{\formsym{\symwrong} \; #1 \; #2}}
 
 % Types
 
-\newcommand{\tylump}{\ensuremath{\formsym{L}}\xspace}
-\newcommand{\tynum}{\ensuremath{\formsym{N}}\xspace}
-\newcommand{\tyvarh}{\ensuremath{\symvar\langh}\xspace}
-\newcommand{\tyvarm}{\ensuremath{\symvar\langm}\xspace}
+\newcommand{\tylump}{\ensuremath{\formsym{\symlump}}\xspace}
+\newcommand{\tynum}{\ensuremath{\formsym{\symnat}}\xspace}
+\newcommand{\tyvarh}{\ensuremath{\symtyvar\langh}\xspace}
+\newcommand{\tyvarm}{\ensuremath{\symtyvar\langm}\xspace}
 \newcommand{\tylist}[1]{\ensuremath{[#1]}\xspace}
 \newcommand{\tylabel}[2]{\ensuremath{#1 . #2}\xspace}
 \newcommand{\tyfun}[2]{\ensuremath{#1 \symfun #2}\xspace}
@@ -164,14 +165,14 @@
 \newcommand{\formsym}[1]{\ensuremath{\mathtt{#1}}}
 \newcommand{\formnum}[1]{\ensuremath{\overline{#1}}}
 \newcommand{\formstr}[1]{\ensuremath{\mathrm{#1}}}
-\newcommand{\formlang}[1]{\ensuremath{^{\mathit{#1}}}}
-\newcommand{\formindex}[2]{\ensuremath{#1_{#2}}}
+\newcommand{\formlang}[1]{\ensuremath{_{\mathit{#1}}}}
+\newcommand{\formindex}[2]{\ensuremath{#1^{#2}}}
 
 % Numberings
 
-\newcommand{\first}[1]{\formindex{#1}{1}}
-\newcommand{\second}[1]{\formindex{#1}{2}}
-\newcommand{\third}[1]{\formindex{#1}{3}}
+\newcommand{\first}[1]{\ensuremath{#1}}
+\newcommand{\second}[1]{\ensuremath{#1'}}
+\newcommand{\third}[1]{\ensuremath{#1''}}
 \newcommand{\ith}[1]{\formindex{#1}{i}}
 
 % Miscellaneous
