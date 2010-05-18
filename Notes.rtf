@@ -56,18 +56,6 @@ Eager: works, value, must force thunks\
 \
 ==\
 \
-REDUCTION RULES PUTTING TYPE FROM ONE LANG IN ANOTHER\
-\
-Okay since can't have tyvars inside, otherwise wouldn't be reducing or ill-typed. Idea being that types are coerced if not lang-specific.  H and M have their own list type, and coercion turns one into the other.\
-\
-See the red rules for importation of forall types for type abstractions, e.g.:\
-\
-hm (Ax.t) (\\\\x.e) -> \\\\x.hm t e\
-\
-The subsequent type application's type substitution performs type coercion when substituting the type application argument into ML's exp.\
-\
-==\
-\
 FIXED POINT OPERATIONS\
 \
 Operand types are the same for H and M (t->t) because the same definition works for both H and M, it doesn't diverge in M because application isn't used to substitute.\
@@ -80,7 +68,7 @@ Reduction rules must strip labels because the expressions the underlying types a
 \
 ==\
 \
-WHY LABELS ON H/M IMPORTATIONS ARE NEEDED\
+WHY TYPES ON GUARDS ARE NEEDED\
 \
 For the matching labels mechanism, and for type-directed value conversion in guards, which represent language boundaries.\
 \
@@ -108,7 +96,9 @@ Anything else would not be well-typed, so you don't have to account for it in th
 \
 ==\
 \
-TYPE LABEL USE\
+??? MAKE SURE THIS IS TRUE AFTER THE SWITCH TO CONVERSION SCHEMES ???\
+\
+TYPE LABELS CANNOT BE NESTED\
 \
 Eval contexts guarantee that type labels created by applying an imported type abstraction from Scheme cannot be nested, so the type label removal substitution notation t[ti/ti.x] can mean to remove all type labels. Also why the Parametricity Violated red rule can strip the label.\
 \
