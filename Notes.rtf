@@ -206,4 +206,16 @@ Cannot substitute it, like the forall tyvar.\
 \
 CONVERTING GENERAL TYPES WITH POSSIBLE LABEL SUBEXPRESSION TYPES (E.G. LISTS)\
 \
-If the type of a guard is a general type (e.g. list) where a subexpression type is a variable type, it's safe to convert the outer type because the label applies to the inner type.  The shape of the outer type (e.g. for list, nil or cons) is not what's being protected, so it's safe to convert these.  However, the subexpressions must vary by the types they're instantiated with, and thus cannot be converted or inspected or otherwise reduced.  So, it's safe to convert nil and cons, but cons's subexpressions must be unconvertible.  Where a data constructor directly contains a type (e.g. nil), the labels must be assumed to not be there in SH/M cases because of the case where a Scheme function is imported into H/M (the expression came from the outer language), and are stripped in the H/MS cases because the typing rules do not strip them, and the outer expressions do not expect them.  To summarize: In general, it's safe to convert the data constructors, then pass the guard to the inner expressions and let their types deal with them (including the label case).}
+If the type of a guard is a general type (e.g. list) where a subexpression type is a variable type, it's safe to convert the outer type because the label applies to the inner type.  The shape of the outer type (e.g. for list, nil or cons) is not what's being protected, so it's safe to convert these.  However, the subexpressions must vary by the types they're instantiated with, and thus cannot be converted or inspected or otherwise reduced.  So, it's safe to convert nil and cons, but cons's subexpressions must be unconvertible.  Where a data constructor directly contains a type (e.g. nil), the labels must be assumed to not be there in SH/M cases because of the case where a Scheme function is imported into H/M (the expression came from the outer language), and are stripped in the H/MS cases because the typing rules do not strip them, and the outer expressions do not expect them.  To summarize: In general, it's safe to convert the data constructors, then pass the guard to the inner expressions and let their types deal with them (including the label case).\
+\
+==\
+\
+LUMPS AND BRANDS/LABELS DO THE SAME THING\
+\
+Restrict conversion.  Brands/labels are lumps that keep track of the original type, useful where the original target language is typed.  Lumps for Scheme-to-Haskell (i.e. untyped-to-typed), brands/labels for Haskell-to-Scheme (i.e. typed-to-untyped).  Brands/labels for Haskell-to-ML and vice versa (i.e. typed-to-typed) because the target language is typed.\
+\
+==\
+\
+CONVERSION OF TYPES BETWEEN LANGUAGES IS NECESSARY FOR IMPORTING TYPE ABSTRACTIONS\
+\
+Type arguments for imported type abstractions must be converted between languages because the result of the inner language's type application must be able to take as arguments converted values from the outer language.  The polymorphic function arguments must be type converted, not "lumped".  It's different than the typed-to-untyped (e.g. SH/SM) cases.}
