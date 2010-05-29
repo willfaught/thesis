@@ -218,4 +218,8 @@ Restrict conversion.  Brands/labels are lumps that keep track of the original ty
 \
 CONVERSION OF TYPES BETWEEN LANGUAGES IS NECESSARY FOR IMPORTING TYPE ABSTRACTIONS\
 \
-Type arguments for imported type abstractions must be converted between languages because the result of the inner language's type application must be able to take as arguments converted values from the outer language.  The polymorphic function arguments must be type converted, not "lumped".  It's different than the typed-to-untyped (e.g. SH/SM) cases.}
+Type arguments for imported type abstractions must be converted between languages because the result of the inner language's type application must be able to take as arguments converted values from the outer language.  The polymorphic function arguments must be type converted, not "lumped".  It's different than the typed-to-untyped (e.g. SH/SM) cases.\
+\
+If types can be equal, you can convert between them.  Simplest solution.\
+\
+If I had used lumps, there would have to be an outer type in the guard and some way to express equality between types with lumps and types without. Too complicated.}
