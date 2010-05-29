@@ -21,11 +21,6 @@
 {\judth{\env}{\vartyh}}
 {\judth{\env}{\tylist{\vartyh}}}
 \quad
-% Label
-\frac
-{\judth{\env}{\vartyh}}
-{\judth{\env}{\tylabel{\vartyh}{\tyvarh}}}
-\quad
 % Function
 \frac
 {\judth{\env}{\first{\vartyh}} \quad \judth{\env}{\second{\vartyh}}}
@@ -121,13 +116,13 @@
 \[
 % ML
 \frac
-{\judth{\env}{\vartyh} \quad \judtm{\env}{\vartym} \quad \judem{\env}{\varexpm}{\vartym} \quad \vartyh=\vartym}
-{\judeh{\env}{\exphm{\vartyh}{\vartym}{\varexpm}}{\vartyh}}
+{\judth{\env}{\tyunbrand{\varcsh}} \quad \judem{\env}{\varexpm}{\vartym} \quad \tyunbrand{\varcsh}=\vartym}
+{\judeh{\env}{\exphm{\varcsh}{\varexpm}}{\vartyh}}
 \quad
 % Scheme
 \frac
-{\judth{\env}{\vartyh} \quad \judeh{\env}{\varexps}{\tytst}}
-{\judeh{\env}{\exphs{\vartyh}{\varexps}}{\tyunlabh{\vartyh}}}
+{\judth{\env}{\tyunbrand{\varcsh}} \quad \judeh{\env}{\varexps}{\tytst}}
+{\judeh{\env}{\exphs{\varcsh}{\varexps}}{\tyunbrand{\varcsh}}}
 \]
 \caption{Haskell typing rules}
 \label{htr}
