@@ -5,67 +5,67 @@
 % hs N n
 
 \redruleh
-{\exphs{\tynum}{\expnum{\varnum}}}
+{\exphs{\csnum}{\expnum{\varnum}}}
 {{\expnum{\varnum}}} \\
 
 % hs N v
 
 \redruleh
-{\exphs{\tynum}{\varvalfs}}
+{\exphs{\csnum}{\varvalfs}}
 {\expwrongs{\tynum}{\str{Not \; a \; number}}}
 $(\varvalfs \neq \expnum{\varnum})$ \\
 
-% hs [t] nil
+% hs {k} nil
 
 \redruleh
-{\exphs{\tylist{\varcsh}}{\expnild}}
+{\exphs{\cslist{\varcsh}}{\expnild}}
 {\expnils{\tyunbrand{\varcsh}}} \\
 
-% hs [t] (cons v v)
+% hs {k} (cons v v)
 
 \redruleh
-{\exphs{\tylist{\varcsh}}{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
-{\expcons{(\exphs{\varcsh}{\first{\varvalus}})}{(\exphs{\tylist{\varcsh}}{\second{\varvalus}})}} \\
+{\exphs{\cslist{\varcsh}}{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
+{\expcons{(\exphs{\varcsh}{\first{\varvalus}})}{(\exphs{\cslist{\varcsh}}{\second{\varvalus}})}} \\
 
-% hs [t] v
+% hs {k} v
 
 \redruleh
-{\exphs{\tylist{\varcsh}}{\first{\varvalfs}}}
+{\exphs{\cslist{\varcsh}}{\varvalfs}}
 {\expwrongs{\tyunbrand{\varcsh}}{\str{Not \; a \; list}}} \\
 
-\redsp $(\first{\varvalfs} \neq \expnild$ and $\first{\varvalfs} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
+\redsp $(\varvalfs \neq \expnild$ and $\varvalfs \neq \expcons{\first{\varvalus}}{\second{\varvalus}})$ \\
 
-% hs (t.x) (sh (t.x) e)
+% hs (b.t) (sh (b.t) e)
 
 \redruleh
 {\exphs{(\csbrand{\varbrand}{\vartyh})}{(\expsh{(\csbrand{\varbrand}{\vartyh})}{\varexph})}}
 {\varexph} \\
 
-% hs (t.x) v
+% hs (b.t) v
 
 \redruleh
 {\exphs{(\csbrand{\varbrand}{\vartyh})}{\varvalfs}}
 {\expwrongs{\vartyh}{\str{Parametricity \; violated}}}
 $(\varvalfs \neq \expsh{(\csbrand{\varbrand}{\vartyh})}{\varexph})$ \\
 
-% hs (t->t) (\x.e)
+% hs (k->k) (\x.e)
 
 \redruleh
-{\exphs{(\tyfun{\first{\varcsh}}{\second{\varcsh}})}{(\expfabsd{\varvars}{\varexps})}}
+{\exphs{(\csfun{\first{\varcsh}}{\second{\varcsh}})}{(\expfabsd{\varvars}{\varexps})}}
 {\expfabss{\varvarh}{\tyunbrand{\first{\varcsh}}}{\exphs{\second{\varcsh}}{(\expfapp{(\expfabsd{\varvars}{\varexps})}{(\expsh{\first{\varcsh}}{\varvarh})})}}} \\
 
-% hs (t->t) v
+% hs (k->k) v
 
 \redruleh
-{\exphs{(\tyfun{\first{\varcsh}}{\second{\varcsh}})}{\varvalfs}}
-{\expwrongs{\tyunbrand{\tyfun{\first{\varcsh}}{\second{\varcsh}}}}{\str{Not \; a \; function}}} \\
+{\exphs{(\csfun{\first{\varcsh}}{\second{\varcsh}})}{\varvalfs}}
+{\expwrongs{\tyunbrand{\csfun{\first{\varcsh}}{\second{\varcsh}}}}{\str{Not \; a \; function}}} \\
 
 \redsp $(\varvalfs \neq \expfabsd{\varvars}{\varexps})$ \\
 
-% hs (Ax.t) w
+% hs (Au.k) w
 
 \redruleh
-{\exphs{(\tyfor{\tyvarh}{\varcsh})}{\varvalfs}}
+{\exphs{(\csfor{\csvarh}{\varcsh})}{\varvalfs}}
 {\exptabs{\tyvarh}{\exphs{\varcsh}{\varvalfs}}} \\
 
 \end{tabular}
