@@ -97,32 +97,43 @@
 {\judeh{\env}{\first{\varexph}}{\tynum} \quad \judeh{\env}{\second{\varexph}}{\tynum}}
 {\judeh{\env}{\expop{\first{\varexph}}{\second{\varexph}}}{\tynum}}
 \quad
-% Null
+% null? e
 \frac
 {\judeh{\env}{\varexph}{\tylist{\vartyh}}}
 {\judeh{\env}{\exppnull{\varexph}}{\tynum}}
+\quad
+% hs k e
+\frac
+{\judth{\env}{\tyunbrand{\varcsh}} \quad \judeh{\env}{\varexps}{\tytst}}
+{\judeh{\env}{\exphs{\varcsh}{\varexps}}{\tyunbrand{\varcsh}}}
 \]
 \[
-% If0
+% if0 e e e
 \frac
 {\judeh{\env}{\first{\varexph}}{\tynum} \quad \judeh{\env}{\second{\varexph}}{\vartyh} \quad \judeh{\env}{\third{\varexph}}{\vartyh}}
 {\judeh{\env}{\expif{\first{\varexph}}{\second{\varexph}}{\third{\varexph}}}{\vartyh}}
 \quad
-% Wrong
+% wrong t s
 \frac
 {\judth{\env}{\vartyh}}
 {\judeh{\env}{\expwrongs{\vartyh}{\formvar{string}}}{\vartyh}}
 \]
 \[
-% ML
+% hm k k e
 \frac
-{\judth{\env}{\tyunbrand{\varcsh}} \quad \judem{\env}{\varexpm}{\vartym} \quad \tyunbrand{\varcsh}=\vartym}
-{\judeh{\env}{\exphm{\varcsh}{\varexpm}}{\vartyh}}
+{\judth{\env}{\tyunbrand{\varcsh}} \quad \judtm{\env}{\tyunbrand{\varcsm}} \quad \judem{\env}{\varexpm}{\tyunbrand{\varcsm}} \quad \varcsh=\varcsm}
+{\judeh{\env}{\exphm{\varcsh}{\varcsm}{\varexpm}}{\tyunbrand{\varcsh}}}
+\]
+\[
+% hm L k e
+\frac
+{\judtm{\env}{\tyunbrand{\varcsm}} \quad \judem{\env}{\varexpm}{\tyunbrand{\varcsm}} \quad \varcsm \neq \cslump}
+{\judeh{\env}{\exphm{\cslump}{\varcsm}{\varexpm}}{\tylump}}
 \quad
-% Scheme
+% hm k L e
 \frac
-{\judth{\env}{\tyunbrand{\varcsh}} \quad \judeh{\env}{\varexps}{\tytst}}
-{\judeh{\env}{\exphs{\varcsh}{\varexps}}{\tyunbrand{\varcsh}}}
+{\judth{\env}{\tyunbrand{\varcsh}} \quad \judem{\env}{\varexpm}{\tylump} \quad \varcsh \neq \cslump}
+{\judeh{\env}{\exphm{\varcsh}{\cslump}{\varexpm}}{\tyunbrand{\varcsh}}}
 \]
 \caption{Haskell typing rules}
 \label{htr}

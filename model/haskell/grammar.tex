@@ -4,9 +4,11 @@
 
 \varexph & $=$ & \varvarh $|$ \varvaluh $|$ \expfapp{\varexph}{\varexph} $|$ \exptapp{\varexph}{\vartyh} $|$ \expfix{\varexph} $|$ \expop{\varexph}{\varexph} $|$ \expif{\varexph}{\varexph}{\varexph} $|$ \expfield{\varexph} \\
 
-&& \exppnull{\varexph} $|$ \expwrongs{\vartyh}{\formvar{string}} $|$ \exphm{\varcsh}{\varexpm} $|$ \exphs{\varcsh}{\varexps} \\
+&& \exppnull{\varexph} $|$ \expwrongs{\vartyh}{\formvar{string}} $|$ \exphm{\varcsh}{\varcsm}{\varexpm} $|$ \exphs{\varcsh}{\varexps} \\
 
-\varvaluh & $=$ & \expfabss{\varvarh}{\vartyh}{\varexph} $|$ \exptabs{\tyvarh}{\varexph} $|$ \expnum{\varnum} $|$ \expnils{\vartyh} $|$ \expcons{\varexph}{\varexph} $|$ \exphs{\tylump}{\varvalfs} \\
+\varvaluh & $=$ & \expfabss{\varvarh}{\vartyh}{\varexph} $|$ \exptabs{\tyvarh}{\varexph} $|$ \expnum{\varnum} $|$ \expnils{\vartyh} $|$ \expcons{\varexph}{\varexph} $|$ \exphm{\cslump}{\varcsm}{\varvalfm} \\
+
+&& \exphs{\tylump}{\varvalfs} \\
 
 \vartyh & $=$ & \tylump $|$ \tynum $|$ \tyvarh $|$ \tylist{\vartyh} $|$ \tyfun{\vartyh}{\vartyh} $|$ \tyfor{\tyvarh}{\vartyh} \\
 
@@ -16,9 +18,9 @@
 
 \formvar{\symfield} & $=$ & \formsym{\symhd} $|$ \formsym{\symtl} \\
 
-\varconfh & $=$ & \symholeh $|$ \expfapp{\varconfh}{\varexph} $|$ \exptapp{\varconfh}{\vartyh} $|$ \expfix{\varconfh} $|$ \expop{\varconfh}{\varexph} $|$ \expop{\varvaluh}{\varconfh} $|$ \expif{\varconfh}{\varexph}{\varexph} \\
+\varconfh & $=$ & \symholeh $|$ \expfapp{\varconfh}{\varexph} $|$ \exptapp{\varconfh}{\vartyh} $|$ \expfix{\varconfh} $|$ \expop{\varconfh}{\varexph} $|$ \expop{\varvaluh}{\varconfh} \\
 
-&& \expfield{\varconfh} $|$ \exppnull{\varconfh} $|$ \exphm{\varcsh}{\varconfm} $|$ \exphs{\varcsh}{\varconfs}
+&& \expif{\varconfh}{\varexph}{\varexph} $|$ \expfield{\varconfh} $|$ \exppnull{\varconfh} $|$ \exphm{\varcsh}{\varcsm}{\varconfm} $|$ \exphs{\varcsh}{\varconfs}
 
 \end{tabular}
 \caption{Haskell grammar and evaluation contexts}
