@@ -1,6 +1,7 @@
 % Symbols
 
 \newcommand{\symadd}{+}
+\newcommand{\symbrand}{b}
 \newcommand{\symcons}{cons}
 \newcommand{\symconu}{U}
 \newcommand{\symconf}{E}
@@ -62,6 +63,7 @@
 
 % Variables
 
+\newcommand{\varbrand}{\ensuremath{\symbrand}\xspace}
 \newcommand{\varconm}{\ensuremath{\mathscr{\symconf}\xspace}}
 \newcommand{\varconfh}{\ensuremath{\symconf\langh}\xspace}
 \newcommand{\varconfm}{\ensuremath{\symconf\langm}\xspace}
@@ -77,7 +79,6 @@
 \newcommand{\varstr}{\ensuremath{\formvar{\symstr}}\xspace}
 \newcommand{\vartyh}{\ensuremath{\symty\langh}\xspace}
 \newcommand{\vartym}{\ensuremath{\symty\langm}\xspace}
-\newcommand{\vartys}{\ensuremath{\symty\langs}\xspace}
 \newcommand{\varvaluh}{\ensuremath{\symvalu\langh}\xspace}
 \newcommand{\varvalum}{\ensuremath{\symvalu\langm}\xspace}
 \newcommand{\varvalus}{\ensuremath{\symvalu\langs}\xspace}
@@ -124,7 +125,9 @@
 
 % Types
 
+%
 \newcommand{\tyconv}[1]{\ensuremath{\lceil #1 \rceil}\xspace}
+%
 \newcommand{\tylump}{\ensuremath{\formsym{\symlump}}\xspace}
 \newcommand{\tynum}{\ensuremath{\formsym{\symnat}}\xspace}
 \newcommand{\tyvarh}{\ensuremath{\symtyvar\langh}\xspace}
@@ -151,7 +154,7 @@
 \newcommand{\csvarh}{\ensuremath{\symcsvar\langh}\xspace}
 \newcommand{\csvarm}{\ensuremath{\symcsvar\langm}\xspace}
 \newcommand{\cslist}[1]{\ensuremath{\synlist{#1}}\xspace}
-\newcommand{\csbrand}[2]{\ensuremath{#1 . #2}\xspace}
+\newcommand{\csbrand}[2]{\ensuremath{#1 \diamond #2}\xspace}
 \newcommand{\csfun}[2]{\ensuremath{#1 \symfun #2}\xspace}
 \newcommand{\csfor}[2]{\ensuremath{\symfor #1 . #2}\xspace}
 \newcommand{\cssubst}[3]{\ensuremath{\subst{#1}{#2}{#3}}}

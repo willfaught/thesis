@@ -222,4 +222,10 @@ Type arguments for imported type abstractions must be converted between language
 \
 If types can be equal, you can convert between them.  Simplest solution.\
 \
-If I had used lumps, there would have to be an outer type in the guard and some way to express equality between types with lumps and types without. Too complicated.}
+If I had used lumps, there would have to be an outer type in the guard and some way to express equality between types with lumps and types without. Too complicated.\
+\
+==\
+\
+SUBSTITUTING CONVERTED TYPES REQUIRES SPECIAL TYPE ABSTRACTION VALUE\
+\
+Type conversions (as opposed to value conversions) cannot be part of the reduction rule for imported type abstractions.  Thus, the type conversion must happen in the type application reduction rule, which would require making imported type abstractions values until they are applied to types.  This also requires unifying H and M types and allow one type application to span both languages.  (You can't substitute twice because you don't know the type variable for the imported type abstraction unless you dirty the core language op sem with interop stuff.)}
