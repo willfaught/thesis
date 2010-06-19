@@ -21,11 +21,6 @@
 {\judtm{\env}{\vartym}}
 {\judtm{\env}{\tylist{\vartym}}}
 \quad
-% Label
-\frac
-{\judtm{\env}{\vartym}}
-{\judtm{\env}{\tylabel{\vartym}{\tyvarm}}}
-\quad
 % Function
 \frac
 {\judtm{\env}{\first{\vartym}} \quad \judtm{\env}{\second{\vartym}}}
@@ -106,6 +101,11 @@
 \frac
 {\judem{\env}{\varexpm}{\tylist{\vartym}}}
 {\judem{\env}{\exppnull{\varexpm}}{\tynum}}
+\quad
+% Scheme
+\frac
+{\judtm{\env}{\vartym} \quad \judes{\env}{\varexps}{\tytst}}
+{\judem{\env}{\expms{\vartym}{\varexps}}{\tyunlabm{\vartym}}}
 \]
 \[
 % If0
@@ -119,15 +119,21 @@
 {\judem{\env}{\expwrongs{\vartym}{\formvar{string}}}{\vartym}}
 \]
 \[
-% ML
+% hm k k e
 \frac
-{\judtm{\env}{\vartym} \quad \judth{\env}{\vartyh} \quad \judeh{\env}{\varexph}{\vartyh} \quad \vartym=\vartyh}
-{\judem{\env}{\expmh{\vartym}{\vartyh}{\varexph}}{\vartym}}
+{\judtm{\env}{\varcsm} \quad \judth{\env}{\varcsh} \quad \judeh{\env}{\varexph}{\tyunbrand{\varcsh}} \quad \varcsm = \varcsh}
+{\judem{\env}{\expmh{\varcsm}{\varcsh}{\varexph}}{\tyunbrand{\varcsm}}}
+\]
+\[
+% hm L k e
+\frac
+{\judth{\env}{\tyunbrand{\varcsh}} \quad \judeh{\env}{\varexph}{\tyunbrand{\varcsh}} \quad \varcsh \neq \cslump}
+{\judem{\env}{\expmh{\cslump}{\varcsh}{\varexph}}{\tylump}}
 \quad
-% Scheme
+% hm k L e
 \frac
-{\judtm{\env}{\vartym} \quad \judes{\env}{\varexps}{\tytst}}
-{\judem{\env}{\expms{\vartym}{\varexps}}{\tyunlabm{\vartym}}}
+{\judtm{\env}{\tyunbrand{\varcsm}} \quad \judeh{\env}{\varexph}{\tylump} \quad \varcsm \neq \cslump}
+{\judem{\env}{\expmh{\varcsm}{\cslump}{\varexph}}{\tyunbrand{\varcsm}}}
 \]
 \caption{ML typing rules}
 \label{mtr}

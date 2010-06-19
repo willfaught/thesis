@@ -5,71 +5,71 @@
 % ms N n
 
 \redrulem
-{\expms{\tynum}{\expnum{\varnum}}}
+{\expms{\csnum}{\expnum{\varnum}}}
 {{\expnum{\varnum}}} \\
 
 % ms N w
 
 \redrulem
-{\expms{\tynum}{\varvalfs}}
+{\expms{\csnum}{\varvalfs}}
 {\expwrongs{\tynum}{\str{Not \; a \; number}}}
 $(\varvalfs \neq \expnum{\varnum})$ \\
 
-% ms [t] nil
+% ms {k} nil
 
 \redrulem
-{\expms{\tylist{\vartym}}{\expnild}}
-{\expnils{\tyunlabm{\vartym}}} \\
+{\expms{\cslist{\varcsm}}{\expnild}}
+{\expnils{\tyunbrand{\varcsm}}} \\
 
-% ms [t] (cons v v)
-
-\redrulem
-{\expms{\tylist{\vartym}}{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
-{\expcons{(\expms{\vartym}{\first{\varvalus}})}{(\expms{\tylist{\vartym}}{\second{\varvalus}})}} \\
-
-% ms [t] w
+% ms {k} (cons v v)
 
 \redrulem
-{\expms{\tylist{\vartym}}{\first{\varvalfs}}}
-{\expwrongs{\tyunlabm{\vartym}}{\str{Not \; a \; list}}} \\
+{\expms{\cslist{\varcsm}}{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
+{\expcons{(\expms{\varcsm}{\first{\varvalus}})}{(\expms{\cslist{\varcsm}}{\second{\varvalus}})}} \\
 
-\redsp $(\first{\varvalfs} \neq \expnild$ and $\first{\varvalfs} \neq \expcons{\second{\varvalus}}{\third{\varvalus}})$ \\
-
-% ms (t.x) (sm (t.x) v)
+% ms {k} w
 
 \redrulem
-{\expms{(\tylabel{\vartym}{\tyvarm})}{(\expsm{(\tylabel{\vartyh}{\tyvarh})}{\varvalum})}}
+{\expms{\cslist{\varcsm}}{\varvalfs}}
+{\expwrongs{\tyunbrand{\cslist{\varcsm}}}{\str{Not \; a \; list}}} \\
+
+\redsp $(\varvalfs \neq \expnild$ and $\varvalfs \neq \expcons{\first{\varvalus}}{\second{\varvalus}})$ \\
+
+% ms (b.t) (sm (b.t) v)
+
+\redrulem
+{\expms{(\csbrand{\varbrand}{\vartym})}{(\expsm{(\csbrand{\varbrand}{\vartym})}{\varvalum})}}
 {\varvalum} \\
 
-% ms (t.x) v
+% ms (b.t) v
 
 \redrulem
-{\expms{(\tylabel{\vartym}{\tyvarm})}{\varvalfs}}
-{\expwrongs{\vartym}{\str{Parametricity \; violated}}} \\
+{\expms{(\csbrand{\varbrand}{\vartym})}{\varvalfs}}
+{\expwrongs{\tyunbrand{\csbrand{\varbrand}{\vartym}}}{\str{Parametricity \; violated}}} \\
 
-\redsp $(\varvalfs \neq \expsm{(\tylabel{\vartym}{\tyvarm})}{\varexpm})$ \\
+\redsp $(\varvalfs \neq \expsm{(\csbrand{\varbrand}{\vartym})}{\varexpm})$ \\
 
-% ms (t->t) (\x.e)
+% ms (k->k) (\x.e)
 
 \redrule
-{\redconm{\expms{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabsd{\varvars}{\varexps})}}}
+{\redconm{\expms{(\csfun{\first{\varcsm}}{\second{\varcsm}})}{(\expfabsd{\varvars}{\varexps})}}}
 {} \\
 
-\redsp \redcon{\expfabss{\varvarm}{\tyunlabm{\first{\vartym}}}{\expms{\second{\vartym}}{(\expfapp{(\expfabsd{\varvars}{\varexps})}{(\expsm{\first{\vartym}}{\varvarm})})}}} \\
+\redsp \redcon{\expfabss{\varvarm}{\tyunbrand{\first{\varcsm}}}{\expms{\second{\varcsm}}{(\expfapp{(\expfabsd{\varvars}{\varexps})}{(\expsm{\first{\varcsm}}{\varvarm})})}}} \\
 
-% ms (t->t) v
+% ms (k->k) v
 
 \redrulem
-{\expms{(\tyfun{\first{\vartym}}{\second{\vartym}})}{\varvalfs}}
-{\expwrongs{\tyunlabm{(\tyfun{\first{\vartym}}{\second{\vartym}})}}{\str{Not \; a \; function}}} \\
+{\expms{(\tyfun{\first{\varcsm}}{\second{\varcsm}})}{\varvalfs}}
+{\expwrongs{\tyunbrand{\tyfun{\first{\varcsm}}{\second{\varcsm}}}}{\str{Not \; a \; function}}} \\
 
 \redsp $(\varvalfs \neq \expfabsd{\varvars}{\varexps})$ \\
 
-% ms (Ax.t) w
+% ms (Au.k) w
 
 \redrulem
-{\expms{(\tyfor{\tyvarm}{\vartym})}{\varvalfs}}
-{\exptabs{\tyvarm}{\exptapp{((\exptabs{\tyvarm}{\expms{\vartym}{\varvalfs}})}{\tylabel{\tyvarm}{\tyvarm}})}}
+{\expms{(\csfor{\csvarm}{\varcsm})}{\varvalfs}}
+{\exptabs{\tyvarm}{\expms{\varcsm}{\varvalfs}}} \\
 
 \end{tabular}
 \caption{ML-Scheme operational semantics}
