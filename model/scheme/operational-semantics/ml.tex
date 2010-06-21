@@ -2,49 +2,49 @@
 \centering
 \begin{tabular}{l}
 
+% sm L (mh L k e)
+
+\redrules
+{\expsm{\cslump}{(\expmh{\cslump}{\varcsh}{\varexph})}}
+{\expsh{\cslump}{\varexph}} \\
+
 % sm L (ms L v)
 
 \redrules
-{\expsm{\tylump}{(\expms{\tylump}{\varvalus})}}
+{\expsm{\cslump}{(\expms{\cslump}{\varvalus})}}
 {\varvalus} \\
 
 % sm N n
 
 \redrules
-{\expsm{\tynum}{\expnum{\varnum}}}
+{\expsm{\csnum}{\expnum{\varnum}}}
 {\expnum{\varnum}} \\
 
-% sm [t] (nil t)
+% sm {k} (nil t)
 
 \redrules
-{\expsm{\tylist{\vartym}}{(\expnils{\tyunlabm{\vartym}})}}
+{\expsm{\cslist{\varcsm}}{(\expnils{\vartym})}}
 {\expnild} \\
 
-% sm [t] (cons v v)
+% sm {k} (cons v v)
 
 \redrules
-{\expsm{\tylist{\vartym}}{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
-{\expcons{(\expsm{\vartym}{\first{\varvalum}})}{(\expsm{\tylist{\vartym}}{\second{\varvalum}})}} \\
+{\expsm{\cslist{\varcsm}}{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
+{\expcons{(\expsm{\varcsm}{\first{\varvalum}})}{(\expsm{\cslist{\varcsm}}{\second{\varvalum}})}} \\
 
-% sm (t->t) (\x:t.e)
+% sm (k->k) (\x:t.e)
 
 \redrule
-{\redcons{\expsm{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabss{\varvarm}{\tyunlabm{\first{\vartym}}}{\varexpm})}}}
+{\redcons{\expsm{(\csfun{\first{\varcsm}}{\second{\varcsm}})}{(\expfabss{\varvarm}{\vartym}{\varexpm})}}}
 {} \\
 
-\redsp \redcon{{\expfabsd{\varvars}{\expsm{\second{\vartym}}{\expfapp{((\expfabss{\varvarm}{\tyunlabm{\first{\vartym}}}{\varexpm})}{(\expms{\first{\vartym}}{\varvars})})}}}} \\
+\redsp \redcon{{\expfabsd{\varvars}{\expsm{\second{\varcsm}}{\expfapp{((\expfabss{\varvarm}{\vartym}{\varexpm})}{(\expms{\first{\varcsm}}{\varvars})})}}}} \\
 
 % sm (Ax.t) (hs (Ax.t) v)
 
 \redrules
-{\expsm{(\tyfor{\tyvarm}{\vartym})}{(\exptabs{\tyvarm}{\varexpm})}}
-{\expsm{\tysubst{\vartym}{\tylump}{\tyvarm}}{\expsubst{\varexpm}{\tylump}{\tyvarm}}} \\
-
-% sm (Ax.t) (ms (Ax.t) v)
-
-\redrules
-{\expsm{(\tyfor{\tyvarm}{\vartym})}{(\expms{(\tyfor{\tyvarm}{\vartym})}{\varvalus}})}
-{\varvalus}
+{\expsm{(\csfor{\first{\csvarm}}{\varcsm})}{(\exptabs{\second{\tyvarm}}{\varexpm})}}
+{\expsm{\tysubst{\first{\varcsm}}{\cslump}{\tyvarm}}{\expsubst{\varexpm}{\tylump}{\second{\tyvarm}}}} \\
 
 \end{tabular}
 \caption{Scheme-ML operational semantics}

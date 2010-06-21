@@ -4,11 +4,11 @@
 
 \varexps & $=$ & \varvars $|$ \varvalus $|$ \expfapp{\varexps}{\varexps} $|$ \expop{\varexps}{\varexps} $|$ \exppred{\varexps} $|$ \expif{\varexps}{\varexps}{\varexps} $|$ \expcons{\varexps}{\varexps} $|$ \expfield{\varexps} \\
 
-&& \expwrongd{\formvar{string}} $|$ \expsm{\vartym}{\varexpm} \\
+&& \expwrongd{\formvar{string}} $|$ \expsm{\varcsm}{\varexpm} \\
 
-\varvalus & $=$ & \varvalfs $|$ \expsh{\vartyh}{\varexph} \\
+\varvalus & $=$ & \varvalfs $|$ \expsh{\varcsh}{\varexph} \\
 
-\varvalfs & $=$ & \expfabsd{\varvars}{\varexps} $|$ \expnum{\varnum} $|$ \expnild $|$ \expcons{\varvalus}{\varvalus} $|$ \expsh{(\tylabel{\vartyh}{\tyvarh})}{\varexph} $|$ \expsm{(\tylabel{\vartym}{\tyvarm})}{\varvalum} \\
+\varvalfs & $=$ & \expfabsd{\varvars}{\varexps} $|$ \expnum{\varnum} $|$ \expnild $|$ \expcons{\varvalus}{\varvalus} $|$ \expsh{(\csbrand{\varbrand}{\vartyh})}{\varexph} $|$ \expsm{(\csbrand{\varbrand}{\vartym})}{\varvalfm} \\
 
 \formvar{\symop} & $=$ & \formsym{\symadd} $|$ \formsym{\symsub} \\
 
@@ -16,11 +16,11 @@
 
 \formvar{\sympred} & $=$ & \formsym{\sympfun} $|$ \formsym{\symplist} $|$ \formsym{\sympnull} $|$ \formsym{\sympnum} \\
 
-\varconfs & $=$ & \varconus $|$ \expsh{\vartyh}{\varconfh} \\
+\varconfs & $=$ & \varconus $|$ \expsh{\varcsh}{\varconfh} \\
 
 \varconus & $=$ & \symholes $|$ \expfapp{\varconfs}{\varexps} $|$ \expfapp{\varvalfs}{\varconus} $|$ \expop{\varconfs}{\varexps} $|$ \expop{\varvalfs}{\varconfs} $|$ \exppred{\varconfs} $|$ \expif{\varconfs}{\varexps}{\varexps} \\
 
-&& \expcons{\varconus}{\varexps} $|$ \expcons{\varvalus}{\varconus} $|$ \expfield{\varconfs} $|$ \expsm{\vartym}{\varconfm}
+&& \expcons{\varconus}{\varexps} $|$ \expcons{\varvalus}{\varconus} $|$ \expfield{\varconfs} $|$ \expsm{\varcsm}{\varconfm}
 
 \end{tabular}
 \caption{Scheme grammar and evaluation contexts}

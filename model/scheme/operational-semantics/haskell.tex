@@ -2,49 +2,49 @@
 \centering
 \begin{tabular}{l}
 
-% sh L (ms L v)
+% sh L (hm L k w)
 
 \redrules
-{\expsh{\tylump}{(\exphs{\tylump}{\varvalus})}}
-{\varvalus} \\
+{\expsh{\cslump}{(\exphm{\cslump}{\varcsm}{\varvalfm})}}
+{\expsm{\cslump}{\varvalfm}} \\
+
+% sh L (ms L w)
+
+\redrules
+{\expsh{\cslump}{(\exphs{\cslump}{\varvalfs})}}
+{\varvalfs} \\
 
 % sh N n
 
 \redrules
-{\expsh{\tynum}{\expnum{\varnum}}}
+{\expsh{\csnum}{\expnum{\varnum}}}
 {\expnum{\varnum}} \\
 
-% sh [t] (nil t)
+% sh {k} (nil t)
 
 \redrules
-{\expsh{\tylist{\vartyh}}{(\expnils{\tyunlabh{\vartyh}})}}
+{\expsh{\cslist{\varcsh}}{(\expnils{\vartyh})}}
 {\expnild} \\
 
-% sh [t] (cons e e)
+% sh {k} (cons e e)
 
 \redrules
-{\expsh{\tylist{\vartyh}}{(\expcons{\first{\varexph}}{\second{\varexph}})}}
-{\expcons{(\expsh{\vartyh}{\first{\varexph}})}{(\expsh{\tylist{\vartyh}}{\second{\varexph}})}} \\
+{\expsh{\cslist{\varcsh}}{(\expcons{\first{\varexph}}{\second{\varexph}})}}
+{\expcons{(\expsh{\varcsh}{\first{\varexph}})}{(\expsh{\cslist{\varcsh}}{\second{\varexph}})}} \\
 
-% sh (t->t) (\x:t.e)
+% sh (k->k) (\x:t.e)
 
 \redrule
-{\redcons{\expsh{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{(\expfabss{\varvarh}{\tyunlabh{\first{\vartyh}}}{\varexph})}}}
+{\redcons{\expsh{(\tyfun{\first{\varcsh}}{\second{\varcsh}})}{(\expfabss{\varvarh}{\vartyh}{\varexph})}}}
 {} \\
 
-\redsp \redcon{{\expfabsd{\varvars}{\expsh{\second{\vartyh}}{\expfapp{((\expfabss{\varvarh}{\tyunlabh{\first{\vartyh}}}{\varexph})}{(\exphs{\first{\vartyh}}{\varvars})})}}}} \\
+\redsp \redcon{{\expfabsd{\varvars}{\expsh{\second{\varcsh}}{\expfapp{((\expfabss{\varvarh}{\vartyh}{\varexph})}{(\exphs{\first{\varcsh}}{\varvars})})}}}} \\
 
-% sh (Ax.t) (hs (Ax.t) v)
-
-\redrules
-{\expsh{(\tyfor{\tyvarh}{\vartyh})}{(\exptabs{\tyvarh}{\varexph})}}
-{\expsh{\tysubst{\vartyh}{\tylump}{\tyvarh}}{\expsubst{\varexph}{\tylump}{\tyvarh}}} \\
-
-% sh (Ax.t) (ms (Ax.t) v)
+% sh (Au.k) (\\u.e)
 
 \redrules
-{\expsh{(\tyfor{\tyvarh}{\vartyh})}{(\exphs{(\tyfor{\tyvarh}{\vartyh})}{\varvalus}})}
-{\varvalus}
+{\expsh{(\csfor{\first{\csvarh}}{\varcsh})}{(\exptabs{\second{\tyvarh}}{\varexph})}}
+{\expsh{\tysubst{\varcsh}{\cslump}{\first{\csvarh}}}{\expsubst{\varexph}{\tylump}{\second{\tyvarh}}}} \\
 
 \end{tabular}
 \caption{Scheme-Haskell operational semantics}

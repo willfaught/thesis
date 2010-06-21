@@ -7,75 +7,75 @@
 \]
 \bigskip
 \[
-% Function abstraction
+% \x.e
 \frac
 {\judes{\envexte{\varvars}{\tytst}}{\varexps}{\tytst}}
 {\judes{\env}{\expfabsd{\varvars}{\varexps}}{\tytst}}
 \quad
-% Number
+% n
 \frac
 {}
 {\judes{}{\expnum{n}}{\tytst}}
 \quad
-% Nil
+% nil
 \frac
 {}
 {\judes{}{\expnild}{\tytst}}
 \]
 \[
-% Cons
+% cons e e
 \frac
 {\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst}}
 {\judes{\env}{\expcons{\first{\varexps}}{\second{\varexps}}}{\tytst}}
 \quad
-% Variable
+% x
 \frac
 {}
 {\judes{\envexte{\varvars}{\tytst}}{\varvars}{\tytst}}
 \]
 \[
-% Function application
+% e e
 \frac
 {\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst}}
 {\env\symjudh\expfapp{\first{\varexps}}{\second{\varexps}}:\tytst}
 \quad
-% Field
+% f e
 \frac
 {\judes{\env}{\varexps}{\tytst}}
 {\judes{\env}{\expfield{\varexps}}{\tytst}}
 \]
 \[
-% Arithmetic
+% + e e
 \frac
 {\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst}}
 {\judes{\env}{\expop{\first{\varexps}}{\second{\varexps}}}{\tytst}}
 \quad
-% Predicate
+% p e
 \frac
 {\judes{\env}{\varexps}{\tytst}}
 {\judes{\env}{\exppred{\varexps}}{\tytst}}
 \]
 \[
-% If0
+% if0 e e e
 \frac
 {\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst} \quad \judes{\env}{\third{\varexps}}{\tytst}}
 {\judes{\env}{\expif{\first{\varexps}}{\second{\varexps}}{\third{\varexps}}}{\tytst}}
 \quad
-% Wrong
+% wrong string
 \frac
 {}
 {\judes{}{\expwrongd{\formvar{string}}}{\tytst}}
 \]
 \[
-% Haskell
+% sh k e
 \frac
-{\judth{\env}{\vartyh} \quad \judeh{\env}{\varexph}{\tyunlabh{\vartyh}}}
-{\judes{\env}{\expsh{\vartyh}{\varexph}}{\tytst}}
+{\judth{\env}{\tyunbrand{\varcsh}} \quad \judeh{\env}{\varexph}{\vartyh} \quad \tyunbrand{\varcsh} = \vartyh}
+{\judes{\env}{\expsh{\varcsh}{\varexph}}{\tytst}}
 \quad
-% ML
+% sm k e
 \frac
-{\judtm{\env}{\vartym} \quad \judem{\env}{\varexpm}{\tyunlabm{\vartym}}}
-{\judes{\env}{\expsm{\vartym}{\varexpm}}{\tytst}}
+{\judtm{\env}{\tyunbrand{\varcsm}} \quad \judem{\env}{\varexpm}{\vartym} \quad \tyunbrand{\varcsm} = \vartym}
+{\judes{\env}{\expsm{\varcsm}{\varexpm}}{\tytst}}
 \]
 \caption{Scheme typing rules}
 \label{str}
