@@ -35,7 +35,7 @@
 % sh (k->k) (\x:t.e)
 
 \redrule
-{\redcons{\expsh{(\tyfun{\first{\varcsh}}{\second{\varcsh}})}{(\expfabss{\varvarh}{\vartyh}{\varexph})}}}
+{\redcons{\expsh{(\csfun{\first{\varcsh}}{\second{\varcsh}})}{(\expfabss{\varvarh}{\vartyh}{\varexph})}}}
 {} \\
 
 \redsp \redcon{{\expfabsd{\varvars}{\expsh{\second{\varcsh}}{\expfapp{((\expfabss{\varvarh}{\vartyh}{\varexph})}{(\exphs{\first{\varcsh}}{\varvars})})}}}} \\
@@ -44,7 +44,7 @@
 
 \redrules
 {\expsh{(\csfor{\first{\csvarh}}{\varcsh})}{(\exptabs{\second{\tyvarh}}{\varexph})}}
-{\expsh{\tysubst{\varcsh}{\cslump}{\first{\csvarh}}}{\expsubst{\varexph}{\tylump}{\second{\tyvarh}}}} \\
+{\expsh{\cssubst{\varcsh}{\cslump}{\first{\csvarh}}}{\expsubst{\varexph}{\tylump}{\second{\tyvarh}}}} \\
 
 \end{tabular}
 \caption{Scheme-Haskell operational semantics}
