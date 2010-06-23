@@ -2,58 +2,53 @@
 \centering
 \begin{tabular}{l}
 
-% mh k L (hm L k e)
+% mh t L (hm L t e)
 
 \redrulem
-{\expmh{\varcsm}{\cslump}{(\exphm{\cslump}{\varcsm}{\varexpm})}}
-{\varexpm} \\
+{\expmh{\first{\vartym}}{\tylump}{(\exphm{\tylump}{\second{\vartym}}{\varexpm})}}
+{\varexpm}
+$(\first{\vartym} = \second{\vartym})$ \\
 
-% mh k L (hm L k' e)
-
-\redrulem
-{\expmh{\first{\varcsm}}{\cslump}{(\exphm{\cslump}{\second{\varcsm}}{\varexpm})}}
-{\expwrongs{\tyunbrand{\varcsm}}{\str{Bad \; conversion}}}
-$(\first{\varcsm} \neq \second{\varcsm})$ \\
-
-% mh L L (ms L v)
+% mh t L (hm L t e)
 
 \redrulem
-{\expmh{\cslump}{\cslump}{(\exphs{\cslump}{\varvalus})}}
-{\expms{\cslump}{\varvalus}} \\
+{\expmh{\first{\vartym}}{\tylump}{(\exphm{\tylump}{\second{\vartym}}{\varexpm})}}
+{\expwrongs{\vartym}{\str{Type \; mismatch}}}
+$(\first{\vartym} \neq \second{\vartym})$ \\
 
 % mh N N n
 
 \redrulem
-{\expmh{\csnum}{\csnum}{\expnum{\varnum}}}
+{\expmh{\tynum}{\tynum}{\expnum{\varnum}}}
 {\expnum{\varnum}} \\
 
-% mh {k} {k} (nil t)
+% mh {t} {t} (nil t)
 
 \redrulem
-{\expmh{\cslist{\varcsm}}{\cslist{\varcsh}}{(\expnils{\tyunbrand{\varcsh}})}}
-{\expnils{\tyunbrand{\varcsm}}} \\
+{\expmh{\tylist{\vartym}}{\tylist{\first{\vartyh}}}{(\expnils{\second{\vartyh}})}}
+{\expnils{\vartym}} \\
 
-% mh {k} {k} (cons v v)
+% mh {t} {t} (cons v v)
 
 \redrulem
-{\expmh{\cslist{\varcsm}}{\cslist{\varcsh}}{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
-{\expcons{(\expmh{\varcsm}{\varcsh}{\first{\varvalum}})}{(\expmh{\cslist{\varcsm}}{\cslist{\varcsh}}{\second{\varvalum}})}} \\
+{\expmh{\tylist{\vartym}}{\tylist{\vartyh}}{(\expcons{\first{\varexph}}{\second{\varexph}})}}
+{\expcons{(\expmh{\vartym}{\vartyh}{\first{\varexph}})}{(\expmh{\tylist{\vartym}}{\tylist{\vartyh}}{\second{\varexph}})}} \\
 
-% mh (k->k) (k->k) (\x:t.e)
+% mh (t->t) (t->t) (\x:t.e)
 
 \redrule
-{\redconm{\expmh{(\tyfun{\first{\varcsm}}{\second{\varcsm}})}{(\tyfun{\first{\varcsh}}{\second{\varcsh}})}{(\expfabss{\varvarh}{\tyunbrand{\first{\varcsh}}}{\varexph})}}}
+{\redconm{\expmh{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{(\expfabss{\varvarh}{\third{\vartyh}}{\varexph})}}}
 {} \\
 
-\redsp \redcon{\expfabss{\varvarm}{\tyunbrand{\first{\varcsm}}}{\expmh{\second{\varcsm}}{\second{\varcsh}}{\expfapp{((\expfabss{\varvarh}{\tyunbrand{\first{\varcsh}}}{\varexph})}{(\exphm{\first{\varcsh}}{\first{\varcsm}}{\varvarm})})}}} \\
+\redsp \redcon{\expfabss{\varvarm}{\first{\vartym}}{\expmh{\second{\vartym}}{\second{\vartyh}}{\expfapp{((\expfabss{\varvarh}{\third{\vartyh}}{\varexph})}{(\exphm{\first{\vartyh}}{\first{\vartym}}{\varvarm})})}}} \\
 
-% mh (Au.k) (Au.k) (\\x.e)
+% mh (Au.t) (Au.t) (\\x.e)
 
 \redrulem
-{\expmh{(\csfor{\csvarm}{\varcsm})}{(\csfor{\first{\csvarh}}{\varcsh})}{(\exptabs{\second{\tyvarh}}{\varexph})}}
-{\exptabs{\tyvarm}{\expmh{\varcsm}{\cssubst{\varcsh}{\cslump}{\csvarh}}{\expsubst{\varexph}{\cslump}{\second{\csvarh}}}}} \\
+{\expmh{(\tyfor{\tyvarm}{\vartym})}{(\tyfor{\first{\tyvarh}}{\vartyh})}{(\exptabs{\second{\tyvarh}}{\varexph})}}
+{\exptabs{\tyvarm}{\expmh{\vartym}{\tysubst{\vartyh}{\tylump}{\tyvarh}}{\expsubst{\varexph}{\tylump}{\second{\tyvarh}}}}} \\
 
 \end{tabular}
-\caption{ML-Haskell operational semantics}
+\caption{ML-Haskell operational semantity}
 \label{mhos}
 \end{figure}

@@ -1,139 +1,139 @@
 \begin{figure}[p]
 \[
-% Lump
+% L
 \frac
 {}
 {\judtm{}{\tylump}}
 \quad
-% Number
+% N
 \frac
 {}
 {\judtm{}{\tynum}}
 \quad
-% Variable
+% x
 \frac
 {}
 {\judtm{\envextt{\tyvarm}}{\tyvarm}}
 \]
 \[
-% List
+% {t}
 \frac
 {\judtm{\env}{\vartym}}
 {\judtm{\env}{\tylist{\vartym}}}
 \quad
-% Function
+% t->t
 \frac
 {\judtm{\env}{\first{\vartym}} \quad \judtm{\env}{\second{\vartym}}}
 {\judtm{\env}{\tyfun{\first{\vartym}}{\second{\vartym}}}}
 \quad
-% Forall
+% Ax.t
 \frac
 {\judtm{\env, \tyvarm}{\vartym}}
 {\judtm{\env}{\tyfor{\tyvarm}{\vartym}}}
 \]
 \bigskip
 \[
-% Function abstraction
+% \x:t.e
 \frac
 {\judtm{\env}{\first{\vartym}} \quad \judem{\envexte{\varvarm}{\first{\vartym}}}{\varexpm}{\second{\vartym}}}
 {\judem{\env}{(\expfabss{\varvarm}{\first{\vartym}}{\varexpm})}{\tyfun{\first{\vartym}}{\second{\vartym}}}}
 \quad
-% Type abstraction
+% \\x.e
 \frac
 {\judem{\envextt{\tyvarm}}{\varexpm}{\vartym}}
 {\judem{\env}{\exptabs{\tyvarm}{\varexpm}}{\tyfor{\tyvarm}{\vartym}}}
 \quad
-% Number
+% n
 \frac
 {}
 {\judem{}{\expnum{n}}{\tynum}}
 \]
 \[
-% Nil
+% nil t
 \frac
 {\judtm{\env}{\vartym}}
 {\judem{\env}{\expnils{\vartym}}{\tylist{\vartym}}}
 \quad
-% Cons
+% cons e e
 \frac
 {\judem{\env}{\first{\varexpm}}{\vartym} \quad \judem{\env}{\second{\varexpm}}{\tylist{\vartym}}}
 {\judem{\env}{\expcons{\first{\varexpm}}{\second{\varexpm}}}{\tylist{\vartym}}}
 \quad
-% Variable
+% x
 \frac
 {}
 {\judem{\envexte{\varvarm}{\vartym}}{\varvarm}{\vartym}}
 \]
 \[
-% Function application
+% e e
 \frac
 {\judem{\env}{\first{\varexpm}}{\tyfun{\first{\vartym}}{\second{\vartym}}} \quad \judem{\env}{\second{\varexpm}}{\first{\vartym}}}
 {\env\symjudh\expfapp{\first{\varexpm}}{\second{\varexpm}}:\second{\vartym}}
 \quad
-% Fix
+% fix e
 \frac
 {\judem{\env}{\varexpm}{\tyfun{\vartym}{\vartym}}}
 {\judem{\env}{\expfix{\varexpm}}{\vartym}}
 \]
 \[
-% Type application
+% e<t>
 \frac
 {\judtm{\env}{\first{\vartym}} \quad \judem{\env}{\varexpm}{\tyfor{\tyvarm}{\second{\vartym}}}}
 {\judem{\env}{\exptapp{\varexpm}{\first{\vartym}}}{\tysubst{\second{\vartym}}{\first{\vartym}}{\tyvarm}}}
 \quad
-% Head
+% hd e
 \frac
 {\judem{\env}{\varexpm}{\tylist{\vartym}}}
 {\judem{\env}{\exphd{\varexpm}}{\vartym}}
 \quad
-% Tail
+% tl e
 \frac
 {\judem{\env}{\varexpm}{\tylist{\vartym}}}
 {\judem{\env}{\exptl{\varexpm}}{\tylist{\vartym}}}
 \]
 \[
-% Arithmetic
+% + e e
 \frac
 {\judem{\env}{\first{\varexpm}}{\tynum} \quad \judem{\env}{\second{\varexpm}}{\tynum}}
 {\judem{\env}{\expop{\first{\varexpm}}{\second{\varexpm}}}{\tynum}}
 \quad
-% Null
+% null? e
 \frac
 {\judem{\env}{\varexpm}{\tylist{\vartym}}}
 {\judem{\env}{\exppnull{\varexpm}}{\tynum}}
 \quad
-% Scheme
+% ms t e
 \frac
-{\judtm{\env}{\vartym} \quad \judes{\env}{\varexps}{\tytst}}
-{\judem{\env}{\expms{\vartym}{\varexps}}{\tyunlabm{\vartym}}}
+{\judtm{\env}{\tyunbrand{\varcsm}} \quad \judes{\env}{\varexps}{\tytst}}
+{\judem{\env}{\expms{\varcsm}{\varexps}}{\tyunbrand{\varcsm}}}
 \]
 \[
-% If0
+% if0 e e e
 \frac
 {\judem{\env}{\first{\varexpm}}{\tynum} \quad \judem{\env}{\second{\varexpm}}{\vartym} \quad \judem{\env}{\third{\varexpm}}{\vartym}}
 {\judem{\env}{\expif{\first{\varexpm}}{\second{\varexpm}}{\third{\varexpm}}}{\vartym}}
 \quad
-% Wrong
+% wrong t string
 \frac
 {\judtm{\env}{\vartym}}
 {\judem{\env}{\expwrongs{\vartym}{\formvar{string}}}{\vartym}}
 \]
 \[
-% hm k k e
+% mh k k e
 \frac
-{\judtm{\env}{\varcsm} \quad \judth{\env}{\varcsh} \quad \judeh{\env}{\varexph}{\tyunbrand{\varcsh}} \quad \varcsm = \varcsh}
-{\judem{\env}{\expmh{\varcsm}{\varcsh}{\varexph}}{\tyunbrand{\varcsm}}}
+{\judtm{\env}{\vartym} \quad \judth{\env}{\first{\vartyh}} \quad \judeh{\env}{\varexph}{\second{\vartyh}} \quad \vartym = \vartyh \quad \first{\vartyh} = \second{\vartyh} \quad \vartym \neq \tylump}
+{\judem{\env}{\expmh{\vartym}{\vartyh}{\first{\varexph}}}{\vartym}}
 \]
 \[
-% hm L k e
+% mh L k e
 \frac
-{\judth{\env}{\tyunbrand{\varcsh}} \quad \judeh{\env}{\varexph}{\tyunbrand{\varcsh}} \quad \varcsh \neq \cslump}
-{\judem{\env}{\expmh{\cslump}{\varcsh}{\varexph}}{\tylump}}
+{\judth{\env}{\first{\vartyh}} \quad \judeh{\env}{\varexph}{\second{\vartyh}} \quad \first{\vartyh} = \second{\vartyh} \quad \vartyh \neq \tylump}
+{\judem{\env}{\expmh{\tylump}{\first{\vartyh}}{\varexph}}{\tylump}}
 \quad
-% hm k L e
+% mh k L e
 \frac
-{\judtm{\env}{\tyunbrand{\varcsm}} \quad \judeh{\env}{\varexph}{\tylump} \quad \varcsm \neq \cslump}
-{\judem{\env}{\expmh{\varcsm}{\cslump}{\varexph}}{\tyunbrand{\varcsm}}}
+{\judtm{\env}{\vartym} \quad \judeh{\env}{\varexph}{\tylump} \quad \vartym \neq \tylump}
+{\judem{\env}{\expmh{\vartym}{\tylump}{\varexph}}{\vartym}}
 \]
 \caption{ML typing rules}
 \label{mtr}

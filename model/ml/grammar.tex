@@ -6,19 +6,21 @@
 
 && \expcons{\varexpm}{\varexpm} $|$ \expfield{\varexpm} $|$ \exppnull{\varexpm} $|$ \expwrongs{\vartym}{\formvar{string}} $|$ \expms{\varcsm}{\varexps} \\
 
-\varvalum & $=$ & \varvalfm $|$ \expmh{\varcsm}{\varcsh}{\varexph} \\
+\varvalum & $=$ & \varvalfm $|$ \expmh{\vartym}{\vartyh}{\varexph} \\
 
-\varvalfm & $=$ & \expfabss{\varvarm}{\vartym}{\varexpm} $|$ \exptabs{\tyvarm}{\varexpm} $|$ \expnum{\varnum} $|$ \expnils{\vartym} $|$ \expcons{\varvalum}{\varvalum} $|$ \expmh{\cslump}{\varcsh}{\varexph} \\
+\varvalfm & $=$ & \expfabss{\varvarm}{\vartym}{\varexpm} $|$ \exptabs{\tyvarm}{\varexpm} $|$ \expnum{\varnum} $|$ \expnils{\vartym} $|$ \expcons{\varvalum}{\varvalum} $|$ \expmh{\tylump}{\vartyh}{\varexph} \\
 
 && \expms{\cslump}{\varvalfs} \\
 
-\vartym & $=$ & \tylump $|$ \tynum $|$ \tyvarm $|$ \tylist{\vartym} $|$ \tylabel{\vartym}{\tyvarm} $|$ \tyfun{\vartym}{\vartym} $|$ \tyfor{\tyvarm}{\vartym} \\
+\vartym & $=$ & \tylump $|$ \tynum $|$ \tyvarm $|$ \tylist{\vartym} $|$ \tyfun{\vartym}{\vartym} $|$ \tyfor{\tyvarm}{\vartym} \\
+
+\varcsm & $=$ & \cslump $|$ \csnum $|$ \csvarm $|$ \cslist{\varcsm} $|$ \csfun{\varcsm}{\varcsm} $|$ \csfor{\csvarm}{\varcsm} $|$ \csbrand{\varbrand}{\vartym} \\
 
 \formvar{\symop} & $=$ & \formsym{\symadd} $|$ \formsym{\symsub} \\
 
 \formvar{\symfield} & $=$ & \formsym{\symhd} $|$ \formsym{\symtl} \\
 
-\varconfm & $=$ & \varconum $|$ \expmh{\varcsm}{\varcsh}{\varconfh} \\
+\varconfm & $=$ & \varconum $|$ \expmh{\vartym}{\vartyh}{\varconfh} \\
 
 \varconum & $=$ & \symholem $|$ \expfapp{\varconfm}{\varexpm} $|$ \expfapp{\varvalfm}{\varconum} $|$ \exptapp{\varconfm}{\vartym} $|$ \expfix{\varconfm} $|$ \expop{\varconfm}{\varexpm} $|$ \expop{\varvalfm}{\varconfm} \\
 

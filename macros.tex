@@ -50,8 +50,8 @@
 \newcommand{\symtst}{TST}
 \newcommand{\symty}{t}
 \newcommand{\symtyvar}{u}
-\newcommand{\symvalf}{w}
-\newcommand{\symvalu}{v}
+\newcommand{\symvalf}{v}
+\newcommand{\symvalu}{w}
 \newcommand{\symvar}{x}
 \newcommand{\symwrong}{wrong}
 
@@ -79,9 +79,9 @@
 \newcommand{\varstr}{\ensuremath{\formvar{\symstr}}\xspace}
 \newcommand{\vartyh}{\ensuremath{\symty\langh}\xspace}
 \newcommand{\vartym}{\ensuremath{\symty\langm}\xspace}
-\newcommand{\varvaluh}{\ensuremath{\symvalu\langh}\xspace}
 \newcommand{\varvalum}{\ensuremath{\symvalu\langm}\xspace}
 \newcommand{\varvalus}{\ensuremath{\symvalu\langs}\xspace}
+\newcommand{\varvalfh}{\ensuremath{\symvalf\langh}\xspace}
 \newcommand{\varvalfm}{\ensuremath{\symvalf\langm}\xspace}
 \newcommand{\varvalfs}{\ensuremath{\symvalf\langs}\xspace}
 \newcommand{\varvarh}{\ensuremath{\symvar\langh}\xspace}
@@ -125,25 +125,14 @@
 
 % Types
 
-%
-\newcommand{\tyconv}[1]{\ensuremath{\lceil #1 \rceil}\xspace}
-%
 \newcommand{\tylump}{\ensuremath{\formsym{\symlump}}\xspace}
 \newcommand{\tynum}{\ensuremath{\formsym{\symnat}}\xspace}
 \newcommand{\tyvarh}{\ensuremath{\symtyvar\langh}\xspace}
 \newcommand{\tyvarm}{\ensuremath{\symtyvar\langm}\xspace}
 \newcommand{\tylist}[1]{\ensuremath{\synlist{#1}}\xspace}
-%
-\newcommand{\tylabel}[2]{\ensuremath{#1 . #2}\xspace}
-%
 \newcommand{\tyfun}[2]{\ensuremath{#1 \symfun #2}\xspace}
 \newcommand{\tyfor}[2]{\ensuremath{\symfor #1 . #2}\xspace}
 \newcommand{\tysubst}[3]{\ensuremath{\subst{#1}{#2}{#3}}}
-%
-\newcommand{\tyunlab}[3]{\ensuremath{\tysubst{#1}{\ith{#2}}{\tylabel{\ith{#2}}{\ith{#3}}}}\xspace}
-\newcommand{\tyunlabh}[1]{\ensuremath{\tyunlab{#1}{\vartyh}{\tyvarh}}\xspace}
-\newcommand{\tyunlabm}[1]{\ensuremath{\tyunlab{#1}{\vartym}{\tyvarm}}\xspace}
-%
 \newcommand{\tytst}{\ensuremath{\formsym{\symtst}}\xspace}
 \newcommand{\tyunbrand}[1]{\ensuremath{\lfloor #1 \rfloor}\xspace}
 
