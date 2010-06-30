@@ -1,6 +1,8 @@
 \chapter{Proof of Type Soundness}
 
-Proving the progress of expressions and the preservation of types proves the type soundness of the model of computation.  Progress ensures that a well-typed, closed expression is either an unforced value, reducible to another expression, or reducible to an error.  Preservation ensures that if a well-typed expression reduces to another expression, the other expression is well-typed and has the same type.  The proof extends the proof by Kinghorn \cite{kinghorn07}, which was based on proofs by Pierce \cite{pierce02} and Matthews and Findler \cite{matthews07}.
+% TODO: Well-typed terms are closed, no need to specify both.
+
+Proving the progress of expressions and the preservation of types proves the type soundness of the model of computation.  Progress ensures that a well-typed, closed expression is either an unforced value, reducible to another expression, or reducible to an error.  Preservation ensures that if a well-typed expression reduces to another expression, the other expression is well-typed and has the same type.  The proof extends the proof by Kinghorn \cite{kinghorn07}, which was based on proofs by Pierce \cite{pierce02} and Matthews and Findler \cite{matthews07}.  Cases common to two or more languages are elided for brevity.
 
 \section{Proof of Expression Progress}
 
@@ -8,19 +10,19 @@ Progress will be proven by structural induction on a well-typed, closed expressi
 
 \subsection{Inversion Lemma}
 
-Inverting the typing relations enables the syntactic forms of well-typed expressions to determine the types of their subexpressions:
+Inverting the typing rules enables the syntactic forms of well-typed expressions to determine the types of their subexpressions.
 
 \input{proof/lemmas/progress/inversion.tex}
 
 \subsection{Uniqueness of Types Lemma}
 
-Well-typed Haskell and ML expressions have unique types:
+Well-typed Haskell and ML expressions have unique types.
 
 \input{proof/lemmas/progress/uniqueness-of-types.tex}
 
 \subsection{Canonical Forms Lemma}
 
-The types of Haskell and ML values determine their syntactic forms:
+The types of Haskell and ML values determine their syntactic forms.
 
 \input{proof/lemmas/progress/canonical-forms.tex}
 
@@ -34,17 +36,17 @@ The types of Haskell and ML values determine their syntactic forms:
 
 \section{Proof of Type Preservation}
 
-Preservation will be proven by cases on the rewrite rules.  In each case, the right side will be proven to be well-typed and have the same type as the left side.  Inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) are used to determine the types of the left side and its subexpressions and the type of the right side.  Some rewrite rules use expression and type substitutions.
+Preservation will be proven by cases on the reduction rules.  In each case, the right side will be proven to be well-typed and have the same type as the left side.  Inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) are used to determine the types of the left side and its subexpressions and the type of the right side.  Some reduction rules use expression and type substitutions.
 
 \subsection{Expression Substitution Lemma}
 
-If $e_{A}^{1}$ is substituted for free occurrences of $x$ within $e_{A}^{2}$, $e_{A}^{1}$ and $x$ have the same type, and the result has the same type as $e_{A}^{2}$, where $A\in\lbrace H,M,S\rbrace$:
+If $e_{A}^{1}$ is substituted for free occurrences of $x$ within $e_{A}^{2}$, $e_{A}^{1}$ and $x$ have the same type, and the result has the same type as $e_{A}^{2}$, where $A\in\lbrace H,M,S\rbrace$.
 
 \input{proof/lemmas/preservation/expression-substitution.tex}
 
 \subsection{Type Substitution Lemma}
 
-If $T_{1}$ is substituted for free occurrences of $X$ within $e_{A}$ of type $T_{2}$, the type of the result is $T_{1}$ substituted for free occurrences of $X$ within $T_{2}$, where $A\in\lbrace H,M\rbrace$:
+If $T_{1}$ is substituted for free occurrences of $X$ within $e_{A}$ of type $T_{2}$, the type of the result is $T_{1}$ substituted for free occurrences of $X$ within $T_{2}$, where $A\in\lbrace H,M\rbrace$.
 
 \input{proof/lemmas/preservation/type-substitution.tex}
 

@@ -10,7 +10,7 @@
 \newcommand{\symenv}{\Gamma}
 \newcommand{\symexp}{e}
 \newcommand{\symext}{,}
-\newcommand{\symexpty}{:}
+\newcommand{\symhasty}{:}
 \newcommand{\symfield}{f}
 \newcommand{\symfix}{fix}
 \newcommand{\symfor}{\forall}
@@ -150,14 +150,15 @@
 
 % Typing rules
 
-\newcommand{\judeh}[3]{\ensuremath{#1 \symjudh #2 \symexpty #3}}
-\newcommand{\judem}[3]{\ensuremath{#1 \symjudm #2 \symexpty #3}}
-\newcommand{\judes}[3]{\ensuremath{#1 \symjuds #2 \symexpty #3}}
+\newcommand{\judpair}[2]{\ensuremath{#1 \symhasty #2}}
+\newcommand{\judeh}[3]{\ensuremath{#1 \symjudh \judpair{#2}{#3}}}
+\newcommand{\judem}[3]{\ensuremath{#1 \symjudm \judpair{#2}{#3}}}
+\newcommand{\judes}[3]{\ensuremath{#1 \symjuds \judpair{#2}{#3}}}
 \newcommand{\judth}[2]{\ensuremath{#1 \symjudh #2}}
 \newcommand{\judtm}[2]{\ensuremath{#1 \symjudm #2}}
 \newcommand{\judts}[2]{\ensuremath{#1 \symjuds #2}}
 \newcommand{\env}{\ensuremath{\symenv}}
-\newcommand{\envexte}[2]{\ensuremath{\symenv \symext #1 \symexpty #2}}
+\newcommand{\envexte}[2]{\ensuremath{\symenv \symext #1 \symhasty #2}}
 \newcommand{\envextt}[1]{\ensuremath{\symenv \symext #1}}
 
 % Reduction rules
