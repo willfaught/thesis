@@ -1,8 +1,15 @@
-\begin{lemma}
-\label{uot}
-%\onehalfspacing
-$e_{A}$ has at most one type $T$ for a given context $\Gamma$ where $A\in\lbrace H,M\rbrace$.
+Well-typed Haskell and ML expressions have unique types.
+
+\begin{lemma}{Uniqueness of Types}
+
+\label{lemuni}
+
+If \varexph, \varexpm, and \varexps are well-typed then they have only one type.
+
 \begin{proof}
-By structural induction on $e_{A}$ using inversion (Lemma \ref{i}).
+
+Straightforward structural induction on \varexph, \varexpm, and \varexps using the induction hypothesis and the \proinv.
+
 \end{proof}
+
 \end{lemma}

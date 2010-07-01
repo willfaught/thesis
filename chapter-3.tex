@@ -8,21 +8,9 @@ Proving the progress of expressions and the preservation of types proves the typ
 
 Progress will be proven by structural induction on a well-typed, closed expression of each syntactic form.  In each case, the expression will be proven to be either an unforced value, reducible to another expression, or reducible to an error.  The reduction of a subexpression is the reduction of its parent expression.  If a subexpression reduces to an error, its parent expression reduces to the error.  In some cases, the syntactic form of a subexpression must be determined to reduce its parent expression.  Determining the unique type of a subexpression determines its syntactic form.
 
-\subsection{Inversion Lemma}
-
-Inverting the typing rules enables the syntactic forms of well-typed expressions to determine the types of their subexpressions.
-
 \input{proof/lemmas/progress/inversion.tex}
 
-\subsection{Uniqueness of Types Lemma}
-
-Well-typed Haskell and ML expressions have unique types.
-
 \input{proof/lemmas/progress/uniqueness-of-types.tex}
-
-\subsection{Canonical Forms Lemma}
-
-The types of Haskell and ML values determine their syntactic forms.
 
 \input{proof/lemmas/progress/canonical-forms.tex}
 

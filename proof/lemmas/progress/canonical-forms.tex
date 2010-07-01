@@ -1,12 +1,16 @@
-\begin{lemma}
+The types of Haskell and ML values determine their syntactic forms.
 
-\label{cf}
+\begin{lemma}{Canonical Forms}
 
-The syntactic forms of unforced values of various types.
+\label{lemcan}
+
+The syntactic forms of \profvs of various types.
 
 \begin{enumerate}
 
 \item If $v_{A}:L$ then $v_{A}={^{L}A}S$ $v_{S}$ where $A\in\lbrace H,M\rbrace$.
+
+\item If \judeh{\env}{\varvalfh}{\tylump} then $\varvalfh \in \lbrace \exphm{\tylump}{\vartym}{\varvalfm}, \exphs{\cslump}{\varvalfs} \rbrace$.
 
 \item If $v_{A}:N$ then $v_{A}=\overline{n}$ where $A\in\lbrace H,M\rbrace$.
 
