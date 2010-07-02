@@ -1,7 +1,0 @@
-\begin{case}
-
-$e_{H}=\mathtt{null?}$ $e_{H}^{1}$
-
-$e_{H}^{1}$ is an unforced value or $e_{H}^{1}\rightarrow e_{H}^{2}$ or $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{H}^{1}$ is an unforced value then $e_{H}^{1}:[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{H}^{1}\in\lbrace\mathtt{nil}^{T},\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}\rbrace$ by canonical forms (Lemma \ref{cf}).  $\mathtt{null?}$ $\mathtt{nil}^{T}\rightarrow\overline{0}$.  $\mathtt{null?}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rightarrow\overline{1}$.  If $e_{H}^{1}\rightarrow e_{H}^{2}$ then $\mathtt{null?}$ $e_{H}^{1}\rightarrow\mathtt{null?}$ $e_{H}^{2}$.  If $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{null?}$ $e_{H}^{1}\rightarrow$ \emph{\textbf{Error}: string}.
-
-\end{case}
