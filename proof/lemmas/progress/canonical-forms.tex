@@ -4,23 +4,53 @@ The types of Haskell and ML values determine their syntactic forms.
 
 \label{lemcan}
 
-The syntactic forms of \profvs of various types.
+The syntactic forms of \profvs for each type.
 
 \begin{enumerate}
 
-\item If $v_{A}:L$ then $v_{A}={^{L}A}S$ $v_{S}$ where $A\in\lbrace H,M\rbrace$.
+% Haskell
+
+% L
 
 \item If \judeh{\env}{\varvalfh}{\tylump} then $\varvalfh \in \lbrace \exphm{\tylump}{\vartym}{\varvalfm}, \exphs{\cslump}{\varvalfs} \rbrace$.
 
-\item If $v_{A}:N$ then $v_{A}=\overline{n}$ where $A\in\lbrace H,M\rbrace$.
+% N
 
-\item If $v_{H}:[T]$ then $v_{H}\in\lbrace\mathtt{nil}^{T},\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}\rbrace$.
+\item If \judeh{\env}{\varvalfh}{\tynum} then $\varvalfh = \expnum{\symnum}$.
 
-\item If $v_{M}:[T]$ then $v_{M}\in\lbrace\mathtt{nil}^{T},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$.
+% {t}
 
-\item If $v_{A}:T_{1}\rightarrow T_{2}$ then $v_{A}=\lambda x:T_{1}.e_{A}$ where $A\in\lbrace H,M\rbrace$.
+\item If \judeh{\env}{\varvalfh}{\tylist{\vartyh}} then $\varvalfh \in \lbrace \expnils{\vartyh}, \expcons{\first{\varexph}}{\second{\varexph}} \rbrace$.
 
-\item If $v_{A}:\forall X.T$ then $v_{A}\in\lbrace\Lambda X.e_{A},{^{\forall X.T}A}S$ $v_{S}\rbrace$ where $A\in\lbrace H,M\rbrace$.
+% t->t
+
+\item If \judeh{\env}{\varvalfh}{\tyfun{\first{\vartyh}}{\second{\vartyh}}} then $\varvalfh = \expfabss{\varvarh}{\first{\vartyh}}{\varexph}$.
+
+% Au.t
+
+\item If \judeh{\env}{\varvalfh}{\tyfor{\tyvarh}{\vartyh}} then $\varvalfh = \exptabs{\tyvarh}{\varexph}$.
+
+% ML
+
+% L
+
+\item If \judem{\env}{\varvalfm}{\tylump} then $\varvalfm \in \lbrace \expmh{\tylump}{\vartym}{\varvalfm}, \expms{\cslump}{\varvalfs} \rbrace$.
+
+% N
+
+\item If \judem{\env}{\varvalfm}{\tynum} then $\varvalfm = \expnum{\symnum}$.
+
+% {t}
+
+\item If \judem{\env}{\varvalfm}{\tylist{\vartym}} then $\varvalfm \in \lbrace \expnils{\vartym}, \expcons{\first{\varvalum}}{\second{\varvalum}} \rbrace$.
+
+% t->t
+
+\item If \judem{\env}{\varvalfm}{\tyfun{\first{\vartym}}{\second{\vartym}}} then $\varvalfm = \expfabss{\varvarh}{\first{\vartym}}{\varexph}$.
+
+% Au.t
+
+\item If \judem{\env}{\varvalfm}{\tyfor{\tyvarm}{\vartym}} then $\varvalfm = \exptabs{\tyvarm}{\varexph}$.
 
 \end{enumerate}
 
