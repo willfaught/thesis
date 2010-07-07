@@ -12,12 +12,18 @@
 \newcommand{\psred}[2]{\redrule{#1}{#2}.}
 \newcommand{\psrednote}[3]{\redrule{#1}{#2} $(#3)$.}
 
-\newcommand{\psval}[3]{\judeh{}{#1}{#2} by lemmas \ref{leminv} and \ref{lemuni} and #3 by lemma \ref{lemcan}.}
-\newcommand{\psvaleq}[3]{\psval{#1}{#2}{#1 $=$ #3}}
-\newcommand{\psvalin}[3]{\psval{#1}{#2}{$#1 \in \lbrace #3 \rbrace$}}
+\newcommand{\psval}[2]{#1 by lemmas \ref{leminv} and \ref{lemuni} and #2 by lemma \ref{lemcan}.}
+\newcommand{\psvalh}[3]{\psval{\judeh{}{#1}{#2}}{#3}}
+\newcommand{\psvalm}[3]{\psval{\judem{}{#1}{#2}}{#3}}
+\newcommand{\psvaleqh}[3]{\psvalh{#1}{#2}{#1 $=$ #3}}
+\newcommand{\psvaleqm}[3]{\psvalm{#1}{#2}{#1 $=$ #3}}
+\newcommand{\psvalinh}[3]{\psvalh{#1}{#2}{$#1 \in \lbrace #3 \rbrace$}}
+\newcommand{\psvalinm}[3]{\psvalm{#1}{#2}{$#1 \in \lbrace #3 \rbrace$}}
 \newcommand{\psvalif}[2]{If #1 is a \profv then #2}
-\newcommand{\psvalifeq}[3]{\psvalif{#1}{\psvaleq{#1}{#2}{#3}}}
-\newcommand{\psvalifin}[3]{\psvalif{#1}{\psvalin{#1}{#2}{#3}}}
+\newcommand{\psvalifeqh}[3]{\psvalif{#1}{\psvaleqh{#1}{#2}{#3}}}
+\newcommand{\psvalifeqm}[3]{\psvalif{#1}{\psvaleqm{#1}{#2}{#3}}}
+\newcommand{\psvalifinh}[3]{\psvalif{#1}{\psvalinh{#1}{#2}{#3}}}
+\newcommand{\psvalifinm}[3]{\psvalif{#1}{\psvalinm{#1}{#2}{#3}}}
 
 \begin{theorem}{Haskell Progress}
 
@@ -101,7 +107,7 @@ Cannot occur because \varexph is closed.
 \pshypby
 {\first{\varexph}}
 {\third{\varexph}}
-\psvalifeq
+\psvalifeqh
 {\first{\varexph}}
 {\tyfun{\first{\vartyh}}{\second{\vartyh}}}
 {\x}
@@ -130,7 +136,7 @@ Cannot occur because \varexph is closed.
 \pshypby
 {\first{\varexph}}
 {\second{\varexph}}
-\psvalifeq
+\psvalifeqh
 {\first{\varexph}}
 {\tyfun{\vartyh}{\vartyh}}
 {\x}
@@ -158,7 +164,7 @@ Cannot occur because \varexph is closed.
 \pshypby
 {\first{\varexph}}
 {\second{\varexph}}
-\psvalifeq
+\psvalifeqh
 {\first{\varexph}}
 {\tyfor{\tyvarh}{\second{\vartyh}}}
 {\x}
@@ -187,7 +193,7 @@ Cannot occur because \varexph is closed.
 \pshypby
 {\first{\varexph}}
 {\second{\varexph}}
-\psvalifin
+\psvalifinh
 {\first{\varexph}}
 {\tylist{\vartyh}}
 {\x, \y}
@@ -225,7 +231,7 @@ Cannot occur because \varexph is closed.
 \pshypby
 {\first{\varexph}}
 {\third{\varexph}}
-\psvalifeq
+\psvalifeqh
 {\first{\varexph}}
 {\tynum}
 {\x}
@@ -240,7 +246,7 @@ Cannot occur because \varexph is closed.
 \pshypby
 {\second{\varexph}}
 {\third{\varexph}}
-\psvalifeq
+\psvalifeqh
 {\second{\varexph}}
 {\tynum}
 {\y}
@@ -274,7 +280,7 @@ Cannot occur because \varexph is closed.
 \pshypby
 {\first{\varexph}}
 {\second{\varexph}}
-\psvalifin
+\psvalifinh
 {\first{\varexph}}
 {\tylist{\vartyh}}
 {\x, \y}
@@ -305,7 +311,7 @@ Cannot occur because \varexph is closed.
 \pshypby
 {\first{\varexph}}
 {\fourth{\varexph}}
-\psvalifeq
+\psvalifeqh
 {\first{\varexph}}
 {\tynum}
 {\x}
@@ -362,45 +368,57 @@ Cannot occur because \varexph is closed.
 
 \begin{subcase}{\first{\vartyh} $\neq$ \tylump and \first{\vartym} $=$ \tylump}
 
-\psvalin
+\psvalinh
 {\first{\varexpm}}
 {\tylump}
-{\expmh{\tylump}{\second{\vartyh}}{\varexph}, \expms{\cslump}{\varexps}}
+{\expmh{\tylump}{\second{\vartyh}}{\varexph}, \expms{\cslump}{\varvalfs}}
 \psrednote
 {\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}}
 {\varexph}
 {\first{\vartyh} = \second{\vartyh}}
-
-
-\end{subcase}
-
-\begin{subcase}{\tynum}
-
-
-
-$T=N$
-
-$e_{M}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $^{N}HM$ $\overline{n}\rightarrow\overline{n}$.
+\psrednote
+{\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}}
+{\varexph}
+{\first{\vartyh} \neq \second{\vartyh}}
+\psred
+{\exphm{\first{\vartyh}}{\tylump}{(\expms{\cslump}{\varvalfs})}}
+{\expwrongs{\first{\vartyh}}{\errvalue}}
 
 \end{subcase}
 
-\begin{subcase}
+\begin{subcase}{\first{\vartyh} $=$ \tynum and \first{\vartym} $=$ \tynum}
 
-$T=[T_{1}]$
-
-$e_{M}^{1}\in\lbrace\mathtt{nil}^{T_{1}},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T_{1}]}M}H$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  $^{[T_{1}]}HM$ $\mathtt{nil}^{T}\rightarrow\mathtt{nil}^{T}$.  $^{[T_{1}]}HM$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(^{T_{1}}HM$ $v_{M}^{1})$ $(^{[T_{1}]}HM$ $v_{M}^{2})$.  $^{[T_{1}]}HM$ $(^{[T_{1}]}MH$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}$.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=T_{1}^{a}$
-
-Cannot occur because $T_{1}^{a}$ occurs only in $^{T_{1}^{a}}HS$ $e_{S}$.
+\psvaleqm
+{\first{\varexpm}}
+{\tynum}
+{\expnum{\varnum}}
+\psred
+{\exphm{\tynum}{\tynum}{\expnum{\varnum}}}
+{\expnum{\varnum}}
 
 \end{subcase}
 
-\begin{subcase}
+\begin{subcase}{\first{\vartyh} $=$ \tylist{\second{\vartyh}} and \first{\vartym} $=$ \tylist{\second\vartym}}
+
+\renewcommand{\x}{\expnils{\third{\vartym}}\xspace}
+\renewcommand{\y}{\expcons{\first{\varvalum}}{\second{\varvalum}}\xspace}
+
+\psvalinm
+{\first{\varexpm}}
+{\tylist{\third{\vartym}}}
+{\x, \y}
+\psred
+{\exphm{\tylist{\second{\vartyh}}}{\tylist{\second{\vartym}}}{(\x)}}
+{\expnils{\second{\vartyh}}}
+\psred
+{\exphm{\tylist{\second{\vartyh}}}{\tylist{\second{\vartym}}}{(\y)}}
+{\expcons{(\exphm{\second{\vartyh}}{\second{\vartym}}{\first{\varvalum}})}{(\exphm{\tylist{\second{\vartyh}}}{\tylist{\second{\vartym}}}{\second{\varvalum}})}}
+
+\end{subcase}
+
+\begin{subcase}{\first{\vartyh} $=$ \tyfun{\second{\vartyh}}{\third{\vartyh}} and \first{\vartym} $=$ \tyfun{\second{\vartym}}{\third{\vartym}}}
+
+%TODO:
 
 $T=T_{1}\rightarrow T_{2}$
 
