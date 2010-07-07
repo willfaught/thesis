@@ -1,16 +1,23 @@
-%\newcommand{\}{}
-\newcommand{\pshyp}[2]{#1 is a \profv or #1 \red #2 or #1 \red \emph{\experr{\varstr}}\xspace}
-\newcommand{\pshypref}[2]{\pshyp{#1}{#2} by the induction hypothesis.\xspace}
-\newcommand{\psval}[3]{If #1 is a \profv then \judeh{}{#1}{#2} by lemmas \ref{leminv} and \ref{lemuni} and #1 $=$ #3 by lemma \ref{lemcan}.\xspace}
-\newcommand{\psvalset}[3]{If #1 is a \profv then \judeh{}{#1}{#2} by lemmas \ref{leminv} and \ref{lemuni} and $#1 \in \lbrace #3 \rbrace$ by lemma \ref{lemcan}.\xspace}
-\newcommand{\psvalcase}[3]{\judeh{}{#1}{#2} by lemmas \ref{leminv} and \ref{lemuni} and #1 $=$ #3 by lemma \ref{lemcan}.\xspace}
-\newcommand{\pssub}[4]{If #1 \red #2 then #3 \red #4.\xspace}
-\newcommand{\pssubif}[5]{If #1 \red #2 and #3 is a \profv then #4 \red #5.\xspace}
-\newcommand{\psred}[2]{\redrule{#1}{#2}.\xspace}
-\newcommand{\psrednote}[3]{\redrule{#1}{#2} $(#3)$.\xspace}
-\newcommand{\pserr}[2]{If #1 \red \emph{\experr{\varstr}} then #2 \red \emph{\experr{\varstr}}.\xspace}
-\newcommand{\pserrif}[3]{If #1 \red \emph{\experr{\varstr}} and #2 is a \profv then #3 \red \emph{\experr{\varstr}}.\xspace}
-\newcommand{\pscases}[4]{If #1 is a \profv then #2 and #3 determine the reduction of #4.\xspace}
+\newcommand{\pscases}[4]{If #1 is a \profv then #2 and #3 determine the reduction of #4.}
+
+\newcommand{\pserr}[2]{If #1 \red \emph{\experr{\varstr}} then #2 \red \emph{\experr{\varstr}}.}
+\newcommand{\pserrand}[3]{If #1 \red \emph{\experr{\varstr}} and #2 is a \profv then #3 \red \emph{\experr{\varstr}}.}
+
+\newcommand{\pshyp}[2]{#1 is a \profv or #1 \red #2 or #1 \red \emph{\experr{\varstr}}}
+\newcommand{\pshypby}[2]{\pshyp{#1}{#2} by the induction hypothesis.}
+
+\newcommand{\pssub}[4]{If #1 \red #2 then #3 \red #4.}
+\newcommand{\pssuband}[5]{If #1 \red #2 and #3 is a \profv then #4 \red #5.}
+
+\newcommand{\psred}[2]{\redrule{#1}{#2}.}
+\newcommand{\psrednote}[3]{\redrule{#1}{#2} $(#3)$.}
+
+\newcommand{\psval}[3]{\judeh{}{#1}{#2} by lemmas \ref{leminv} and \ref{lemuni} and #3 by lemma \ref{lemcan}.}
+\newcommand{\psvaleq}[3]{\psval{#1}{#2}{#1 $=$ #3}}
+\newcommand{\psvalin}[3]{\psval{#1}{#2}{$#1 \in \lbrace #3 \rbrace$}}
+\newcommand{\psvalif}[2]{If #1 is a \profv then #2}
+\newcommand{\psvalifeq}[3]{\psvalif{#1}{\psvaleq{#1}{#2}{#3}}}
+\newcommand{\psvalifin}[3]{\psvalif{#1}{\psvalin{#1}{#2}{#3}}}
 
 \begin{theorem}{Haskell Progress}
 
@@ -91,10 +98,10 @@ Cannot occur because \varexph is closed.
 
 \begin{case}{\psfapp}
 
-\pshypref
+\pshypby
 {\first{\varexph}}
 {\third{\varexph}}
-\psval
+\psvalifeq
 {\first{\varexph}}
 {\tyfun{\first{\vartyh}}{\second{\vartyh}}}
 {\x}
@@ -120,10 +127,10 @@ Cannot occur because \varexph is closed.
 
 \begin{case}{\psfix}
 
-\pshypref
+\pshypby
 {\first{\varexph}}
 {\second{\varexph}}
-\psval
+\psvalifeq
 {\first{\varexph}}
 {\tyfun{\vartyh}{\vartyh}}
 {\x}
@@ -148,10 +155,10 @@ Cannot occur because \varexph is closed.
 
 \begin{case}{\pstapp}
 
-\pshypref
+\pshypby
 {\first{\varexph}}
 {\second{\varexph}}
-\psval
+\psvalifeq
 {\first{\varexph}}
 {\tyfor{\tyvarh}{\second{\vartyh}}}
 {\x}
@@ -173,14 +180,14 @@ Cannot occur because \varexph is closed.
 
 \newcommand{\psfield}{\expfield{\first{\varexph}}\xspace}
 \renewcommand{\x}{\expnils{\vartyh}\xspace}
-\renewcommand{\y}{\expcons{\second{\varexph}}{\third{\varexph}}}
+\renewcommand{\y}{\expcons{\second{\varexph}}{\third{\varexph}}\xspace}
 
 \begin{case}{\psfield}
 
-\pshypref
+\pshypby
 {\first{\varexph}}
 {\second{\varexph}}
-\psvalset
+\psvalifin
 {\first{\varexph}}
 {\tylist{\vartyh}}
 {\x, \y}
@@ -215,10 +222,10 @@ Cannot occur because \varexph is closed.
 
 \begin{case}{\psop}
 
-\pshypref
+\pshypby
 {\first{\varexph}}
 {\third{\varexph}}
-\psval
+\psvalifeq
 {\first{\varexph}}
 {\tynum}
 {\x}
@@ -230,20 +237,20 @@ Cannot occur because \varexph is closed.
 \pserr
 {\first{\varexph}}
 {\psop}
-\pshypref
+\pshypby
 {\second{\varexph}}
 {\third{\varexph}}
-\psval
+\psvalifeq
 {\second{\varexph}}
 {\tynum}
 {\y}
-\pssubif
+\pssuband
 {\second{\varexph}}
 {\third{\varexph}}
 {\first{\varexph}}
 {\psop}
 {\expop{\first{\varexph}}{\third{\varexph}}}
-\pserrif
+\pserrand
 {\second{\varexph}}
 {\first{\varexph}}
 {\psop}
@@ -264,10 +271,10 @@ Cannot occur because \varexph is closed.
 
 \begin{case}{\pspnull}
 
-\pshypref
+\pshypby
 {\first{\varexph}}
 {\second{\varexph}}
-\psvalset
+\psvalifin
 {\first{\varexph}}
 {\tylist{\vartyh}}
 {\x, \y}
@@ -295,10 +302,10 @@ Cannot occur because \varexph is closed.
 
 \begin{case}{\psif}
 
-\pshypref
+\pshypby
 {\first{\varexph}}
 {\fourth{\varexph}}
-\psval
+\psvalifeq
 {\first{\varexph}}
 {\tynum}
 {\x}
@@ -338,7 +345,7 @@ Cannot occur because \varexph is closed.
 
 \begin{case}{\pshm}
 
-\pshypref
+\pshypby
 {\first{\varexpm}}
 {\second{\varexpm}}
 \pscases
@@ -355,14 +362,15 @@ Cannot occur because \varexph is closed.
 
 \begin{subcase}{\first{\vartyh} $\neq$ \tylump and \first{\vartym} $=$ \tylump}
 
-\psvalset
+\psvalin
 {\first{\varexpm}}
 {\tylump}
 {\expmh{\tylump}{\second{\vartyh}}{\varexph}, \expms{\cslump}{\varexps}}
+\psrednote
+{\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}}
+{\varexph}
+{\first{\vartyh} = \second{\vartyh}}
 
-
-\first{\varexpm} = \expmh{\tylump}{\second{\vartyh}}{\varexph}
-hm t t (ms k v) is a forced value
 
 \end{subcase}
 
