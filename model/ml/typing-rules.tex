@@ -26,7 +26,7 @@
 {\judtm{\env}{\first{\vartym}} \quad \judtm{\env}{\second{\vartym}}}
 {\judtm{\env}{\tyfun{\first{\vartym}}{\second{\vartym}}}}
 \quad
-% Ax.t
+% Au.t
 \frac
 {\judtm{\env, \tyvarm}{\vartym}}
 {\judtm{\env}{\tyfor{\tyvarm}{\vartym}}}
@@ -38,7 +38,7 @@
 {\judtm{\env}{\first{\vartym}} \quad \judem{\envexte{\varvarm}{\first{\vartym}}}{\varexpm}{\second{\vartym}}}
 {\judem{\env}{(\expfabss{\varvarm}{\first{\vartym}}{\varexpm})}{\tyfun{\first{\vartym}}{\second{\vartym}}}}
 \quad
-% \\x.e
+% \\u.e
 \frac
 {\judem{\envextt{\tyvarm}}{\varexpm}{\vartym}}
 {\judem{\env}{\exptabs{\tyvarm}{\varexpm}}{\tyfor{\tyvarm}{\vartym}}}
@@ -92,7 +92,7 @@
 {\judem{\env}{\exptl{\varexpm}}{\tylist{\vartym}}}
 \]
 \[
-% + e e
+% o e e
 \frac
 {\judem{\env}{\first{\varexpm}}{\tynum} \quad \judem{\env}{\second{\varexpm}}{\tynum}}
 {\judem{\env}{\expop{\first{\varexpm}}{\second{\varexpm}}}{\tynum}}
@@ -121,19 +121,8 @@
 \[
 % mh k k e
 \frac
-{\judtm{\env}{\vartym} \quad \judth{\env}{\first{\vartyh}} \quad \judeh{\env}{\varexph}{\second{\vartyh}} \quad \vartym = \vartyh \quad \first{\vartyh} = \second{\vartyh} \quad \vartym \neq \tylump}
+{\judtm{\env}{\vartym} \quad \judth{\env}{\first{\vartyh}} \quad \judeh{\env}{\varexph}{\second{\vartyh}} \quad \vartym \eq \vartyh \quad \first{\vartyh} = \second{\vartyh}}
 {\judem{\env}{\expmh{\vartym}{\vartyh}{\first{\varexph}}}{\vartym}}
-\]
-\[
-% mh L k e
-\frac
-{\judth{\env}{\first{\vartyh}} \quad \judeh{\env}{\varexph}{\second{\vartyh}} \quad \first{\vartyh} = \second{\vartyh} \quad \vartyh \neq \tylump}
-{\judem{\env}{\expmh{\tylump}{\first{\vartyh}}{\varexph}}{\tylump}}
-\quad
-% mh k L e
-\frac
-{\judtm{\env}{\vartym} \quad \judeh{\env}{\varexph}{\tylump} \quad \vartym \neq \tylump}
-{\judem{\env}{\expmh{\vartym}{\tylump}{\varexph}}{\vartym}}
 \]
 \caption{ML typing rules}
 \label{mtr}
