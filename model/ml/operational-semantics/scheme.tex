@@ -12,7 +12,7 @@
 
 \redrulem
 {\expms{\csnum}{\varvalfs}}
-{\expwrongs{\tynum}{\str{Not \; a \; number}}}
+{\expwrongs{\tynum}{\errnum}}
 $(\varvalfs \neq \expnum{\varnum})$ \\
 
 % ms {k} nil
@@ -31,7 +31,7 @@ $(\varvalfs \neq \expnum{\varnum})$ \\
 
 \redrulem
 {\expms{\cslist{\varcsm}}{\varvalfs}}
-{\expwrongs{\tyunbrand{\cslist{\varcsm}}}{\str{Not \; a \; list}}} \\
+{\expwrongs{\tyunbrand{\cslist{\varcsm}}}{\errlist}} \\
 
 \redsp $(\varvalfs \neq \expnild$ and $\varvalfs \neq \expcons{\first{\varvalus}}{\second{\varvalus}})$ \\
 
@@ -45,7 +45,7 @@ $(\varvalfs \neq \expnum{\varnum})$ \\
 
 \redrulem
 {\expms{(\csbrand{\varbrand}{\vartym})}{\varvalfs}}
-{\expwrongs{\tyunbrand{\csbrand{\varbrand}{\vartym}}}{\str{Brand \; mismatch}}} \\
+{\expwrongs{\tyunbrand{\csbrand{\varbrand}{\vartym}}}{\errbrand}} \\
 
 \redsp $(\varvalfs \neq \expsm{(\csbrand{\varbrand}{\vartym})}{\varexpm})$ \\
 
@@ -61,7 +61,7 @@ $(\varvalfs \neq \expnum{\varnum})$ \\
 
 \redrulem
 {\expms{(\tyfun{\first{\varcsm}}{\second{\varcsm}})}{\varvalfs}}
-{\expwrongs{\tyunbrand{\tyfun{\first{\varcsm}}{\second{\varcsm}}}}{\str{Not \; a \; function}}} \\
+{\expwrongs{\tyunbrand{\tyfun{\first{\varcsm}}{\second{\varcsm}}}}{\errfun}} \\
 
 \redsp $(\varvalfs \neq \expfabsd{\varvars}{\varexps})$ \\
 

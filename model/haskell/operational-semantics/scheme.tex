@@ -12,7 +12,7 @@
 
 \redruleh
 {\exphs{\csnum}{\varvalfs}}
-{\expwrongs{\tynum}{\str{Not \; a \; number}}}
+{\expwrongs{\tynum}{\errnum}}
 $(\varvalfs \neq \expnum{\varnum})$ \\
 
 % hs {k} nil
@@ -31,7 +31,7 @@ $(\varvalfs \neq \expnum{\varnum})$ \\
 
 \redruleh
 {\exphs{\cslist{\varcsh}}{\varvalfs}}
-{\expwrongs{\tyunbrand{\cslist{\varcsh}}}{\str{Not \; a \; list}}} \\
+{\expwrongs{\tyunbrand{\cslist{\varcsh}}}{\errlist}} \\
 
 \redsp $(\varvalfs \neq \expnild$ and $\varvalfs \neq \expcons{\first{\varvalus}}{\second{\varvalus}})$ \\
 
@@ -45,7 +45,7 @@ $(\varvalfs \neq \expnum{\varnum})$ \\
 
 \redruleh
 {\exphs{(\csbrand{\varbrand}{\vartyh})}{\varvalfs}}
-{\expwrongs{\vartyh}{\str{Brand \; mismatch}}}
+{\expwrongs{\vartyh}{\errbrand}}
 $(\varvalfs \neq \expsh{(\csbrand{\varbrand}{\vartyh})}{\varexph})$ \\
 
 % hs (k->k) (\x.e)
@@ -58,7 +58,7 @@ $(\varvalfs \neq \expsh{(\csbrand{\varbrand}{\vartyh})}{\varexph})$ \\
 
 \redruleh
 {\exphs{(\csfun{\first{\varcsh}}{\second{\varcsh}})}{\varvalfs}}
-{\expwrongs{\tyunbrand{\csfun{\first{\varcsh}}{\second{\varcsh}}}}{\str{Not \; a \; function}}} \\
+{\expwrongs{\tyunbrand{\csfun{\first{\varcsh}}{\second{\varcsh}}}}{\errfun}} \\
 
 \redsp $(\varvalfs \neq \expfabsd{\varvars}{\varexps})$ \\
 
