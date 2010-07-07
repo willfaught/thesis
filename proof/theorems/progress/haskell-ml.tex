@@ -3,12 +3,14 @@
 \newcommand{\pshypref}[2]{\pshyp{#1}{#2} by the induction hypothesis.\xspace}
 \newcommand{\psval}[3]{If #1 is a \profv then \judeh{}{#1}{#2} by lemmas \ref{leminv} and \ref{lemuni} and #1 $=$ #3 by lemma \ref{lemcan}.\xspace}
 \newcommand{\psvalset}[3]{If #1 is a \profv then \judeh{}{#1}{#2} by lemmas \ref{leminv} and \ref{lemuni} and $#1 \in \lbrace #3 \rbrace$ by lemma \ref{lemcan}.\xspace}
+\newcommand{\psvalcase}[3]{\judeh{}{#1}{#2} by lemmas \ref{leminv} and \ref{lemuni} and #1 $=$ #3 by lemma \ref{lemcan}.\xspace}
 \newcommand{\pssub}[4]{If #1 \red #2 then #3 \red #4.\xspace}
 \newcommand{\pssubif}[5]{If #1 \red #2 and #3 is a \profv then #4 \red #5.\xspace}
 \newcommand{\psred}[2]{\redrule{#1}{#2}.\xspace}
 \newcommand{\psrednote}[3]{\redrule{#1}{#2} $(#3)$.\xspace}
 \newcommand{\pserr}[2]{If #1 \red \emph{\experr{\varstr}} then #2 \red \emph{\experr{\varstr}}.\xspace}
 \newcommand{\pserrif}[3]{If #1 \red \emph{\experr{\varstr}} and #2 is a \profv then #3 \red \emph{\experr{\varstr}}.\xspace}
+\newcommand{\pscases}[4]{If #1 is a \profv then #2 and #3 determine the reduction of #4.\xspace}
 
 \begin{theorem}{Haskell Progress}
 
@@ -332,21 +334,35 @@ Cannot occur because \varexph is closed.
 
 % hm t t e
 
-\begin{case}
+\newcommand{\pshm}{\exphm{\first{\vartyh}}{\first{\vartym}}{\first{\varexpm}}}
 
-$e_{H}={^{T}H}M$ $e_{M}^{1}$
+\begin{case}{\pshm}
 
-$e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $^{T}HM$ $e_{M}^{1}\rightarrow{^{T}H}M$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $^{T}HM$ $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{M}^{1}$ is an unforced value then $T$ determines the reduction of $^{T}HM$ $e_{M}^{1}$:
+\pshypref
+{\first{\varexpm}}
+{\second{\varexpm}}
+\pscases
+{\first{\varexpm}}
+{\first{\vartyh}}
+{\first{\vartym}}
+{\pshm}
 
-\begin{subcase}
+\begin{subcase}{\first{\vartyh} $=$ \tylump}
 
-$T=L$
-
-$e_{M}^{1}={^{L}M}S$ $v_{S}$ by canonical forms (Lemma \ref{cf}).  $^{L}HM$ $(^{L}MS$ $v_{S})\rightarrow{^{L}H}S$ $v_{S}$.
+\exphm{\tylump}{\first{\vartym}}{\first{\varexpm}} is a \profv.
 
 \end{subcase}
 
-\begin{subcase}
+\begin{subcase}{\first{\vartym} $=$ \tylump}
+
+\first{\varexpm} = \expmh{\tylump}{\second{\vartyh}}{\varexph}
+hm t t (ms k v) is a forced value
+
+\end{subcase}
+
+\begin{subcase}{\tynum}
+
+
 
 $T=N$
 
@@ -385,6 +401,15 @@ $T=\forall X.T_{1}$
 $e_{M}^{1}\in\lbrace\Lambda X.e_{M}^{3},{^{\forall X.T_{1}}M}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  $^{\forall X.T_{1}}HM$ $(\Lambda X.e_{M}^{3})\rightarrow\Lambda X.(^{T_{1}}HM$ $e_{M}^{3})$.  $^{\forall X.T_{1}}HM$ $(^{\forall X.T_{1}}MS$ $v_{S})\rightarrow{^{\forall X.T_{1}}H}S$ $v_{S}$.
 
 \end{subcase}
+
+\pssub
+{\first{\varexpm}}
+{\second{\varexpm}}
+{\pshm}
+{\exphm{\first{\vartyh}}{\first{\vartym}}{\second{\varexpm}}}
+\pserr
+{\first{\varexpm}}
+{\pshm}
 
 \end{case}
 
