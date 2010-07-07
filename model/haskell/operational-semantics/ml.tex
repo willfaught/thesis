@@ -13,8 +13,15 @@ $(\first{\vartyh} = \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$ \\
 
 \redruleh
 {\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}}
-{\expwrongs{\vartyh}{\str{Type \; mismatch}}}
+{\expwrongs{\vartyh}{\errtype}}
 $(\first{\vartyh} \neq \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$ \\
+
+% hm t L (ms L v)
+
+\redruleh
+{\exphm{\vartyh}{\tylump}{(\expms{\cslump}{\varvalfs})}}
+{\expwrongs{\vartyh}{\errvalue}}
+$(\vartyh \neq \tylump)$ \\
 
 % hm N N n
 
