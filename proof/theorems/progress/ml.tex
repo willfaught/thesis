@@ -1,74 +1,95 @@
 \begin{theorem}{ML Progress}
 
-\label{thmmps}
+\label{thmpsm}
 
 If \judem{}{\varexpm}{\vartym} then \pshyp{\first{\varexpm}}{\second{\varexpm}}.
 
 \begin{proof}
 
-By structural induction on \varexpm.
+By structural induction on \varexpm.  Cases similar to Haskell cases are omitted.
 
-% ML
+% cons w w
 
-% cons v v
+\newcommand{\psconswm}{\expcons{\first{\varvalum}}{\second{\varvalum}}\xspace}
 
-\newcommand{\psconsm}{\expcons{\first{\varvalum}}{\second{\varvalum}}\xspace}
+\begin{case}{\psconswm}
 
-\begin{case}
-
-\psconsm
-
-\psconsm is a \profv.
+\psconswm is a \profv.
 
 \end{case}
 
-% ML e e
+% e e
 
-\begin{case}
+\newcommand{\psfappm}{\expfapp{\first{\varexpm}}{\second{\varexpm}}}
+\renewcommand{\x}{\expfabss{\varvarm}{\first{\vartym}}{\third{\varexpm}}}
 
-$e_{M}=e_{M}^{1}$ $e_{M}^{2}$
+\begin{case}{\psfappm}
 
-$e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{3}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{1}$ is an unforced value then $e_{M}^{1}:T_{1}\rightarrow T_{2}$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{M}^{1}=\lambda x:T_{1}.e_{M}^{4}$ by canonical forms (Lemma \ref{cf}).  If $e_{M}^{1}\rightarrow e_{M}^{3}$ then $e_{M}^{1}$ $e_{M}^{2}\rightarrow e_{M}^{3}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $e_{M}^{1}$ $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{M}^{2}$ is an unforced value or $e_{M}^{2}\rightarrow e_{M}^{5}$ or $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{2}\rightarrow e_{M}^{5}$ and $e_{M}^{1}$ is an unforced value then $e_{M}^{1}$ $e_{M}^{2}\rightarrow e_{M}^{1}$ $e_{M}^{5}$.  If $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string} and $e_{M}^{1}$ is an unforced value then $e_{M}^{1}$ $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{M}^{1}$ is an unforced value and $e_{M}^{2}$ is an unforced value then $(\lambda x:T_{1}.e_{M}^{4})$ $e_{M}^{2}\rightarrow e_{M}^{4}[e_{M}^{2}/x]$.
+\pshypby
+{\first{\varexpm}}
+{\third{\varexpm}}
+\psvalifeqm
+{\first{\varexpm}}
+{\tyfun{\first{\vartym}}{\second{\vartym}}}
+{\x}
+\pssub
+{\first{\varexpm}}
+{\third{\varexpm}}
+{\psfappm}
+{\expfapp{\third{\varexpm}}{\second{\varexpm}}}
+\pserr
+{\first{\varexpm}}
+{\psfappm}
+\pshypby
+{\second{\varexpm}}
+{\third{\varexpm}}
+\pssuband
+{\second{\varexpm}}
+{\third{\varexpm}}
+{\first{\varexpm}}
+{\psfappm}
+{\expfapp{\first{\varexpm}}{\third{\varexpm}}}
+\pserrand
+{\second{\varexpm}}
+{\first{\varexpm}}
+{\psfappm}
+\psred
+{\expfapp{(\x)}{\second{\varexpm}}}
+{\expsubst{\third{\varexpm}}{\second{\varexpm}}{\varvarm}}
 
 \end{case}
 
-% ML cons e e
+% cons e e
 
-\begin{case}
+\newcommand{\psconsem}{\expcons{\first{\varexpm}}{\second{\varexpm}}\xspace}
 
-$e_{M}=\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}$
+\begin{case}{\psconsem}
 
-$e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{3}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{1}\rightarrow e_{M}^{3}$ then $\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}\rightarrow\mathtt{cons}$ $e_{M}^{3}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{M}^{2}$ is an unforced value or $e_{M}^{2}\rightarrow e_{M}^{4}$ or $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{2}\rightarrow e_{M}^{4}$ and $e_{M}^{1}$ is an unforced value then $\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}\rightarrow\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{4}$.  If $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string} and $e_{M}^{1}$ is an unforced value then $\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{M}^{1}$ and $e_{M}^{2}$ are unforced values then $\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}$ is an unforced value.
-
-\end{case}
-
-% ML f e
-
-\begin{case}
-
-$e_{M}=f$ $e_{M}^{1}$
-
-$e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{1}$ is an unforced value then $e_{M}^{1}:[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{M}^{1}\in\lbrace\mathtt{nil}^{T},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  $\mathtt{hd}$ $\mathtt{nil}^{T}\rightarrow\mathtt{wrong}^{T}$ \emph{``Empty list"}.  $\mathtt{tl}$ $\mathtt{nil}^{T}\rightarrow\mathtt{wrong}^{[T]}$ \emph{``Empty list"}.  $\mathtt{hd}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow v_{M}^{1}$.  $\mathtt{tl}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow v_{M}^{2}$.  $\mathtt{hd}$ $({^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{T}M}H^{T}$ $e_{H}^{1}$.  $\mathtt{tl}$ $({^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{[T]}M}H^{[T]}$ $e_{H}^{2}$.  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $f$ $e_{M}^{1}\rightarrow f$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $f$ $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string}.
-
-\end{case}
-
-% ML null? e
-
-\begin{case}
-
-$e_{M}=\mathtt{null?}$ $e_{M}^{1}$
-
-$e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{1}$ is an unforced value then $e_{M}^{1}:[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{M}^{1}\in\lbrace\mathtt{nil}^{T},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  $\mathtt{null?}$ $\mathtt{nil}^{T}\rightarrow\overline{0}$.  If $e_{M}^{1}\in\lbrace\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ then $\mathtt{null?}$ $e_{M}^{1}\rightarrow\overline{1}$.  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $\mathtt{null?}$ $e_{M}^{1}\rightarrow\mathtt{null?}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{null?}$ $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string}.
-
-\end{case}
-
-% mh t t e
-
-\begin{case}
-
-$e_{M}={^{T}M}H$ $e_{H}$
-
-$^{T}MH$ $e_{H}$ is an unforced value.
+\pshypby
+{\first{\varexpm}}
+{\third{\varexpm}}
+\pssub
+{\first{\varexpm}}
+{\third{\varexpm}}
+{\psconsem}
+{\expcons{\third{\varexpm}}{\second{\varexpm}}}
+\pserr
+{\first{\varexpm}}
+{\psconsem}
+\pssuband
+{\second{\varexpm}}
+{\third{\varexpm}}
+{\first{\varexpm}}
+{\psconsem}
+{\expcons{\third{\varexpm}}{\second{\varexpm}}}
+\pserrand
+{\second{\varexpm}}
+{\first{\varexpm}}
+{\psconsem}
+\psvaliftwo
+{\first{\varexpm}}
+{\second{\varexpm}}
+{\psconsem is a \profv.}
 
 \end{case}
 

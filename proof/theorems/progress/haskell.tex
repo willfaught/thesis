@@ -1,6 +1,6 @@
 \begin{theorem}{Haskell Progress}
 
-\label{thmhps}
+\label{thmpsh}
 
 If \judeh{}{\varexph}{\vartyh} then \pshyp{\first{\varexph}}{\second{\varexph}}.
 
@@ -70,10 +70,10 @@ Cannot occur because \varexph is closed.
 
 % e e
 
-\newcommand{\psfapp}{\expfapp{\first{\varexph}}{\second{\varexph}}\xspace}
+\newcommand{\psfapph}{\expfapp{\first{\varexph}}{\second{\varexph}}\xspace}
 \renewcommand{\x}{\expfabss{\varvarh}{\first{\vartyh}}{\third{\varexph}}\xspace}
 
-\begin{case}{\psfapp}
+\begin{case}{\psfapph}
 
 \pshypby
 {\first{\varexph}}
@@ -88,11 +88,11 @@ Cannot occur because \varexph is closed.
 \pssub
 {\first{\varexph}}
 {\third{\varexph}}
-{\psfapp}
+{\psfapph}
 {\expfapp{\third{\varexph}}{\second{\varexph}}}
 \pserr
 {\first{\varexph}}
-{\psfapp}
+{\psfapph}
 
 \end{case}
 
