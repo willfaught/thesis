@@ -25,6 +25,11 @@
 \newcommand{\psvalifinh}[3]{\psvalif{#1}{\psvalinh{#1}{#2}{#3}}}
 \newcommand{\psvalifinm}[3]{\psvalif{#1}{\psvalinm{#1}{#2}{#3}}}
 
+\newcommand{\w}{}
+\newcommand{\x}{}
+\newcommand{\y}{}
+\newcommand{\z}{}
+
 \begin{theorem}{Haskell Progress}
 
 \label{thmhps}
@@ -100,7 +105,7 @@ Cannot occur because \varexph is closed.
 % e e
 
 \newcommand{\psfapp}{\expfapp{\first{\varexph}}{\second{\varexph}}\xspace}
-\newcommand{\x}{\expfabss{\varvarh}{\first{\vartyh}}{\third{\varexph}}\xspace}
+\renewcommand{\x}{\expfabss{\varvarh}{\first{\vartyh}}{\third{\varexph}}\xspace}
 
 \begin{case}{\psfapp}
 
@@ -129,7 +134,7 @@ Cannot occur because \varexph is closed.
 
 \newcommand{\psfix}{\expfix{\first{\varexph}}\xspace}
 \renewcommand{\x}{\expfabss{\varvarh}{\vartyh}{\second{\varexph}}\xspace}
-\newcommand{\y}{\expfix{(\x)}}
+\renewcommand{\y}{\expfix{(\x)}}
 
 \begin{case}{\psfix}
 
@@ -360,11 +365,15 @@ Cannot occur because \varexph is closed.
 {\first{\vartym}}
 {\pshm}
 
+% L, *
+
 \begin{subcase}{\first{\vartyh} $=$ \tylump}
 
 \exphm{\tylump}{\first{\vartym}}{\first{\varexpm}} is a \profv.
 
 \end{subcase}
+
+% !L, L
 
 \begin{subcase}{\first{\vartyh} $\neq$ \tylump and \first{\vartym} $=$ \tylump}
 
@@ -386,6 +395,8 @@ Cannot occur because \varexph is closed.
 
 \end{subcase}
 
+% N, N
+
 \begin{subcase}{\first{\vartyh} $=$ \tynum and \first{\vartym} $=$ \tynum}
 
 \psvaleqm
@@ -398,39 +409,61 @@ Cannot occur because \varexph is closed.
 
 \end{subcase}
 
-\begin{subcase}{\first{\vartyh} $=$ \tylist{\second{\vartyh}} and \first{\vartym} $=$ \tylist{\second\vartym}}
+% {t}, {t}
 
-\renewcommand{\x}{\expnils{\third{\vartym}}\xspace}
-\renewcommand{\y}{\expcons{\first{\varvalum}}{\second{\varvalum}}\xspace}
+\renewcommand{\w}{\tylist{\second{\vartyh}}}
+\renewcommand{\x}{\tylist{\second\vartym}}
+\renewcommand{\y}{\expnils{\third{\vartym}}}
+\renewcommand{\z}{\expcons{\first{\varvalum}}{\second{\varvalum}}}
+
+\begin{subcase}{\first{\vartyh} $=$ \w and \first{\vartym} $=$ \x}
 
 \psvalinm
 {\first{\varexpm}}
 {\tylist{\third{\vartym}}}
-{\x, \y}
+{\y, \z}
 \psred
-{\exphm{\tylist{\second{\vartyh}}}{\tylist{\second{\vartym}}}{(\x)}}
+{\exphm{\w}{\x}{(\y)}}
 {\expnils{\second{\vartyh}}}
 \psred
-{\exphm{\tylist{\second{\vartyh}}}{\tylist{\second{\vartym}}}{(\y)}}
-{\expcons{(\exphm{\second{\vartyh}}{\second{\vartym}}{\first{\varvalum}})}{(\exphm{\tylist{\second{\vartyh}}}{\tylist{\second{\vartym}}}{\second{\varvalum}})}}
+{\exphm{\w}{\x}{(\z)}}
+{\expcons{(\exphm{\second{\vartyh}}{\second{\vartym}}{\first{\varvalum}})}{(\exphm{\w}{\x}{\second{\varvalum}})}}
 
 \end{subcase}
 
-\begin{subcase}{\first{\vartyh} $=$ \tyfun{\second{\vartyh}}{\third{\vartyh}} and \first{\vartym} $=$ \tyfun{\second{\vartym}}{\third{\vartym}}}
+% t->t, t->t
 
-%TODO:
+\renewcommand{\x}{\tyfun{\second{\vartyh}}{\third{\vartyh}}}
+\renewcommand{\y}{\tyfun{\second{\vartym}}{\third{\vartym}}}
+\renewcommand{\z}{\expfabss{\varvarm}{\fourth{\vartym}}{\second{\varexpm}}}
 
-$T=T_{1}\rightarrow T_{2}$
+\begin{subcase}{\first{\vartyh} $=$ \x and \first{\vartym} $=$ \y}
 
-$e_{M}^{1}=\lambda x_{1}:T_{1}.e_{M}^{3}$ by canonical forms (Lemma \ref{cf}).  $^{T_{1}\rightarrow T_{2}}HM$ $(\lambda x_{1}:T_{1}.e_{M}^{3})\rightarrow\lambda x_{2}:T_{1}.(^{T_{2}}HM$ $((\lambda x_{1}:T_{1}.e_{M}^{3})$ $(^{T_{1}}MH$ $x_{2})))$.
+\psvaleqm
+{\first{\varexpm}}
+{\tyfun{\fourth{\vartym}}{\fifth{\vartym}}}
+{\z}
+\psred
+{\exphm{(\x)}{(\y)}{(\z)}}
+{\expfabss{\varvarh}{\second{\vartyh}}{\exphm{\third{\vartyh}}{\third{\vartym}}{(\expfapp{(\z)}{(\expmh{\second{\vartym}}{\second{\vartyh}}{\varvarh})})}}}
 
 \end{subcase}
 
-\begin{subcase}
+% Au.t, Au.t
 
-$T=\forall X.T_{1}$
+\renewcommand{\x}{\tyfor{\first{\tyvarh}}{\second{\vartyh}}}
+\renewcommand{\y}{\tyfor{\first{\tyvarm}}{\second{\vartym}}}
+\renewcommand{\z}{\exptabs{\second{\tyvarm}}{\second{\varexpm}}}
 
-$e_{M}^{1}\in\lbrace\Lambda X.e_{M}^{3},{^{\forall X.T_{1}}M}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  $^{\forall X.T_{1}}HM$ $(\Lambda X.e_{M}^{3})\rightarrow\Lambda X.(^{T_{1}}HM$ $e_{M}^{3})$.  $^{\forall X.T_{1}}HM$ $(^{\forall X.T_{1}}MS$ $v_{S})\rightarrow{^{\forall X.T_{1}}H}S$ $v_{S}$.
+\begin{subcase}{\first{\vartyh} $=$ \x and \first{\vartym} $=$ \y}
+
+\psvaleqm
+{\first{\varexpm}}
+{\tyfor{\second{\tyvarm}}{\third{\vartym}}}
+{\z}
+\psred
+{\exphm{(\x)}{(\y)}{(\z)}}
+{\exptabs{\first{\tyvarh}}{\exphm{\second{\vartyh}}{\tysubst{\second{\vartym}}{\tylump}{\first{\tyvarm}}}{\expsubst{\second{\varexpm}}{\tylump}{\second{\tyvarm}}}}}
 
 \end{subcase}
 
