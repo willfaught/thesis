@@ -1,36 +1,3 @@
-\newcommand{\pscasesone}[3]{If #1 is a \profv then #2 determines the reduction of #3.}
-\newcommand{\pscasestwo}[4]{If #1 is a \profv then #2 and #3 determine the reduction of #4.}
-
-\newcommand{\pserr}[2]{If #1 \red \emph{\experr{\varstr}} then #2 \red \emph{\experr{\varstr}}.}
-\newcommand{\pserrand}[3]{If #1 \red \emph{\experr{\varstr}} and #2 is a \profv then #3 \red \emph{\experr{\varstr}}.}
-
-\newcommand{\pshyp}[2]{#1 is a \profv or #1 \red #2 or #1 \red \emph{\experr{\varstr}}}
-\newcommand{\pshypby}[2]{\pshyp{#1}{#2} by the induction hypothesis.}
-
-\newcommand{\pssub}[4]{If #1 \red #2 then #3 \red #4.}
-\newcommand{\pssuband}[5]{If #1 \red #2 and #3 is a \profv then #4 \red #5.}
-
-\newcommand{\psred}[2]{\redrule{#1}{#2}.}
-\newcommand{\psrednote}[3]{\redrule{#1}{#2} $(#3)$.}
-
-\newcommand{\psval}[2]{#1 by lemmas \ref{leminv} and \ref{lemuni} and #2 by lemma \ref{lemcan}.}
-\newcommand{\psvalh}[3]{\psval{\judeh{}{#1}{#2}}{#3}}
-\newcommand{\psvalm}[3]{\psval{\judem{}{#1}{#2}}{#3}}
-\newcommand{\psvaleqh}[3]{\psvalh{#1}{#2}{#1 $=$ #3}}
-\newcommand{\psvaleqm}[3]{\psvalm{#1}{#2}{#1 $=$ #3}}
-\newcommand{\psvalinh}[3]{\psvalh{#1}{#2}{$#1 \in \lbrace #3 \rbrace$}}
-\newcommand{\psvalinm}[3]{\psvalm{#1}{#2}{$#1 \in \lbrace #3 \rbrace$}}
-\newcommand{\psvalif}[2]{If #1 is a \profv then #2}
-\newcommand{\psvalifeqh}[3]{\psvalif{#1}{\psvaleqh{#1}{#2}{#3}}}
-\newcommand{\psvalifeqm}[3]{\psvalif{#1}{\psvaleqm{#1}{#2}{#3}}}
-\newcommand{\psvalifinh}[3]{\psvalif{#1}{\psvalinh{#1}{#2}{#3}}}
-\newcommand{\psvalifinm}[3]{\psvalif{#1}{\psvalinm{#1}{#2}{#3}}}
-
-\newcommand{\w}{}
-\newcommand{\x}{}
-\newcommand{\y}{}
-\newcommand{\z}{}
-
 \begin{theorem}{Haskell Progress}
 
 \label{thmhps}
@@ -40,8 +7,6 @@ If \judeh{}{\varexph}{\vartyh} then \pshyp{\first{\varexph}}{\second{\varexph}}.
 \begin{proof}
 
 By structural induction on \varexph.
-
-% Haskell
 
 % \x:t.e
 
@@ -586,70 +551,6 @@ Cannot occur because \varexph is closed.
 \pserr
 {\first{\varexps}}
 {\pshs}
-
-\end{case}
-
-% ML
-
-% cons v v
-
-\newcommand{\psconsm}{\expcons{\first{\varvalum}}{\second{\varvalum}}\xspace}
-
-\begin{case}
-
-\psconsm
-
-\psconsm is a \profv.
-
-\end{case}
-
-% ML e e
-
-\begin{case}
-
-$e_{M}=e_{M}^{1}$ $e_{M}^{2}$
-
-$e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{3}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{1}$ is an unforced value then $e_{M}^{1}:T_{1}\rightarrow T_{2}$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{M}^{1}=\lambda x:T_{1}.e_{M}^{4}$ by canonical forms (Lemma \ref{cf}).  If $e_{M}^{1}\rightarrow e_{M}^{3}$ then $e_{M}^{1}$ $e_{M}^{2}\rightarrow e_{M}^{3}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $e_{M}^{1}$ $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{M}^{2}$ is an unforced value or $e_{M}^{2}\rightarrow e_{M}^{5}$ or $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{2}\rightarrow e_{M}^{5}$ and $e_{M}^{1}$ is an unforced value then $e_{M}^{1}$ $e_{M}^{2}\rightarrow e_{M}^{1}$ $e_{M}^{5}$.  If $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string} and $e_{M}^{1}$ is an unforced value then $e_{M}^{1}$ $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{M}^{1}$ is an unforced value and $e_{M}^{2}$ is an unforced value then $(\lambda x:T_{1}.e_{M}^{4})$ $e_{M}^{2}\rightarrow e_{M}^{4}[e_{M}^{2}/x]$.
-
-\end{case}
-
-% ML cons e e
-
-\begin{case}
-
-$e_{M}=\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}$
-
-$e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{3}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{1}\rightarrow e_{M}^{3}$ then $\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}\rightarrow\mathtt{cons}$ $e_{M}^{3}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{M}^{2}$ is an unforced value or $e_{M}^{2}\rightarrow e_{M}^{4}$ or $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{2}\rightarrow e_{M}^{4}$ and $e_{M}^{1}$ is an unforced value then $\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}\rightarrow\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{4}$.  If $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string} and $e_{M}^{1}$ is an unforced value then $\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{M}^{1}$ and $e_{M}^{2}$ are unforced values then $\mathtt{cons}$ $e_{M}^{1}$ $e_{M}^{2}$ is an unforced value.
-
-\end{case}
-
-% ML f e
-
-\begin{case}
-
-$e_{M}=f$ $e_{M}^{1}$
-
-$e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{1}$ is an unforced value then $e_{M}^{1}:[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{M}^{1}\in\lbrace\mathtt{nil}^{T},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  $\mathtt{hd}$ $\mathtt{nil}^{T}\rightarrow\mathtt{wrong}^{T}$ \emph{``Empty list"}.  $\mathtt{tl}$ $\mathtt{nil}^{T}\rightarrow\mathtt{wrong}^{[T]}$ \emph{``Empty list"}.  $\mathtt{hd}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow v_{M}^{1}$.  $\mathtt{tl}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow v_{M}^{2}$.  $\mathtt{hd}$ $({^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{T}M}H^{T}$ $e_{H}^{1}$.  $\mathtt{tl}$ $({^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{[T]}M}H^{[T]}$ $e_{H}^{2}$.  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $f$ $e_{M}^{1}\rightarrow f$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $f$ $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string}.
-
-\end{case}
-
-% ML null? e
-
-\begin{case}
-
-$e_{M}=\mathtt{null?}$ $e_{M}^{1}$
-
-$e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{1}$ is an unforced value then $e_{M}^{1}:[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{M}^{1}\in\lbrace\mathtt{nil}^{T},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  $\mathtt{null?}$ $\mathtt{nil}^{T}\rightarrow\overline{0}$.  If $e_{M}^{1}\in\lbrace\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ then $\mathtt{null?}$ $e_{M}^{1}\rightarrow\overline{1}$.  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $\mathtt{null?}$ $e_{M}^{1}\rightarrow\mathtt{null?}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{null?}$ $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string}.
-
-\end{case}
-
-% mh t t e
-
-\begin{case}
-
-$e_{M}={^{T}M}H$ $e_{H}$
-
-$^{T}MH$ $e_{H}$ is an unforced value.
 
 \end{case}
 
