@@ -1,4 +1,5 @@
-\newcommand{\pscases}[4]{If #1 is a \profv then #2 and #3 determine the reduction of #4.}
+\newcommand{\pscasesone}[3]{If #1 is a \profv then #2 determines the reduction of #3.}
+\newcommand{\pscasestwo}[4]{If #1 is a \profv then #2 and #3 determine the reduction of #4.}
 
 \newcommand{\pserr}[2]{If #1 \red \emph{\experr{\varstr}} then #2 \red \emph{\experr{\varstr}}.}
 \newcommand{\pserrand}[3]{If #1 \red \emph{\experr{\varstr}} and #2 is a \profv then #3 \red \emph{\experr{\varstr}}.}
@@ -359,7 +360,7 @@ Cannot occur because \varexph is closed.
 \pshypby
 {\first{\varexpm}}
 {\second{\varexpm}}
-\pscases
+\pscasestwo
 {\first{\varexpm}}
 {\first{\vartyh}}
 {\first{\vartym}}
@@ -478,71 +479,113 @@ Cannot occur because \varexph is closed.
 
 \end{case}
 
-% mh t t e
-
-\begin{case}
-
-$e_{M}={^{T}M}H$ $e_{H}$
-
-$^{T}MH$ $e_{H}$ is an unforced value.
-
-\end{case}
-
 % hs k e
 
-\begin{case}
+\newcommand{\pshs}{\exphs{\first{\varcsh}}{\first{\varexps}}}
 
-$e_{A}={^{T}A}S$ $e_{S}^{1}$ where $A\in\lbrace H,M\rbrace$
+\begin{case}{\pshs}
 
-$e_{S}^{1}$ is an unforced value or $e_{S}^{1}\rightarrow e_{S}^{2}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by Scheme progress (Theorem \ref{sps}).  If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $^{T}AS$ $e_{S}^{1}\rightarrow{^{T}A}S$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $^{T}AS$ $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{S}^{1}$ is an unforced value then $T$ determines the reduction of $^{T}AS$ $e_{S}^{1}$:
+\pshypby
+{\first{\varexps}}
+{\second{\varexps}}
+\pscasesone
+{\first{\varexps}}
+{\first{\varcsh}}
+{\pshs}
 
-\begin{subcase}
+% L
 
-$T=L$
+\begin{subcase}{\cslump}
 
-$^{L}AS$ $e_{S}^{1}$ is an unforced value.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=N$
-
-$^{N}AS$ $\overline{n}\rightarrow\overline{n}$.  $^{N}AS$ $e_{S}^{1}\rightarrow\mathtt{wrong}^{N}$ \emph{``Not a number"} $(e_{S}^{1}\neq\overline{n})$.
+\exphs{\cslump}{\first{\varexps}} is a \profv.
 
 \end{subcase}
 
-\begin{subcase}
+% N
 
-$T=[T_{1}]$
+\begin{subcase}{\csnum}
 
-$^{[T_{1}]}AS$ $\mathtt{nil}\rightarrow\mathtt{nil}^{T_{1}}$.  $^{[T_{1}]}AS$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})\rightarrow\mathtt{cons}$ $(^{T_{1}}AS$ $v_{S}^{1})$ $(^{[T_{1}]}AS$ $v_{S}^{2})$.  $^{[T_{1}]}HS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}$.  $^{[T_{1}]}MS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.  $^{[T_{1}]}AS$ $e_{S}^{1}\rightarrow\mathtt{wrong}^{[T_{1}[T_{i}/T_{i}^{a}]]}$ \emph{``Not a list"} $(e_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=T_{1}^{a}$
-
-$^{T_{1}^{a}}HS$ $(SH^{T_{1}^{a}}$ $e_{H})\rightarrow e_{H}$.  $^{T_{1}^{a}}HS$ $e_{S}^{1}\rightarrow\mathtt{wrong}^{T_{1}}$ \emph{``Parametricity violated"} $(e_{S}^{1}\neq SH^{T_{1}^{a}}$ $e_{H})$.  $^{T_{1}^{a}}MS$ $(SM^{T_{1}^{a}}$ $v_{M})\rightarrow v_{M}$.  $^{T_{1}^{a}}MS$ $e_{S}^{1}\rightarrow\mathtt{wrong}^{T_{1}}$ \emph{``Parametricity violated"} $(e_{S}^{1}\neq SM^{T_{1}^{a}}$ $v_{M})$.
+\psred
+{\exphs{\csnum}{\expnum{\varnum}}}
+{{\expnum{\varnum}}}
+\psrednote
+{\exphs{\csnum}{\first{\varexps}}}
+{\expwrongs{\tynum}{\errnum}}
+{\first{\varexps} \neq \expnum{\varnum}}
 
 \end{subcase}
 
-\begin{subcase}
+% {k}
 
-$T=T_{1}\rightarrow T_{2}$
+\renewcommand{\x}{\cslist{\second{\varcsh}}}
 
-$^{T_{1}\rightarrow T_{2}}AS$ $(\lambda x_{1}.e_{S}^{3})\rightarrow\lambda x_{2}:T_{1}[T_{i}/T^{a}_{i}].(^{T_{2}}AS$ $((\lambda x_{1}.e_{S}^{3})$ $(SA^{T_{1}}$ $x_{2})))$.  $^{T_{1}\rightarrow T_{2}}AS$ $e_{S}^{1}\rightarrow\mathtt{wrong}^{(T_{1}\rightarrow T_{2})[T_{i}/T_{i}^{a}]]}$ \emph{``Not a function"} $(e_{S}^{1}\neq\lambda x_{1}.e_{S}^{3})$.
+\begin{subcase}{\x}
+
+\psred
+{\exphs{\x}{\expnild}}
+{\expnils{\tyunbrand{\second{\varcsh}}}}
+\psred
+{\exphs{\x}{(\expcons{\first{\varvalus}}{\second{\varvalus}})}}
+{\expcons{(\exphs{\varcsh}{\first{\varvalus}})}{(\exphs{\x}{\second{\varvalus}})}}
+\psrednote
+{\exphs{\x}{\first{\varexps}}}
+{\expwrongs{\tyunbrand{\x}}{\errlist}}
+{\first{\varexps} \neq \expnild$ and $\first{\varexps} \neq \expcons{\first{\varvalus}}{\second{\varvalus}}}
 
 \end{subcase}
 
-\begin{subcase}
+\renewcommand{\x}{\csbrand{\varbrand}{\vartyh}}
 
-$T=\forall X.T_{1}$
+\begin{subcase}{\x}
 
-$^{\forall X.T_{1}}AS$ $e_{S}^{1}$ is an unforced value.
+% b.t
+
+\psred
+{\exphs{(\x)}{(\expsh{(\x)}{\varexph})}}
+{\varexph}
+\psrednote
+{\exphs{(\x)}{\first{\varexps}}}
+{\expwrongs{\vartyh}{\errbrand}}
+{\first{\varexps} \neq \expsh{(\x)}{\varexph}}
 
 \end{subcase}
+
+% k->k
+
+\renewcommand{\x}{\csfun{\second{\varcsh}}{\third{\varcsh}}}
+
+\begin{subcase}{\x}
+
+\psred
+{\exphs{(\x)}{(\expfabsd{\varvars}{\varexps})}}
+{\expfabss{\varvarh}{\tyunbrand{\second{\varcsh}}}{\exphs{\third{\varcsh}}{(\expfapp{(\expfabsd{\varvars}{\varexps})}{(\expsh{\second{\varcsh}}{\varvarh})})}}}
+\psrednote
+{\exphs{(\x)}{\first{\first{\varexps}}}}
+{\expwrongs{\tyunbrand{\x}}{\errfun}}
+{\first{\varexps} \neq \expfabsd{\varvars}{\varexps}}
+
+\end{subcase}
+
+% Au.k
+
+\renewcommand{\x}{\csfor{\csvarh}{\second{\varcsh}}}
+
+\begin{subcase}{\x}
+
+\psred
+{\exphs{(\x)}{\first{\varexps}}}
+{\exptabs{\tyvarh}{\exphs{\second{\varcsh}}{\first{\varexps}}}}
+
+\end{subcase}
+
+\pssub
+{\first{\varexps}}
+{\second{\varexps}}
+{\pshs}
+{\exphs{\first{\varcsh}}{\second{\varexps}}}
+\pserr
+{\first{\varexps}}
+{\pshs}
 
 \end{case}
 
@@ -597,6 +640,16 @@ $e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{
 $e_{M}=\mathtt{null?}$ $e_{M}^{1}$
 
 $e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{M}^{1}$ is an unforced value then $e_{M}^{1}:[T]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}) and $e_{M}^{1}\in\lbrace\mathtt{nil}^{T},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  $\mathtt{null?}$ $\mathtt{nil}^{T}\rightarrow\overline{0}$.  If $e_{M}^{1}\in\lbrace\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ then $\mathtt{null?}$ $e_{M}^{1}\rightarrow\overline{1}$.  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $\mathtt{null?}$ $e_{M}^{1}\rightarrow\mathtt{null?}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{null?}$ $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string}.
+
+\end{case}
+
+% mh t t e
+
+\begin{case}
+
+$e_{M}={^{T}M}H$ $e_{H}$
+
+$^{T}MH$ $e_{H}$ is an unforced value.
 
 \end{case}
 
