@@ -8,33 +8,193 @@ If $\vdash_{S}e_{S}:TST$ then $e_{S}$ is an unforced value or $e_{S}\rightarrow 
 
 By structural induction on $e_{S}$.
 
-\input{proof/cases/progress/scheme/function.tex}
+% \x.e
 
-\input{proof/cases/progress/scheme/number.tex}
+\begin{case}
 
-\input{proof/cases/progress/scheme/nil.tex}
+$e_{S}=\lambda x.e_{S}^{1}$
 
-\input{proof/cases/progress/scheme/cons-v.tex}
+$\lambda x.e_{S}^{1}$ is an unforced value.
 
-\input{proof/cases/progress/scheme/haskell.tex}
+\end{case}
 
-\input{proof/cases/progress/scheme/variable.tex}
+% n
 
-\input{proof/cases/progress/scheme/application.tex}
+\begin{case}
 
-\input{proof/cases/progress/scheme/cons-e.tex}
+$e_{S}=\overline{n}$
 
-\input{proof/cases/progress/scheme/fields.tex}
+$\overline{n}$ is an unforced value.
 
-\input{proof/cases/progress/scheme/arithmetic.tex}
+\end{case}
 
-\input{proof/cases/progress/scheme/predicates.tex}
+% nil
 
-\input{proof/cases/progress/scheme/if0.tex}
+\begin{case}
 
-\input{proof/cases/progress/scheme/wrong.tex}
+$e_{S}=\mathtt{nil}$
 
-\input{proof/cases/progress/scheme/ml.tex}
+$\mathtt{nil}$ is an unforced value.
+
+\end{case}
+
+% cons w w
+
+\begin{case}
+
+$e_{S}=\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2}$
+
+$\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2}$ is an unforced value.
+
+\end{case}
+
+% sh k e
+
+\begin{case}
+
+$e_{S}=SH^{T}$ $e_{H}$
+
+$SH^{T}$ $e_{H}$ is an unforced value.
+
+\end{case}
+
+% x
+
+\begin{case}
+
+$e_{S}=x$
+
+Cannot occur because $e_{S}$ is closed.
+
+\end{case}
+
+% e e
+
+\begin{case}
+
+$e_{S}=e_{S}^{1}$ $e_{S}^{2}$
+
+$e_{S}^{1}$ is an unforced value or $e_{S}^{1}\rightarrow e_{S}^{3}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{1}\rightarrow e_{S}^{3}$ then $e_{S}^{1}$ $e_{S}^{2}\rightarrow e_{S}^{3}$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $e_{S}^{1}$ $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{2}$ is an unforced value or $e_{S}^{2}\rightarrow e_{S}^{4}$ or $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{2}\rightarrow e_{S}^{4}$ and $e_{S}^{1}$ is an unforced value then $e_{S}^{1}$ $e_{S}^{2}\rightarrow e_{S}^{1}$ $e_{S}^{4}$.  If $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string} and $e_{S}^{1}$ is an unforced value then $e_{S}^{1}$ $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{1}$ and $e_{S}^{2}$ are unforced values otherwise.  $(\lambda x.e_{S}^{5})$ $e_{S}^{2}\rightarrow e_{S}^{5}[e_{S}^{2}/x]$.  $e_{S}^{1}$ $e_{S}^{2}\rightarrow\mathtt{wrong}$ \emph{``Not a function"} $(e_{S}^{1}\neq\lambda x.e_{S}^{5})$.
+
+\end{case}
+
+% cons e e
+
+\begin{case}
+
+$e_{S}=\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}$
+
+$e_{S}^{1}$ is an unforced value or $e_{S}^{1}\rightarrow e_{S}^{3}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{1}\rightarrow e_{S}^{3}$ then $\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow\mathtt{cons}$ $e_{S}^{3}$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{2}$ is an unforced value or $e_{S}^{2}\rightarrow e_{S}^{4}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{2}\rightarrow e_{S}^{4}$ and $e_{M}^{1}$ is an unforced value then $\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{4}$.  If $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string} and $e_{S}^{1}$ is an unforced value then $\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{S}^{1}$ and $e_{S}^{2}$ are unforced values then $\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}$ is an unforced value.
+
+\end{case}
+
+% f e
+
+\begin{case}
+
+$e_{S}=f$ $e_{S}^{1}$
+
+$e_{S}^{1}$ is an unforced value or $e_{S}^{1}\rightarrow e_{S}^{2}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $f$ $e_{S}^{1}\rightarrow f$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $f$ $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{1}$ is an unforced value otherwise.  $f$ $\mathtt{nil}\rightarrow\mathtt{wrong}$ \emph{``Empty list"}.  $\mathtt{hd}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})\rightarrow v_{S}^{1}$.  $\mathtt{tl}$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})\rightarrow v_{S}^{2}$.  $\mathtt{hd}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{T}$ $e_{H}^{1}$.  $\mathtt{tl}$ $(SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{[T]}$ $e_{H}^{2}$.  $f$ $e_{S}^{1}\rightarrow\mathtt{wrong}$ \emph{``Not a list"} $(e_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.
+
+\end{case}
+
+% o e e
+
+\begin{case}
+
+$e_{S}=o$ $e_{S}^{1}$ $e_{S}^{2}$
+
+$e_{S}^{1}$ is an unforced value or $e_{S}^{1}\rightarrow e_{S}^{3}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{1}\rightarrow e_{S}^{3}$ then $o$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow o$ $e_{S}^{3}$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $o$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{2}$ is an unforced value or $e_{S}^{2}\rightarrow e_{S}^{4}$ or $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{2}\rightarrow e_{S}^{4}$ and $e_{S}^{1}$ is an unforced value then $o$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow o$ $e_{S}^{1}$ $e_{S}^{4}$.  If $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string} and $e_{S}^{1}$ is an unforced value then $o$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{1}$ and $e_{S}^{2}$ are unforced values otherwise.  $+$ $\overline{n_{1}}$ $\overline{n_{2}}\rightarrow\overline{n_{1}+n_{2}}$.  $-$ $\overline{n_{1}}$ $\overline{n_{2}}\rightarrow\overline{max(n_{1}-n_{2},0)}$.  $o$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow\mathtt{wrong}$ \emph{``Not a number"} $(e_{S}^{1}\neq\overline{n_{1}}$ or $e_{S}^{2}\neq\overline{n_{2}})$.
+
+\end{case}
+
+% p e
+
+\begin{case}
+
+$e_{S}=p$ $e_{S}^{1}$
+
+$e_{S}^{1}$ is an unforced value or $e_{S}^{1}\rightarrow e_{S}^{2}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $p$ $e_{S}^{1}\rightarrow p$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $p$ $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{1}$ is an unforced value otherwise.  $\mathtt{fun?}$ $(\lambda x.e_{S}^{3})\rightarrow\overline{0}$.  $\mathtt{fun?}$ $e_{S}^{1}\rightarrow\overline{1}$ $(e_{S}^{1}\neq\lambda x.e_{S}^{3})$.  $\mathtt{list?}$ $e_{S}^{1}\rightarrow\overline{0}$ $(e_{S}^{1}\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.  $\mathtt{list?}$ $e_{S}^{1}\rightarrow\overline{1}$ $(e_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.  $\mathtt{null?}$ $\mathtt{nil}\rightarrow\overline{0}$.  $\mathtt{null?}$ $e_{S}^{1}\rightarrow\overline{1}$ $(e_{S}^{1}\in\lbrace\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.  $\mathtt{null?}$ $e_{S}^{1}\rightarrow\mathtt{wrong}$ \emph{``Not a list"} $(e_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.  $\mathtt{num?}$ $\overline{n}\rightarrow\overline{0}$.  $\mathtt{num?}$ $e_{S}^{1}\rightarrow\overline{1}$ $(e_{S}^{1}\neq\overline{n})$.
+
+\end{case}
+
+% if0 e e e
+
+\begin{case}
+
+$e_{S}=\mathtt{if0}$ $e_{S}^{1}$ $e_{S}^{2}$ $e_{S}^{3}$
+
+$e_{S}^{1}$ is an unforced value or $e_{S}^{1}\rightarrow e_{S}^{4}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{1}\rightarrow e_{S}^{4}$ then $\mathtt{if0}$ $e_{S}^{1}$ $e_{S}^{2}$ $e_{S}^{3}\rightarrow \mathtt{if0}$ $e_{S}^{4}$ $e_{S}^{2}$ $e_{S}^{3}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{if0}$ $e_{S}^{1}$ $e_{S}^{2}$ $e_{S}^{3}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{1}$ is an unforced value otherwise.  $\mathtt{if0}$ $\overline{0}$ $e_{S}^{2}$ $e_{S}^{3}\rightarrow e_{S}^{2}$.  $\mathtt{if0}$ $\overline{n}$ $e_{S}^{2}$ $e_{S}^{3}\rightarrow e_{S}^{3}$ $(n\neq 0)$.  $\mathtt{if0}$ $e_{S}^{1}$ $e_{S}^{2}$ $e_{S}^{3}\rightarrow\mathtt{wrong}$ \emph{``Not a number"} $(e_{S}^{1}\neq\overline{n})$.
+
+\end{case}
+
+% wrong string
+
+\begin{case}
+
+$e_{S}=\mathtt{wrong}$ $\mathrm{string}$
+
+$\mathtt{wrong}$ $\mathrm{string}\rightarrow$ \emph{\textbf{Error}: string}.
+
+\end{case}
+
+% sm k e
+
+\begin{case}
+
+$e_{S}=SM^{T}$ $e_{M}^{1}$
+
+$e_{M}^{1}$ is an unforced value or $e_{M}^{1}\rightarrow e_{M}^{2}$ or $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} by ML progress (Theorem \ref{hmps}).  If $e_{M}^{1}\rightarrow e_{M}^{2}$ then $SM^{T}$ $e_{M}^{1}\rightarrow SM^{T}$ $e_{M}^{2}$.  If $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $SM^{T}$ $e_{M}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{M}^{1}$ is an unforced value then $T$ determines the reduction of $SM^{T}$ $e_{M}^{1}$:
+
+\begin{subcase}
+
+$T=L$
+
+$e_{M}^{1}={^{L}M}S$ $v_{S}$ by canonical forms (Lemma \ref{cf}).  $SM^{L}$ $(^{L}MS$ $v_{S})\rightarrow v_{S}$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=N$
+
+$e_{M}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $SM^{N}$ $\overline{n}\rightarrow\overline{n}$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=[T_{1}]$
+
+$e_{M}^{1}\in\lbrace\mathtt{nil}^{T_{1}[T_{i}/T_{i}^{a}]},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  $SM^{T_{1}}$ $\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.  $SM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(SM^{T_{1}}$ $v_{M}^{1})$ $(SM^{[T_{1}]}$ $v_{M}^{2})$.  $SM^{[T_{1}]}$ $({^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=T_{1}^{a}$
+
+$SM^{T_{1}^{a}}$ $e_{M}^{1}$ is an unforced value.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=T_{1}\rightarrow T_{2}$
+
+$e_{M}^{1}=\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M}^{3}$ by canonical forms (Lemma \ref{cf}).  $SM^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M}^{3})\rightarrow\lambda x_{2}.(SM^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M}^{3})$ $(^{T_{1}}MS$ $x_{2})))$.
+
+\end{subcase}
+
+\begin{subcase}
+
+$T=\forall X.T_{1}$
+
+$e_{M}^{1}\in\lbrace\Lambda X.e_{M}^{3},{^{\forall X.T_{1}}M}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  $SM^{\forall X.T_{1}}$ $(\Lambda X.e_{M}^{3})\rightarrow SM^{T_{1}[L/X]}$ $((\Lambda X.e_{M}^{3})$ $\lbrace L\rbrace)$.  $SM^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}MS$ $v_{S})\rightarrow v_{S}$.
+
+\end{subcase}
+
+\end{case}
 
 \end{proof}
 

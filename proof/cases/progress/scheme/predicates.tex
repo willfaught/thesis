@@ -1,7 +1,0 @@
-\begin{case}
-
-$e_{S}=p$ $e_{S}^{1}$
-
-$e_{S}^{1}$ is an unforced value or $e_{S}^{1}\rightarrow e_{S}^{2}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{1}\rightarrow e_{S}^{2}$ then $p$ $e_{S}^{1}\rightarrow p$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $p$ $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{1}$ is an unforced value otherwise.  $\mathtt{fun?}$ $(\lambda x.e_{S}^{3})\rightarrow\overline{0}$.  $\mathtt{fun?}$ $e_{S}^{1}\rightarrow\overline{1}$ $(e_{S}^{1}\neq\lambda x.e_{S}^{3})$.  $\mathtt{list?}$ $e_{S}^{1}\rightarrow\overline{0}$ $(e_{S}^{1}\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.  $\mathtt{list?}$ $e_{S}^{1}\rightarrow\overline{1}$ $(e_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.  $\mathtt{null?}$ $\mathtt{nil}\rightarrow\overline{0}$.  $\mathtt{null?}$ $e_{S}^{1}\rightarrow\overline{1}$ $(e_{S}^{1}\in\lbrace\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.  $\mathtt{null?}$ $e_{S}^{1}\rightarrow\mathtt{wrong}$ \emph{``Not a list"} $(e_{S}^{1}\not\in\lbrace\mathtt{nil},\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2},SH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace)$.  $\mathtt{num?}$ $\overline{n}\rightarrow\overline{0}$.  $\mathtt{num?}$ $e_{S}^{1}\rightarrow\overline{1}$ $(e_{S}^{1}\neq\overline{n})$.
-
-\end{case}
