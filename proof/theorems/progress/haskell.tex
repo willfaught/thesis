@@ -8,6 +8,16 @@ If \judeh{}{\first{\varexph}}{\vartyh} then \pshyp{\first{\varexph}}{\second{\va
 
 By structural induction on \first{\varexph}.
 
+% x
+
+\newcommand{\psvar}{\varvarh\xspace}
+
+\begin{case}{\psvar}
+
+Cannot occur because \varexph is closed.
+
+\end{case}
+
 % \x:t.e
 
 \newcommand{\psfabss}{\expfabss{\varvarh}{\vartyh}{\varexph}\xspace}
@@ -58,16 +68,6 @@ By structural induction on \first{\varexph}.
 
 \end{case}
 
-% x
-
-\newcommand{\psvar}{\varvarh\xspace}
-
-\begin{case}{\psvar}
-
-Cannot occur because \varexph is closed.
-
-\end{case}
-
 % e e
 
 \newcommand{\psfapph}{\expfapp{\first{\varexph}}{\second{\varexph}}\xspace}
@@ -93,35 +93,6 @@ Cannot occur because \varexph is closed.
 \pserr
 {\first{\varexph}}
 {\psfapph}
-
-\end{case}
-
-% fix e
-
-\newcommand{\psfix}{\expfix{\first{\varexph}}\xspace}
-\renewcommand{\x}{\expfabss{\varvarh}{\vartyh}{\second{\varexph}}\xspace}
-\renewcommand{\y}{\expfix{(\x)}}
-
-\begin{case}{\psfix}
-
-\pshypby
-{\first{\varexph}}
-{\second{\varexph}}
-\psvalifeqh
-{\first{\varexph}}
-{\tyfun{\vartyh}{\vartyh}}
-{\x}
-\psred
-{\y}
-{\expsubst{\second{\varexph}}{\y}{\varvarh}}
-\pssub
-{\first{\varexph}}
-{\second{\varexph}}
-{\psfix}
-{\expfix{\second{\varexph}}}
-\pserr
-{\first{\varexph}}
-{\psfix}
 
 \end{case}
 
@@ -153,41 +124,32 @@ Cannot occur because \varexph is closed.
 
 \end{case}
 
-% f e
+% fix e
 
-\newcommand{\psfield}{\expfield{\first{\varexph}}\xspace}
-\renewcommand{\x}{\expnils{\vartyh}\xspace}
-\renewcommand{\y}{\expcons{\second{\varexph}}{\third{\varexph}}\xspace}
+\newcommand{\psfix}{\expfix{\first{\varexph}}\xspace}
+\renewcommand{\x}{\expfabss{\varvarh}{\vartyh}{\second{\varexph}}\xspace}
+\renewcommand{\y}{\expfix{(\x)}}
 
-\begin{case}{\psfield}
+\begin{case}{\psfix}
 
 \pshypby
 {\first{\varexph}}
 {\second{\varexph}}
-\psvalifinh
+\psvalifeqh
 {\first{\varexph}}
-{\tylist{\vartyh}}
-{\x, \y}
+{\tyfun{\vartyh}{\vartyh}}
+{\x}
 \psred
-{\exphd{(\x)}}
-{\expwrongs{\vartyh}{\errempty}}
-\psred
-{\exptl{(\x)}}
-{\expwrongs{\tylist{\vartyh}}{\errempty}}
-\psred
-{\exphd{(\y)}}
-{\second{\varexph}}
-\psred
-{\exptl{(\y)}}
-{\third{\varexph}}
+{\y}
+{\expsubst{\second{\varexph}}{\y}{\varvarh}}
 \pssub
 {\first{\varexph}}
 {\second{\varexph}}
-{\psfield}
-{\expfield{\second{\varexph}}}
+{\psfix}
+{\expfix{\second{\varexph}}}
 \pserr
 {\first{\varexph}}
-{\psfield}
+{\psfix}
 
 \end{case}
 
@@ -240,6 +202,76 @@ Cannot occur because \varexph is closed.
 
 \end{case}
 
+% if0 e e e
+
+\newcommand{\psif}{\expif{\first{\varexph}}{\second{\varexph}}{\third{\varexph}}\xspace}
+\renewcommand{\x}{\expnum{\varnum}\xspace}
+
+\begin{case}{\psif}
+
+\pshypby
+{\first{\varexph}}
+{\fourth{\varexph}}
+\psvalifeqh
+{\first{\varexph}}
+{\tynum}
+{\x}
+\psred
+{\expif{\expnum{0}}{\second{\varexph}}{\third{\varexph}}}
+{\second{\varexph}}
+\psrednote
+{\expif{\x}{\second{\varexph}}{\third{\varexph}}}
+{\third{\varexph}}
+{n \neq 0}
+\pssub
+{\first{\varexph}}
+{\fourth{\varexph}}
+{\psif}
+{\expif{\fourth{\varexph}}{\second{\varexph}}{\third{\varexph}}}
+\pserr
+{\first{\varexph}}
+{\psif}
+
+\end{case}
+
+% f e
+
+\newcommand{\psfield}{\expfield{\first{\varexph}}\xspace}
+\renewcommand{\x}{\expnils{\vartyh}\xspace}
+\renewcommand{\y}{\expcons{\second{\varexph}}{\third{\varexph}}\xspace}
+
+\begin{case}{\psfield}
+
+\pshypby
+{\first{\varexph}}
+{\second{\varexph}}
+\psvalifinh
+{\first{\varexph}}
+{\tylist{\vartyh}}
+{\x, \y}
+\psred
+{\exphd{(\x)}}
+{\expwrongs{\vartyh}{\errempty}}
+\psred
+{\exptl{(\x)}}
+{\expwrongs{\tylist{\vartyh}}{\errempty}}
+\psred
+{\exphd{(\y)}}
+{\second{\varexph}}
+\psred
+{\exptl{(\y)}}
+{\third{\varexph}}
+\pssub
+{\first{\varexph}}
+{\second{\varexph}}
+{\psfield}
+{\expfield{\second{\varexph}}}
+\pserr
+{\first{\varexph}}
+{\psfield}
+
+\end{case}
+
 % null? e
 
 \newcommand{\pspnull}{\exppnull{\first{\varexph}}\xspace}
@@ -272,37 +304,6 @@ Cannot occur because \varexph is closed.
 
 \end{case}
 
-% if0 e e e
-
-\newcommand{\psif}{\expif{\first{\varexph}}{\second{\varexph}}{\third{\varexph}}\xspace}
-\renewcommand{\x}{\expnum{\varnum}\xspace}
-
-\begin{case}{\psif}
-
-\pshypby
-{\first{\varexph}}
-{\fourth{\varexph}}
-\psvalifeqh
-{\first{\varexph}}
-{\tynum}
-{\x}
-\psred
-{\expif{\expnum{0}}{\second{\varexph}}{\third{\varexph}}}
-{\second{\varexph}}
-\psrednote
-{\expif{\x}{\second{\varexph}}{\third{\varexph}}}
-{\third{\varexph}}
-{n \neq 0}
-\pssub
-{\first{\varexph}}
-{\fourth{\varexph}}
-{\psif}
-{\expif{\fourth{\varexph}}{\second{\varexph}}{\third{\varexph}}}
-\pserr
-{\first{\varexph}}
-{\psif}
-
-\end{case}
 
 % wrong t string
 
