@@ -72,15 +72,7 @@ The syntactic forms of well-typed expressions determine the types of their subex
 
 % hm t t e
 
-\item If \judeh{\env}{\exphm{\first{\vartyh}}{\first{\vartym}}{\varexpm}}{\second{\vartyh}}, $\first{\vartyh} = \first{\vartym}$, and $\first{\vartyh} \neq \tylump$ then $\second{\vartyh} = \first{\vartyh}$, \judth{\env}{\first{\vartyh}}, \judtm{\env}{\first{\vartym}}, \judem{\env}{\varexpm}{\second{\vartym}}, and $\first{\vartym} = \second{\vartym}$.
-
-% hm L t e
-
-\item If \judeh{\env}{\exphm{\tylump}{\first{\vartym}}{\varexpm}}{\tylump} and $\first{\vartym} \neq \tylump$ then \judtm{\env}{\first{\vartym}}, \judem{\env}{\varexpm}{\second{\vartym}}, and $\first{\vartym} = \second{\vartym}$.
-
-% hm t L e
-
-\item If \judeh{\env}{\exphm{\first{\vartyh}}{\tylump}{\varexpm}}{\second{\vartyh}} and $\first{\vartyh} \neq \tylump$ then \judth{\env}{\vartyh} and \judem{\env}{\varexpm}{\tylump}.
+\item If \judeh{\env}{\exphm{\first{\vartyh}}{\first{\vartym}}{\varexpm}}{\second{\vartyh}} and $\first{\vartyh} \eq \first{\vartym}$ then $\second{\vartyh} = \first{\vartyh}$, \judth{\env}{\first{\vartyh}}, \judtm{\env}{\first{\vartym}}, \judem{\env}{\varexpm}{\second{\vartym}}, and $\first{\vartym} = \second{\vartym}$.
 
 % hs k k e
 
