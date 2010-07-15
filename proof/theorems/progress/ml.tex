@@ -8,6 +8,40 @@ If \judem{}{\first{\varexpm}}{\vartym} then \pshyp{\first{\varexpm}}{\second{\va
 
 By structural induction on \first{\varexpm}.  Cases similar to Haskell cases are omitted.
 
+% mh t t e
+
+\newcommand{\psmh}{\expmh{\first{\vartym}}{\first{\vartyh}}{\first{\varexph}}\xspace}
+
+\begin{case}{\psmh}
+
+\pshypby
+{\first{\varexph}}
+{\second{\varexph}}
+\pscasestwo
+{\first{\varexph}}
+{\first{\vartym}}
+{\first{\vartyh}}
+{\psmh}
+
+% TODO:
+
+TODO
+
+\begin{subcase}{}
+
+\end{subcase}
+
+\pssub
+{\first{\varexph}}
+{\second{\varexph}}
+{\psmh}
+{\expmh{\first{\vartym}}{\first{\vartyh}}{\second{\varexph}}}
+\pserr
+{\first{\varexph}}
+{\psmh}
+
+\end{case}
+
 % cons w w
 
 \newcommand{\psconswm}{\expcons{\first{\varvalum}}{\second{\varvalum}}\xspace}
@@ -90,16 +124,6 @@ By structural induction on \first{\varexpm}.  Cases similar to Haskell cases are
 {\first{\varexpm}}
 {\second{\varexpm}}
 {\psconsem is an \prouv.}
-
-\end{case}
-
-% mh t t e
-
-\begin{case}{}
-
-If \varconm 
-
-
 
 \end{case}
 
