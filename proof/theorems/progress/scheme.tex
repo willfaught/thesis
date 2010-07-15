@@ -8,7 +8,7 @@ If \judes{}{\first{\varexps}}{\tytst} then \pshyp{\first{\varexps}}{\second{\var
 
 By structural induction on \first{\varexps}.  Cases similar to Haskell and ML cases are omitted.
 
-% cons w w
+% cons v v
 
 \begin{case}
 
@@ -18,6 +18,7 @@ $\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2}$ is an unforced value.
 
 \end{case}
 
+% TODO:
 % sh k e
 
 \begin{case}
@@ -26,15 +27,51 @@ $e_{S}=SH^{T}$ $e_{H}$
 
 $SH^{T}$ $e_{H}$ is an unforced value.
 
+TODO
+
 \end{case}
 
 % e e
 
-\begin{case}
+\newcommand{\psfapps}{\expfapp{\first{\varexps}}{\second{\varexps}}}
+\renewcommand{\x}{\expfabsd{\first{\varvars}}{\third{\varexps}}}
 
-$e_{S}=e_{S}^{1}$ $e_{S}^{2}$
+\begin{case}{\psfapps}
 
-$e_{S}^{1}$ is an unforced value or $e_{S}^{1}\rightarrow e_{S}^{3}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{1}\rightarrow e_{S}^{3}$ then $e_{S}^{1}$ $e_{S}^{2}\rightarrow e_{S}^{3}$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $e_{S}^{1}$ $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{2}$ is an unforced value or $e_{S}^{2}\rightarrow e_{S}^{4}$ or $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{2}\rightarrow e_{S}^{4}$ and $e_{S}^{1}$ is an unforced value then $e_{S}^{1}$ $e_{S}^{2}\rightarrow e_{S}^{1}$ $e_{S}^{4}$.  If $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string} and $e_{S}^{1}$ is an unforced value then $e_{S}^{1}$ $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{1}$ and $e_{S}^{2}$ are unforced values otherwise.  $(\lambda x.e_{S}^{5})$ $e_{S}^{2}\rightarrow e_{S}^{5}[e_{S}^{2}/x]$.  $e_{S}^{1}$ $e_{S}^{2}\rightarrow\mathtt{wrong}$ \emph{``Not a function"} $(e_{S}^{1}\neq\lambda x.e_{S}^{5})$.
+\pshypby
+{\first{\varexps}}
+{\third{\varexps}}
+\pssub
+{\first{\varexps}}
+{\third{\varexps}}
+{\psfapps}
+{\expfapp{\third{\varexps}}{\second{\varexps}}}
+\pserr
+{\first{\varexps}}
+{\psfapps}
+\pshypby
+{\second{\varexps}}
+{\third{\varexps}}
+\pssuband
+{\second{\varexps}}
+{\third{\varexps}}
+{\first{\varexps}}
+{\psfapps}
+{\expfapp{\first{\varexps}}{\third{\varexps}}}
+\pserrand
+{\second{\varexps}}
+{\first{\varexps}}
+{\psfapps}
+\psother
+{\first{\varexps}}
+{\second{\varexps}}
+\psred
+{\expfapp{(\x)}{\second{\varexps}}}
+{\expsubst{\third{\varexps}}{\second{\varexps}}{\first{\varvars}}}
+\psrednote
+{\expfapp{\first{\varexps}}{\second{\varexps}}}
+{\expwrongd{\errfun}}
+{\first{\varexps} \neq \expfabsd{\first{\varvars}}{\third{\varexps}}}
 
 \end{case}
 
