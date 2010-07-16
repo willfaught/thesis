@@ -8,16 +8,6 @@ If \judes{}{\first{\varexps}}{\tytst} then \pshyp{\first{\varexps}}{\second{\var
 
 By structural induction on \first{\varexps}.  Cases similar to Haskell and ML cases are omitted.
 
-% cons v v
-
-\begin{case}
-
-$e_{S}=\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2}$
-
-$\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2}$ is an unforced value.
-
-\end{case}
-
 % TODO:
 % sh k e
 
@@ -31,61 +21,9 @@ TODO
 
 \end{case}
 
-% e e
-
-\newcommand{\psfapps}{\expfapp{\first{\varexps}}{\second{\varexps}}}
-\renewcommand{\x}{\expfabsd{\first{\varvars}}{\third{\varexps}}}
-
-\begin{case}{\psfapps}
-
-\pshypby
-{\first{\varexps}}
-{\third{\varexps}}
-\pssub
-{\first{\varexps}}
-{\third{\varexps}}
-{\psfapps}
-{\expfapp{\third{\varexps}}{\second{\varexps}}}
-\pserr
-{\first{\varexps}}
-{\psfapps}
-\pshypby
-{\second{\varexps}}
-{\third{\varexps}}
-\pssuband
-{\second{\varexps}}
-{\third{\varexps}}
-{\first{\varexps}}
-{\psfapps}
-{\expfapp{\first{\varexps}}{\third{\varexps}}}
-\pserrand
-{\second{\varexps}}
-{\first{\varexps}}
-{\psfapps}
-\psother
-{\first{\varexps}}
-{\second{\varexps}}
-\psred
-{\expfapp{(\x)}{\second{\varexps}}}
-{\expsubst{\third{\varexps}}{\second{\varexps}}{\first{\varvars}}}
-\psrednote
-{\expfapp{\first{\varexps}}{\second{\varexps}}}
-{\expwrongd{\errfun}}
-{\first{\varexps} \neq \expfabsd{\first{\varvars}}{\third{\varexps}}}
-
-\end{case}
-
-% cons e e
-
-\begin{case}
-
-$e_{S}=\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}$
-
-$e_{S}^{1}$ is an unforced value or $e_{S}^{1}\rightarrow e_{S}^{3}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{1}\rightarrow e_{S}^{3}$ then $\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow\mathtt{cons}$ $e_{S}^{3}$ $e_{S}^{2}$.  If $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} then $\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  $e_{S}^{2}$ is an unforced value or $e_{S}^{2}\rightarrow e_{S}^{4}$ or $e_{S}^{1}\rightarrow$ \emph{\textbf{Error}: string} by the induction hypothesis.  If $e_{S}^{2}\rightarrow e_{S}^{4}$ and $e_{M}^{1}$ is an unforced value then $\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{4}$.  If $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string} and $e_{S}^{1}$ is an unforced value then $\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}\rightarrow$ \emph{\textbf{Error}: string}.  If $e_{S}^{1}$ and $e_{S}^{2}$ are unforced values then $\mathtt{cons}$ $e_{S}^{1}$ $e_{S}^{2}$ is an unforced value.
-
-\end{case}
-
 % sm k e
+
+
 
 \begin{case}
 

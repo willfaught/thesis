@@ -8,16 +8,6 @@ If \judem{}{\first{\varexpm}}{\vartym} then \pshyp{\first{\varexpm}}{\second{\va
 
 By structural induction on \first{\varexpm}.  Cases similar to Haskell cases are omitted.
 
-% cons v v
-
-\newcommand{\psconswm}{\expcons{\first{\varvalum}}{\second{\varvalum}}\xspace}
-
-\begin{case}{\psconswm}
-
-\psconswm is an \prouv.
-
-\end{case}
-
 % mh t t e
 
 \newcommand{\psmh}{\expmh{\first{\vartym}}{\first{\vartyh}}{\first{\varexph}}\xspace}
@@ -87,7 +77,9 @@ TODO
 {\second{\varexpm}}
 {\first{\varexpm}}
 {\psfappm}
-\psred
+\psredif
+{\first{\varexpm}}
+{\second{\varexpm}}
 {\expfapp{(\x)}{\second{\varexpm}}}
 {\expsubst{\third{\varexpm}}{\second{\varexpm}}{\varvarm}}
 
