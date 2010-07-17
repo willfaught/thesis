@@ -62,43 +62,80 @@ TODO
 
 \end{subcase}
 
-\begin{subcase}
+% N
 
-$T=N$
+\renewcommand{\x}{\first{\expnum{\varnum}}}
 
-$e_{M}^{1}=\overline{n}$ by canonical forms (Lemma \ref{cf}).  $SM^{N}$ $\overline{n}\rightarrow\overline{n}$.
+\begin{subcase}{\csnum}
 
-\end{subcase}
-
-\begin{subcase}
-
-$T=[T_{1}]$
-
-$e_{M}^{1}\in\lbrace\mathtt{nil}^{T_{1}[T_{i}/T_{i}^{a}]},\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2},{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rbrace$ by canonical forms (Lemma \ref{cf}).  $SM^{T_{1}}$ $\mathtt{nil}^{T_{1}}\rightarrow\mathtt{nil}$.  $SM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(SM^{T_{1}}$ $v_{M}^{1})$ $(SM^{[T_{1}]}$ $v_{M}^{2})$.  $SM^{[T_{1}]}$ $({^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$.
-
-\end{subcase}
-
-\begin{subcase}
-
-$T=T_{1}^{a}$
-
-$SM^{T_{1}^{a}}$ $e_{M}^{1}$ is an unforced value.
+\psvalcaneq
+{\first{\varexpm}}
+{\x}
+\psred
+{\expsm{\csnum}{\x}}
+{\x}
 
 \end{subcase}
 
-\begin{subcase}
+% {k}
 
-$T=T_{1}\rightarrow T_{2}$
+\renewcommand{\x}{\cslist{\second{\varcsm}}}
+\renewcommand{\y}{\expnils{\first{\vartym}}}
+\renewcommand{\z}{\expcons{\first{\varvalum}}{\second{\varvalum}}}
 
-$e_{M}^{1}=\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M}^{3}$ by canonical forms (Lemma \ref{cf}).  $SM^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M}^{3})\rightarrow\lambda x_{2}.(SM^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{M}^{3})$ $(^{T_{1}}MS$ $x_{2})))$.
+\begin{subcase}{\x}
+
+\psvalcanin
+{\first{\varexpm}}
+{\y, \z}
+\psred
+{\expsm{\x}{(\y)}}
+{\expnild}
+\psred
+{\expsm{\x}{(\z)}}
+{\expcons{(\expsm{\second{\varcsm}}{\first{\varvalum}})}{(\expsm{\x}{\second{\varvalum}})}}
 
 \end{subcase}
 
-\begin{subcase}
+% k->k
 
-$T=\forall X.T_{1}$
+\renewcommand{\x}{\csfun{\second{\varcsm}}{\third{\varcsm}}}
+\renewcommand{\y}{\expfabss{\first{\varvarm}}{\first{\vartym}}{\first{\varexpm}}}
 
-$e_{M}^{1}\in\lbrace\Lambda X.e_{M}^{3},{^{\forall X.T_{1}}M}S$ $v_{S}\rbrace$ by canonical forms (Lemma \ref{cf}).  $SM^{\forall X.T_{1}}$ $(\Lambda X.e_{M}^{3})\rightarrow SM^{T_{1}[L/X]}$ $((\Lambda X.e_{M}^{3})$ $\lbrace L\rbrace)$.  $SM^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}MS$ $v_{S})\rightarrow v_{S}$.
+\begin{subcase}{\x}
+
+\psvalcaneq
+{\first{\varexpm}}
+{\y}
+\psred
+{\expsm{(\x)}{(\y)}}
+{\expfabsd{\first{\varvars}}{\expsm{\third{\varcsm}}{(\expfapp{(\y)}{(\expms{\second{\varcsm}}{\first{\varvars}})})}}}
+
+\end{subcase}
+
+% Au.k
+
+\renewcommand{\x}{\csfor{\first{\csvarm}}{\second{\varcsm}}}
+\renewcommand{\y}{\exptabs{\second{\tyvarm}}{\second{\varexpm}}}
+
+\begin{subcase}{\x}
+
+\psvalcaneq
+{\first{\varexpm}}
+{\y}
+\psred
+{\expsm{(\x)}{(\y)}}
+{\expsm{\cssubst{\second{\varcsm}}{\cslump}{\first{\csvarm}}}{\expsubst{\second{\varexpm}}{\tylump}{\second{\tyvarm}}}}
+
+\end{subcase}
+
+% b.t
+
+\renewcommand{\x}{\csbrand{\first{\varbrand}}{\first{\vartym}}}
+
+\begin{subcase}{\x}
+
+\expsm{(\x)}{\first{\varexpm}} is an \prouv.
 
 \end{subcase}
 
