@@ -8,17 +8,17 @@ Proving the progress of expressions and the preservation of types proves the typ
 
 Progress will be proven by structural induction on a well-typed, closed expression of each syntactic form.  In each case, the expression will be proven to be either an unforced value, reducible to another expression, or reducible to an error.  The reduction of a subexpression is the reduction of its parent expression.  If a subexpression reduces to an error, its parent expression reduces to the error.  In some cases, the syntactic form of a subexpression must be determined to reduce its parent expression.  Determining the unique type of a subexpression determines its syntactic form.
 
-\input{proof/lemmas/inversion.tex}
+\input{proof/progress/inversion.tex}
 
-\input{proof/lemmas/uniqueness-of-types.tex}
+\input{proof/progress/uniqueness-of-types.tex}
 
-\input{proof/lemmas/canonical-forms.tex}
+\input{proof/progress/canonical-forms.tex}
 
-\input{proof/theorems/progress/haskell.tex}
+\input{proof/progress/haskell.tex}
 
-\input{proof/theorems/progress/ml.tex}
+\input{proof/progress/ml.tex}
 
-\input{proof/theorems/progress/scheme.tex}
+\input{proof/progress/scheme.tex}
 
 \section{Proof of Type Preservation}
 
@@ -26,12 +26,12 @@ Preservation will be proven by cases on the reduction rules.  In each case, the 
 
 If \first{\varexph} is substituted for free occurrences of \first{\varvarh} within \second{\varexph} and \first{\varexph} and \first{\varvarh} have the same type then the result has the same type as \second{\varexph}.
 
-\input{proof/lemmas/expression-substitution.tex}
+\input{proof/preservation/expression-substitution.tex}
 
 If \first{\vartyh} is substituted for free occurrences of \first{\tyvarh} within \first{\varexph} of type \second{\vartyh}, the type of the result is \first{\vartyh} substituted for free occurrences of \tyvarh within \second{\vartyh}.
 
-\input{proof/lemmas/type-substitution.tex}
+\input{proof/preservation/type-substitution.tex}
 
-\input{proof/lemmas/evaluation-context.tex}
+\input{proof/preservation/evaluation-context.tex}
 
-\input{proof/theorems/preservation.tex}
+\input{proof/preservation/haskell.tex}

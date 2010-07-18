@@ -1,5 +1,0 @@
-\begin{case}
-$^{[T_{1}]}HM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(^{T_{1}}HM^{T_{1}}$ $v_{M}^{1})$ $(^{[T_{1}]}HM^{[T_{1}]}$ $v_{M}^{2})$
-
-$^{[T_{1}]}HM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{M}v_{M}^{1}:T_{1}$, $\Gamma\vdash_{M}v_{M}^{2}:[T_{1}]$, $\Gamma\vdash_{M}\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}:[T_{1}]$, $T=[T_{1}]$, $\Gamma\vdash_{H}{^{T_{1}}H}M^{T_{1}}$ $v_{M}^{1}:T_{1}$, $\Gamma\vdash_{H}{^{[T_{1}]}H}M^{[T_{1}]}$ $v_{M}^{2}:[T_{1}]$, and $\Gamma\vdash_{H}\mathtt{cons}$ $(^{T_{1}}HM^{T_{1}}$ $v_{M}^{1})$ $(^{[T_{1}]}HM^{[T_{1}]}$ $v_{M}^{2}):[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{H}\mathtt{cons}$ $(^{T_{1}}HM^{T_{1}}$ $v_{M}^{1})$ $(^{[T_{1}]}HM^{[T_{1}]}$ $v_{M}^{2}):T$ because $[T_{1}]=T$.
-\end{case}

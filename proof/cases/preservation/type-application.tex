@@ -1,5 +1,0 @@
-\begin{case}
-$(\Lambda X.e_{A})$ $\lbrace T_{1}\rbrace\rightarrow e_{A}[T_{1}/X]$ where $A\in\lbrace H,M\rbrace$
-
-$\Gamma\vdash_{A}(\Lambda X.e_{H})$ $\lbrace T_{1}\rbrace:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{A}\Lambda X.e_{A}:\forall X.T_{2}$, $\Gamma,X\vdash_{A}e_{A}:T_{2}$, and $T=T_{2}[T_{1}/X]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{A}e_{A}[T_{1}/X]:T_{2}[T_{1}/X]$ by type substitution (Lemma \ref{tes}).  $\Gamma\vdash_{A}e_{A}[T_{1}/X]:T$ because $T_{2}[T_{1}/X]=T$.
-\end{case}
