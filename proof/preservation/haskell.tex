@@ -1,6 +1,6 @@
-\begin{theorem}{Preservation}
+\begin{theorem}{Haskell Preservation}
 
-\label{thmpre}
+\label{thmpnh}
 
 If $\Gamma\vdash_{A}e_{A}^{1}:T$ and $e_{A}^{1}\rightarrow e_{A}^{2}$ then $\Gamma\vdash_{A}e_{A}^{2}:T$ where $A\in\lbrace H,M\rbrace$.  If $\Gamma\vdash_{S}e_{S}^{1}:TST$ and $e_{S}^{1}\rightarrow e_{S}^{2}$ then $\Gamma\vdash_{S}e_{S}^{2}:TST$.
 
@@ -56,60 +56,12 @@ $\mathtt{hd}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rightarrow e_{H}^{1}$
 $\Gamma\vdash_{H}\mathtt{hd}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}e_{H}^{1}:T_{1}$, $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$, and $T=T_{1}$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{H}e_{H}^{1}:T$ because $T_{1}=T$.
 \end{case}
 
-% m head cons
-
-\begin{case}
-$\mathtt{hd}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow v_{M}^{1}$
-
-$\Gamma\vdash_{M}\mathtt{hd}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{M}v_{M}^{1}:T_{1}$, $\Gamma\vdash_{M}\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}:[T_{1}]$, and $T=T_{1}$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{M}v_{M}^{1}:T$ because $T_{1}=T$.
-\end{case}
-
 % h tail cons
 
 \begin{case}
 $\mathtt{tl}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rightarrow e_{H}^{2}$
 
 $\Gamma\vdash_{H}\mathtt{tl}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}e_{H}^{2}:[T_{1}]$, $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$, and $T=[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{H}e_{H}^{2}:T$ because $[T_{1}]=T$.
-\end{case}
-
-% m tail cons
-
-\begin{case}
-$\mathtt{tl}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow v_{M}^{2}$
-
-$\Gamma\vdash_{M}\mathtt{tl}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{M}v_{M}^{2}:[T_{1}]$, $\Gamma\vdash_{M}\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}:[T_{1}]$, and $T=[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{M}v_{M}^{2}:T$ because $[T_{1}]=T$.
-\end{case}
-
-% mh list head cons
-
-\begin{case}
-$\mathtt{hd}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{T_{1}}M}H^{T_{1}}$ $e_{H}^{1}$
-
-$\Gamma\vdash_{M}\mathtt{hd}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}e_{H}^{1}:T_{1}$, $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$, $\Gamma\vdash_{M}{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):[T_{1}]$, $T=T_{1}$, and $^{T_{1}}MH^{T_{1}}$ $e_{H}^{1}:T_{1}$ by inversion (Lemma \ref{i}) and uniqueness of types.  $^{T_{1}}MH^{T_{1}}$ $e_{H}^{1}:T$ because $T_{1}=T$.
-\end{case}
-
-% sh list head cons
-
-\begin{case}
-$\mathtt{hd}$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{T_{1}}$ $e_{H}^{1}$
-
-$\Gamma\vdash_{S}\mathtt{hd}$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):TST$ by premise.  $\Gamma\vdash_{H}e_{H}^{1}:T_{1}$ and $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):TST$ and $\Gamma\vdash_{S}SH^{T_{1}}$ $e_{H}^{1}:TST$ by inversion.
-\end{case}
-
-% mh list tail cons
-
-\begin{case}
-$\mathtt{tl}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{[T_{1}]}M}H^{[T_{1}]}$ $e_{H}^{2}$
-
-$\Gamma\vdash_{M}\mathtt{tl}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}e_{H}^{2}:[T_{1}]$, $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$, $\Gamma\vdash_{M}{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):[T_{1}]$, $T=[T_{1}]$, and $^{[T_{1}]}MH^{[T_{1}]}$ $e_{H}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $^{[T_{1}]}MH^{[T_{1}]}$ $e_{H}^{2}:T$ because $[T_{1}]=T$.
-\end{case}
-
-% sh list tail cons
-
-\begin{case}
-$\mathtt{tl}$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{[T_{1}]}$ $e_{H}^{2}$
-
-$\Gamma\vdash_{S}\mathtt{tl}$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):TST$ by premise.  $\Gamma\vdash_{H}e_{H}^{2}:[T_{1}]$ and $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):TST$ and $\Gamma\vdash_{S}SH^{[T_{1}]}$ $e_{H}^{2}:TST$ by inversion.
 \end{case}
 
 % + n n
@@ -144,14 +96,6 @@ $\mathtt{null?}$ $(\mathtt{cons}$ $B_{A}^{1}$ $B_{A}^{2})\rightarrow\overline{1}
 $\Gamma\vdash_{A}\mathtt{null?}$ $(\mathtt{cons}$ $B_{A}^{1}$ $B_{A}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=N$ and $\vdash_{A}\overline{1}:N$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\vdash_{A}\overline{1}:T$ because $N=T$.
 \end{case}
 
-% m null mh cons
-
-\begin{case}
-$\mathtt{null?}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow\overline{1}$
-
-$\Gamma\vdash_{M}\mathtt{null?}$ $(^{[T]}MH^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=N$ and $\vdash_{A}\overline{1}:N$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\vdash_{A}\overline{1}:T$ because $N=T$.
-\end{case}
-
 % if0 0 e e
 
 \begin{case}
@@ -174,16 +118,6 @@ $\Gamma\vdash_{A}\mathtt{if0}$ $\overline{n}$ $e_{A}^{1}$ $e_{A}^{2}:T$ by premi
 $\mathtt{wrong}^{T_{1}}$ \emph{string} $\rightarrow$ \emph{\textbf{Error}: string}
 
 Irrelevant because an error terminates the computation.
-\end{case}
-
-% m force
-
-\begin{case}
-
-$\mathtt{force}$ $v_{S}\rightarrow v_{S}$ $(v_{M}\neq{^{T}M}H^{T}$ $e_{H}$ or $v_{M}={^{[T]}M}H^{[T]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))$
-
-$\vdash_{M}\mathtt{force}$ $v_{M}:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\vdash_{M}v_{M}:T$ by inversion (Lemma \ref{i}) and uniqueness of types.
-
 \end{case}
 
 % hm mh lump
@@ -250,14 +184,6 @@ $^{[T_{1}]}AS$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2})\rightarrow\mathtt{cons}$
 $\Gamma\vdash_{A}{^{[T_{1}]}A}S$ $(\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}v_{S}^{1}:TST$, $\Gamma\vdash_{S}v_{S}^{2}:TST$, and $\Gamma\vdash_{S}\mathtt{cons}$ $v_{S}^{1}$ $v_{S}^{2}:TST$ by inversion (Lemma \ref{i}).  $T=[T_{1}]$, $\Gamma\vdash_{A}{^{T_{1}}A}S$ $v_{S}^{1}:T_{1}$, $\Gamma\vdash_{A}{^{[T_{1}]}A}S$ $v_{S}^{2}:[T_{1}]$, and $\Gamma\vdash_{A}\mathtt{cons}$ $(^{T_{1}}AS$ $v_{S}^{1})$ $(^{[T_{1}]}AS$ $v_{S}^{2}):[T_{1}]$ by inversion and uniqueness of types.  $\Gamma\vdash_{A}\mathtt{cons}$ $(^{T_{1}}AS$ $v_{S}^{1})$ $(^{[T_{1}]}AS$ $v_{S}^{2}):T$ because $[T_{1}]=T$.
 \end{case}
 
-% sm list cons
-
-\begin{case}
-$SM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2})\rightarrow\mathtt{cons}$ $(SM^{T_{1}}$ $v_{M}^{1})$ $(SM^{[T_{1}]}$ $v_{M}^{2})$
-
-$\Gamma\vdash_{S}SM^{[T_{1}]}$ $(\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}):TST$ by premise.  $\Gamma\vdash_{M}v_{M}^{1}:T_{1}$, $\Gamma\vdash_{M}v_{M}^{2}:[T_{1}]$, and $\Gamma\vdash_{M}\mathtt{cons}$ $v_{M}^{1}$ $v_{M}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SM^{T_{1}}$ $v_{M}^{1}:TST$, $\Gamma\vdash_{S}SM^{[T_{1}]}$ $v_{M}^{2}:TST$, and $\Gamma\vdash_{S}\mathtt{cons}$ $(SM^{T_{1}}$ $v_{M}^{1})$ $(SM^{[T_{1}]}$ $v_{M}^{2}):TST$ by inversion.
-\end{case}
-
 % list mh cons
 
 \begin{case}
@@ -266,28 +192,12 @@ $^{[T_{1}]}HM^{[T_{1}]}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ 
 $^{[T_{1}]}HM^{[T_{1}]}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$, $\Gamma\vdash_{H}{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):[T_{1}]$, and $T=[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:T$ because $[T_{1}]=T$.
 \end{case}
 
-% sm list mh cons
-
-\begin{case}
-$SM^{[T_{1}]}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$
-
-$SM^{[T_{1}]}$ $(^{[T_{1}]}MH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):TST$ by premise.  $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$ and $\Gamma\vdash_{M}{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):TST$ by inversion.
-\end{case}
-
 % list sh cons
 
 \begin{case}
 $^{[T_{1}]}HS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}$
 
 $^{[T_{1}]}HS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{S}SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):TST$ by inversion.  $T=[T_{1}]$ by inversion and uniqueness of types.  $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:T$ because $[T_{1}]=T$.
-\end{case}
-
-% ms list sh cons
-
-\begin{case}
-$^{[T_{1}]}MS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}))\rightarrow{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})$
-
-$^{[T_{1}]}MS$ $(SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})):T$ by premise and uniqueness of types (Lemma \ref{i}).  $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{S}SH^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):TST$ by inversion.  $T=[T_{1}]$ and $\Gamma\vdash_{M}{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):[T_{1}]$ by inversion and uniqueness of types.  $\Gamma\vdash_{M}{^{[T_{1}]}M}H^{[T_{1}]}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):T$ because $[T_{1}]=T$.
 \end{case}
 
 % hs ms list error
@@ -338,14 +248,6 @@ $^{T_{1}\rightarrow T_{2}}AS$ $v_{S}\rightarrow{^{T_{1}\rightarrow T_{2}}A}S$ $(
 $\Gamma\vdash_{A}{^{T_{1}\rightarrow T_{2}}A}S$ $v_{S}:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=(T_{1}\rightarrow T_{2})[T_{i}/T_{i}^{a}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\vdash_{S}\mathtt{wrong}$ $\mathrm{``Not}$ $\mathrm{a}$ $\mathrm{function"}:TST$ by inversion.  $\Gamma\vdash_{A}{^{T_{1}\rightarrow T_{2}}A}S$ $(\mathtt{wrong}$ $\mathrm{``Not}$ $\mathrm{a}$ $\mathrm{function"}):(T_{1}\rightarrow T_{2})[T_{i}/T_{i}^{a}]$ by inversion and uniqueness of types.  $\Gamma\vdash_{A}{^{T_{1}\rightarrow T_{2}}A}S$ $(\mathtt{wrong}$ $\mathrm{``Not}$ $\mathrm{a}$ $\mathrm{function"}):T$ because $(T_{1}\rightarrow T_{2})[T_{i}/T_{i}^{a}]=T$.
 \end{case}
 
-% sh sm function
-
-\begin{case}
-$SA^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A})\rightarrow\lambda x_{2}.(SA^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A})$ $(^{T_{1}}AS$ $x_{2})))$ where $A\in\lbrace H,M\rbrace$
-
-$\Gamma\vdash_{S}SA^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A}):TST$ by premise.  $\Gamma\vdash_{A}\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A}$ $:T_{1}[T_{i}/T_{i}^{a}]\rightarrow T_{2}[T_{i}/T_{i}^{a}]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma,x_{2}:TST\vdash_{S}x_{2}:TST$ by inversion.  $\Gamma,x_{2}:TST\vdash_{A}{^{T_{1}}A}S$ $x_{2}:T_{1}[T_{i}/T_{i}^{a}]$ and $\Gamma,x_{2}:TST\vdash_{A}(\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A})$ $(^{T_{1}}AS$ $x_{2}):T_{2}[T_{i}/T_{i}^{a}]$ by inversion and uniqueness of types.  $\Gamma,x_{2}:TST\vdash_{S}SA^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A})$ $(^{T_{1}}AS$ $x_{2})):TST$ and $\Gamma\vdash_{S}\lambda x_{2}.(SA^{T_{2}}$ $((\lambda x_{1}:T_{1}[T_{i}/T_{i}^{a}].e_{A})$ $(^{T_{1}}AS$ $x_{2}))):TST$ by inversion.
-\end{case}
-
 % hm mh universal
 
 \begin{case}
@@ -368,14 +270,6 @@ $\Gamma\vdash_{A}{^{\forall X.T_{1}}A}B^{\forall X.T_{1}}$ $(^{\forall X.T_{1}}B
 $(^{\forall X.T_{1}}AS$ $v_{S})$ $\lbrace T_{2}\rbrace\rightarrow{^{T_{1}[T_{2}^{a}/X]}A}S$ $v_{S}$ where $A\in\lbrace H,M\rbrace$
 
 $\Gamma\vdash_{A}(^{\forall X.T_{1}}AS$ $v_{S})$ $\lbrace T_{2}\rbrace:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}v_{S}:TST$ by inversion (Lemma \ref{i}).  $\Gamma\vdash_{A}{^{\forall X.T_{1}}A}S$ $v_{S}:\forall X.T_{1}$ and $T=T_{1}[T_{2}/X]$ by inversion and uniqueness of types.  $\Gamma\vdash_{A}{^{T_{1}[T_{2}^{a}/X]}A}S$ $v_{S}:T_{1}[T_{2}^{a}/X][T_{i}/T_{i}^{a}]$ by inversion and uniqueness of types.  $\Gamma\vdash_{A}{^{T_{1}[T_{2}^{a}/X]}A}S$ $v_{S}:T$ because $T_{1}[T_{2}^{a}/X][T_{i}/T_{i}^{a}]=T_{1}[T_{2}/X]=T$.
-\end{case}
-
-% sh sm universal
-
-\begin{case}
-$SA^{\forall X.T_{1}}$ $(\Lambda X.e_{A})\rightarrow SA^{T_{1}[L/X]}$ $((\Lambda X.e_{A})$ $\lbrace L\rbrace)$ where $A\in\lbrace H,M\rbrace$
-
-$\Gamma\vdash_{S}SA^{\forall X.T_{1}}$ $(\Lambda X.e_{A}):TST$ by premise.  $\Gamma\vdash_{A}\Lambda X.e_{A}:\forall X.T_{1}$ and $\Gamma\vdash_{A}(\Lambda X.e_{A})$ $\lbrace L\rbrace:T_{1}[L/X]$ by inversion (Lemma \ref{i}) and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{S}SA^{T_{1}[L/X]}$ $((\Lambda X.e_{A})$ $\lbrace L\rbrace):TST$ by inversion.
 \end{case}
 
 \end{proof}
