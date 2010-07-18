@@ -2,7 +2,7 @@
 
 \label{lemtyp}
 
-If $\Gamma,X\vdash_{A}e_{A}:T_{1}$ and $\Gamma\vdash_{A}T_{2}$ then $\Gamma\vdash_{A}e_{A}[T_{2}/X]:T_{1}[T_{2}/X]$ where $A\in\lbrace H,M\rbrace$.
+If \judeh{\envextt{\first{\tyvarh}}}{\first{\varexph}}{\first{\vartyh}} and \judth{\env}{\second{\vartyh}} then \judeh{\env}{\expsubst{\first{\varexph}}{\second{\vartyh}}{\first{\tyvarh}}}{\tysubst{\first{\vartyh}}{\second{\vartyh}}{\first{\tyvarh}}}.  If \judem{\envextt{\first{\tyvarm}}}{\first{\varexpm}}{\first{\vartym}} and \judtm{\env}{\second{\vartym}} then \judem{\env}{\expsubst{\first{\varexpm}}{\second{\vartym}}{\first{\tyvarm}}}{\tysubst{\first{\vartym}}{\second{\vartym}}{\first{\tyvarm}}}.
 
 \begin{proof}
 
