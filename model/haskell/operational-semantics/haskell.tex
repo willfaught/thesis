@@ -1,91 +1,148 @@
+% e e
+
+\newcommand{\osfapph}
+{
+\redruleh
+{\expfapp{(\expfabss{\varvarh}{\vartyh}{\first{\varexph}})}{\second{\varexph}}}
+{\expsubst{\first{\varexph}}{\second{\varexph}}{\varvarh}}
+}
+
+% e<t>
+
+\newcommand{\ostapp}
+{
+\redruleh
+{\exptapp{(\exptabs{\tyvarh}{\varexph})}{\vartyh}}
+{\tysubst{\varexph}{\csbrand{\varbrand}{\vartyh}}{\tyvarh}}
+}
+
+% fix e
+
+\newcommand{\osfix}
+{
+\redruleh
+{\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}}
+{\expsubst{\varexph}{\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}}{\varvarh}}
+}
+
+% + e e
+
+\newcommand{\osadd}
+{
+\redruleh
+{\expadd{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
+{\expnum{\first{\varnum} + \second{\varnum}}}
+}
+
+% - e e
+
+\newcommand{\ossub}
+{
+\redruleh
+{\expsub{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
+{\expnum{\formvar{max}(\first{\varnum} - \second{\varnum}, 0)}}
+}
+
+% if0 0 e e
+
+\newcommand{\osiftrue}
+{
+\redruleh
+{\expif{\expnum{0}}{\first{\varexph}}{\second{\varexph}}}
+{\first{\varexph}}
+}
+
+% if0 n e e
+
+\newcommand{\osiffalse}
+{
+\redruleh
+{\expif{\expnum{\varnum}}{\first{\varexph}}{\second{\varexph}}}
+{\second{\varexph}}
+$(\varnum \neq 0)$
+}
+
+% hd nil
+
+\newcommand{\oshdnil}
+{
+\redruleh
+{\exphd{(\expnils{\vartyh})}}
+{\expwrongs{\vartyh}{\str{Empty \; list}}}
+}
+
+% tl nil
+
+\newcommand{\ostlnil}
+{
+\redruleh
+{\exptl{(\expnils{\vartyh})}}
+{\expwrongs{\tylist{\vartyh}}{\str{Empty \; list}}}
+}
+
+% hd (cons e e)
+
+\newcommand{\oshdconsh}
+{
+\redruleh
+{\exphd{(\expcons{\first{\varexph}}{\second{\varexph}})}}
+{\first{\varexph}}
+}
+
+% tl (cons e e)
+
+\newcommand{\ostlconsh}
+{
+\redruleh
+{\exptl{(\expcons{\first{\varexph}}{\second{\varexph}})}}
+{\second{\varexph}}
+}
+
+% null? nil
+
+\newcommand{\osnullnil}
+{
+\redruleh
+{\exppnull{(\expnils{\vartyh})}}
+{\expnum{0}}
+}
+
+% null? (cons e e)
+
+\newcommand{\osnullconsh}
+{
+\redruleh
+{\exppnull{(\expcons{\first{\varexph}}{\second{\varexph}})}}
+{\expnum{1}}
+}
+
+% wrong t string
+
+\newcommand{\oswrong}
+{
+\redrule
+{\redconh{\expwrongs{\vartyh}{\formvar{string}}}}
+{\experr{\varstr}}
+}
+
 \begin{figure}[p]
 \centering
 \begin{tabular}{l}
 
-% Function application
-
-\redruleh
-{\expfapp{(\expfabss{\varvarh}{\vartyh}{\first{\varexph}})}{\second{\varexph}}}
-{\expsubst{\first{\varexph}}{\second{\varexph}}{\varvarh}} \\
-
-% Type application
-
-\redruleh
-{\exptapp{(\exptabs{\tyvarh}{\varexph})}{\vartyh}}
-{\tysubst{\varexph}{\csbrand{\varbrand}{\vartyh}}{\tyvarh}} \\
-
-% Fix
-
-\redruleh
-{\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}}
-{\expsubst{\varexph}{\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}}{\varvarh}} \\
-
-% Add
-
-\redruleh
-{\expadd{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
-{\expnum{\first{\varnum} + \second{\varnum}}} \\
-
-% Subtract
-
-\redruleh
-{\expsub{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
-{\expnum{\formvar{max}(\first{\varnum} - \second{\varnum}, 0)}} \\
-
-% If0 true
-
-\redruleh
-{\expif{\expnum{0}}{\first{\varexph}}{\second{\varexph}}}
-{\first{\varexph}} \\
-
-% If0 false
-
-\redruleh
-{\expif{\expnum{\varnum}}{\first{\varexph}}{\second{\varexph}}}
-{\second{\varexph}}
-$(\varnum \neq 0)$ \\
-
-% Head nil
-
-\redruleh
-{\exphd{(\expnils{\vartyh})}}
-{\expwrongs{\vartyh}{\str{Empty \; list}}} \\
-
-% Tail nil
-
-\redruleh
-{\exptl{(\expnils{\vartyh})}}
-{\expwrongs{\tylist{\vartyh}}{\str{Empty \; list}}} \\
-
-% Head cons
-
-\redruleh
-{\exphd{(\expcons{\first{\varexph}}{\second{\varexph}})}}
-{\first{\varexph}} \\
-
-% Tail cons
-
-\redruleh
-{\exptl{(\expcons{\first{\varexph}}{\second{\varexph}})}}
-{\second{\varexph}} \\
-
-% Null nil
-
-\redruleh
-{\exppnull{(\expnils{\vartyh})}}
-{\expnum{0}} \\
-
-% Null cons
-
-\redruleh
-{\exppnull{(\expcons{\first{\varexph}}{\second{\varexph}})}}
-{\expnum{1}} \\
-
-% Wrong
-
-\redrule
-{\redconh{\expwrongs{\vartyh}{\formvar{string}}}}
-{\experr{\varstr}}
+\osfapph \\
+\ostapp \\
+\osfix \\
+\osadd \\
+\ossub \\
+\osiftrue \\
+\osiffalse \\
+\oshdnil \\
+\ostlnil \\
+\oshdconsh \\
+\ostlconsh \\
+\osnullnil \\
+\osnullconsh \\
+\oswrong \\
 
 \end{tabular}
 \caption{Haskell operational semantics}
