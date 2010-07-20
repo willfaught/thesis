@@ -1,11 +1,17 @@
 % e e
 
-\newcommand{\osfapph}
+\newcommand{\osfapplh}
 {
-\redruleh
-{\expfapp{(\expfabss{\varvarh}{\vartyh}{\first{\varexph}})}{\second{\varexph}}}
-{\expsubst{\first{\varexph}}{\second{\varexph}}{\varvarh}}
+\expfapp{(\expfabss{\varvarh}{\vartyh}{\first{\varexph}})}{\second{\varexph}}
 }
+
+\newcommand{\osfapprh}
+{
+\expsubst{\first{\varexph}}{\second{\varexph}}{\varvarh}
+}
+
+\newcommand{\osfappmh}{\redruleh{\osfapplh}{\osfapprh}}
+\newcommand{\osfappph}{\redrule{\osfapplh}{\osfapprh}}
 
 % e<t>
 
@@ -129,7 +135,7 @@ $(\varnum \neq 0)$
 \centering
 \begin{tabular}{l}
 
-\osfapph \\
+\osfappmh \\
 \ostapp \\
 \osfix \\
 \osadd \\

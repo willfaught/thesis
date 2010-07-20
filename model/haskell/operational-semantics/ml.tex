@@ -10,13 +10,18 @@ $(\first{\vartyh} = \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$
 
 % hm t L (mh L t e)
 
-\newcommand{\oshmmhneq}
+\newcommand{\oshmmhneq}{}
+
+\newcommand{\oshmmhneqa}
 {
 \redruleh
 {\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}}
-{\expwrongs{\vartyh}{\errtype}} \\
+{\expwrongs{\vartyh}{\errtype}}
+}
 
-\redsp $(\first{\vartyh} \neq \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$
+\newcommand{\oshmmhneqb}
+{
+$(\first{\vartyh} \neq \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$
 }
 
 % hm t L (ms L v)
@@ -49,22 +54,28 @@ $(\vartyh \neq \tylump)$
 
 % hm {t} {t} (cons v v)
 
-\newcommand{\oshmcons}
+\newcommand{\oshmconsa}
 {
-\redruleh
-{\exphm{\tylist{\vartyh}}{\tylist{\vartym}}{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
+\redconh{\exphm{\tylist{\vartyh}}{\tylist{\vartym}}{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
+}
+
+\newcommand{\oshmconsb}
+{
 {\expcons{(\exphm{\vartyh}{\vartym}{\first{\varvalum}})}{(\exphm{\tylist{\vartyh}}{\tylist{\vartym}}{\second{\varvalum}})}}
 }
 
 % hm (t->t) (t->t) (\x:t.e)
 
-\newcommand{\oshmfabs}
-{
-\redrule
-{\redconh{\exphm{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabss{\varvarm}{\third{\vartym}}{\varexpm})}}}
-{} \\
+\newcommand{\oshmfabs}{}
 
-\redsp \redcon{\expfabss{\varvarh}{\first{\vartyh}}{\exphm{\second{\vartyh}}{\second{\vartym}}{\expfapp{((\expfabss{\varvarm}{\third{\vartym}}{\varexpm})}{(\expmh{\first{\vartym}}{\first{\vartyh}}{\varvarh})})}}}
+\newcommand{\oshmfabsa}
+{
+\redconh{\exphm{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabss{\varvarm}{\third{\vartym}}{\varexpm})}}
+}
+
+\newcommand{\oshmfabsb}
+{
+\redcon{\expfabss{\varvarh}{\first{\vartyh}}{\exphm{\second{\vartyh}}{\second{\vartym}}{\expfapp{((\expfabss{\varvarm}{\third{\vartym}}{\varexpm})}{(\expmh{\first{\vartym}}{\first{\vartyh}}{\varvarh})})}}}
 }
 
 % hm (Au.k) (Au.k) (\\x.e)
@@ -81,12 +92,15 @@ $(\vartyh \neq \tylump)$
 \begin{tabular}{l}
 
 \oshmmheq \\
-\oshmmhneq \\
+\oshmmhneqa \\
+\redsp \oshmmhneqb \\
 \oshmms \\
 \oshmnum \\
 \oshmnil \\
-\oshmcons \\
-\oshmfabs \\
+\oshmconsa \red \\
+\redsp \oshmconsb \\
+\oshmfabsa \red \\
+\redsp \oshmfabsb \\
 \oshmtabs \\
 
 \end{tabular}

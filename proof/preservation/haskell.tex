@@ -2,15 +2,27 @@
 
 \label{thmpnh}
 
-If \judeh{\env}{\first{\varexph}}{\first{\vartyh}} and \redruleh{\first{\varexph}}{\second{\varexph}} then \judeh{\env}{\second{\varexph}}{\first{\vartyh}}.
+If \judeh{}{\first{\varexph}}{\first{\vartyh}} and \redrule{\first{\varexph}}{\second{\varexph}} then \judeh{}{\second{\varexph}}{\first{\vartyh}}.
 
 \begin{proof}
 
-By cases on the reduction \redruleh{\first{\varexph}}{\second{\varexph}} and lemma \ref{lemeva}.
+By cases on the reduction \redrule{\first{\varexph}}{\second{\varexph}} and lemma \ref{lemeva}.
 
 % e e
 
-\begin{case}{\osfapph}
+\begin{case}{\osfappph}
+
+\pnpremise
+{\judeh{}{\osfapplh}{\second{\vartyh}}}
+\pntypes
+{
+\judeh{}{\expfabss{\first{\varvarh}}{\first{\vartyh}}{\first{\varexph}}}{\tyfun{\first{\vartyh}}{\second{\vartyh}}},
+\judeh{\envexte{\first{\varvarh}}{\first{\vartyh}}}{\first{\varexph}}{\second{\vartyh}},
+\judeh{}{\second{\varexph}}{\first{\vartyh}},
+\judeh{\envexte{\first{\varvarh}}{\first{\vartyh}}}{\first{\varvarh}}{\first{\vartyh}}, and
+$\first{\vartyh} = \third{\vartyh}$
+}
+
 
 $(\lambda x:T_{1}.e_{A}^{1})$ $e_{A}^{2}\rightarrow e_{A}^{1}[e_{A}^{2}/x]$ where $A\in\lbrace H,M\rbrace$
 
@@ -134,7 +146,7 @@ Irrelevant because an error terminates the computation.
 
 % hm t L (mh L t e)
 
-\begin{case}{\oshmmhneq}
+\begin{case}{\oshmmhneqa \oshmmhneqb}
 
 TEST
 
@@ -246,7 +258,8 @@ $\Gamma\vdash_{A}{^{T_{1}^{a}}A}S$ $v_{S}:T$ by premise and uniqueness of types 
 
 % hm mh function
 
-\begin{case}
+\begin{case}{\redrule{\oshmfabsa}{\oshmfabsb}}
+
 $^{T_{1}\rightarrow T_{2}}AB^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}.e_{B})\rightarrow\lambda x_{2}:T_{1}.(^{T_{2}}AB^{T_{2}}$ $((\lambda x_{1}:T_{1}.e_{B})$ $(^{T_{1}}BA^{T_{1}}$ $x_{2})))$ where $(A,B)\in\lbrace(H,M),(M,H)\rbrace$
 
 $\Gamma\vdash_{A}{^{T_{1}\rightarrow T_{2}}}AB^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}.e_{B}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{B}\lambda x_{1}:T_{1}.e_{B}:T_{1}\rightarrow T_{2}$, $T=T_{1}\rightarrow T_{2}$, $\Gamma,x_{2}:T_{1}\vdash_{A}x_{2}:T_{1}$, $\Gamma,x_{2}:T_{1}\vdash_{B}{^{T_{1}}B}A^{T_{1}}$ $x_{2}:T_{1}$, $\Gamma,x_{2}:T_{1}\vdash_{B}(\lambda x_{1}:T_{1}.e_{B})$ $(^{T_{1}}BA^{T_{1}}$ $x_{2}):T_{2}$, $\Gamma,x_{2}:T_{1}\vdash_{A}{^{T_{2}}A}B^{T_{2}}$ $((\lambda x_{1}:T_{1}.e_{B})$ $(^{T_{1}}BA^{T_{1}}$ $x_{2})):T_{2}$, and $\Gamma\vdash_{A}\lambda x_{2}:T_{1}.(^{T_{2}}AB^{T_{2}}$ $((\lambda x_{1}:T_{1}.e_{B})$ $(^{T_{1}}BA^{T_{1}}$ $x_{2}))):T_{1}\rightarrow T_{2}$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{A}\lambda x_{2}:T_{1}.(^{T_{2}}AB^{T_{2}}$ $((\lambda x_{1}:T_{1}.e_{B})$ $(^{T_{1}}BA^{T_{1}}$ $x_{2}))):T$ because $T_{1}\rightarrow T_{2}=T$.
