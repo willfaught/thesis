@@ -13,7 +13,7 @@
 % u
 \frac
 {}
-{\judth{\envextt{\tyvarh}}{\tyvarh}}
+{\judth{\envextt{\env}{\tyvarh}}{\tyvarh}}
 \]
 \[
 % {t}
@@ -35,12 +35,12 @@
 \[
 % \x:t.e
 \frac
-{\judth{\env}{\first{\vartyh}} \quad \judeh{\envexte{\varvarh}{\first{\vartyh}}}{\varexph}{\second{\vartyh}}}
+{\judth{\env}{\first{\vartyh}} \quad \judeh{\envexte{\env}{\varvarh}{\first{\vartyh}}}{\varexph}{\second{\vartyh}}}
 {\judeh{\env}{(\expfabss{\varvarh}{\first{\vartyh}}{\varexph})}{\tyfun{\first{\vartyh}}{\second{\vartyh}}}}
 \quad
 % \\u.e
 \frac
-{\judeh{\envextt{\tyvarh}}{\varexph}{\vartyh}}
+{\judeh{\envextt{\env}{\tyvarh}}{\varexph}{\vartyh}}
 {\judeh{\env}{\exptabs{\tyvarh}{\varexph}}{\tyfor{\tyvarh}{\vartyh}}}
 \quad
 % n
@@ -62,7 +62,7 @@
 % x
 \frac
 {}
-{\judeh{\envexte{\varvarh}{\vartyh}}{\varvarh}{\vartyh}}
+{\judeh{\envexte{\env}{\varvarh}{\vartyh}}{\varvarh}{\vartyh}}
 \]
 \[
 % e e

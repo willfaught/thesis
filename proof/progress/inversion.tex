@@ -12,11 +12,11 @@ The syntactic forms of well-typed expressions determine the types of their subex
 
 % \x:t.e
 
-\item If \judeh{\env}{\expfabss{\varvarh}{\first{\vartyh}}{\varexph}}{\second{\vartyh}} then $\second{\vartyh} = \tyfun{\first{\vartyh}}{\third{\vartyh}}$, \judth{\env}{\first{\vartyh}}, and \judeh{\envexte{\varvarh}{\first{\vartyh}}}{\varexph}{\third{\vartyh}}.
+\item If \judeh{\env}{\expfabss{\varvarh}{\first{\vartyh}}{\varexph}}{\second{\vartyh}} then $\second{\vartyh} = \tyfun{\first{\vartyh}}{\third{\vartyh}}$, \judth{\env}{\first{\vartyh}}, and \judeh{\envexte{\env}{\varvarh}{\first{\vartyh}}}{\varexph}{\third{\vartyh}}.
 
 % \\u.e
 
-\item If \judeh{\env}{\exptabs{\tyvarh}{\varexph}}{\first{\vartyh}} then $\first{\vartyh} = \tyfor{\tyvarh}{\second{\vartyh}}$ and \judeh{\envextt{\tyvarh}}{\varexph}{\second{\vartyh}}.
+\item If \judeh{\env}{\exptabs{\tyvarh}{\varexph}}{\first{\vartyh}} then $\first{\vartyh} = \tyfor{\tyvarh}{\second{\vartyh}}$ and \judeh{\envextt{\env}{\tyvarh}}{\varexph}{\second{\vartyh}}.
 
 % n
 
@@ -32,7 +32,7 @@ The syntactic forms of well-typed expressions determine the types of their subex
 
 % x
 
-\item \judeh{\envexte{\varvarh}{\vartyh}}{\varvarh}{\vartyh}.
+\item \judeh{\envexte{\env}{\varvarh}{\vartyh}}{\varvarh}{\vartyh}.
 
 % e e
 
