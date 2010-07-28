@@ -6,7 +6,7 @@ If \judeh{\env}{\first{\varexph}}{\first{\vartyh}} and \redruleh{\first{\varexph
 
 \begin{proof}
 
-By cases on the reduction \redruleh{\first{\varexph}}{\second{\varexph}} and lemma \ref{lemeva}.
+By cases on the reduction \redruleh{\first{\varexph}}{\second{\varexph}}, lemma \ref{lemeva}, and theorems \ref{thmpnm} and \ref{thmpns}.
 
 % e e
 
@@ -151,50 +151,70 @@ By cases on the reduction \redruleh{\first{\varexph}}{\second{\varexph}} and lem
 
 \begin{case}{\oshdconsh}
 
-$\mathtt{hd}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rightarrow e_{H}^{1}$
+\pnpremise
+{\judeh{\env}{\oshdconslh}{\first{\vartyh}}}
+\pntypes
+{
+\judeh{\env}{\expcons{\first{\varexph}}{\second{\varexph}}}{\tylist{\first{\vartyh}}} and
+\judeh{\env}{\oshdconsrh}{\first{\vartyh}}
+}
 
-$\Gamma\vdash_{H}\mathtt{hd}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}e_{H}^{1}:T_{1}$, $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$, and $T=T_{1}$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{H}e_{H}^{1}:T$ because $T_{1}=T$.
 \end{case}
 
 % tl (cons e e)
 
 \begin{case}{\ostlconsh}
 
-$\mathtt{tl}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2})\rightarrow e_{H}^{2}$
+\pnpremise
+{\judeh{\env}{\ostlconslh}{\first{\vartyh}}}
+\pntypes
+{
+\first{\vartyh} $=$ \tylist{\second{\vartyh}},
+\judeh{\env}{\expcons{\first{\varexph}}{\second{\varexph}}}{\tylist{\second{\vartyh}}}, and
+\judeh{\env}{\ostlconsrh}{\tylist{\second{\vartyh}}}
+}
 
-$\Gamma\vdash_{H}\mathtt{tl}$ $(\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $\Gamma\vdash_{H}e_{H}^{2}:[T_{1}]$, $\Gamma\vdash_{H}\mathtt{cons}$ $e_{H}^{1}$ $e_{H}^{2}:[T_{1}]$, and $T=[T_{1}]$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\Gamma\vdash_{H}e_{H}^{2}:T$ because $[T_{1}]=T$.
 \end{case}
 
 % null nil
 
 \begin{case}{\osnullnil}
 
-$\mathtt{null?}$ $\mathtt{nil}^{T_{1}}\rightarrow\overline{0}$ where $A\in\lbrace H,M\rbrace$
+\pnpremise
+{\judeh{\env}{\osnullnill}{\first{\vartyh}}}
+\pntypes
+{
+\first{\vartyh} $=$ \tynum and
+\judeh{}{\osnullnilr}{\tynum}
+}
 
-$\vdash_{A}\mathtt{null?}$ $\mathtt{nil}^{T_{1}}:T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=N$ and $\vdash_{A}\overline{0}:N$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\vdash_{A}\overline{0}:T$ because $N=T$.
 \end{case}
 
 % null (cons e e)
 
 \begin{case}{\osnullconsh}
 
-$\mathtt{null?}$ $(\mathtt{cons}$ $B_{A}^{1}$ $B_{A}^{2})\rightarrow\overline{1}$ where $(A,B)\in\lbrace(H,e),(M,v)\rbrace$
+\pnpremise
+{\judeh{\env}{\osnullconslh}{\first{\vartyh}}}
+\pntypes
+{
+\first{\vartyh} $=$ \tynum and
+\judeh{}{\osnullconsrh}{\tynum}
+}
 
-$\Gamma\vdash_{A}\mathtt{null?}$ $(\mathtt{cons}$ $B_{A}^{1}$ $B_{A}^{2}):T$ by premise and uniqueness of types (Lemma \ref{uot}).  $T=N$ and $\vdash_{A}\overline{1}:N$ by inversion (Lemma \ref{i}) and uniqueness of types.  $\vdash_{A}\overline{1}:T$ because $N=T$.
-\end{case}
-
-% wrong t string
-
-\begin{case}{\oswrong}
-
-$\mathtt{wrong}^{T_{1}}$ \emph{string} $\rightarrow$ \emph{\textbf{Error}: string}
-
-Irrelevant because an error terminates the computation.
 \end{case}
 
 % hm t L (mh L t e)
 
-\begin{case}{\oshmmhneqa \oshmmhneqb}
+\begin{case}{\oshmmheq}
+
+TEST
+
+\end{case}
+
+% hm t L (mh L t e)
+
+\begin{case}{\redruleh{\oshmmhneql}{\oshmmhneqr} \oshmmhneqn}
 
 TEST
 
@@ -306,7 +326,7 @@ $\Gamma\vdash_{A}{^{T_{1}^{a}}A}S$ $v_{S}:T$ by premise and uniqueness of types 
 
 % hm mh function
 
-\begin{case}{\redrule{\oshmfabsa}{\oshmfabsb}}
+\begin{case}{\redruleh{\oshmfabsl}{\oshmfabsr}}
 
 $^{T_{1}\rightarrow T_{2}}AB^{T_{1}\rightarrow T_{2}}$ $(\lambda x_{1}:T_{1}.e_{B})\rightarrow\lambda x_{2}:T_{1}.(^{T_{2}}AB^{T_{2}}$ $((\lambda x_{1}:T_{1}.e_{B})$ $(^{T_{1}}BA^{T_{1}}$ $x_{2})))$ where $(A,B)\in\lbrace(H,M),(M,H)\rbrace$
 
