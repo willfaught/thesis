@@ -10,132 +10,195 @@
 \expsubst{\first{\varexph}}{\second{\varexph}}{\varvarh}
 }
 
-\newcommand{\osfappmh}{\redruleh{\osfapplh}{\osfapprh}}
-\newcommand{\osfappph}{\redrule{\osfapplh}{\osfapprh}}
+\newcommand{\osfapph}{\redruleh{\osfapplh}{\osfapprh}}
 
 % e<t>
 
-\newcommand{\ostapp}
+\newcommand{\ostappl}
 {
-\redruleh
-{\exptapp{(\exptabs{\tyvarh}{\varexph})}{\vartyh}}
-{\tysubst{\varexph}{\csbrand{\varbrand}{\vartyh}}{\tyvarh}}
+\exptapp{(\exptabs{\tyvarh}{\varexph})}{\vartyh}
 }
+
+\newcommand{\ostappr}
+{
+\tysubst{\varexph}{\csbrand{\varbrand}{\vartyh}}{\tyvarh}
+}
+
+\newcommand{\ostapp}{\redruleh{\ostappl}{\ostappr}}
 
 % fix e
 
-\newcommand{\osfix}
+\newcommand{\osfixl}
 {
-\redruleh
-{\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}}
-{\expsubst{\varexph}{\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}}{\varvarh}}
+\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}
 }
+
+\newcommand{\osfixr}
+{
+\expsubst{\varexph}{\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}}{\varvarh}
+}
+
+\newcommand{\osfix}{\redruleh{\osfixl}{\osfixr}}
 
 % + e e
 
-\newcommand{\osadd}
+\newcommand{\osaddl}
 {
-\redruleh
-{\expadd{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
-{\expnum{\first{\varnum} + \second{\varnum}}}
+\expadd{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}
 }
+
+\newcommand{\osaddr}
+{
+\expnum{\first{\varnum} + \second{\varnum}}
+}
+
+\newcommand{\osadd}{\redruleh{\osaddl}{\osaddr}}
 
 % - e e
 
-\newcommand{\ossub}
+\newcommand{\ossubl}
 {
-\redruleh
-{\expsub{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
-{\expnum{\formvar{max}(\first{\varnum} - \second{\varnum}, 0)}}
+\expsub{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}
 }
+
+\newcommand{\ossubr}
+{
+\expnum{\formvar{max}(\first{\varnum} - \second{\varnum}, 0)}
+}
+
+\newcommand{\ossub}{\redruleh{\ossubl}{\ossubr}}
 
 % if0 0 e e
 
-\newcommand{\osiftrue}
+\newcommand{\osiftruel}
 {
-\redruleh
-{\expif{\expnum{0}}{\first{\varexph}}{\second{\varexph}}}
-{\first{\varexph}}
+\expif{\expnum{0}}{\first{\varexph}}{\second{\varexph}}
 }
+
+\newcommand{\osiftruer}
+{
+\first{\varexph}
+}
+
+\newcommand{\osiftrue}{\redruleh{\osiftruel}{\osiftruer}}
 
 % if0 n e e
 
-\newcommand{\osiffalse}
+\newcommand{\osiffalsel}
 {
-\redruleh
-{\expif{\expnum{\varnum}}{\first{\varexph}}{\second{\varexph}}}
-{\second{\varexph}}
-$(\varnum \neq 0)$
+\expif{\expnum{\varnum}}{\first{\varexph}}{\second{\varexph}}
 }
+
+\newcommand{\osiffalser}
+{
+\second{\varexph}
+}
+
+\newcommand{\osiffalse}{\redruleh{\osiffalsel}{\osiffalser} $(\varnum \neq 0)$}
 
 % hd nil
 
-\newcommand{\oshdnil}
+\newcommand{\oshdnill}
 {
-\redruleh
-{\exphd{(\expnils{\vartyh})}}
-{\expwrongs{\vartyh}{\str{Empty \; list}}}
+\exphd{(\expnils{\vartyh})}
 }
+
+\newcommand{\oshdnilr}
+{
+\expwrongs{\vartyh}{\str{Empty \; list}}
+}
+
+\newcommand{\oshdnil}{\redruleh{\oshdnill}{\oshdnilr}}
 
 % tl nil
 
-\newcommand{\ostlnil}
+\newcommand{\ostlnill}
 {
-\redruleh
-{\exptl{(\expnils{\vartyh})}}
-{\expwrongs{\tylist{\vartyh}}{\str{Empty \; list}}}
+\exptl{(\expnils{\vartyh})}
 }
+
+\newcommand{\ostlnilr}
+{
+\expwrongs{\tylist{\vartyh}}{\str{Empty \; list}}
+}
+
+\newcommand{\ostlnil}{\redruleh{\ostlnill}{\ostlnilr}}
 
 % hd (cons e e)
 
-\newcommand{\oshdconsh}
+\newcommand{\oshdconslh}
 {
-\redruleh
-{\exphd{(\expcons{\first{\varexph}}{\second{\varexph}})}}
-{\first{\varexph}}
+\exphd{(\expcons{\first{\varexph}}{\second{\varexph}})}
 }
+
+\newcommand{\oshdconsrh}
+{
+\first{\varexph}
+}
+
+\newcommand{\oshdconsh}{\redruleh{\oshdconslh}{\oshdconsrh}}
 
 % tl (cons e e)
 
-\newcommand{\ostlconsh}
+\newcommand{\ostlconslh}
 {
-\redruleh
-{\exptl{(\expcons{\first{\varexph}}{\second{\varexph}})}}
-{\second{\varexph}}
+\exptl{(\expcons{\first{\varexph}}{\second{\varexph}})}
 }
+
+\newcommand{\ostlconsrh}
+{
+\second{\varexph}
+}
+
+\newcommand{\ostlconsh}{\redruleh{\ostlconslh}{\ostlconsrh}}
 
 % null? nil
 
-\newcommand{\osnullnil}
+\newcommand{\osnullnill}
 {
-\redruleh
-{\exppnull{(\expnils{\vartyh})}}
-{\expnum{0}}
+\exppnull{(\expnils{\vartyh})}
 }
+
+\newcommand{\osnullnilr}
+{
+\expnum{0}
+}
+
+\newcommand{\osnullnil}{\redruleh{\osnullnill}{\osnullnilr}}
 
 % null? (cons e e)
 
-\newcommand{\osnullconsh}
+\newcommand{\osnullconslh}
 {
-\redruleh
-{\exppnull{(\expcons{\first{\varexph}}{\second{\varexph}})}}
-{\expnum{1}}
+\exppnull{(\expcons{\first{\varexph}}{\second{\varexph}})}
 }
+
+\newcommand{\osnullconsrh}
+{
+\expnum{1}
+}
+
+\newcommand{\osnullconsh}{\redruleh{\osnullconslh}{\osnullconsrh}}
 
 % wrong t string
 
-\newcommand{\oswrong}
+\newcommand{\oswrongl}
 {
-\redrule
-{\redconh{\expwrongs{\vartyh}{\formvar{string}}}}
-{\experr{\varstr}}
+\redconh{\expwrongs{\vartyh}{\formvar{string}}}
 }
+
+\newcommand{\oswrongr}
+{
+\experr{\varstr}
+}
+
+\newcommand{\oswrong}{\redrule{\oswrongl}{\oswrongr}}
 
 \begin{figure}[p]
 \centering
 \begin{tabular}{l}
 
-\osfappmh \\
+\osfapph \\
 \ostapp \\
 \osfix \\
 \osadd \\

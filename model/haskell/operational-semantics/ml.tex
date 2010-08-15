@@ -1,106 +1,138 @@
 % hm t L (mh L t e)
 
-\newcommand{\oshmmheq}
+\newcommand{\oshmmheql}
 {
-\redruleh
-{\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}}
-{\varexph}
+\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}
+}
+
+\newcommand{\oshmmheqr}
+{
+\varexph
+}
+
+\newcommand{\oshmmheqn}
+{
 $(\first{\vartyh} = \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$
 }
 
+\newcommand{\oshmmheq}{\redruleh{\oshmmheql}{\oshmmheqr} \oshmmheqn}
+
 % hm t L (mh L t e)
 
-\newcommand{\oshmmhneq}{}
-
-\newcommand{\oshmmhneqa}
+\newcommand{\oshmmhneql}
 {
-\redruleh
-{\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}}
-{\expwrongs{\vartyh}{\errtype}}
+\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}
 }
 
-\newcommand{\oshmmhneqb}
+\newcommand{\oshmmhneqr}
+{
+\expwrongs{\vartyh}{\errtype}
+}
+
+\newcommand{\oshmmhneqn}
 {
 $(\first{\vartyh} \neq \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$
 }
 
 % hm t L (ms L v)
 
-\newcommand{\oshmms}
+\newcommand{\oshmmsl}
 {
-\redruleh
-{\exphm{\vartyh}{\tylump}{(\expms{\cslump}{\varvalfs})}}
-{\expwrongs{\vartyh}{\errvalue}}
+\exphm{\vartyh}{\tylump}{(\expms{\cslump}{\varvalfs})}
+}
+
+\newcommand{\oshmmsr}
+{
+\expwrongs{\vartyh}{\errvalue}
+}
+
+\newcommand{\oshmmsn}
+{
 $(\vartyh \neq \tylump)$
 }
 
+\newcommand{\oshmms}{\redruleh{\oshmmsl}{\oshmmsr} \oshmmsn}
+
 % hm N N n
 
-\newcommand{\oshmnum}
+\newcommand{\oshmnuml}
 {
-\redruleh
-{\exphm{\tynum}{\tynum}{\expnum{\varnum}}}
-{\expnum{\varnum}}
+\exphm{\tynum}{\tynum}{\expnum{\varnum}}
 }
+
+\newcommand{\oshmnumr}
+{
+\expnum{\varnum}
+}
+
+\newcommand{\oshmnum}{\redruleh{\oshmnuml}{\oshmnumr}}
 
 % hm {t} {t} (nil t)
 
-\newcommand{\oshmnil}
+\newcommand{\oshmnill}
 {
-\redruleh
-{\exphm{\tylist{\vartyh}}{\tylist{\first{\vartym}}}{(\expnils{\second{\vartym}})}}
-{\expnils{\vartyh}}
+\exphm{\tylist{\vartyh}}{\tylist{\first{\vartym}}}{(\expnils{\second{\vartym}})}
 }
+
+\newcommand{\oshmnilr}
+{
+\expnils{\vartyh}
+}
+
+\newcommand{\oshmnil}{\redruleh{\oshmnill}{\oshmnilr}}
 
 % hm {t} {t} (cons v v)
 
-\newcommand{\oshmconsa}
+\newcommand{\oshmconsl}
 {
-\redconh{\exphm{\tylist{\vartyh}}{\tylist{\vartym}}{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
+\exphm{\tylist{\vartyh}}{\tylist{\vartym}}{(\expcons{\first{\varvalum}}{\second{\varvalum}})}
 }
 
-\newcommand{\oshmconsb}
+\newcommand{\oshmconsr}
 {
 {\expcons{(\exphm{\vartyh}{\vartym}{\first{\varvalum}})}{(\exphm{\tylist{\vartyh}}{\tylist{\vartym}}{\second{\varvalum}})}}
 }
 
 % hm (t->t) (t->t) (\x:t.e)
 
-\newcommand{\oshmfabs}{}
-
-\newcommand{\oshmfabsa}
+\newcommand{\oshmfabsl}
 {
-\redconh{\exphm{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabss{\varvarm}{\third{\vartym}}{\varexpm})}}
+\exphm{(\tyfun{\first{\vartyh}}{\second{\vartyh}})}{(\tyfun{\first{\vartym}}{\second{\vartym}})}{(\expfabss{\varvarm}{\third{\vartym}}{\varexpm})}
 }
 
-\newcommand{\oshmfabsb}
+\newcommand{\oshmfabsr}
 {
-\redcon{\expfabss{\varvarh}{\first{\vartyh}}{\exphm{\second{\vartyh}}{\second{\vartym}}{\expfapp{((\expfabss{\varvarm}{\third{\vartym}}{\varexpm})}{(\expmh{\first{\vartym}}{\first{\vartyh}}{\varvarh})})}}}
+\expfabss{\varvarh}{\first{\vartyh}}{\exphm{\second{\vartyh}}{\second{\vartym}}{\expfapp{((\expfabss{\varvarm}{\third{\vartym}}{\varexpm})}{(\expmh{\first{\vartym}}{\first{\vartyh}}{\varvarh})})}}
 }
 
 % hm (Au.k) (Au.k) (\\x.e)
 
-\newcommand{\oshmtabs}
+\newcommand{\oshmtabsl}
 {
-\redruleh
-{\exphm{(\tyfor{\tyvarh}{\vartyh})}{(\tyfor{\first{\tyvarm}}{\vartym})}{(\exptabs{\second{\tyvarm}}{\varexpm})}}
-{\exptabs{\tyvarh}{\exphm{\vartyh}{\tysubst{\vartym}{\tylump}{\tyvarm}}{\expsubst{\varexpm}{\tylump}{\second{\tyvarm}}}}}
+\exphm{(\tyfor{\tyvarh}{\vartyh})}{(\tyfor{\first{\tyvarm}}{\vartym})}{(\exptabs{\second{\tyvarm}}{\varexpm})}
 }
+
+\newcommand{\oshmtabsr}
+{
+\exptabs{\tyvarh}{\exphm{\vartyh}{\tysubst{\vartym}{\tylump}{\tyvarm}}{\expsubst{\varexpm}{\tylump}{\second{\tyvarm}}}}
+}
+
+\newcommand{\oshmtabs}{\redruleh{\oshmtabsl}{\oshmtabsr}}
 
 \begin{figure}[p]
 \centering
 \begin{tabular}{l}
 
 \oshmmheq \\
-\oshmmhneqa \\
-\redsp \oshmmhneqb \\
+\redruleh{\oshmmhneql}{\oshmmhneqr} \\
+\redsp \oshmmhneqn \\
 \oshmms \\
 \oshmnum \\
 \oshmnil \\
-\oshmconsa \red \\
-\redsp \oshmconsb \\
-\oshmfabsa \red \\
-\redsp \oshmfabsb \\
+\redconh{\oshmconsl} \red \\
+\redsp \redcon{\oshmconsr} \\
+\redconh{\oshmfabsl} \red \\
+\redsp \redcon{\oshmfabsr} \\
 \oshmtabs \\
 
 \end{tabular}
