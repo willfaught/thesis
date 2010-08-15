@@ -1,12 +1,22 @@
 \chapter{Model of Computation}
 
+Following Matthews and Findler \ref{matthews07}, the model of computation is based on System F.  It extends the simply-typed lambda calculus to facilitate the reuse of typed expressions by parameterizing them with type variables and providing a mechanism for substituting new types for where the types of subexpressions are variable
+
+
+
+type variables, type abstractions, and type applications.  The parameterization of the types of expressions and the substitution semantics of type applications to facilitate reuse of typed expressions where the types of subexpressions are variable.  
+
+System F is extended with lists, a fixed-point operation that enables recursion
+
+---
+
 The model of computation represents Haskell, ML, and Scheme with lambda calculus extended in various ways.  Expressions represent software components, and nesting component expressions expresses interoperation between them, where the inner component expression evaluates to the value given to the outer component expression.  Boundary expressions separate interoperating component expressions of different languages, indicate inner and outer languages, and declare the expected and actual types of the given values.  The reduction of boundary expressions converts values between languages.  The model extends the model of Kinghorn \cite{kinghorn07}, which extended the model of Matthews and Findler \cite{matthews07}.
 
 The Haskell and ML models extend System F, which extends lambda calculus with explicit types that simplify the type soundness proofs and parametric polymorphism that approximates the type systems of Haskell and ML.  The Scheme model extends lambda calculus with a simple type system to detect unbound variables.
 
 Hereafter the names Haskell, ML, and Scheme refer to their corresponding models, unless otherwise stated.
 
-\section{Grammars}
+\section{Syntax}
 
 Haskell types $T$ comprise lumps $L$, natural numbers $N$, variables $X$, lists $[T]$, labels $T^{a}$, functions $T\rightarrow T$, and foralls $\forall X.T$.  Haskell values $v_{H}$ comprise functions $\lambda x:T.e_{H}$, type abstractions $\Lambda X.e_{H}$, natural numbers $\overline{n}$, empty lists $\mathtt{nil}^{T}$, list constructions $\mathtt{cons}$ $e_{H}$ $e_{H}$, Scheme boundaries with lump expected types $^{L}HS$ $v_{S}$, and Scheme boundaries with forall expected types $^{\forall X.T}HS$ $v_{S}$.  Haskell expressions $e_{H}$ comprise variables $x$, function applications $e_{H}$ $e_{H}$, type applications $e_{H}$ $\lbrace T\rbrace$, arithmetic operations $+$ $e_{H}$ $e_{H}$ and $-$ $e_{H}$ $e_{H}$, empty list predicates $\mathtt{null?}$ $e_{H}$, conditions $\mathtt{if0}$ $e_{H}$ $e_{H}$ $e_{H}$, list operations $\mathtt{hd}$ $e_{H}$ and $\mathtt{tl}$ $e_{H}$, fixed-point operations $\mathtt{fix}$ $e_{H}$, error reports $\mathtt{wrong}^{T}$ string, ML boundaries $^{T}HM^{T}$ $e_{M}$, and Scheme boundaries $^{T}HS$ $e_{S}$.  Haskell evaluation contexts $E_{H}$ conform to a call-by-name (lazy) evaluation strategy.  Haskell holes are denoted $[\,]_{H}$.  Figure \ref{hg} defines the Haskell grammar and evaluation contexts.
 
