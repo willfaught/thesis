@@ -4,21 +4,21 @@
 
 \newcommand{\haskellml}{Haskell and ML models\xspace}
 
-\newcommand{\articalhaskell}[1]{#1 \haskell}
-\newcommand{\articalml}[1]{#1 \ml}
-\newcommand{\articalscheme}[1]{#1 \scheme}
+\newcommand{\articlehaskell}[1]{#1 \haskell}
+\newcommand{\articleml}[1]{#1 \ml}
+\newcommand{\articlescheme}[1]{#1 \scheme}
 
-\newcommand{\articalhaskellml}[1]{#1 \haskellml}
+\newcommand{\articlehaskellml}[1]{#1 \haskellml}
 
-\newcommand{\thehaskell}{\articalhaskell{the}}
-\newcommand{\Thehaskell}{\articalhaskell{The}}
-\newcommand{\theml}{\articalml{the}}
-\newcommand{\Theml}{\articalml{The}}
-\newcommand{\thescheme}{\articalscheme{the}}
-\newcommand{\Thescheme}{\articalscheme{The}}
+\newcommand{\thehaskell}{\articlehaskell{the}}
+\newcommand{\Thehaskell}{\articlehaskell{The}}
+\newcommand{\theml}{\articleml{the}}
+\newcommand{\Theml}{\articleml{The}}
+\newcommand{\thescheme}{\articlescheme{the}}
+\newcommand{\Thescheme}{\articlescheme{The}}
 
-\newcommand{\thehaskellml}{\articalhaskellml{the}}
-\newcommand{\Thehaskellml}{\articalhaskellml{The}}
+\newcommand{\thehaskellml}{\articlehaskellml{the}}
+\newcommand{\Thehaskellml}{\articlehaskellml{The}}
 
 \newcommand{\hastype}[1]{has the type #1}
 \newcommand{\havetype}[1]{have the type #1}
@@ -33,21 +33,15 @@ The Scheme model is an extended untyped lambda calculus using an eager evaluatio
 
 To this mix we introduce a Haskell model identical to the ML model, except it uses a lazy evaluation strategy.
 
-TODO: THE DEFS START AT THESE FIGURES. The Haskell, ML, and Scheme models are defined in figures \ref{hg}, \ref{mg}, and \ref{sg}.
+The definitions of the Haskell, ML, and Scheme models begin in figures \ref{hg}, \ref{mg}, and \ref{sg}.
 
-TODO: Explain the language letter subscripts.
+Expressions are written \varexp, types are written \varty, forced values are written \varvalf, unforced values are written \varvalu, forced evaluation contexts are written \varconf, and unforced evaluation contexts are written \varconu. Symbols that represent grammar non-terminals or relations typically have letter subscripts that specify a model.
 
-Expressions are written \varexph, \varexpm, and \varexps.
+\Thehaskellml have static type systems that use typing environments, written \env, and typing relations, written \jud. Typing judgements for expressions are written \jude{\env}{\jud}{\varexp}{\varty}, where \varexp is bound in \env and has the type \varty. Typing judgements for types are written \judt{\env}{\jud}{\varty} and mean \varty is bound in \env. Extended typing environments are written \envexte{\env}{\varvar}{\varty} for variables and \envextt{\env}{\tyvar} for type variables. Typing environments are omitted where empty. \Thescheme uses a simple type system to ensure no free variables. Every well-typed \scheme expression \hastype{\tytst}. Type substitution within types is written \tysubst{\formvar{x}}{\formvar{y}}{\formvar{z}}, where the type \formvar{y} is substituted for free occurrences of the type variable \formvar{z} in the type \formvar{x}.
 
-Expression and type substitution are written \expsubst{\formvar{x}}{\formvar{y}}{\formvar{z}}, where \formvar{y} is substituted for \formvar{z} in \formvar{x}.
+TODO: opsem
 
-Explain typing subscripts in typing relations
-
-Typing judgements for expressions are written \judeh{\env}{\varexph}{\vartyh}, where \env is the typing environment and \varexph is bound in \env and has the type \vartyh. Typing judgements for types are written \judth{\env}{\vartyh} and mean \vartyh is bound in \env. Typing environments are omitted where empty. Extended typing environments are written \envexte{\env}{\varvarh}{\vartyh} for variables and \envextt{\env}{\tyvarh} for type variables.
-
-Well-typed \scheme expressions \havetype{\tytst}.
-
-\varexph is \thehaskell expression non-terminal, and there are \ml and \scheme counterparts.
+Expression and type substitutions within expressions are written like type substitutions within types.
 
 \section{Natural Numbers}
 

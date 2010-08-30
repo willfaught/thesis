@@ -66,29 +66,47 @@
 % Variables
 
 \newcommand{\varbrand}{\ensuremath{\symbrand}\xspace}
+
 \newcommand{\varconm}{\ensuremath{\mathscr{\symconf}\xspace}}
-\newcommand{\varconfh}{\ensuremath{\symconf\langh}\xspace}
-\newcommand{\varconfm}{\ensuremath{\symconf\langm}\xspace}
-\newcommand{\varconfs}{\ensuremath{\symconf\langs}\xspace}
-\newcommand{\varconum}{\ensuremath{\symconu\langm}\xspace}
-\newcommand{\varconus}{\ensuremath{\symconu\langs}\xspace}
+
+\newcommand{\varconf}{\ensuremath{\symconf}\xspace}
+\newcommand{\varconfh}{\ensuremath{\varconf\langh}\xspace}
+\newcommand{\varconfm}{\ensuremath{\varconf\langm}\xspace}
+\newcommand{\varconfs}{\ensuremath{\varconf\langs}\xspace}
+
+\newcommand{\varconu}{\ensuremath{\symconu}\xspace}
+\newcommand{\varconum}{\ensuremath{\varconu\langm}\xspace}
+\newcommand{\varconus}{\ensuremath{\varconu\langs}\xspace}
+
 \newcommand{\varcsh}{\ensuremath{\symcs\langh}\xspace}
 \newcommand{\varcsm}{\ensuremath{\symcs\langm}\xspace}
-\newcommand{\varexph}{\ensuremath{\symexp\langh}\xspace}
-\newcommand{\varexpm}{\ensuremath{\symexp\langm}\xspace}
-\newcommand{\varexps}{\ensuremath{\symexp\langs}\xspace}
+
+\newcommand{\varexp}{\ensuremath{\symexp}\xspace}
+\newcommand{\varexph}{\ensuremath{\varexp\langh}\xspace}
+\newcommand{\varexpm}{\ensuremath{\varexp\langm}\xspace}
+\newcommand{\varexps}{\ensuremath{\varexp\langs}\xspace}
+
 \newcommand{\varnum}{\ensuremath{\symnum}\xspace}
+
 \newcommand{\varstr}{\ensuremath{\formvar{\symstr}}\xspace}
-\newcommand{\vartyh}{\ensuremath{\symty\langh}\xspace}
-\newcommand{\vartym}{\ensuremath{\symty\langm}\xspace}
-\newcommand{\varvaluh}{\ensuremath{\symvalu\langh}\xspace}
-\newcommand{\varvalum}{\ensuremath{\symvalu\langm}\xspace}
-\newcommand{\varvalus}{\ensuremath{\symvalu\langs}\xspace}
-\newcommand{\varvalfm}{\ensuremath{\symvalf\langm}\xspace}
-\newcommand{\varvalfs}{\ensuremath{\symvalf\langs}\xspace}
-\newcommand{\varvarh}{\ensuremath{\symvar\langh}\xspace}
-\newcommand{\varvarm}{\ensuremath{\symvar\langm}\xspace}
-\newcommand{\varvars}{\ensuremath{\symvar\langs}\xspace}
+
+\newcommand{\varty}{\ensuremath{\symty}\xspace}
+\newcommand{\vartyh}{\ensuremath{\varty\langh}}
+\newcommand{\vartym}{\ensuremath{\varty\langm}}
+
+\newcommand{\varvalu}{\ensuremath{\symvalu}\xspace}
+\newcommand{\varvaluh}{\ensuremath{\varvalu\langh}\xspace}
+\newcommand{\varvalum}{\ensuremath{\varvalu\langm}\xspace}
+\newcommand{\varvalus}{\ensuremath{\varvalu\langs}\xspace}
+
+\newcommand{\varvalf}{\ensuremath{\symvalf}\xspace}
+\newcommand{\varvalfm}{\ensuremath{\varvalf\langm}\xspace}
+\newcommand{\varvalfs}{\ensuremath{\varvalf\langs}\xspace}
+
+\newcommand{\varvar}{\ensuremath{\symvar}\xspace}
+\newcommand{\varvarh}{\ensuremath{\varvar\langh}\xspace}
+\newcommand{\varvarm}{\ensuremath{\varvar\langm}\xspace}
+\newcommand{\varvars}{\ensuremath{\varvar\langs}\xspace}
 
 % Expressions
 
@@ -129,8 +147,9 @@
 
 \newcommand{\tylump}{\ensuremath{\formsym{\symlump}}\xspace}
 \newcommand{\tynum}{\ensuremath{\formsym{\symnat}}\xspace}
-\newcommand{\tyvarh}{\ensuremath{\symtyvar\langh}\xspace}
-\newcommand{\tyvarm}{\ensuremath{\symtyvar\langm}\xspace}
+\newcommand{\tyvar}{\ensuremath{\symtyvar}\xspace}
+\newcommand{\tyvarh}{\ensuremath{\tyvar\langh}\xspace}
+\newcommand{\tyvarm}{\ensuremath{\tyvar\langm}\xspace}
 \newcommand{\tylist}[1]{\ensuremath{\synlist{#1}}\xspace}
 \newcommand{\tyfun}[2]{\ensuremath{#1 \symfun #2}\xspace}
 \newcommand{\tyfor}[2]{\ensuremath{\symfor #1 . #2}\xspace}
@@ -152,13 +171,19 @@
 
 % Typing rules
 
-\newcommand{\judpair}[2]{\ensuremath{#1 \symhasty #2}}
-\newcommand{\judeh}[3]{\ensuremath{#1 \symjudh \judpair{#2}{#3}}}
-\newcommand{\judem}[3]{\ensuremath{#1 \symjudm \judpair{#2}{#3}}}
-\newcommand{\judes}[3]{\ensuremath{#1 \symjuds \judpair{#2}{#3}}}
-\newcommand{\judth}[2]{\ensuremath{#1 \symjudh #2}}
-\newcommand{\judtm}[2]{\ensuremath{#1 \symjudm #2}}
-\newcommand{\judts}[2]{\ensuremath{#1 \symjuds #2}}
+\newcommand{\jud}{\ensuremath{\symjud}\xspace}
+
+\newcommand{\judpair}[2]{#1 \symhasty #2}
+\newcommand{\jude}[4]{\ensuremath{#1 #2 \judpair{#3}{#4}}\xspace}
+\newcommand{\judeh}[3]{\jude{#1}{\symjudh}{#2}{#3}}
+\newcommand{\judem}[3]{\jude{#1}{\symjudm}{#2}{#3}}
+\newcommand{\judes}[3]{\jude{#1}{\symjuds}{#2}{#3}}
+
+\newcommand{\judt}[3]{\ensuremath{#1 #2 #3}\xspace}
+\newcommand{\judth}[2]{\judt{#1}{\symjudh}{#2}}
+\newcommand{\judtm}[2]{\judt{#1}{\symjudm}{#2}}
+\newcommand{\judts}[2]{\judt{#1}{\symjuds}{#2}}
+
 \newcommand{\env}{\ensuremath{\symenv}\xspace}
 \newcommand{\envempty}{\ensuremath{\symempty}}
 \newcommand{\envexte}[3]{\ensuremath{#1 \symext #2 \symhasty #3}}
@@ -166,15 +191,17 @@
 
 % Reduction rules
 
-\newcommand{\red}{\ensuremath{\symred}\xspace}
 \newcommand{\redcon}[1]{\ensuremath{\varconm[#1]}}
 \newcommand{\redconh}[1]{\ensuremath{\varconm[#1]\langh}}
 \newcommand{\redconm}[1]{\ensuremath{\varconm[#1]\langm}}
 \newcommand{\redcons}[1]{\ensuremath{\varconm[#1]\langs}}
+
+\newcommand{\red}{\ensuremath{\symred}\xspace}
 \newcommand{\redrule}[2]{\ensuremath{#1 \red #2}}
 \newcommand{\redruleh}[2]{\ensuremath{\redrule{\redconh{#1}}{\redcon{#2}}}}
 \newcommand{\redrulem}[2]{\ensuremath{\redrule{\redconm{#1}}{\redcon{#2}}}}
 \newcommand{\redrules}[2]{\ensuremath{\redrule{\redcons{#1}}{\redcon{#2}}}}
+
 \newcommand{\redsp}{\ensuremath{\quad \quad}}
 
 % Formats
