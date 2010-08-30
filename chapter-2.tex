@@ -1,16 +1,73 @@
+\newcommand{\haskell}{Haskell model\xspace}
+\newcommand{\ml}{ML model\xspace}
+\newcommand{\scheme}{Scheme model\xspace}
+
+\newcommand{\haskellml}{Haskell and ML models\xspace}
+
+\newcommand{\articalhaskell}[1]{#1 \haskell}
+\newcommand{\articalml}[1]{#1 \ml}
+\newcommand{\articalscheme}[1]{#1 \scheme}
+
+\newcommand{\articalhaskellml}[1]{#1 \haskellml}
+
+\newcommand{\thehaskell}{\articalhaskell{the}}
+\newcommand{\Thehaskell}{\articalhaskell{The}}
+\newcommand{\theml}{\articalml{the}}
+\newcommand{\Theml}{\articalml{The}}
+\newcommand{\thescheme}{\articalscheme{the}}
+\newcommand{\Thescheme}{\articalscheme{The}}
+
+\newcommand{\thehaskellml}{\articalhaskellml{the}}
+\newcommand{\Thehaskellml}{\articalhaskellml{The}}
+
+\newcommand{\hastype}[1]{has the type #1}
+\newcommand{\havetype}[1]{have the type #1}
+
 \chapter{Model of Computation}
 
 The model of computation is based on that of Matthews and Findler \ref{matthews07}. Their model consists of two simple models, one representing ML and the other Scheme.
 
 The ML model is a simply-typed lambda calculus extended with parametric polymorphism called System F. The substitution semantics by which type abstractions are applied means the ML model has parametricity, which is a property that ensures that programs behave the same regardless of the types applied to by type abstractions.  The ML model introduces new expressions, type abstractions and type applications, to express parametric polymorphism, and new types, type variables and forall types, for them. The ML model uses an eager evaluation strategy.
 
-The Scheme model is an extended untyped lambda calculus using an eager evaluation strategy. Value predicates enable ad-hoc polymorphism.
+The Scheme model is an extended untyped lambda calculus using an eager evaluation strategy. Value predicates enable ad-hoc polymorphism. Uses a simple type system to check for free variables.
 
 To this mix we introduce a Haskell model identical to the ML model, except it uses a lazy evaluation strategy.
 
-The Haskell, ML, and Scheme models are defined in figures \ref{hg}, \ref{mg}, and \ref{sg}.
+TODO: THE DEFS START AT THESE FIGURES. The Haskell, ML, and Scheme models are defined in figures \ref{hg}, \ref{mg}, and \ref{sg}.
 
+TODO: Explain the language letter subscripts.
 
+Expressions are written \varexph, \varexpm, and \varexps.
+
+Expression and type substitution are written \expsubst{\formvar{x}}{\formvar{y}}{\formvar{z}}, where \formvar{y} is substituted for \formvar{z} in \formvar{x}.
+
+Explain typing subscripts in typing relations
+
+Typing judgements for expressions are written \judeh{\env}{\varexph}{\vartyh}, where \env is the typing environment and \varexph is bound in \env and has the type \vartyh. Typing judgements for types are written \judth{\env}{\vartyh} and mean \vartyh is bound in \env. Typing environments are omitted where empty. Extended typing environments are written \envexte{\env}{\varvarh}{\vartyh} for variables and \envextt{\env}{\tyvarh} for type variables.
+
+Well-typed \scheme expressions \havetype{\tytst}.
+
+\varexph is \thehaskell expression non-terminal, and there are \ml and \scheme counterparts.
+
+\section{Natural Numbers}
+
+Natural number expressions are written \expnum{\varnum}, which syntactically denotes the natural number \varnum. Natural numbers \havetype{\tynum} for \thehaskellml. The arithmetic operations \expadd{\varexph}{\varexph} and \expsub{\varexph}{\varexph}, their operands, and \theml counterparts \havetype{\tynum}. In \thescheme, if either operand of an arithmetic expression is not a natural number, the operation reduces to an error, written \expwrongd{\errnum}. Conditional expressions test whether an expression is the natural number \expnum{0}; if it is, it reduces to the first alternative, otherwise it reduces to the second alternative. In \thehaskellml, conditional test expressions \havetype{\tynum} and the alternative expressions have the same type. \Thescheme has predicates that determine whether values are functions, lists, empty lists, or natural numbers, written \exppfun{\varexps}, \expplist{\varexps}, \exppnull{\varexps}, and \exppnum{\varexps}. Predicates reduce to \expnum{0} if true and \expnum{1} if false.
+
+\section{Lists}
+
+TODO
+
+\section{Functions}
+
+TODO
+
+\section{Types}
+
+TODO
+
+\section{Interoperation}
+
+TODO
 
 \clearpage
 
