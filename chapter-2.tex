@@ -3,12 +3,14 @@
 \newcommand{\scheme}{Scheme model\xspace}
 
 \newcommand{\haskellml}{Haskell and ML models\xspace}
+\newcommand{\haskellmlscheme}{Haskell, ML, and Scheme models\xspace}
 
 \newcommand{\articlehaskell}[1]{#1 \haskell}
 \newcommand{\articleml}[1]{#1 \ml}
 \newcommand{\articlescheme}[1]{#1 \scheme}
 
 \newcommand{\articlehaskellml}[1]{#1 \haskellml}
+\newcommand{\articlehaskellmlscheme}[1]{#1 \haskellmlscheme}
 
 \newcommand{\thehaskell}{\articlehaskell{the}}
 \newcommand{\Thehaskell}{\articlehaskell{The}}
@@ -19,6 +21,8 @@
 
 \newcommand{\thehaskellml}{\articlehaskellml{the}}
 \newcommand{\Thehaskellml}{\articlehaskellml{The}}
+\newcommand{\thehaskellmlscheme}{\articlehaskellmlscheme{the}}
+\newcommand{\Thehaskellmlscheme}{\articlehaskellmlscheme{The}}
 
 \newcommand{\hastype}[1]{has the type #1}
 \newcommand{\havetype}[1]{have the type #1}
@@ -33,7 +37,7 @@ The Scheme model is an extended untyped lambda calculus using an eager evaluatio
 
 To this mix we introduce a Haskell model identical to the ML model, except it uses a lazy evaluation strategy.
 
-The definitions of the Haskell, ML, and Scheme models begin in figures \ref{hg}, \ref{mg}, and \ref{sg}.
+The definitions of \thehaskellmlscheme begin in figures \ref{hg}, \ref{mg}, and \ref{sg}.
 
 Expressions are written \varexp, types are written \varty, forced values are written \varvalf, unforced values are written \varvalu, forced evaluation contexts are written \varconf, and unforced evaluation contexts are written \varconu. Symbols that represent grammar non-terminals or relations typically have letter subscripts that specify a model.
 
@@ -45,11 +49,11 @@ Expression and type substitutions within expressions are written like type subst
 
 \section{Natural Numbers}
 
-Natural number expressions are written \expnum{\varnum}, which syntactically denotes the natural number \varnum. Natural numbers \havetype{\tynum} for \thehaskellml. The arithmetic operations \expadd{\varexph}{\varexph} and \expsub{\varexph}{\varexph}, their operands, and \theml counterparts \havetype{\tynum}. In \thescheme, if either operand of an arithmetic expression is not a natural number, the operation reduces to an error, written \expwrongd{\errnum}. Conditional expressions test whether an expression is the natural number \expnum{0}; if it is, it reduces to the first alternative, otherwise it reduces to the second alternative. In \thehaskellml, conditional test expressions \havetype{\tynum} and the alternative expressions have the same type. \Thescheme has predicates that determine whether values are functions, lists, empty lists, or natural numbers, written \exppfun{\varexps}, \expplist{\varexps}, \exppnull{\varexps}, and \exppnum{\varexps}. Predicates reduce to \expnum{0} if true and \expnum{1} if false.
+Natural numbers are written \expnum{\varnum}, which syntactically represents the natural number \varnum. Natural numbers \havetype{\tynum} for \thehaskellml. Addition and subtraction are written \expadd{\varexp}{\varexp} and \expsub{\varexp}{\varexp}. In \thescheme, if either arithmetic operand is not a natural number, then the result is an error, written \expwrongd{\errnum}, which discards the evaluation context and halts the computation. Conditions, written \expif{\varexp}{\varexp}{\varexp}, test whether a value is the natural number \expnum{0}. If it is, then it reduces to the first alternative; otherwise, it reduces to the second. \Thescheme has predicates that determine whether values are functions, lists, empty lists, or natural numbers, written \exppfun{\varexps}, \expplist{\varexps}, \exppnull{\varexps}, and \exppnum{\varexps}. Predicates reduce to \expnum{0} if true and \expnum{1} if false.
 
 \section{Lists}
 
-TODO
+Empty lists are written \expnils{\varty} in \thehaskellml and are written \expnild in \thescheme. List constructions are written \expcons{\varexp}{\varexp} in \thehaskellmlscheme. Empty lists and list constructions \havetype{\tylist{\vartyh}} in \thehaskellml. \Thescheme has the predicates \expplist{\varexp} and \exppnull{\varexp}. 
 
 \section{Functions}
 
