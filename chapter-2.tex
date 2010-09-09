@@ -49,11 +49,11 @@ Expression and type substitutions within expressions are written like type subst
 
 \section{Natural Numbers}
 
-Natural numbers are written \expnum{\varnum}, which syntactically represents the natural number \varnum. Natural numbers \havetype{\tynum} for \thehaskellml. Addition and subtraction are written \expadd{\varexp}{\varexp} and \expsub{\varexp}{\varexp}. In \thescheme, if either arithmetic operand is not a natural number, then the result is an error, written \expwrongd{\errnum}, which discards the evaluation context and halts the computation. Conditions, written \expif{\varexp}{\varexp}{\varexp}, test whether a value is the natural number \expnum{0}. If it is, then it reduces to the first alternative; otherwise, it reduces to the second. \Thescheme has predicates that determine whether values are functions, lists, empty lists, or natural numbers, written \exppfun{\varexps}, \expplist{\varexps}, \exppnull{\varexps}, and \exppnum{\varexps}. Predicates reduce to \expnum{0} if true and \expnum{1} if false.
+Natural numbers are written \expnum{\varnum}, which syntactically represents the natural number \varnum. Natural numbers \havetype{\tynum} for \thehaskellml. Addition and subtraction are written \expadd{\varexp}{\varexp} and \expsub{\varexp}{\varexp}. In \thescheme, if either arithmetic operand is not a natural number, then the result is an error, written \expwrongd{\errnum}, which discards the evaluation context and halts the computation. Conditions, written \expif{\varexp}{\varexp}{\varexp}, test whether a value is the natural number \expnum{0}. If it is, then it reduces to the first alternative; otherwise, it reduces to the second. \Thescheme has predicates that determine whether values are functions, lists, empty lists, and natural numbers, written \exppfun{\varexps}, \expplist{\varexps}, \exppnull{\varexps}, and \exppnum{\varexps}. Predicates reduce to \expnum{0} if true and \expnum{1} if false.
 
 \section{Lists}
 
-Empty lists are written \expnils{\varty} in \thehaskellml and are written \expnild in \thescheme. List constructions are written \expcons{\varexp}{\varexp} in \thehaskellmlscheme. Empty lists and list constructions \havetype{\tylist{\vartyh}} in \thehaskellml. \Thescheme has the predicates \expplist{\varexp} and \exppnull{\varexp}. 
+Empty lists are written \expnils{\varty} in \thehaskellml and \expnild in \thescheme. List constructions are written \expcons{\varexp}{\varexp} in \thehaskellmlscheme. Lists of elements that \havetype{\varty} in \thehaskellml \havetype{\tylist{\varty}}. \Thescheme has predicates that determine whether values are lists and empty lists, written \expplist{\varexp} and \exppnull{\varexp}.
 
 \section{Functions}
 
