@@ -45,7 +45,6 @@ $zeroes = \expfix{(\expfabss{\varvarh}{\tylist{\tynum}}{\expcons{\expnum{0}}{\va
 
 \begin{tabular}{lll}
 % (hs ({N}->{N}) (\x.x)) zeroes
-&
 \expfapp
 {
 	(
@@ -94,7 +93,6 @@ $zeroes = \expfix{(\expfabss{\varvarh}{\tylist{\tynum}}{\expcons{\expnum{0}}{\va
 }
 & \red \\
 % (\x:{N}.hs {N} ((\x.x) (sh {N} x))) zeroes
-&
 \expfapp
 {
 	(
@@ -169,7 +167,6 @@ $zeroes = \expfix{(\expfabss{\varvarh}{\tylist{\tynum}}{\expcons{\expnum{0}}{\va
 }
 & \red \\
 % hs {N} ((\x.x) (sh {N} zeroes))
-(1) &
 \exphs
 {
 	\cslist
@@ -217,9 +214,200 @@ $zeroes = \expfix{(\expfabss{\varvarh}{\tylist{\tynum}}{\expcons{\expnum{0}}{\va
 	)
 }
 & \red \\
+% hs {N} (sh {N} zeroes)
+\exphs
+{
+	\cslist
+	{
+		\csnum
+	}
+}
+{
+	(
+	\expsh
+	{
+		\cslist
+		{
+			\csnum
+		}
+	}
+	{
+		\formvar
+		{
+			zeroes
+		}
+	}
+	)
+}
+& \red \\
+% hs {N} (sh {N} (cons 0 zeroes))
+\exphs
+{
+	\cslist
+	{
+		\csnum
+	}
+}
+{
+	(
+	\expsh
+	{
+		\cslist
+		{
+			\csnum
+		}
+	}
+	{
+		(
+		\expcons
+		{
+			\expnum
+			{
+				0
+			}
+		}
+		{
+			\formvar
+			{
+				zeroes
+			}
+		}
+		)
+	}
+	)
+}
+& \red \\
+% hs {N} (cons (sh N 0) (sh {N} zeroes))
+\exphs
+{
+	\cslist
+	{
+		\csnum
+	}
+}
+{
+	(
+	\expcons
+	{
+		(
+		\expsh
+		{
+			\csnum
+		}
+		{
+			\expnum
+			{
+				0
+			}
+		}
+		)
+	}
+	{
+		(
+		\expsh
+		{
+			\cslist
+			{
+				\csnum
+			}
+		}
+		{
+			\formvar
+			{
+				zeroes
+			}
+		}
+		)
+	}
+	)
+}
+& \red \\
+% hs {N} (cons 0 (sh {N} zeroes))
+\exphs
+{
+	\cslist
+	{
+		\csnum
+	}
+}
+{
+	(
+	\expcons
+	{
+		\expnum
+		{
+			0
+		}
+	}
+	{
+		(
+		\expsh
+		{
+			\cslist
+			{
+				\csnum
+			}
+		}
+		{
+			\formvar
+			{
+				zeroes
+			}
+		}
+		)
+	}
+	)
+}
+& \red \\
+% cons (hs N 0) (hs {N} (sh {N} zeroes))
+\expcons
+{
+	(
+	\exphs
+	{
+		\csnum
+	}
+	{
+		\expnum
+		{
+			0
+		}
+	}
+	)
+}
+{
+	(
+	\exphs
+	{
+		\cslist
+		{
+			\csnum
+		}
+	}
+	{
+		(
+		\expsh
+		{
+			\cslist
+			{
+				\csnum
+			}
+		}
+		{
+			\formvar
+			{
+				zeroes
+			}
+		}
+		)
+	}
+	)
+}
+& \\
+		
 
 \end{tabular}
-\caption{Unforced argument and list tail prevent a divergence.}
+\caption{Function and list conversions with unforced points.}
 \end{figure}
 
 
