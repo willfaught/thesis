@@ -27,7 +27,7 @@
 \newcommand{\hastype}[1]{has the type #1}
 \newcommand{\havetype}[1]{have the type #1}
 
-\chapter{Model of Computation}
+\section{Model of Computation}
 
 The model of computation comprises three dependent models of computation, based on that of Matthews and Findler (((CITATION))). The Haskell and ML models are based on System F, extended with a fixed-point operation. The Scheme model is based on lambda calculus, having a simple type system to ensure no free variables, and extended with type predicates. All models have natural numbers, arithmetic, conditions, lists, and errors. The Haskell model has a call-by-name evaluation strategy, and ML and Scheme have call-by-value evaluation strategies. The models are presented with grammars and operational semantics in the style of (((CITATION))) and typing rules.
 
@@ -148,3 +148,5 @@ TODO
 \input{model/unbrand.tex}
 
 \input{model/equality.tex}
+
+\clearpage

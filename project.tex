@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[letterpaper]{geometry}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\usepackage[overload]{textcase}
+\usepackage{array}
+\usepackage{xspace}
+\usepackage{color}
+
+\begin{document}
+
+\title{Interoperation for Incompatible Evaluation Strategies}
+\author{William Faught}
+\date{October 4, 2010}
+\maketitle
+
+\begin{abstract}
+Software components written in different programming languages can cooperate through interoperation.  Differences between languages---incompatibilities---complicate interoperation.  This paper explores and resolves incompatible type systems, support for parametricity, and evaluation strategies with a model of computation, gives a thorough proof of its type soundness, and describes an implementation of it.  The model uses contracts for higher-order functions and lump types to resolve incompatible type systems, label types to resolve incompatible support for parametricity, and delayed conversions for list constructions to resolve incompatible evaluation strategies.  These mechanisms enable the interoperation of Haskell, ML, and Scheme without compromising their semantics.
+\end{abstract}
+
+\input{macros.tex}
+\input{chapter-1.tex}
+\input{chapter-2.tex}
+\input{chapter-3.tex}
+
+\clearpage
+
+\bibliography{bibliography}
+\bibliographystyle{plain}
+
+\end{document}
