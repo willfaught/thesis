@@ -29,7 +29,7 @@
 
 \section{Model of Computation}
 
-The model of computation comprises three dependent models of computation, based on that of Matthews and Findler (((CITATION))). The Haskell and ML models are based on System F, extended with a fixed-point operation. The Scheme model is based on lambda calculus, having a simple type system to ensure no free variables, and extended with type predicates. All models have natural numbers, arithmetic, conditions, lists, and errors. The Haskell model has a call-by-name evaluation strategy, and ML and Scheme have call-by-value evaluation strategies. The models are presented with grammars and operational semantics in the style of (((CITATION))) and typing rules.
+The model of computation comprises three dependent models of computation, based on that of Matthews and Findler \ref{matthews07}. The Haskell and ML models are based on System F, extended with a fixed-point operation. The Scheme model is based on lambda calculus, having a simple type system to ensure no free variables, and extended with type predicates. All models have natural numbers, arithmetic, conditions, lists, and errors. The Haskell model has a call-by-name evaluation strategy, and ML and Scheme have call-by-value evaluation strategies. The models are presented with grammars and operational semantics in the style of (((CITATION))) and typing rules.
 
 The Haskell model has a (((STRICT?))) subset of the strictness points of the ML and Scheme models, and hence forces the reduction of fewer expressions where those expressions are not used. When a function from the Haskell model is converted to a function in the ML or Scheme models, this same subset must be preserved or the meaning of the function will change and parametricity will not hold. Concretely, this means that function arguments and list construction operands must not be reduced. Thus evaluation contexts for the ML and Scheme models are made aware of whether Haskell language boundary guards are in these places, and if so, to make them irreducible.
 
@@ -39,49 +39,15 @@ Evaluation contexts are split into two: forced, \varconf, and unforced, \varconu
 
 Since the Haskell and ML models have their own types, type abstractions from one imported into the other cannot be easily converted, because any type the conversion is applied to cannot be substituted into the other language. Instead, and like the importation of parametric polymorphic types into the Scheme model, the lump type is subsituted into the imported type abstraction, and a lump equality relation, (((LUMP EQUALITY REL))) asserts that corresponding parts of the inner and outer types of the importation must be equal, or one of them must be a lump.
 
-\ref{figunf}
-
 \input{figures/unforced.tex}
 
-------
+\subsection{Notation}
 
-The model of computation is based on that of Matthews and Findler \ref{matthews07}. Their model consists of two simple models, one representing ML and the other Scheme.
-
-The ML model is a simply-typed lambda calculus extended with parametric polymorphism called System F. The substitution semantics by which type abstractions are applied means the ML model has parametricity, which is a property that ensures that programs behave the same regardless of the types applied to by type abstractions.  The ML model introduces new expressions, type abstractions and type applications, to express parametric polymorphism, and new types, type variables and forall types, for them. The ML model uses an eager evaluation strategy.
-
-The Scheme model is an extended untyped lambda calculus using an eager evaluation strategy. Value predicates enable ad-hoc polymorphism. Uses a simple type system to check for free variables.
-
-To this mix we introduce a Haskell model identical to the ML model, except it uses a lazy evaluation strategy.
-
-The definitions of \thehaskellmlscheme begin in figures \ref{hg}, \ref{mg}, and \ref{sg}.
-
-Expressions are written \varexp, types are written \varty, forced values are written \varvalf, unforced values are written \varvalu, forced evaluation contexts are written \varconf, and unforced evaluation contexts are written \varconu. Symbols that represent grammar non-terminals or relations typically have letter subscripts that specify a model.
+Symbols that represent grammar non-terminals or relations typically have letter subscripts that specify a model.
 
 \Thehaskellml have static type systems that use typing environments, written \env, and typing relations, written \jud. Typing judgements for expressions are written \jude{\env}{\jud}{\varexp}{\varty}, where \varexp is bound in \env and has the type \varty. Typing judgements for types are written \judt{\env}{\jud}{\varty} and mean \varty is bound in \env. Extended typing environments are written \envexte{\env}{\varvar}{\varty} for variables and \envextt{\env}{\tyvar} for type variables. Typing environments are omitted where empty. \Thescheme uses a simple type system to ensure no free variables. Every well-typed \scheme expression \hastype{\tytst}. Type substitution within types is written \tysubst{\formvar{x}}{\formvar{y}}{\formvar{z}}, where the type \formvar{y} is substituted for free occurrences of the type variable \formvar{z} in the type \formvar{x}.
 
-TODO: opsem
-
 Expression and type substitutions within expressions are written like type substitutions within types.
-
-\section{Natural Numbers}
-
-Natural numbers are written \expnum{\varnum}, which syntactically represents the natural number \varnum. Natural numbers \havetype{\tynum} for \thehaskellml. Addition and subtraction are written \expadd{\varexp}{\varexp} and \expsub{\varexp}{\varexp}. In \thescheme, if either arithmetic operand is not a natural number, then the result is an error, written \expwrongd{\errnum}, which discards the evaluation context and halts the computation. Conditions, written \expif{\varexp}{\varexp}{\varexp}, test whether a value is the natural number \expnum{0}. If it is, then it reduces to the first alternative; otherwise, it reduces to the second. \Thescheme has predicates that determine whether values are functions, lists, empty lists, and natural numbers, written \exppfun{\varexps}, \expplist{\varexps}, \exppnull{\varexps}, and \exppnum{\varexps}. Predicates reduce to \expnum{0} if true and \expnum{1} if false.
-
-\section{Lists}
-
-Empty lists are written \expnils{\varty} in \thehaskellml and \expnild in \thescheme. List constructions are written \expcons{\varexp}{\varexp} in \thehaskellmlscheme. Lists of elements that \havetype{\varty} in \thehaskellml \havetype{\tylist{\varty}}. \Thescheme has predicates that determine whether values are lists and empty lists, written \expplist{\varexp} and \exppnull{\varexp}.
-
-\section{Functions}
-
-TODO
-
-\section{Types}
-
-TODO
-
-\section{Interoperation}
-
-TODO
 
 \clearpage
 
@@ -147,6 +113,16 @@ TODO
 
 \input{model/unbrand.tex}
 
+\clearpage
+
 \input{model/equality.tex}
+
+\clearpage
+
+\input{model/symbols.tex}
+
+\clearpage
+
+\input{model/syntax.tex}
 
 \clearpage

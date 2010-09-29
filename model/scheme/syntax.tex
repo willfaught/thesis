@@ -1,0 +1,29 @@
+\begin{figure}[p]
+\onehalfspacing
+\centering
+\begin{tabular}{lcl}
+
+\varexps & $=$ & \varvars $|$ \varvalus $|$ \expfapp{\varexps}{\varexps} $|$ \expop{\varexps}{\varexps} $|$ \exppred{\varexps} $|$ \expif{\varexps}{\varexps}{\varexps} $|$ \expcons{\varexps}{\varexps} $|$ \expfield{\varexps} \\
+
+&& \expwrongd{\formvar{string}} $|$ \expsm{\varcsm}{\varexpm} \\
+
+\varvalus & $=$ & \varvalfs $|$ \expsh{\varcsh}{\varexph} \\
+
+\varvalfs & $=$ & \expfabsd{\varvars}{\varexps} $|$ \expnum{\varnum} $|$ \expnild $|$ \expcons{\varvalus}{\varvalus} $|$ \expsh{(\csbrand{\varbrand}{\vartyh})}{\varexph} $|$ \expsm{(\csbrand{\varbrand}{\vartym})}{\varvalfm} \\
+
+\formvar{\symop} & $=$ & \formsym{\symadd} $|$ \formsym{\symsub} \\
+
+\formvar{\symfield} & $=$ & \formsym{\symhd} $|$ \formsym{\symtl} \\
+
+\formvar{\sympred} & $=$ & \formsym{\sympfun} $|$ \formsym{\symplist} $|$ \formsym{\sympnull} $|$ \formsym{\sympnum} \\
+
+\varconfs & $=$ & \varconus $|$ \expsh{\varcsh}{\varconfh} \\
+
+\varconus & $=$ & \symholes $|$ \expfapp{\varconfs}{\varexps} $|$ \expfapp{\varvalfs}{\varconus} $|$ \expop{\varconfs}{\varexps} $|$ \expop{\varvalfs}{\varconfs} $|$ \exppred{\varconfs} $|$ \expif{\varconfs}{\varexps}{\varexps} \\
+
+&& \expcons{\varconus}{\varexps} $|$ \expcons{\varvalus}{\varconus} $|$ \expfield{\varconfs} $|$ \expsm{\varcsm}{\varconfm}
+
+\end{tabular}
+\caption{Scheme syntax and evaluation contexts}
+\label{figss}
+\end{figure}
