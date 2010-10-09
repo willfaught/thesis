@@ -1,0 +1,17 @@
+\section{Introduction}
+
+The complexities of software interoperation in part engender the proverbial reinvention of the wheel. Programmers forgo existing solutions to problems in other languages where interoperation proves too cumbersome; they reimplement software components, rather than reuse them. Disparate programming language features complicate the conversion of values exchanged between components of different languages. Resolving language incompatibilities transparently at boundaries between component languages facilitates reuse by unburdening programmers. To address part of this problem, this paper presents a model of computation that resolves incompatible evaluation strategies.
+
+For an expression imported from one language to another, if its conversion requires it to be evaluated, then the evaluation must follow the order of evaluation defined by the source language's evaluation strategy. Were the order of evaluation to differ, the meaning of the expression may change, as expressions that were assumed to never be evaluated, or evaluated a finite number of times, may in fact be evaluated.
+
+
+
+Interoperable languages must preserve strictness points within converted expressions. 
+
+Call-by-name and call-by-value evaluation strategies use orders of evaluation that take opposite approaches. Call-by-name evaluates expressions needed only by primitive operations, whereas call-by-value evaluates all expressions. As such, call-by-name evaluates a proper subset of the expressions that call-by-value does. In other words, the set of call-by-name strictness points is a proper subset of that of call-by-value. The exclusive disjunction between these two sets is the set of incompatible strictness points that may change the meaning of expressions that are converted from call-by-name to call-by-value. In call-by-name, expressions at these points may be assumed to never be evaluated, or assumed to be evaluated only a finite number of times. Call-by-value may violate these assumptions, and hence interoperation may change the meaning of programs.
+
+In general, the exclusive disjunction of the strictness points of two interoperable languages is their set of incompatible strictness points. If this set is not empty, then interoperation must preserve those strictness points in the other language and apply them to converted expressions. 
+
+The language that has an incompatible strictness point must delay evaluating imported expressions from the other language
+
+Interoperation requires preserving these strictness points for each evaluation strategy, even after a call-by-name value is converted to a call-by-value value. Otherwise, expressions may be evaluated where they were not before and cause errors or diverge. This means deferring the evaluation of converted call-by-name expressions in these incompatible points using a dual notion of values and evaluation contexts in call-by-value languages that handles both call-by-value values and converted call-by-name expressions, called \emph{forced} and \emph{unforced} values and evaluation contexts.
