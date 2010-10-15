@@ -27,13 +27,13 @@
 \newcommand{\hastype}[1]{has the type #1}
 \newcommand{\havetype}[1]{have the type #1}
 
+(((TODO: SET DIFFERENCE SHOULD BE FOR ONLY SHARED EXP POSITIONS)))
+
 \section{Model of Computation}
 
-Matthews and Findler used simple languages based on ML and Scheme. To explore and resolve interoperation between lazy and eager evaluation, a third language is introduced that is identical to their ML, except it is lazy instead, and as such is named after Haskell, to which it is more similar.
+The model of computation extends the model presented by Kinghorn \cite{kinghorn07} with a third language identical to the ML model except it uses lazy evaluation, and as such is named after Haskell, to which it is more similar.
 
-The model of computation comprises three dependent models of computation, based on that of Matthews and Findler \cite{matthews07}. The Haskell and ML models are based on System F, extended with a fixed-point operation. The Scheme model is based on lambda calculus, having a simple type system to ensure no free variables, and extended with type predicates. All models have natural numbers, arithmetic, conditions, lists, and errors. The Haskell model has a call-by-name evaluation strategy, and ML and Scheme have call-by-value evaluation strategies. The models are presented with grammars and operational semantics in the style of (((CITATION))) and typing rules.
-
-The Haskell model has a (((STRICT?))) subset of the strictness points of the ML and Scheme models, and hence forces the reduction of fewer expressions where those expressions are not used. When a function from the Haskell model is converted to a function in the ML or Scheme models, this same subset must be preserved or the meaning of the function will change and parametricity will not hold. Concretely, this means that function arguments and list construction operands must not be reduced. Thus evaluation contexts for the ML and Scheme models are made aware of whether Haskell language boundary guards are in these places, and if so, to make them irreducible.
+Concretely, this means that function arguments and list construction operands must not be reduced. Thus evaluation contexts for the ML and Scheme models are made aware of whether Haskell language boundary guards are in these places, and if so, to make them irreducible.
 
 Since Haskell language boundary guards are forced in some places but not others, they must be considered a value sometimes, but not others. Thus there are two kinds of values: all values, called unforced values, which include imported Haskell expressions, and forced values, which exclude imported Haskell expressions. Unforced values occur in the evaluation contexts and reduction rules where Haskell importations should not be forced, namely function arguments and list construction operands, and forced values occur everywhere else a value is required.
 
