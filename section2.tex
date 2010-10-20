@@ -1,47 +1,18 @@
-\newcommand{\haskell}{Haskell model\xspace}
-\newcommand{\ml}{ML model\xspace}
-\newcommand{\scheme}{Scheme model\xspace}
-
-\newcommand{\haskellml}{Haskell and ML models\xspace}
-\newcommand{\haskellmlscheme}{Haskell, ML, and Scheme models\xspace}
-
-\newcommand{\articlehaskell}[1]{#1 \haskell}
-\newcommand{\articleml}[1]{#1 \ml}
-\newcommand{\articlescheme}[1]{#1 \scheme}
-
-\newcommand{\articlehaskellml}[1]{#1 \haskellml}
-\newcommand{\articlehaskellmlscheme}[1]{#1 \haskellmlscheme}
-
-\newcommand{\thehaskell}{\articlehaskell{the}}
-\newcommand{\Thehaskell}{\articlehaskell{The}}
-\newcommand{\theml}{\articleml{the}}
-\newcommand{\Theml}{\articleml{The}}
-\newcommand{\thescheme}{\articlescheme{the}}
-\newcommand{\Thescheme}{\articlescheme{The}}
-
-\newcommand{\thehaskellml}{\articlehaskellml{the}}
-\newcommand{\Thehaskellml}{\articlehaskellml{The}}
-\newcommand{\thehaskellmlscheme}{\articlehaskellmlscheme{the}}
-\newcommand{\Thehaskellmlscheme}{\articlehaskellmlscheme{The}}
-
-\newcommand{\hastype}[1]{has the type #1}
-\newcommand{\havetype}[1]{have the type #1}
-
 \section{Model of Computation}
 
 The model of computation extends the model presented by Kinghorn \cite{kinghorn07} with a third language identical to the ML model except it uses lazy evaluation, and as such is named after Haskell, to which it is more similar. Hereafter, the names Haskell, ML, and Scheme refer to their corresponding models in this paper. Lists are added to all three languages. Being lazy, Haskell does not evaluate function arguments or list construction operands. These three points constitute the set of incompatible strictness points between Haskell and ML and Haskell and Scheme. Haskell guards in ML and Scheme must not be evaluated where they occur at these points, but they can be evaluated at all other points.
 
-Haskell guards are considered a special kind of value called an unforced value. Unforced values include both Haskell guards and traditional values, called forced values. Haskell guards that are forced to evaluate become forced values through the conversion of the Haskell value to an ML or Scheme value. As such, all ML and Scheme expressions either reduce to unforced values, cause errors, or diverge. ML and Scheme reduction rules and evaluation contexts use unforced values at the incompatible strictness points to prevent matching, and their evaluation contexts restrict evaluation within Haskell guards at those points.
+Haskell guards are considered a special kind of value called an unforced value. Unforced values include both Haskell guards and traditional values called forced values. Haskell guards that are forced to evaluate become forced values through the conversion of the Haskell value to an ML or Scheme value. As such, all ML and Scheme expressions either reduce to unforced values, cause errors, or diverge. ML and Scheme reduction rules and evaluation contexts use unforced values at the incompatible strictness points to match against Haskell guards, and their evaluation contexts prevent evaluation within Haskell guards at those points.
 
 Figure \ref{figunf} illustrates forced and unforced values at work for the cases explained in the introduction. The reductions for lines 1-4 show that the outer Haskell argument $zeroes$ is not forced by the application of the inner Scheme function. The reductions for lines 4-8 show that the conversion of $zeroes$ from Haskell to Scheme did not diverge, despite $zeroes$ being a list of infinite size.
 
 \input{figures/unforced.tex}
 
-The interoperation of Haskell and ML posed another problem: the conversion of type abstractions. The application of a converted type abstraction cannot substitute the type argument into the inner language directly, since the inner language has no notion of the types of the outer language. Instead, conversion substitutes lumps in a guard's inner type. The application of a converted type abstraction substitutes the type argument in the guard's outer type. Since the natural embedding \cite{matthews07} requires the guard's outer and inner types to be equal, a new equality relation must be used here that allow lumps in the guard's inner type to match any type.
+The interoperation of Haskell and ML posed another problem: the conversion of type abstractions. The application of a converted type abstraction cannot substitute the type argument into the inner language directly, since the inner language has no notion of the types of the outer language. Instead, conversion substitutes lumps in a guard's inner type. The application of a converted type abstraction substitutes the type argument in the guard's outer type. Since the natural embedding \cite{matthews07} requires the guard's outer and inner types to be equal, a new equality relation called lump equality is used here that allow lumps within the guard's inner type to match any corresponding type in the guard's outer type.
 
 The proof of correctness of this model would be similar to that of Kinghorn \cite{kinghorn07}, mutatis mutandis.
 
-Haskell is presented in figures \ref{fighs}, \ref{fightr}, \ref{fighos}, \ref{fighmos}, and \ref{fighsos}; ML is presented in figures \ref{figms}, \ref{figmtr}, \ref{figmos}, \ref{figmhos}, and \ref{figmsos}; and Scheme is presented in figures \ref{figss}, \ref{figstr}, \ref{figsos}, \ref{figshos}, and \ref{figsmos}.
+Haskell is presented in figures \ref{fighs}, \ref{fightr}, \ref{fighos}, \ref{fighmos}, and \ref{fighsos}; ML is presented in figures \ref{figms}, \ref{figmtr}, \ref{figmos}, \ref{figmhos}, and \ref{figmsos}; Scheme is presented in figures \ref{figss}, \ref{figstr}, \ref{figsos}, \ref{figshos}, and \ref{figsmos}; the unbrand function is presented in figure \ref{figunbrand}; the lump equality relation is presented in figure \ref{figequality}; and legends of symbol and syntax names are presented in figures \ref{figsymbols}, \ref{figsyntax1}, and \ref{figsyntax2}.
 
 \clearpage
 
