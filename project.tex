@@ -19,7 +19,7 @@
 \maketitle
 
 \begin{abstract}
-Software components written in different programming languages can cooperate through interoperation.  Differences between languages --- incompatibilities --- complicate interoperation.  This paper explores and resolves incompatible type systems, support for parametricity, and evaluation strategies with a model of computation, gives a thorough proof of its type soundness, and describes an implementation of it.  The model uses contracts for higher-order functions and lump types to resolve incompatible type systems, label types to resolve incompatible support for parametricity, and delayed conversions for list constructions to resolve incompatible evaluation strategies.  These mechanisms enable the interoperation of Haskell, ML, and Scheme without compromising their semantics.
+Programmers forgo existing solutions to problems in other programming languages where interoperation proves too cumbersome; they remake solutions, rather than reuse them. To unburden programmers to facilitate reuse, interoperation must resolve incompatible programming language features transparently at the boundaries between languages. To address part of this problem, this paper presents a model of computation that resolves lazy and eager evaluation strategies. Unforced values act as thunks that are used and forced where appropriate by the languages themselves and do not require programmer forethought.
 \end{abstract}
 
 \input{macros.tex}
