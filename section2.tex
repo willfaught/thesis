@@ -8,7 +8,7 @@ Figure \ref{figunf} illustrates forced and unforced values at work for the cases
 
 \input{figures/unforced.tex}
 
-The interoperation of Haskell and ML posed another problem: the conversion of type abstractions. The application of a converted type abstraction cannot substitute the type argument into the inner language directly, since the inner language has no notion of the types of the outer language. Instead, conversion substitutes lumps in a guard's inner type. The application of a converted type abstraction substitutes the type argument in the guard's outer type. Since the natural embedding \cite{matthews07} requires the guard's outer and inner types to be equal, a new equality relation called lump equality is used here that allow lumps within the guard's inner type to match any corresponding type in the guard's outer type.
+The interoperation of Haskell and ML posed another problem: the conversion of type abstractions. The application of a converted type abstraction cannot substitute the type argument into the inner language directly, since the inner language has no notion of the types of the outer language. Instead, conversion substitutes lumps in a guard's inner type. The application of a converted type abstraction substitutes the type argument in the guard's outer type. Since the natural embedding \cite{matthews07} requires the guard's outer and inner types to be equal, a new equality relation called lump equality is used here that allows lumps within the guard's inner type to match any corresponding type in the guard's outer type.
 
 The proof of correctness of this model would be similar to that of Kinghorn \cite{kinghorn07}, mutatis mutandis.
 
