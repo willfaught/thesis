@@ -8,6 +8,15 @@ Figure \ref{figunf} illustrates forced and unforced values at work for the cases
 
 \input{figures/unforced.tex}
 
+\begin{theorem}{Evaluation Strategy Preservation}
+
+\label{thmstr}
+asdf
+\begin{proof}
+asdf
+\end{proof}
+\end{theorem}
+
 The interoperation of Haskell and ML posed another problem: the conversion of type abstractions. The application of a converted type abstraction cannot substitute the type argument into the inner language directly, since the inner language has no notion of the types of the outer language. Instead, conversion substitutes lumps in a boundary's inner type. The application of a converted type abstraction substitutes the type argument in the boundary's outer type. Since the natural embedding \cite{matthews07} requires the boundary's outer and inner types to be equal, a new equality relation called lump equality is used here that allows lumps within the boundary's inner type to match any corresponding type in the boundary's outer type.
 
 Legends of symbol and syntax names are presented in figures \ref{figsymbols}-\ref{figsyntax2}; Haskell is presented in figures \ref{fighs}-\ref{fighsos}; ML is presented in figures \ref{figms}-\ref{figmsos}; Scheme is presented in figures \ref{figss}-\ref{figsmos}; the unbrand function is presented in figure \ref{figunbrand}; and the lump equality relation is presented in figure \ref{figequality}.
