@@ -4,7 +4,29 @@ The model of computation extends the model presented by Kinghorn \cite{kinghorn0
 
 Since values are irreducible at all points, and since the expressions in Haskell boundaries are irreducible at some points and not others, Haskell boundaries are a new kind of value called an \emph{unforced value}. Like thunks, unforced values can be forced to evaluate to values. The Haskell expressions in Haskell boundaries are forced to evaluate to Haskell values, then the Haskell values are converted to ML or Scheme values. ML and Scheme values are called \emph{forced values} because any might be the result of forcing an unforced value. Forced values are a proper subset of unforced values because unforced values can only be at points where forced values can also be, but forced values can be at points where unforced values cannot. ML and Scheme reduction rules and evaluation contexts use unforced values at the incompatible strictness points to match against Haskell boundaries, and their evaluation contexts prevent evaluation within Haskell boundaries at those points.
 
-All ML and Scheme expressions either reduce to unforced values, cause errors, or diverge.
+\begin{theorem}{Haskell Progress}
+If \judeh{}{\first{\varexph}}{\vartyh} then \pshyp{\first{\varexph}}{\second{\varexph}}.
+\end{theorem}
+
+\begin{theorem}{ML Progress}
+If \judem{}{\first{\varexpm}}{\vartym} then \pshyp{\first{\varexpm}}{\second{\varexpm}}.
+\end{theorem}
+
+\begin{theorem}{Scheme Progress}
+If \judes{}{\first{\varexps}}{\tytst} then \pshyp{\first{\varexps}}{\second{\varexps}}.
+\end{theorem}
+
+\begin{theorem}{Haskell Preservation}
+If \judeh{\env}{\first{\varexph}}{\first{\vartyh}} and \redruleh{\first{\varexph}}{\second{\varexph}} then \judeh{\env}{\second{\varexph}}{\first{\vartyh}}.
+\end{theorem}
+
+\begin{theorem}{ML Preservation}
+If \judem{\env}{\first{\varexpm}}{\first{\vartym}} and \first{\varexpm} \red \second{\varexpm} then \judem{\env}{\second{\varexpm}}{\first{\vartym}}.
+\end{theorem}
+
+\begin{theorem}{Scheme Preservation}
+If \judes{\env}{\first{\varexps}}{\tytst} and \first{\varexps} \red \second{\varexps} then \judes{\env}{\second{\varexps}}{\tytst}.
+\end{theorem}
 
 Figure \ref{figunf} illustrates forced and unforced values at work for the cases explained in the introduction. The reductions for lines 1-4 show that the outer Haskell argument $zeroes$ is not forced by the application of the inner Scheme function. The reductions for lines 4-8 show that the conversion of $zeroes$ from Haskell to Scheme did not diverge, despite $zeroes$ being a list of infinite size.
 
