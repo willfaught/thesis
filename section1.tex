@@ -2,6 +2,50 @@
 
 Programmers forgo existing solutions to problems in other programming languages where software interoperation proves too cumbersome; they remake solutions, rather than reuse them. To facilitate reuse, interoperation must resolve incompatible programming language features transparently at the boundaries between languages. To address part of this problem, this paper presents a model of computation that resolves lazy and eager evaluation strategies.
 
+Matthews and Findler presented \cite{matthews07} a system of interoperation for languages with incompatible type systems in which expressions called boundaries wrap expressions of other languages. A boundary represents the conversion of the value to which the wrapped expression evaluates from the inner language to the outer language. Type annotations in a boundary specify the actual type of the wrapped expression of the inner language and the expected type of the converted value of the outer language. For example, $\formsym{xy}\;\varty_x\;\varty_y\;\varexp_y$ represents the conversion of the expression $\varexp_y$ with the type $\varty_y$ of the language \formsym{y} to an equal value with the type $\varty_x$ of the language \formsym{x}. \formsym{xy} can be read as ``language \emph{x} on the outside, language \emph{y} on the inside," where \formsym{xy} is an initialism of the two language names.
+
+Boundaries evaluate to the values they convert. Number conversion is straightforward because numbers can be coerced between languages: \redruleh{\exphm{\tynum}{\tynum}{\expnum{0}}}{\expnum{0}}.
+
+
+ called boundary expressions that represent the exchange of values between languages. Boundaries contain expressions of other languages that evaluate to values 
+
+ in which expressions from other languages can be nested. Boundaries , where the nested value of the inner language is converted into an equal value of the outer language. Boundaries have type annotations for the inner and outer languages that are type checked and determine the conversion of nested values.
+
+
+
+. a model of computation in which interoperation between two languages was expressed as expressions from one language nested within that of the other. using special boundary expressions likeThe boundaryy expressions contained types for the original value on one side and the type for the converte result  in the other language. When the inner expression is a value, it can be converted according to the type in the boundary. The inner expression is reduced when the guard is reduced.  Their model In their model, the two interoperating languages are statically typed, so the boundaries had types for the inner and outer expressions. The system of interoperation ensured that converted values were equal to their original values . Since the languages they used were all eagerly evaluated, there were no evaluation strategy incompatibilities.d If a lazy language were added to the mix, interoperation would change the behavior o f functions or diverge when converted data of infinite size like infinite lists. 
+
+Given a model like that of Kinghorn, there are two ways interoperation can go wrong: converting data and functions. 
+
+Functions are converted by composing them with boundaries around the arguments and results and wrapping it in a native function. For example, the Haskell constant function for natural numbers is converted to an equal ML function like so:
+
+%HM (N->(N->N)) (\x_M:N.(\y_M:(N->N).x_M)) --> \x_H:N.HM (N->N) ((\x_M:N.(\y_M:(N->N).x_M)) (MH N x_H))
+
+In ML, K (wrong N "Wrong") 2 --> Error: Wrong. In Haskell, K (wrong N "Wrong") 2 --> 2. However, if, in Haskell, K were a conversion of the ML K, then K (wrong N "Wrong") 2 --> Error: Wrong.
+
+Lists are converted by wrapping the heads and tails in boundaries and reducing those. If the tail is equal to the outer list, in the case of a list of infinite length, then this process will recurse forever and diverge.
+
+%zeroes = fix (\x_H:([N]->[N]).cons 0 x_H)
+%MH [N] zeroes --> cons (MH N 0) (MH [N] zeroes) /-->
+
+
+\setlength{\unitlength}{0.75mm}
+\begin{picture}(60,40)
+\put(30,20){\vector(1,0){30}}
+\put(30,20){\vector(4,1){20}}
+\put(30,20){\vector(3,1){25}}
+\put(30,20){\vector(2,1){30}}
+\put(30,20){\vector(1,2){10}}
+\thicklines
+\put(30,20){\vector(-4,1){30}}
+\put(30,20){\vector(-1,4){5}}
+\thinlines
+\put(30,20){\vector(-1,-1){5}}
+\put(30,20){\vector(-1,-4){5}}
+\end{picture}
+
+
+
 The systems of interoperation presented by Matthews and Findler \cite{matthews07} preserved the equivalence of values converted between languages that have incompatible type systems. Since the languages they used were all eager, there were no evaluation strategy incompatibilities to resolve. If a lazy language is introduced to their systems, then interoperation does not preserve the equivalence of values converted between the lazy language and the eager languages. For example, since the application of a converted function involves applications in both the outer and inner languages, the argument is subject to both the outer and inner evaluation strategies. If the outer language is lazy and the inner language is eager, then the argument may be evaluated by the inner language but not the outer language. In this case, the converted function is not equivalent to the original function. Futhermore, the conversion of composite types like lists from lazy languages to eager ones may diverge or cause an error because eager evaluation will convert the entire value, which may be of infinite size or contain expressions assumed by lazy languages not to be immediately evaluated.
 
 Lazy and eager evaluation take opposite approaches: lazy evaluation evaluates expressions as needed, and eager evaluation evaluates expressions immediately. As such, for common expressions, lazy evaluation evaluates a proper subset of the expressions that eager evaluation does. In other words, the set of lazy evaluation strictness points is a proper subset of that of eager evaluation. The difference between these two sets is the set of incompatible strictness points that may change the meaning of values converted from eager languages to lazy ones or may cause a divergence or an error for values converted from lazy languages to eager ones. Where boundaries that contain expressions of lazy languages are at these points, the original lazy evaluation strategy must be followed, and the guards not evaluated. This requires introducing a dual notion of values where \emph{forced} values force the evaluation of guarded expressions of lazy languages and \emph{unforced} values prevent their evaluation.
