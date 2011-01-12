@@ -2,71 +2,7 @@
 
 Programmers forgo existing solutions to problems in other programming languages where software interoperation proves too cumbersome; they remake solutions, rather than reuse them. To facilitate reuse, interoperation must resolve incompatible language features transparently at the boundaries between languages. To address part of this problem, this paper presents a model of computation that resolves lazy and eager evaluation strategies.
 
-
-
-
-Matthews and Findler presented \cite{matthews07} two approaches to resolving static and dynamic type systems for interoperation. The first approach, called lump embedding, introduced a new expression called a boundary and a new type called a lump. In the lump embedding, interoperation is represented in syntax by embedding an expression of one language in a boundary of another language. Boundaries have type annotations for the embedded expression that indicate its expected type in the outer language and its actual type in the inner language. 
-
-
-
-languages interoperate by exchanging values. A sending language  by the sending language between two languages is the conversion of a value of the sending language to an equal value of the receiving language. This is represented in syntax by embedding an expression of the sending language within a special expression called a boundary of the receiving language. When the boundary is evaluated by the receiving language, the embedded expression is evaluated to a value by the sending language, then the value is converted from the sending language to the receiving language. They presented two ways to 
-
-They resolved dynamic and static type systems, but all languages had to have the same evaluation strategy. If one language was lazy and another eager, then their approach would not work in certain cases.
-
-In interoperation, converted values always pass from inner
-
- This is represented as an expression of the sending language nested in a special expression called a boundary in the receiving language. 
-
- expressed as an expression of the  language 
- expressed by nesting expression of one language within 
-
-In their approach, languages are tied together to express interoperation by nesting expressions of one language in expressions of another language in special cross-language conversion expressions called boundaries.
-
- a system of interoperation for languages with incompatible type systems.
-
- in which expressions called boundaries wrap expressions of other languages. A boundary represents the conversion of the value to which the wrapped expression evaluates from the inner language to the outer language. Type annotations in a boundary specify the actual type of the wrapped expression of the inner language and the expected type of the converted value of the outer language. For example, $\formsym{xy}\;\varty_x\;\varty_y\;\varexp_y$ represents the conversion of the expression $\varexp_y$ with the type $\varty_y$ of the language \formsym{y} to an equal value with the type $\varty_x$ of the language \formsym{x}. \formsym{xy} can be read as ``language \emph{x} on the outside, language \emph{y} on the inside," where \formsym{xy} is an initialism of the two language names.
-
-Boundaries evaluate to the values they convert. Number conversion is straightforward because numbers can be coerced between languages: \redruleh{\exphm{\tynum}{\tynum}{\expnum{0}}}{\expnum{0}}.
-
-
- called boundary expressions that represent the exchange of values between languages. Boundaries contain expressions of other languages that evaluate to values 
-
- in which expressions from other languages can be nested. Boundaries , where the nested value of the inner language is converted into an equal value of the outer language. Boundaries have type annotations for the inner and outer languages that are type checked and determine the conversion of nested values.
-
-
-
-. a model of computation in which interoperation between two languages was expressed as expressions from one language nested within that of the other. using special boundary expressions likeThe boundaryy expressions contained types for the original value on one side and the type for the converte result  in the other language. When the inner expression is a value, it can be converted according to the type in the boundary. The inner expression is reduced when the guard is reduced.  Their model In their model, the two interoperating languages are statically typed, so the boundaries had types for the inner and outer expressions. The system of interoperation ensured that converted values were equal to their original values . Since the languages they used were all eagerly evaluated, there were no evaluation strategy incompatibilities.d If a lazy language were added to the mix, interoperation would change the behavior o f functions or diverge when converted data of infinite size like infinite lists. 
-
-Given a model like that of Kinghorn, there are two ways interoperation can go wrong: converting data and functions. 
-
-Functions are converted by composing them with boundaries around the arguments and results and wrapping it in a native function. For example, the Haskell constant function for natural numbers is converted to an equal ML function like so:
-
-%HM (N->(N->N)) (\x_M:N.(\y_M:(N->N).x_M)) --> \x_H:N.HM (N->N) ((\x_M:N.(\y_M:(N->N).x_M)) (MH N x_H))
-
-In ML, K (wrong N "Wrong") 2 --> Error: Wrong. In Haskell, K (wrong N "Wrong") 2 --> 2. However, if, in Haskell, K were a conversion of the ML K, then K (wrong N "Wrong") 2 --> Error: Wrong.
-
-Lists are converted by wrapping the heads and tails in boundaries and reducing those. If the tail is equal to the outer list, in the case of a list of infinite length, then this process will recurse forever and diverge.
-
-%zeroes = fix (\x_H:([N]->[N]).cons 0 x_H)
-%MH [N] zeroes --> cons (MH N 0) (MH [N] zeroes) /-->
-
-
-\setlength{\unitlength}{0.75mm}
-\begin{picture}(60,40)
-\put(30,20){\vector(1,0){30}}
-\put(30,20){\vector(4,1){20}}
-\put(30,20){\vector(3,1){25}}
-\put(30,20){\vector(2,1){30}}
-\put(30,20){\vector(1,2){10}}
-\thicklines
-\put(30,20){\vector(-4,1){30}}
-\put(30,20){\vector(-1,4){5}}
-\thinlines
-\put(30,20){\vector(-1,-1){5}}
-\put(30,20){\vector(-1,-4){5}}
-\end{picture}
-
-
+Matthews and Findler presented \cite{matthews07} two approaches to resolving static and dynamic type systems for interoperation. In the first approach, called lump embedding, languages are tied together by new expressions called boundaries that embed expressions of one language within another, which represent the exchange of the embedded expressions from the inner languages to the outer languages. The embedded expressions, when exchanged, are opaque values that cannot be inspected by the outer language, and can only be returned to the inner language. In the second approach, called natural embedding, languages are tied together as with lump embedding, but instead of opaqueness, embedded expressions are reduced to values, then converted into equal values of the outer language following type annotations in the boundaries. To return a converted value back to the inner language, it must be converted back.
 
 The systems of interoperation presented by Matthews and Findler \cite{matthews07} preserved the equivalence of values converted between languages that have incompatible type systems. Since the languages they used were all eager, there were no evaluation strategy incompatibilities to resolve. If a lazy language is introduced to their systems, then interoperation does not preserve the equivalence of values converted between the lazy language and the eager languages. For example, since the application of a converted function involves applications in both the outer and inner languages, the argument is subject to both the outer and inner evaluation strategies. If the outer language is lazy and the inner language is eager, then the argument may be evaluated by the inner language but not the outer language. In this case, the converted function is not equivalent to the original function. Futhermore, the conversion of composite types like lists from lazy languages to eager ones may diverge or cause an error because eager evaluation will convert the entire value, which may be of infinite size or contain expressions assumed by lazy languages not to be immediately evaluated.
 
