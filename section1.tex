@@ -1,8 +1,30 @@
 \section{Introduction}
 
-Programmers forgo existing solutions to problems in other programming languages where software interoperation proves too cumbersome; they remake solutions, rather than reuse them. To facilitate reuse, interoperation must resolve incompatible programming language features transparently at the boundaries between languages. To address part of this problem, this paper presents a model of computation that resolves lazy and eager evaluation strategies.
+Programmers forgo existing solutions to problems in other programming languages where software interoperation proves too cumbersome; they remake solutions, rather than reuse them. To facilitate reuse, interoperation must resolve incompatible language features transparently at the boundaries between languages. To address part of this problem, this paper presents a model of computation that resolves lazy and eager evaluation strategies.
 
-Matthews and Findler presented \cite{matthews07} a system of interoperation for languages with incompatible type systems in which expressions called boundaries wrap expressions of other languages. A boundary represents the conversion of the value to which the wrapped expression evaluates from the inner language to the outer language. Type annotations in a boundary specify the actual type of the wrapped expression of the inner language and the expected type of the converted value of the outer language. For example, $\formsym{xy}\;\varty_x\;\varty_y\;\varexp_y$ represents the conversion of the expression $\varexp_y$ with the type $\varty_y$ of the language \formsym{y} to an equal value with the type $\varty_x$ of the language \formsym{x}. \formsym{xy} can be read as ``language \emph{x} on the outside, language \emph{y} on the inside," where \formsym{xy} is an initialism of the two language names.
+
+
+
+Matthews and Findler presented \cite{matthews07} two approaches to resolving static and dynamic type systems for interoperation. The first approach, called lump embedding, introduced a new expression called a boundary and a new type called a lump. In the lump embedding, interoperation is represented in syntax by embedding an expression of one language in a boundary of another language. Boundaries have type annotations for the embedded expression that indicate its expected type in the outer language and its actual type in the inner language. 
+
+
+
+languages interoperate by exchanging values. A sending language  by the sending language between two languages is the conversion of a value of the sending language to an equal value of the receiving language. This is represented in syntax by embedding an expression of the sending language within a special expression called a boundary of the receiving language. When the boundary is evaluated by the receiving language, the embedded expression is evaluated to a value by the sending language, then the value is converted from the sending language to the receiving language. They presented two ways to 
+
+They resolved dynamic and static type systems, but all languages had to have the same evaluation strategy. If one language was lazy and another eager, then their approach would not work in certain cases.
+
+In interoperation, converted values always pass from inner
+
+ This is represented as an expression of the sending language nested in a special expression called a boundary in the receiving language. 
+
+ expressed as an expression of the  language 
+ expressed by nesting expression of one language within 
+
+In their approach, languages are tied together to express interoperation by nesting expressions of one language in expressions of another language in special cross-language conversion expressions called boundaries.
+
+ a system of interoperation for languages with incompatible type systems.
+
+ in which expressions called boundaries wrap expressions of other languages. A boundary represents the conversion of the value to which the wrapped expression evaluates from the inner language to the outer language. Type annotations in a boundary specify the actual type of the wrapped expression of the inner language and the expected type of the converted value of the outer language. For example, $\formsym{xy}\;\varty_x\;\varty_y\;\varexp_y$ represents the conversion of the expression $\varexp_y$ with the type $\varty_y$ of the language \formsym{y} to an equal value with the type $\varty_x$ of the language \formsym{x}. \formsym{xy} can be read as ``language \emph{x} on the outside, language \emph{y} on the inside," where \formsym{xy} is an initialism of the two language names.
 
 Boundaries evaluate to the values they convert. Number conversion is straightforward because numbers can be coerced between languages: \redruleh{\exphm{\tynum}{\tynum}{\expnum{0}}}{\expnum{0}}.
 
