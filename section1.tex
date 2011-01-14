@@ -2,7 +2,51 @@
 
 Programmers forgo existing solutions to problems in other programming languages where software interoperation proves too cumbersome; they remake solutions, rather than reuse them. To facilitate reuse, interoperation must resolve incompatible language features transparently at the boundaries between languages. To address part of this problem, this paper presents a model of computation that resolves lazy and eager evaluation strategies.
 
-Matthews and Findler presented \cite{matthews07} two approaches to resolving static and dynamic type systems for interoperation. In the first approach, called lump embedding, languages are tied together by new expressions called boundaries that embed expressions of one language within another, which represent the exchange of the embedded expressions from the inner languages to the outer languages. The embedded expressions, when exchanged, are opaque values that cannot be inspected by the outer language, and can only be returned to the inner language. In the second approach, called natural embedding, languages are tied together as with lump embedding, but instead of opaqueness, embedded expressions are reduced to values, then converted into equal values of the outer language following type annotations in the boundaries. To return a converted value back to the inner language, it must be converted back.
+Languages are normally independent, as in figure \ref{figsim}. Matthews and Findler \cite{matthews07} approached interoperation by tying languages together with boundary expressions, as in figure \ref{figtie}. In this example, $\mathtt{ab} \; b$ and $\mathtt{ba} \; a$ are the boundary expressions. Expressions of one language are embedded in boundaries of another language. The following are well-formed expressions: $\lambda x.x$, $\lambda x.\mathtt{ab} \; (\lambda y.y)$, $\lambda x.\mathtt{ab} \; (\lambda y.\mathtt{ba} \; (\lambda x.x))$. Embedding represents the exchange of the expression from the inner language to the outer language. Application can substitute ``across" or ``within" or ``through" boundaries; $x$ is bound in $\lambda x.\mathtt{ab} \; (\mathtt{ba} \; x)$.
+
+Matthews and Findler resolved static and dynamic type systems for interoperation by adding a type annotation to boundaries. If the inner language is statically-typed, then the type annotation reflects the actual type of the embedded expression according to the inner language; otherwise, the outer langauge is statically-typed, and the type annotation reflects the expected type of the embedded expression according to the outer language. In the languages presented in figure \ref{figann}, the following expressions are well-formed and well-typed: $\lambda x:\iota.x$, $\mathtt{ba} \; (\iota \rightarrow \iota) \; (\lambda x:\iota.x)$, $\mathtt{ab} \; (\iota \rightarrow \iota) \; (\mathtt{ba} \; (\iota \rightarrow \iota) \; (\lambda x:\iota.x))$.
+
+Matthews and Findler presented two approaches for embedding. The lump embedding adds a new type, the lump type, to the static type system. Any boundary of a statically-typed language annotated with the lump type is an opaque value that cannot be inspected by the statically-typed language; it can only be returned to the dynamically-typed language. When a boundary is embedded within another boundary, and both have equal type annotations, the boundaries collapse, leaving only the embedded expression of the embedded boundary. Hence, if $\mathtt{lump}$ is a type, then $\mathtt{ab} \; (\iota \rightarrow \iota) \; (\mathtt{ba} \; (\iota \rightarrow \iota) \; (\lambda x:\iota.x))$ becomes $\lambda x:\iota.x$, and $\mathtt{ba} \; \mathtt{lump} \; (\mathtt{ab} \; \mathtt{lump} \; (\lambda y.y))$ becomes $\lambda y.y$.
+
+The natural embedding 
+
+\begin{figure}[t]
+\onehalfspacing
+\centering
+\begin{tabular}{c}
+$a \; \rightarrow \; x \; | \; \lambda x.a \; | \; a \; a$ \\
+$b \; \rightarrow \; y \; | \; \lambda y.b \; | \; b \; b$
+\end{tabular}
+\caption{Two simple languages.}
+\label{figsim}
+\end{figure}
+
+\begin{figure}[t]
+\onehalfspacing
+\centering
+\begin{tabular}{c}
+$a \; \rightarrow \; x \; | \; \lambda x.a \; | \; a \; a \; | \; \mathtt{ab} \; b$ \\
+$b \; \rightarrow \; y \; | \; \lambda y.b \; | \; b \; b \; | \; \mathtt{ba} \; a$
+\end{tabular}
+\caption{Two simple languages tied together with boundaries.}
+\label{figtie}
+\end{figure}
+
+\begin{figure}[b]
+\onehalfspacing
+\centering
+\begin{tabular}{c}
+$t \; \rightarrow \; \iota \; | \; t \; \rightarrow \; t$ \\
+$a \; \rightarrow \; x \; | \; \lambda x:t.a \; | \; a \; a \; | \; \mathtt{ab} \; t \; b$ \\
+$b \; \rightarrow \; y \; | \; \lambda y.b \; | \; b \; b \; | \; \mathtt{ba} \; t \; a$
+\end{tabular}
+\caption{Static typing requires boundary type annotations.}
+\label{figann}
+\end{figure}
+
+The model of computation extends the work of Matthews and Findler \cite{matthews07} and uses the work of Kinghorn \cite{kinghorn07} as a starting point. Matthews and Findler presented \cite{matthews07} two approaches to resolving static and dynamic type systems for interoperation. In the first approach, called lump embedding, languages are tied together by new expressions called boundaries that embed expressions of one language within another, which represent the exchange of the embedded expressions from the inner languages to the outer languages. The embedded expressions, when exchanged, are opaque values that cannot be inspected by the outer language, and can only be returned to the inner language. In the second approach, called natural embedding, languages are tied together as with lump embedding, but instead of opaqueness, embedded expressions are reduced to values, then converted into equal values of the outer language following type annotations in the boundaries. To return a converted value back to the inner language, it must be converted back.
+
+The models of Matthews and Findler are defined using evaluation contexts
 
 The systems of interoperation presented by Matthews and Findler \cite{matthews07} preserved the equivalence of values converted between languages that have incompatible type systems. Since the languages they used were all eager, there were no evaluation strategy incompatibilities to resolve. If a lazy language is introduced to their systems, then interoperation does not preserve the equivalence of values converted between the lazy language and the eager languages. For example, since the application of a converted function involves applications in both the outer and inner languages, the argument is subject to both the outer and inner evaluation strategies. If the outer language is lazy and the inner language is eager, then the argument may be evaluated by the inner language but not the outer language. In this case, the converted function is not equivalent to the original function. Futhermore, the conversion of composite types like lists from lazy languages to eager ones may diverge or cause an error because eager evaluation will convert the entire value, which may be of infinite size or contain expressions assumed by lazy languages not to be immediately evaluated.
 
