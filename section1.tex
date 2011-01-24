@@ -8,8 +8,8 @@ Languages are normally independent, as in figure \ref{figsim}. Matthews and Find
 \onehalfspacing
 \centering
 \begin{tabular}{c}
-$a \; = \; x \; | \; \lambda x.a \; | \; a \; a$ \\
-$b \; = \; y \; | \; \lambda y.b \; | \; b \; b$
+$a \; = \; x_a \; | \; \lambda x_a.a \; | \; a \; a$ \\
+$b \; = \; x_b \; | \; \lambda x_b.b \; | \; b \; b$ \\
 \end{tabular}
 \caption{Two simple languages.}
 \label{figsim}
@@ -19,8 +19,8 @@ $b \; = \; y \; | \; \lambda y.b \; | \; b \; b$
 \onehalfspacing
 \centering
 \begin{tabular}{c}
-$a \; = \; x \; | \; \lambda x.a \; | \; a \; a \; | \; \mathtt{ab} \; b$ \\
-$b \; = \; y \; | \; \lambda y.b \; | \; b \; b \; | \; \mathtt{ba} \; a$
+$a \; = \; x_a \; | \; \lambda x_a.a \; | \; a \; a \; | \; \mathtt{ab} \; b$ \\
+$b \; = \; x_b \; | \; \lambda x_b.b \; | \; b \; b \; | \; \mathtt{ba} \; a$ \\
 \end{tabular}
 \caption{Two simple languages tied together with boundaries.}
 \label{figtie}
@@ -32,15 +32,13 @@ Matthews and Findler used evaluation contexts to enable error states in their la
 \onehalfspacing
 \centering
 \begin{tabular}{c}
-$t \; = \; x \; | \; v \; | \; t \; t \; | \; \mathtt{error}$ \\
-$v \; = \; \lambda x.t$ \\
-$(\lambda x.t) \; v \; \rightarrow t[v/x]$ \\
-$\mathtt{error} \; t \; \rightarrow \; \textbf{Error}$ \\
-$v \; \mathtt{error} \; \rightarrow \; \textbf{Error}$ \\
-$t \; \rightarrow \; t' \; \Rightarrow \; t \; t'' \; \rightarrow \; t' \; t''$ \\
-$t \; \rightarrow \; t' \; \Rightarrow \; v \; t \; \rightarrow \; v \; t'$ \\
+$e \; = \; x \; | \; v \; | \; e \; e$ \\
+$v \; = \; \lambda x.e$ \\
+$(\lambda x.e) \; v \; \rightarrow e[v/x]$ \\
+$e \; \rightarrow \; e' \; \Rightarrow \; e \; e'' \; \rightarrow \; e' \; e''$ \\
+$e \; \rightarrow \; e' \; \Rightarrow \; v \; e \; \rightarrow \; v \; e'$ \\
 \end{tabular}
-\caption{Error state by inference rules.}
+\caption{Reduction relation defined by inference rules.}
 \label{figinf}
 \end{figure}
 
@@ -48,21 +46,42 @@ $t \; \rightarrow \; t' \; \Rightarrow \; v \; t \; \rightarrow \; v \; t'$ \\
 \onehalfspacing
 \centering
 \begin{tabular}{c}
-$t \; = \; x \; | \; v \; | \; t \; t \; | \; \mathtt{error}$ \\
-$v \; = \; \lambda x.t$ \\
-$E \; = \; [\,] \; | \; E \; t \; | \; v \; E$ \\
-$E[(\lambda x.t) \; v] \; \rightarrow E[t[v/x]]$ \\
-$E[\mathtt{error}] \; \rightarrow \; \textbf{Error}$ \\
+$e \; = \; x \; | \; v \; | \; e \; e$ \\
+$v \; = \; \lambda x.e$ \\
+$E \; = \; [\,] \; | \; E \; e \; | \; v \; E$ \\
+$E[(\lambda x.e) \; v] \; \rightarrow E[e[v/x]]$ \\
 \end{tabular}
-\caption{Error state by evaluation contexts.}
+\caption{Reduction relation defined by evaluation contexts.}
 \label{figcon}
 \end{figure}
 
+\begin{figure}[htb]
+\onehalfspacing
+\centering
+\begin{tabular}{c}
+$a \; = \; x_a \; | \; \lambda x_a.a \; | \; a \; a \; | \; \mathtt{ab} \; b$ \\
+$b \; = \; x_b \; | \; v \; | \; b \; b \; | \; \mathtt{ba} \; a$ \\
+$v \; = \; \lambda x_b.b$ \\
+$E_a \; = \; [\,]_a \; | \; E_a \; a \; | \; \mathtt{ab} \; E_b$ \\
+$E_b \; = \; [\,]_b \; | \; E_b \; b \; | \; v \; E_b \; | \; \mathtt{ba} \; E_a$ \\
+$E[(\lambda x_a.a) \; a']_a \; \rightarrow E[a[a'/x_a]]$ \\
+$E[(\lambda x_b.b) \; v]_b \; \rightarrow E[b[v/x_b]]$ \\
+\end{tabular}
+\caption{Naive evaluation contexts for interoperation.}
+\label{fignai}
+\end{figure}
 
+\begin{figure}[htb]
+\onehalfspacing
+\centering
+\begin{tabular}{c}
+
+\end{tabular}
+\caption{}
+\label{fig}
+\end{figure}
 
 The model of computation extends the work of Matthews and Findler \cite{matthews07} and uses the work of Kinghorn \cite{kinghorn07} as a starting point. Matthews and Findler presented \cite{matthews07} two approaches to resolving static and dynamic type systems for interoperation. In the first approach, called lump embedding, languages are tied together by new expressions called boundaries that embed expressions of one language within another, which represent the exchange of the embedded expressions from the inner languages to the outer languages. The embedded expressions, when exchanged, are opaque values that cannot be inspected by the outer language, and can only be returned to the inner language. In the second approach, called natural embedding, languages are tied together as with lump embedding, but instead of opaqueness, embedded expressions are reduced to values, then converted into equal values of the outer language following type annotations in the boundaries. To return a converted value back to the inner language, it must be converted back.
-
-The models of Matthews and Findler are defined using evaluation contexts
 
 The systems of interoperation presented by Matthews and Findler \cite{matthews07} preserved the equivalence of values converted between languages that have incompatible type systems. Since the languages they used were all eager, there were no evaluation strategy incompatibilities to resolve. If a lazy language is introduced to their systems, then interoperation does not preserve the equivalence of values converted between the lazy language and the eager languages. For example, since the application of a converted function involves applications in both the outer and inner languages, the argument is subject to both the outer and inner evaluation strategies. If the outer language is lazy and the inner language is eager, then the argument may be evaluated by the inner language but not the outer language. In this case, the converted function is not equivalent to the original function. Futhermore, the conversion of composite types like lists from lazy languages to eager ones may diverge or cause an error because eager evaluation will convert the entire value, which may be of infinite size or contain expressions assumed by lazy languages not to be immediately evaluated.
 
