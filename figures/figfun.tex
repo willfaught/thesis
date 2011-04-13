@@ -1,7 +1,36 @@
 \begin{figure}[tb]
 \onehalfspacing
 \centering
-$zeroes = \expfix{(\expfabss{\varvarh}{\tylist{\tynum}}{\expcons{\expnum{0}}{\varvarh}})}$
+% zeroes = fix (\x:{N}.cons 0 x)
+$\formvar
+{
+	zeroes
+}
+\equiv
+\expfix
+{
+	(
+	\expfabss
+	{
+		\varvarh
+	}
+	{
+		\tylist
+		{
+			\tynum
+		}
+	}
+	{
+		\expcons
+		{
+			\expnum{0}
+		}
+		{
+			\varvarh
+		}
+	}
+	)
+}$
 
 \begin{tabular}{lll}
 % (hs ({N}->{N}) (\x.x)) zeroes
@@ -174,7 +203,7 @@ $zeroes = \expfix{(\expfabss{\varvarh}{\tylist{\tynum}}{\expcons{\expnum{0}}{\va
 	)
 }
 & \red \\
-% hs {N} (sh {N} zeroes)
+% hs {N} ((\x.x) (sh {N} ((\x:{N}.cons 0 x) (zeroes)))
 \exphs
 {
 	\cslist
@@ -184,23 +213,73 @@ $zeroes = \expfix{(\expfabss{\varvarh}{\tylist{\tynum}}{\expcons{\expnum{0}}{\va
 }
 {
 	(
-	\expsh
+	\expfapp
 	{
-		\cslist
+		(
+		\expfabsd
 		{
-			\csnum
+			\first
+			{
+				\varvars
+			}
 		}
+		{
+			\first
+			{
+				\varvars
+			}
+		}
+		)
 	}
 	{
-		\formvar
+		(
+		\expsh
 		{
-			zeroes
+			\cslist
+			{
+				\csnum
+			}
 		}
+		{
+			(
+			\expfapp
+			{
+				(
+				\expfabss
+				{
+					\varvarh
+				}
+				{
+					\tylist
+					{
+						\tynum
+					}
+				}
+				{
+					\expcons
+					{
+						\expnum{0}
+					}
+					{
+						\varvarh
+					}
+				}
+				)
+			}
+			{
+				\formvar
+				{
+					zeroes
+				}
+			}
+			)
+		}
+		)
 	}
 	)
 }
 & \red \\
-% hs {N} (sh {N} (cons 0 zeroes))
+% hs {N} ((\x.x) (sh {N} (cons 0 zeroes)))
 \exphs
 {
 	\cslist
@@ -210,12 +289,139 @@ $zeroes = \expfix{(\expfabss{\varvarh}{\tylist{\tynum}}{\expcons{\expnum{0}}{\va
 }
 {
 	(
-	\expsh
+	\expfapp
 	{
-		\cslist
+		(
+		\expfabsd
 		{
-			\csnum
+			\first
+			{
+				\varvars
+			}
 		}
+		{
+			\first
+			{
+				\varvars
+			}
+		}
+		)
+	}
+	{
+		(
+		\expsh
+		{
+			\cslist
+			{
+				\csnum
+			}
+		}
+		{
+			(
+			\expcons
+			{
+				\expnum
+				{
+					0
+				}
+			}
+			{
+				\formvar
+				{
+					zeroes
+				}
+			}
+			)
+		}
+		)
+	}
+	)
+}
+& \red \\
+% hs {N} ((\x.x) (cons (sh N 0) (sh {N} zeroes)))
+\exphs
+{
+	\cslist
+	{
+		\csnum
+	}
+}
+{
+	(
+	\expfapp
+	{
+		(
+		\expfabsd
+		{
+			\varvars
+		}
+		{
+			\varvars
+		}
+		)
+	}
+	{
+		(
+		\expcons
+		{
+			(
+			\expsh
+			{
+				\csnum
+			}
+			{
+				\expnum
+				{
+					0
+				}
+			}
+			)
+		}
+		{
+			(
+			\expsh
+			{
+				\cslist
+				{
+					\csnum
+				}
+			}
+			{
+				{
+					\formvar
+					{
+						zeroes
+					}
+				}
+			}
+			)
+		}
+		)
+	}
+	)
+}
+& \red \\
+% hs {N} ((\x.x) (cons 0 (sh {N} zeroes)))
+\exphs
+{
+	\cslist
+	{
+		\csnum
+	}
+}
+{
+	(
+	\expfapp
+	{
+		(
+		\expfabsd
+		{
+			\varvars
+		}
+		{
+			\varvars
+		}
+		)
 	}
 	{
 		(
@@ -227,144 +433,30 @@ $zeroes = \expfix{(\expfabss{\varvarh}{\tylist{\tynum}}{\expcons{\expnum{0}}{\va
 			}
 		}
 		{
-			\formvar
+			(
+			\expsh
 			{
-				zeroes
+				\cslist
+				{
+					\csnum
+				}
 			}
+			{
+				{
+					\formvar
+					{
+						zeroes
+					}
+				}
+			}
+			)
 		}
 		)
 	}
 	)
 }
-& \red \\
-% hs {N} (cons (sh N 0) (sh {N} zeroes))
-\exphs
-{
-	\cslist
-	{
-		\csnum
-	}
-}
-{
-	(
-	\expcons
-	{
-		(
-		\expsh
-		{
-			\csnum
-		}
-		{
-			\expnum
-			{
-				0
-			}
-		}
-		)
-	}
-	{
-		(
-		\expsh
-		{
-			\cslist
-			{
-				\csnum
-			}
-		}
-		{
-			\formvar
-			{
-				zeroes
-			}
-		}
-		)
-	}
-	)
-}
-& \red \\
-% hs {N} (cons 0 (sh {N} zeroes))
-\exphs
-{
-	\cslist
-	{
-		\csnum
-	}
-}
-{
-	(
-	\expcons
-	{
-		\expnum
-		{
-			0
-		}
-	}
-	{
-		(
-		\expsh
-		{
-			\cslist
-			{
-				\csnum
-			}
-		}
-		{
-			\formvar
-			{
-				zeroes
-			}
-		}
-		)
-	}
-	)
-}
-& \red \\
-% cons (hs N 0) (hs {N} (sh {N} zeroes))
-\expcons
-{
-	(
-	\exphs
-	{
-		\csnum
-	}
-	{
-		\expnum
-		{
-			0
-		}
-	}
-	)
-}
-{
-	(
-	\exphs
-	{
-		\cslist
-		{
-			\csnum
-		}
-	}
-	{
-		(
-		\expsh
-		{
-			\cslist
-			{
-				\csnum
-			}
-		}
-		{
-			\formvar
-			{
-				zeroes
-			}
-		}
-		)
-	}
-	)
-}
-& \\
+& $\not\red$ \\
 \end{tabular}
-\caption{Haskell argument and list conversions.}
-\label{figunf}
+\caption{Problematic Haskell argument and list conversions.}
+\label{figfun}
 \end{figure}
