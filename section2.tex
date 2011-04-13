@@ -1,16 +1,18 @@
 \section{Model of Computation}
 
-TODO
+The model is a strict superset of that of Matthews and Findler \cite{matthews07}. A third language is introduced to the model that is based on Haskell and is identical to the ML model except it is lazy. To the Haskell and ML models, fixed-point operations are introduced to restore Turing completeness, and lists are introduced to every language. Hereafter, we use the names of Haskell, ML, and Scheme to refer to their counterparts in the model.
 
-Being lazy, Haskell does not evaluate function arguments or list construction operands. These three points constitute the set of incompatible strictness points between Haskell and ML and Haskell and Scheme. At these points in ML and Scheme, reducible expressions in Haskell boundaries must not be evaluated.
+Being lazy, Haskell does not evaluate function arguments or list construction operands. These three contexts constitute the set of incompatible strictness points between Haskell and ML, and Haskell and Scheme. In both cases, the eager language forces the evaluation of more expressions than the lazy one, hence the lazy one is less restrictive of the types of well-behaved expressions. Since the conversion of values between languages mirrors the original structure of the values, the eager languages cannot evaluate imported expressions in these contexts because they could in effect change the order of evaluation for those imported expressions from the perspective of the lazy language. In these contexts in ML and Scheme, reducible expressions in Haskell boundaries must not be evaluated.
 
-Since values are irreducible at all points, and since the expressions in Haskell boundaries are irreducible at some points and not others, Haskell boundaries are a new kind of value called an \emph{unforced value}. Like thunks, unforced values can be forced to evaluate to values. The Haskell expressions in Haskell boundaries are forced to evaluate to Haskell values, then the Haskell values are converted to ML or Scheme values. ML and Scheme values are called \emph{forced values} because any might be the result of forcing an unforced value. Forced values are a proper subset of unforced values because unforced values can only be at points where forced values can also be, but forced values can be at points where unforced values cannot. ML and Scheme reduction rules and evaluation contexts use unforced values at the incompatible strictness points to match against Haskell boundaries, and their evaluation contexts prevent evaluation within Haskell boundaries at those points.
+\input{figures/figfun.tex}
 
-Figure \ref{figunf} illustrates forced and unforced values at work for the cases explained in the introduction. The reductions for lines 1-4 show that the outer Haskell argument $zeroes$ is not forced by the application of the inner Scheme function. The reductions for lines 4-8 show that the conversion of $zeroes$ from Haskell to Scheme did not diverge, despite $zeroes$ being a list of infinite size.
 
-\input{figures/unforced.tex}
+
+Figure ? illustrates forced and unforced values at work for the cases explained in the introduction. The reductions for lines 1-4 show that the outer Haskell argument $zeroes$ is not forced by the application of the inner Scheme function. The reductions for lines 4-8 show that the conversion of $zeroes$ from Haskell to Scheme did not diverge, despite $zeroes$ being a list of infinite size.
 
 \begin{theorem}{Evaluation Strategy Preservation}
+
+TODO: equality used here doesn't match term equality
 
 \label{thmstr}
 $\varexph = \expmh{\vartym}{\vartyh}{\varexph} = \expsh{\vartyh}{\varexph}$.
