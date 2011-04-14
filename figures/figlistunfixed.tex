@@ -1,0 +1,68 @@
+\begin{figure}[tb]
+\onehalfspacing
+\centering
+\begin{tabular}{lll}
+% sh {N} (cons OmegaN Omega{N})
+\expsh
+{
+	\cslist
+	{
+		\csnum
+	}
+}
+{
+	(
+	\expcons
+	{
+		\Omega_\csnum
+	}
+	{
+		\Omega_
+		{
+			\cslist
+			{
+				\csnum
+			}
+		}
+	}
+	)
+}
+& \red \\
+% cons (sh N OmegaN) (sh {N} Omega{N})
+\expcons
+{
+	(
+	\expsh
+	{
+		\csnum
+	}
+	{
+		\Omega_\csnum
+	}
+	)
+}
+{
+	(
+	\expsh
+	{
+		\cslist
+		{
+			\csnum
+		}
+	}
+	{
+		\Omega_
+		{
+			\cslist
+			{
+				\csnum
+			}
+		}
+	}
+	)
+}
+& $\not \red$ \\
+\end{tabular}
+\caption{Scheme forces the conversion of a list construction operand.}
+\label{figlistunfixed}
+\end{figure}

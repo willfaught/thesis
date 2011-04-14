@@ -1,0 +1,167 @@
+\begin{figure}[tb]
+\onehalfspacing
+\centering
+\begin{tabular}{lll}
+% (hs (N->N) (\x.x)) zeroes
+\expfapp
+{
+	(
+	\exphs
+	{
+		(
+		\csfun
+		{
+			\csnum
+		}
+		{
+			\csnum
+		}
+		)
+	}
+	{
+		(
+		\expfabsd
+		{
+			\first
+			{
+				\varvars
+			}
+		}
+		{
+			\first
+			{
+				\varvars
+			}
+		}
+		)
+	}
+	)
+}
+{
+	\Omega
+}
+& \red \\
+% (\x:N.hs N ((\x.x) (sh N x))) zeroes
+\expfapp
+{
+	(
+	\expfabss
+	{
+		\first
+		{
+			\varvarh
+		}
+	}
+	{
+		\tynum
+	}
+	{
+		\exphs
+		{
+			\csnum
+		}
+		{
+			(
+			\expfapp
+			{
+				(
+				\expfabsd
+				{
+					\first
+					{
+						\varvars
+					}
+				}
+				{
+					\first
+					{
+						\varvars
+					}
+				}
+				)
+			}
+			{
+				(
+				\expsh
+				{
+					\csnum
+				}
+				{
+					\first
+					{
+						\varvarh
+					}
+				}
+				)
+			}
+			)
+		}
+	}
+	)
+}
+{
+	\Omega
+}
+& \red \\
+% hs N ((\x.x) (sh N zeroes))
+\exphs
+{
+	\csnum
+}
+{
+	(
+	\expfapp
+	{
+		(
+		\expfabsd
+		{
+			\first
+			{
+				\varvars
+			}
+		}
+		{
+			\first
+			{
+				\varvars
+			}
+		}
+		)
+	}
+	{
+		(
+		\expsh
+		{
+			\csnum
+		}
+		{
+			\Omega
+		}
+		)
+	}
+	)
+}
+& \red \\
+% hs N (sh N zeroes)
+\exphs
+{
+	\csnum
+}
+{
+	(
+	\expsh
+	{
+		\csnum
+	}
+	{
+		\Omega
+	}
+	)
+}
+& \red \\
+$\Omega$
+& $\not \red$ \\
+\end{tabular}
+\caption{Scheme does not force the conversion of the argument.}
+\label{figfunctionfixed}
+\end{figure}

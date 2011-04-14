@@ -4,9 +4,16 @@ The model is a strict superset of that of Matthews and Findler \cite{matthews07}
 
 Being lazy, Haskell does not evaluate function arguments or list construction operands. These three contexts constitute the set of incompatible strictness points between Haskell and ML, and Haskell and Scheme. In both cases, the eager language forces the evaluation of more expressions than the lazy one, hence the lazy one is less restrictive of the types of well-behaved expressions. Since the conversion of values between languages mirrors the original structure of the values, the eager languages cannot evaluate imported expressions in these contexts because they could in effect change the order of evaluation for those imported expressions from the perspective of the lazy language. In these contexts in ML and Scheme, reducible expressions in Haskell boundaries must not be evaluated.
 
-\input{figures/figfun.tex}
 
+\input{figures/figfunctionunfixed.tex}
 
+\input{figures/figfunctionfixed.tex}
+
+\input{figures/figlistunfixed.tex}
+
+\input{figures/figlistfixed.tex}
+
+Discuss hs t (sh t e) -> e / hm
 
 Figure ? illustrates forced and unforced values at work for the cases explained in the introduction. The reductions for lines 1-4 show that the outer Haskell argument $zeroes$ is not forced by the application of the inner Scheme function. The reductions for lines 4-8 show that the conversion of $zeroes$ from Haskell to Scheme did not diverge, despite $zeroes$ being a list of infinite size.
 
