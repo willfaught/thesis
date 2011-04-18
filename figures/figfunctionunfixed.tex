@@ -40,7 +40,16 @@
 {
 	\Omega
 }
-& \red \\
+&
+\red
+&
+(by \expfapp
+{
+	\varconfh
+}
+{
+	\varexph
+}) \\
 % (\x:N.hs N ((\x.x) (sh N x))) zeroes
 \expfapp
 {
@@ -102,7 +111,11 @@
 {
 	\Omega
 }
-& \red \\
+&
+\red
+&
+(by \varconfh)
+\\
 % hs N ((\x.x) (sh N zeroes))
 \exphs
 {
@@ -141,7 +154,11 @@
 	}
 	)
 }
-& $\not \red$ \\
+&
+$\not \red$
+&
+(by \expfapp{\varvalts}{\varconts})
+\\
 \end{tabular}
 \caption{Scheme forces the conversion of the argument.}
 \label{figfunctionunfixed}
