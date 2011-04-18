@@ -43,13 +43,7 @@
 &
 \red
 &
-(by \expfapp
-{
-	\varconfh
-}
-{
-	\varexph
-}) \\
+(by \expfapp{\varconth}{\varexph}) \\
 % (\x:N.hs N ((\x.x) (sh N x))) zeroes
 \expfapp
 {
@@ -114,7 +108,7 @@
 &
 \red
 &
-(by \varconfh)
+(by \varconth)
 \\
 % hs N ((\x.x) (sh N zeroes))
 \exphs
@@ -160,6 +154,6 @@ $\not \red$
 (by \expfapp{\varvalts}{\varconts})
 \\
 \end{tabular}
-\caption{Scheme forces the conversion of the argument.}
+\caption{Scheme forces the conversion of an argument.}
 \label{figfunctionunfixed}
 \end{figure}

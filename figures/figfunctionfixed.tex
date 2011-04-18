@@ -40,7 +40,10 @@
 {
 	\Omega
 }
-& \red \\
+&
+\red
+&
+(by \expfapp{\varconth}{\varexph}) \\
 % (\x:N.hs N ((\x.x) (sh N x))) zeroes
 \expfapp
 {
@@ -102,7 +105,10 @@
 {
 	\Omega
 }
-& \red \\
+&
+\red
+&
+(by \varconth) \\
 % hs N ((\x.x) (sh N zeroes))
 \exphs
 {
@@ -141,7 +147,10 @@
 	}
 	)
 }
-& \red \\
+&
+\red
+&
+(by \expfapp{\varvalts}{\varconts}) \\
 % hs N (sh N zeroes)
 \exphs
 {
@@ -158,10 +167,16 @@
 	}
 	)
 }
-& \red \\
+&
+\red
+&
+(by \varconth) \\
 $\Omega$
-& $\not \red$ \\
+&
+$\not \red$
+&
+(by \varconth) \\
 \end{tabular}
-\caption{Scheme does not force the conversion of the argument.}
+\caption{Scheme does not force the conversion of an argument.}
 \label{figfunctionfixed}
 \end{figure}
