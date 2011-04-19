@@ -5,7 +5,7 @@
 % sh {N} (cons OmegaN Omega{N})
 \expsh
 {
-	\cslist
+	\tylist
 	{
 		\csnum
 	}
@@ -19,7 +19,7 @@
 	{
 		\Omega_
 		{
-			\cslist
+			\tylist
 			{
 				\csnum
 			}
@@ -27,7 +27,10 @@
 	}
 	)
 }
-& \red \\
+&
+\red
+&
+(by \varconts) \\
 % cons (sh N OmegaN) (sh {N} Omega{N})
 \expcons
 {
@@ -45,7 +48,7 @@
 	(
 	\expsh
 	{
-		\cslist
+		\tylist
 		{
 			\csnum
 		}
@@ -53,7 +56,7 @@
 	{
 		\Omega_
 		{
-			\cslist
+			\tylist
 			{
 				\csnum
 			}
@@ -61,8 +64,11 @@
 	}
 	)
 }
-& $\not \red$ \\
+&
+$\not \red$
+&
+(by \expcons{\varconts}{\varexps}) \\
 \end{tabular}
-\caption{Scheme forces the conversion of a list construction operand.}
+\caption{Scheme forces the conversion of list construction operands.}
 \label{figlistunfixed}
 \end{figure}

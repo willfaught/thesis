@@ -1,461 +1,70 @@
 \begin{figure}[tb]
 \onehalfspacing
 \centering
-% zeroes = fix (\x:{N}.cons 0 x)
-$\formvar
-{
-	zeroes
-}
-\equiv
-\expfix
-{
-	(
-	\expfabss
-	{
-		\varvarh
-	}
-	{
-		\tylist
-		{
-			\tynum
-		}
-	}
-	{
-		\expcons
-		{
-			\expnum{0}
-		}
-		{
-			\varvarh
-		}
-	}
-	)
-}$
-
 \begin{tabular}{lll}
-% (hs ({N}->{N}) (\x.x)) zeroes
-\expfapp
+% sh {N} (cons OmegaN Omega{N})
+\expsh
+{
+	\tylist
+	{
+		\csnum
+	}
+}
 {
 	(
-	\exphs
+	\expcons
 	{
-		(
-		\csfun
-		{
-			\cslist
-			{
-				\csnum
-			}
-		}
-		{
-			\cslist
-			{
-				\csnum
-			}
-		}
-		)
+		\Omega_\csnum
 	}
 	{
-		(
-		\expfabsd
+		\Omega_
 		{
-			\first
+			\tylist
 			{
-				\varvars
+				\csnum
 			}
 		}
-		{
-			\first
-			{
-				\varvars
-			}
-		}
-		)
+	}
+	)
+}
+&
+\red
+&
+(by \varconts) \\
+% cons (sh N OmegaN) (sh {N} Omega{N})
+\expcons
+{
+	(
+	\expsh
+	{
+		\csnum
+	}
+	{
+		\Omega_\csnum
 	}
 	)
 }
 {
-	\formvar
-	{
-		zeroes
-	}
-}
-& \red \\
-% (\x:{N}.hs {N} ((\x.x) (sh {N} x))) zeroes
-\expfapp
-{
 	(
-	\expfabss
-	{
-		\second
-		{
-			\varvarh
-		}
-	}
+	\expsh
 	{
 		\tylist
 		{
-			\tynum
+			\csnum
 		}
 	}
 	{
-		\exphs
+		\Omega_
 		{
-			\cslist
+			\tylist
 			{
 				\csnum
 			}
 		}
-		{
-			(
-			\expfapp
-			{
-				(
-				\expfabsd
-				{
-					\first
-					{
-						\varvars
-					}
-				}
-				{
-					\first
-					{
-						\varvars
-					}
-				}
-				)
-			}
-			{
-				(
-				\expsh
-				{
-					\cslist
-					{
-						\csnum
-					}
-				}
-				{
-					\second
-					{
-						\varvarh
-					}
-				}
-				)
-			}
-			)
-		}
 	}
 	)
 }
-{
-	\formvar
-	{
-		zeroes
-	}
-}
-& \red \\
-% hs {N} ((\x.x) (sh {N} zeroes))
-\exphs
-{
-	\cslist
-	{
-		\csnum
-	}
-}
-{
-	(
-	\expfapp
-	{
-		(
-		\expfabsd
-		{
-			\first
-			{
-				\varvars
-			}
-		}
-		{
-			\first
-			{
-				\varvars
-			}
-		}
-		)
-	}
-	{
-		(
-		\expsh
-		{
-			\cslist
-			{
-				\csnum
-			}
-		}
-		{
-			\formvar
-			{
-				zeroes
-			}
-		}
-		)
-	}
-	)
-}
-& \red \\
-% hs {N} ((\x.x) (sh {N} ((\x:{N}.cons 0 x) (zeroes)))
-\exphs
-{
-	\cslist
-	{
-		\csnum
-	}
-}
-{
-	(
-	\expfapp
-	{
-		(
-		\expfabsd
-		{
-			\first
-			{
-				\varvars
-			}
-		}
-		{
-			\first
-			{
-				\varvars
-			}
-		}
-		)
-	}
-	{
-		(
-		\expsh
-		{
-			\cslist
-			{
-				\csnum
-			}
-		}
-		{
-			(
-			\expfapp
-			{
-				(
-				\expfabss
-				{
-					\varvarh
-				}
-				{
-					\tylist
-					{
-						\tynum
-					}
-				}
-				{
-					\expcons
-					{
-						\expnum{0}
-					}
-					{
-						\varvarh
-					}
-				}
-				)
-			}
-			{
-				\formvar
-				{
-					zeroes
-				}
-			}
-			)
-		}
-		)
-	}
-	)
-}
-& \red \\
-% hs {N} ((\x.x) (sh {N} (cons 0 zeroes)))
-\exphs
-{
-	\cslist
-	{
-		\csnum
-	}
-}
-{
-	(
-	\expfapp
-	{
-		(
-		\expfabsd
-		{
-			\first
-			{
-				\varvars
-			}
-		}
-		{
-			\first
-			{
-				\varvars
-			}
-		}
-		)
-	}
-	{
-		(
-		\expsh
-		{
-			\cslist
-			{
-				\csnum
-			}
-		}
-		{
-			(
-			\expcons
-			{
-				\expnum
-				{
-					0
-				}
-			}
-			{
-				\formvar
-				{
-					zeroes
-				}
-			}
-			)
-		}
-		)
-	}
-	)
-}
-& \red \\
-% hs {N} ((\x.x) (cons (sh N 0) (sh {N} zeroes)))
-\exphs
-{
-	\cslist
-	{
-		\csnum
-	}
-}
-{
-	(
-	\expfapp
-	{
-		(
-		\expfabsd
-		{
-			\varvars
-		}
-		{
-			\varvars
-		}
-		)
-	}
-	{
-		(
-		\expcons
-		{
-			(
-			\expsh
-			{
-				\csnum
-			}
-			{
-				\expnum
-				{
-					0
-				}
-			}
-			)
-		}
-		{
-			(
-			\expsh
-			{
-				\cslist
-				{
-					\csnum
-				}
-			}
-			{
-				{
-					\formvar
-					{
-						zeroes
-					}
-				}
-			}
-			)
-		}
-		)
-	}
-	)
-}
-& \red \\
-% hs {N} ((\x.x) (cons 0 (sh {N} zeroes)))
-\exphs
-{
-	\cslist
-	{
-		\csnum
-	}
-}
-{
-	(
-	\expfapp
-	{
-		(
-		\expfabsd
-		{
-			\varvars
-		}
-		{
-			\varvars
-		}
-		)
-	}
-	{
-		(
-		\expcons
-		{
-			\expnum
-			{
-				0
-			}
-		}
-		{
-			(
-			\expsh
-			{
-				\cslist
-				{
-					\csnum
-				}
-			}
-			{
-				{
-					\formvar
-					{
-						zeroes
-					}
-				}
-			}
-			)
-		}
-		)
-	}
-	)
-}
-& $\not\red$ \\
+&& \\
 \end{tabular}
 \caption{Scheme does not force the conversion of list construction operands.}
 \label{figlistfixed}
