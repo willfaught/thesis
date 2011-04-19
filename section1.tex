@@ -3,3 +3,19 @@
 Programmers forgo existing solutions to problems in other programming languages where software interoperation proves too cumbersome; they remake solutions, rather than reuse them. To facilitate reuse, interoperation must resolve incompatible language features transparently at the boundaries between languages. To address part of this problem, we present a model of computation that resolves lazy and eager evaluation strategies.
 
 Matthews and Findler presented \cite{matthews07} a model that enabled safe interoperation between statically and dynamically typed languages with parametric and ad-hoc polymorphism, respectively. We extend this model in various ways to demonstrate that it is insufficient to enable safe interoperation between eagerly and lazily evaluated languages, analyze the underlying problem, then introduce changes that resolve the fundamental interoperation incompatibility between eager and lazy languages.
+
+Being lazy, Haskell does not evaluate function arguments or list construction operands. These three contexts comprise the set of incompatible strictness points between Haskell and ML, and Haskell and Scheme. Since Haskell permits unused erroneous or divergent expressions in these contexts and ML and Scheme do not, there are Haskell values that have no counterpart in ML or Scheme. Moreover, since the conversion of ML and Scheme functions to Haskell requires the application of the original function to the converted Haskell argument, ML and Scheme always force the evaluation of the Haskell argument, even if it is never used. This effectively changes Haskell's order of evaluation. In these contexts in ML and Scheme, reducible expressions in Haskell boundaries must not be evaluated until needed.
+
+Figure \ref{figlistunfixed} demonstrates how a straightforward introduction of Haskell to the model of Matthews and Findler fails for converting a list construction from Haskell to Scheme. The list construction contains non-terminating expressions ($\Omega$, where the subscript denotes $\Omega$'s type), which diverge when Scheme forces them to evaluate. Figure \ref{figlistfixed} demonsrates interoperation correctly deferring the evaluation of the Haskell list construction operands and reducing to a Scheme normal form.
+
+In figure \ref{figfunctionunfixed}, 
+
+\input{figures/figlistunfixed.tex}
+
+\input{figures/figlistfixed.tex}
+
+\input{figures/figfunctionunfixed.tex}
+
+\input{figures/figfunctionfixed.tex}
+
+The interoperation of Haskell and ML posed another problem: the conversion of type abstractions. The application of a converted type abstraction cannot substitute the type argument into the inner language directly, since the inner language has no notion of the types of the outer language.
