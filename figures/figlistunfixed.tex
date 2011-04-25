@@ -2,7 +2,7 @@
 \onehalfspacing
 \centering
 \begin{tabular}{lll}
-% sh {N} (cons OmegaN Omega{N})
+% sh {N} (cons (wrong N str) (nil N))
 \expsh
 {
 	\tylist
@@ -14,24 +14,30 @@
 	(
 	\expcons
 	{
-		\Omega_\csnum
+		(
+		\expwrongs
+		{
+			\tynum
+		}
+		{
+			\errnum
+		}
+		)
 	}
 	{
-		\Omega_
+		(
+		\expnils
 		{
-			\tylist
-			{
-				\csnum
-			}
+			\tynum
 		}
+		)
 	}
 	)
 }
 &
 \red
-&
-(by \varconts) \\
-% cons (sh N OmegaN) (sh {N} Omega{N})
+\\
+% cons (sh N (wrong N str)) (sh {N} (nil N))
 \expcons
 {
 	(
@@ -40,7 +46,15 @@
 		\csnum
 	}
 	{
-		\Omega_\csnum
+		(
+		\expwrongs
+		{
+			\tynum
+		}
+		{
+			\errnum
+		}
+		)
 	}
 	)
 }
@@ -54,20 +68,22 @@
 		}
 	}
 	{
-		\Omega_
+		(
+		\expnils
 		{
-			\tylist
-			{
-				\csnum
-			}
+			\tynum
 		}
+		)
 	}
 	)
 }
 &
-$\not \red$
+\red
+\\
+% Error: str
+\experr{\errnum}
 &
-(by \expcons{\varconts}{\varexps}) \\
+\\
 \end{tabular}
 \caption{Scheme forces the conversion of list construction operands.}
 \label{figlistunfixed}
