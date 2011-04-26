@@ -1,8 +1,8 @@
 \begin{figure}[tb]
 \onehalfspacing
 \centering
-\begin{tabular}{lll}
-% (hs (N->N) (\x.x)) zeroes
+\begin{tabular}{ll}
+% (hs (N->N) (\x.0)) (wrong N str)
 \expfapp
 {
 	(
@@ -28,9 +28,9 @@
 			}
 		}
 		{
-			\first
+			\expnum
 			{
-				\varvars
+				0
 			}
 		}
 		)
@@ -38,13 +38,20 @@
 	)
 }
 {
-	\Omega_\tynum
+	(
+	\expwrongs
+	{
+		\tynum
+	}
+	{
+		\errnum
+	}
+	)
 }
 &
 \red
-&
-(by \expfapp{\varconth}{\varexph}) \\
-% (\x:N.hs N ((\x.x) (sh N x))) zeroes
+\\
+% (\x:N.hs N ((\x.0) (sh N x))) (wrong N str)
 \expfapp
 {
 	(
@@ -76,9 +83,9 @@
 					}
 				}
 				{
-					\first
+					\expnum
 					{
-						\varvars
+						0
 					}
 				}
 				)
@@ -103,13 +110,20 @@
 	)
 }
 {
-	\Omega_\tynum
+	(
+	\expwrongs
+	{
+		\tynum
+	}
+	{
+		\errnum
+	}
+	)
 }
 &
 \red
-&
-(by \varconth) \\
-% hs N ((\x.x) (sh N zeroes))
+\\
+% hs N ((\x.0) (sh N (wrong N str)))
 \exphs
 {
 	\csnum
@@ -127,9 +141,9 @@
 			}
 		}
 		{
-			\first
+			\expnum
 			{
-				\varvars
+				0
 			}
 		}
 		)
@@ -141,7 +155,15 @@
 			\csnum
 		}
 		{
-			\Omega_\tynum
+			(
+			\expwrongs
+			{
+				\tynum
+			}
+			{
+				\errnum
+			}
+			)
 		}
 		)
 	}
@@ -149,33 +171,28 @@
 }
 &
 \red
-&
-(by \expfapp{\varvalts}{\varconts}) \\
-% hs N (sh N zeroes)
+\\
+% hs N 0
 \exphs
 {
 	\csnum
 }
 {
-	(
-	\expsh
+	\expnum
 	{
-		\csnum
+		0
 	}
-	{
-		\Omega_\tynum
-	}
-	)
 }
 &
 \red
+\\
+% 0
+\expnum
+{
+	0
+}
 &
-(by \varconth) \\
-$\Omega_\tynum$
-&
-$\not \red$
-&
-(by \varconth) \\
+\\
 \end{tabular}
 \caption{Scheme does not force the conversion of arguments.}
 \label{figfunctionfixed}
