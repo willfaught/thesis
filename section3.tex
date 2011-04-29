@@ -1,5 +1,3 @@
 \section{Conclusion}
 
 Lazy and eager evaluation can be resolved transparently for common expressions at the boundaries between languages with unforced and forced values. This is more convenient than an explicit force operator that programmers must use manually by anticipating which expressions must be forced.
-
-The approach this paper used for interoperation between three languages is not scalable. Values from each language can be directly converted to values of the other two languages and back. $n$ languages require $n * (n - 1)$ conversion mappings between them. As the number of languages increases, the number of conversion mappings grows geometrically, which is unmaintainable. A better approach would be to make only two conversion mappings per language and chain them together to form a single path between any two languages, which would require only $n - 1$ conversion mappings and grow linearly. Were this done for this model, the number of conversion mappings would be four instead of six.
