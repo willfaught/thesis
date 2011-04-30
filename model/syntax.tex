@@ -9,28 +9,28 @@
 \expadd{\varexp}{\varexp} & Addition \\
 \expif{\varexp}{\varexp}{\varexp} & Condition \\\expnils{\varty} & Empty list \\
 \expnild & Empty list \\
+\exppnull{\varexp} & Empty list predicate \\
 \expwrongs{\varty}{\formvar{string}} & Error \\
 \expwrongd{\formvar{string}} & Error \\
 \expfix{\varexp} & Fixed-point operation \\
 \expfabss{\varvar}{\varty}{\varexp} & Function abstraction \\
 \expfabsd{\varvars}{\varexps} & Function abstraction \\
+\exppfun{\varexps} & Function abstraction predicate \\
 \expfapp{\varexp}{\varexp} & Function application \\
 \exphm{\vartyh}{\vartym}{\varexpm} & Haskell-ML guard \\
 \exphs{\varcsh}{\varexps} & Haskell-Scheme guard \\
 \expcons{\varexp}{\varexp} & List construction \\
 \exphd{\varexp} & List head \\
+\expplist{\varexps} & List predicate \\
 \exptl{\varexp} & List tail \\
 \expmh{\vartym}{\vartyh}{\varexph} & ML-Haskell guard \\
 \expms{\varcsm}{\varexps} & ML-Scheme guard \\
+\exppnum{\varexps} & Number predicate \\
 \expsh{\varcsh}{\varexph} & Scheme-Haskell guard \\
 \expsm{\varcsm}{\varexpm} & Scheme-ML guard \\
 \expsub{\varexp}{\varexp} & Subtraction \\
 \exptabs{\tyvar}{\varexp} & Type abstraction \\
 \exptapp{\varexp}{\varty} & Type application \\
-\exppfun{\varexps} & Value predicate \\
-\expplist{\varexps} & Value predicate \\
-\exppnull{\varexp} & Value predicate \\
-\exppnum{\varexps} & Value predicate \\
 
 \end{tabular}
 
@@ -47,8 +47,8 @@
 \textbf{Syntax} & \textbf{Name} \\
 
 \csbrand{\varbrand}{\varty} & Branded type \\
-\tyfor{\tyvar}{\varty} & Forall \\
-\csfor{\csvar}{\varcs} & Forall \\
+\tyfor{\tyvar}{\varty} & Universally quantified type \\
+\csfor{\csvar}{\varcs} & Universally quantified conversion scheme \\
 \tyfun{\varty}{\varty} & Function abstraction \\
 \csfun{\varcs}{\varcs} & Function abstraction \\
 \tylist{\varty} & List \\
