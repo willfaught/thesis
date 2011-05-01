@@ -1,5 +1,7 @@
 \documentclass[12pt]{ucthesis}
 
+\usepackage{ifpdf}
+
 \newif \ifpdf
 
 \ifx \pdfoutput \undefined
@@ -94,7 +96,7 @@ Programmers forgo existing solutions to problems in other programming languages 
 \end{abstract}
 
 \begin{acknowledgements}
-\indent\indent I thank my family and friends, and especially my parents, Jerry and Jo Ann, for their encouragement, advice, and support, without which this would not have been possible.
+\indent\indent I thank my family and friends, especially my parents, Jerry and Jo Ann, for their encouragement, advice, and support, without which this would not have been possible.
 \end{acknowledgements}
 
 \tableofcontents
@@ -104,9 +106,9 @@ Programmers forgo existing solutions to problems in other programming languages 
 \renewcommand{\baselinestretch}{1.66}
 
 \input{macros.tex}
-\input{section1.tex}
-\input{section2.tex}
-\input{section3.tex}
+\input{chapter1.tex}
+\input{chapter2.tex}
+\input{chapter3.tex}
 
 \clearpage
 
