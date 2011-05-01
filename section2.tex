@@ -15,13 +15,11 @@ Transparency is restored for interoperation in all cases with our changes to the
 \item $\varexpm \equiv \exphm{\vartyh}{\vartym}{\varexpm} \equiv \expsm{\vartym}{\varexpm}$
 \item $\varexps \equiv \exphs{\vartyh}{\varexps} \equiv \expms{\vartym}{\varexps}$
 \end{enumerate}
-where $\equiv$ denotes extensional equality.
+where $\equiv$ denotes contextual equivalence.
 \begin{proof}
 By structural induction.
 \end{proof}
 \end{theorem}
-
-value conversion
 
 Another complication with introducing Haskell to the model of computation is how to convert type abstractions between Haskell and ML. The application of a converted type abstraction cannot substitute the type argument into the nested expression because the type argument is meaningless in the nested expression's language. Instead, the application substitutes the type argument and a lump into the boundary's outer and inner types, respectively. Since the natural embedding requires the boundary's outer and inner types to be equal \cite{matthews07}, we use a new notion of equality called lump equality that allows lumps within the boundary's inner type to match any corresponding type in the boundary's outer type.
 
