@@ -1,0 +1,116 @@
+\documentclass[12pt]{ucthesis}
+
+\newif \ifpdf
+
+\ifx \pdfoutput \undefined
+  \pdffalse
+\else
+  \pdfoutput=1
+  \pdftrue
+\fi
+
+\usepackage{url}
+
+\ifpdf
+  \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex,
+    plainpages=false,
+    breaklinks=true,
+    colorlinks=true,
+    urlcolor=blue,
+    citecolor=blue,
+    linkcolor=blue,
+    bookmarks=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=3,
+    pdfstartview=FitV,
+    pdfauthor={William Faught},
+    pdftitle={Interoperation for Lazy and Eager Evaluation},
+    pdfkeywords={thesis, masters, cal poly}]{hyperref}
+  \pdfcompresslevel=1
+\else
+  \usepackage{graphicx}
+\fi
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[letterpaper]{geometry}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\usepackage[overload]{textcase}
+\usepackage{array}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{epic}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{case}{Case}[theorem]
+\newtheorem{subcase}{Case}[case]
+
+\bibliographystyle{abbrv}
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{6pt}
+\setlength{\extrarowheight}{5pt}
+\geometry{verbose,nohead,tmargin=1.25in,bmargin=1in,lmargin=1.5in,rmargin=1.3in}
+\setcounter{tocdepth}{2}
+\newcommand{\captionfonts}{\small\bf\ssp}
+\makeatletter
+\long\def\@makecaption#1#2{
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\captionfonts #1: #2}}
+  \ifdim \wd \@tempboxa > \hsize
+    {\captionfonts #1: #2\par}
+  \else
+    \hbox to \hsize{\hfil\box\@tempboxa\hfil}
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+\begin{document}
+
+\title{Interoperation for Lazy and Eager Evaluation}
+\author{William Faught}
+\degreemonth{May}
+\degreeyear{2011}
+\degree{Master of Science}
+\defensemonth{May}
+\defenseyear{2011}
+\numberofmembers{3}
+\chair{Dr. John Clements}
+\othermemberA{Dr. Gene Fisher}
+\othermemberB{Dr. Phillip Nico}
+\field{Computer Science}
+\campus{San Luis Obispo}
+\copyrightyears{seven}
+\maketitle
+\begin{frontmatter}
+\copyrightpage
+\approvalpage
+
+\begin{abstract}
+Programmers forgo existing solutions to problems in other programming languages where software interoperation proves too cumbersome; they remake solutions, rather than reuse them. To facilitate reuse, interoperation must resolve language incompatibilities transparently. To address part of this problem, we present a model of computation that resolves lazy and eager evaluation strategies using dual notions of evaluation contexts and values to mirror the lazy evaluation strategy in the eager one. This method could be extended to resolve incompatible evaluation contexts for expressions common to any pair of languages.
+\end{abstract}
+
+\begin{acknowledgements}
+\indent\indent I thank my family and friends, and especially my parents, Jerry and Jo Ann, for their encouragement, advice, and support, without which this would not have been possible.
+\end{acknowledgements}
+
+\tableofcontents
+\listoffigures
+\end{frontmatter}
+\pagestyle{plain}
+\renewcommand{\baselinestretch}{1.66}
+
+\input{macros.tex}
+\input{section1.tex}
+\input{section2.tex}
+\input{section3.tex}
+
+\clearpage
+
+\bibliography{bibliography}
+\bibliographystyle{plain}
+
+\end{document}
