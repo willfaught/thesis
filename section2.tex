@@ -1,27 +1,31 @@
 \section{Model of Computation}
 
+To preserve the transparency of interoperation, ML and Scheme must not force Haskell to evaluate reducible expressions in Haskell boundaries in the incompatible evaluation contexts, and force their evaluation in all other evaluation contexts. Haskell boundaries must be a new kind of value that ML and Scheme can force to become a reducible expression in certain evaluation contexts, and thereby force the evaluation of the inner Haskell reducible expressions to Haskell values and the conversion of those values to ML or Scheme.
 
+Since ML and Scheme do not force Haskell to evaluate in some evaluation contexts, we must factor Haskell boundaries out of ML and Scheme evaluation context nonterminals, $\symcont$, into new evaluation context nonterminals. We name these new nonterminals $\symconf$ because they allow ML and Scheme to force Haskell to evaluate, and we rename the primary evaluation context nonterminals from $\symcont$ to $\symconu$ (unforced) because they do not. Likewise, we factor Haskell boundaries out of ML and Scheme value nonterminals, $\symvalt$,  into new value nonterminals. We name these new nonterminals $\symvalf$ (forced) and rename the old value nonterminals from $\symvalt$ to $\symvalu$ (unforced). We rename Haskell evaluation contexts and values to $\symconf$ and $\symvalf$, respectively.
 
-Discuss hs t (sh t e) -> e / hm
+In ML and Scheme, we tie $\symconf$ and $\symconu$ together by replacing $\symconu$ with $\symconf$ in the syntax and operational semantics in all evaluation contexts except the incompatible ones. Likewise, we tie $\symvalf$ and $\symvalu$ together by replacing $\symvalu$ with $\symvalf$ in the syntax and operational semantics in those same evaluation contexts. $\symconf$ evaluation contexts produce $\symvalf$ values, and $\symconu$ evaluation contexts produce $\symvalu$ values. $\symconu$ only applies to incompatible evalation contexts, and $\symconf$ applies to all others. ML and Scheme use $\symconf$ to evaluate expressions. We rename the meta evaluation context from $\varconmt$ to $\varconm$.
 
-\begin{theorem}{Evaluation Strategy Preservation}
+Transparency is restored for interoperation in all cases with our changes to the model of computation of Matthews and Findler.
 
-TODO: equality used here doesn't match term equality
-
-\label{thmstr}
-$\varexph = \expmh{\vartym}{\vartyh}{\varexph} = \expsh{\vartyh}{\varexph}$.
-$\varexpm = \exphm{\vartyh}{\vartym}{\varexpm} = \expsm{\vartym}{\varexpm}$.
-$\varexps = \exphs{\vartyh}{\varexps} = \expms{\vartym}{\varexps}$.
+\begin{theorem}{Interoperation is transparent:}
+\label{thmtransparent}
+\begin{enumerate}
+\item $\varexph \equiv \expmh{\vartym}{\vartyh}{\varexph} \equiv \expsh{\vartyh}{\varexph}$
+\item $\varexpm \equiv \exphm{\vartyh}{\vartym}{\varexpm} \equiv \expsm{\vartym}{\varexpm}$
+\item $\varexps \equiv \exphs{\vartyh}{\varexps} \equiv \expms{\vartym}{\varexps}$
+\end{enumerate}
+where $\equiv$ denotes extensional equality.
 \begin{proof}
 By structural induction.
 \end{proof}
 \end{theorem}
 
-(Lump equality) 
+value conversion
 
-The interoperation of Haskell and ML posed another problem: the conversion of type abstractions. The application of a converted type abstraction cannot substitute the type argument into the inner language directly, since the inner language has no notion of the types of the outer language. Instead, conversion substitutes lumps in a boundary's inner type. The application of a converted type abstraction substitutes the type argument in the boundary's outer type. Since the natural embedding \cite{matthews07} requires the boundary's outer and inner types to be equal, a new equality relation called lump equality is used here that allows lumps within the boundary's inner type to match any corresponding type in the boundary's outer type.
+Another complication with introducing Haskell to the model of computation is how to convert type abstractions between Haskell and ML. The application of a converted type abstraction cannot substitute the type argument into the nested expression because the type argument is meaningless in the nested expression's language. Instead, the application substitutes the type argument and a lump into the boundary's outer and inner types, respectively. Since the natural embedding requires the boundary's outer and inner types to be equal \cite{matthews07}, we use a new notion of equality called lump equality that allows lumps within the boundary's inner type to match any corresponding type in the boundary's outer type.
 
-Legends of symbol and syntax names are presented in figures \ref{figsymbols}-\ref{figsyntax2}; Haskell is presented in figures \ref{fighs}-\ref{fighsos}; ML is presented in figures \ref{figms}-\ref{figmsos}; Scheme is presented in figures \ref{figss}-\ref{figsmos}; the unbrand function is presented in figure \ref{figunbrand}; and the lump equality relation is presented in figure \ref{figequality}.
+Legends of symbol and syntax names are presented in figures \ref{figsymbols}-\ref{figsyntax2}; Haskell is presented in figures \ref{fighs}-\ref{fighsos}; ML is presented in figures \ref{figms}-\ref{figmsos}; Scheme is presented in figures \ref{figss}-\ref{figsmos}; the unbrand function is presented in figure \ref{figunbrand}; and lump equality is presented in figure \ref{figequality}.
 
 \clearpage
 
