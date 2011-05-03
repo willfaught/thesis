@@ -1,5 +1,5 @@
 \begin{figure}[p]
-\caption{ML-Haskell operational semantics.}
+\caption{The ML-Haskell operational semantics.}
 \centering
 \begin{tabular}{l}
 
@@ -111,11 +111,87 @@ $(\vartym \neq \tylump)$ \\
 {\expmh{\tylist{\vartym}}{\tylist{\first{\vartyh}}}{(\expnils{\second{\vartyh}})}}
 {\expnils{\vartym}} \\
 
-% mh {t} {t} (cons v v)
+% mh {t} {t} (cons f f)
 
-\redrulem
-{\expmh{\tylist{\vartym}}{\tylist{\vartyh}}{(\expcons{\first{\varexph}}{\second{\varexph}})}}
-{\expcons{(\expmh{\vartym}{\vartyh}{\first{\varexph}})}{(\expmh{\tylist{\vartym}}{\tylist{\vartyh}}{\second{\varexph}})}} \\
+\redconm
+{
+	\expmh
+	{
+		\tylist
+		{
+			\vartym
+		}
+	}
+	{
+		\tylist
+		{
+			\vartyh
+		}
+	}
+	{
+		(
+		\expcons
+		{
+			\first
+			{
+				\varexph
+			}
+		}
+		{
+			\second
+			{
+				\varexph
+			}
+		}
+		)
+	}
+}
+\red \\
+\redsp
+\redcon
+{
+	\expcons
+	{
+		(
+		\expmh
+		{
+			\vartym
+		}
+		{
+			\vartyh
+		}
+		{
+			\first
+			{
+				\varexph
+			}
+		}
+		)
+	}
+	{
+		(
+		\expmh
+		{
+			\tylist
+			{
+				\vartym
+			}
+		}
+		{
+			\tylist
+			{
+				\vartyh
+			}
+		}
+		{
+			\second
+			{
+				\varexph
+			}
+		}
+		)
+	}
+} \\
 
 % mh (t->t) (t->t) (\x:t.e)
 

@@ -1,9 +1,9 @@
 \begin{figure}[p]
-\caption{ML syntax and evaluation contexts.}
+\caption{The ML syntax and evaluation contexts.}
 \centering
 \begin{tabular}{rcl}
 
-\varexpm & $=$ & \varvarm $|$ \varvalum $|$ \expfapp{\varexpm}{\varexpm} $|$ \exptapp{\varexpm}{\vartym} $|$ \expfix{\varexpm} $|$ \expop{\varexpm}{\varexpm} $|$ \expif{\varexpm}{\varexpm}{\varexpm} \\
+\varexpm & $=$ & \varvarm $|$ \varvalum $|$ \expfapp{\varexpm}{\varexpm} $|$ \exptapp{\varexpm}{\vartym} $|$ \expop{\varexpm}{\varexpm} $|$ \expif{\varexpm}{\varexpm}{\varexpm} \\
 
 && \expcons{\varexpm}{\varexpm} $|$ \expfield{\varexpm} $|$ \exppnull{\varexpm} $|$ \expwrongs{\vartym}{\formvar{string}} $|$ \expms{\varcsm}{\varexps} \\
 
@@ -23,7 +23,7 @@
 
 \varconfm & $=$ & \varconum $|$ \expmh{\vartym}{\vartyh}{\varconfh} \\
 
-\varconum & $=$ & \symholem $|$ \expfapp{\varconfm}{\varexpm} $|$ \expfapp{\varvalfm}{\varconum} $|$ \exptapp{\varconfm}{\vartym} $|$ \expfix{\varconfm} $|$ \expop{\varconfm}{\varexpm} $|$ \expop{\varvalfm}{\varconfm} \\
+\varconum & $=$ & \symholem $|$ \expfapp{\varconfm}{\varexpm} $|$ \expfapp{\varvalfm}{\varconum} $|$ \exptapp{\varconfm}{\vartym} $|$ \expop{\varconfm}{\varexpm} $|$ \expop{\varvalfm}{\varconfm} \\
 
 && \expif{\varconfm}{\varexpm}{\varexpm} $|$ \expcons{\varconum}{\varexpm} $|$ \expcons{\varvalum}{\varconum} $|$ \expfield{\varconfm} $|$ \exppnull{\varconfm} \\
 

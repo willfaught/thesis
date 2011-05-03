@@ -1,5 +1,5 @@
 \begin{figure}[p]
-\caption{ML typing rules.}
+\caption{The ML typing rules.}
 \[
 % L
 \frac
@@ -71,16 +71,27 @@
 {\judem{\env}{\first{\varexpm}}{\tyfun{\first{\vartym}}{\second{\vartym}}} \quad \judem{\env}{\second{\varexpm}}{\first{\vartym}}}
 {\env\symjudh\expfapp{\first{\varexpm}}{\second{\varexpm}}:\second{\vartym}}
 \quad
-% fix e
-\frac
-{\judem{\env}{\varexpm}{\tyfun{\vartym}{\vartym}}}
-{\judem{\env}{\expfix{\varexpm}}{\vartym}}
-\]
-\[
-% e<t>
+% e <t>
 \frac
 {\judtm{\env}{\first{\vartym}} \quad \judem{\env}{\varexpm}{\tyfor{\tyvarm}{\second{\vartym}}}}
 {\judem{\env}{\exptapp{\varexpm}{\first{\vartym}}}{\tysubst{\second{\vartym}}{\first{\vartym}}{\tyvarm}}}
+\]
+\[
+% a e e
+\frac
+{\judem{\env}{\first{\varexpm}}{\tynum} \quad \judem{\env}{\second{\varexpm}}{\tynum}}
+{\judem{\env}{\expop{\first{\varexpm}}{\second{\varexpm}}}{\tynum}}
+\quad
+% if0 e e e
+\frac
+{\judem{\env}{\first{\varexpm}}{\tynum} \quad \judem{\env}{\second{\varexpm}}{\vartym} \quad \judem{\env}{\third{\varexpm}}{\vartym}}
+{\judem{\env}{\expif{\first{\varexpm}}{\second{\varexpm}}{\third{\varexpm}}}{\vartym}}
+\]
+\[
+% null? e
+\frac
+{\judem{\env}{\varexpm}{\tylist{\vartym}}}
+{\judem{\env}{\exppnull{\varexpm}}{\tynum}}
 \quad
 % hd e
 \frac
@@ -93,31 +104,15 @@
 {\judem{\env}{\exptl{\varexpm}}{\tylist{\vartym}}}
 \]
 \[
-% o e e
+% wrong t string
 \frac
-{\judem{\env}{\first{\varexpm}}{\tynum} \quad \judem{\env}{\second{\varexpm}}{\tynum}}
-{\judem{\env}{\expop{\first{\varexpm}}{\second{\varexpm}}}{\tynum}}
-\quad
-% null? e
-\frac
-{\judem{\env}{\varexpm}{\tylist{\vartym}}}
-{\judem{\env}{\exppnull{\varexpm}}{\tynum}}
+{\judtm{\env}{\vartym}}
+{\judem{\env}{\expwrongs{\vartym}{\formvar{string}}}{\vartym}}
 \quad
 % ms t e
 \frac
 {\judtm{\env}{\tyunbrand{\varcsm}} \quad \judes{\env}{\varexps}{\tytst}}
 {\judem{\env}{\expms{\varcsm}{\varexps}}{\tyunbrand{\varcsm}}}
-\]
-\[
-% if0 e e e
-\frac
-{\judem{\env}{\first{\varexpm}}{\tynum} \quad \judem{\env}{\second{\varexpm}}{\vartym} \quad \judem{\env}{\third{\varexpm}}{\vartym}}
-{\judem{\env}{\expif{\first{\varexpm}}{\second{\varexpm}}{\third{\varexpm}}}{\vartym}}
-\quad
-% wrong t string
-\frac
-{\judtm{\env}{\vartym}}
-{\judem{\env}{\expwrongs{\vartym}{\formvar{string}}}{\vartym}}
 \]
 \[
 % mh k k e

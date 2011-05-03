@@ -1,82 +1,76 @@
 \begin{figure}[p]
-\caption{ML operational semantics.}
+\caption{The ML operational semantics.}
 \centering
 \begin{tabular}{l}
 
-% Function application
+% e e
 
 \redrulem
 {\expfapp{(\expfabss{\varvarm}{\vartym}{\varexpm})}{\varvalum}}
 {\expsubst{\varexpm}{\varvalum}{\varvarm}} \\
 
-% (\\u.e)<t>
+% e <t>
 
 \redrulem
 {\exptapp{(\exptabs{\tyvarm}{\varexpm})}{\vartym}}
 {\expsubst{\varexpm}{\csbrand{\varbrand}{\vartym}}{\tyvarm}} \\
 
-% Fix
-
-\redrulem
-{\expfix{(\expfabss{\varvarm}{\vartym}{\varexpm})}}
-{\expsubst{\varexpm}{\expfix{(\expfabss{\varvarm}{\vartym}{\varexpm})}}{\varvarm}} \\
-
-% Add
+% + e e
 
 \redrulem
 {\expadd{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
 {\expnum{\first{\varnum} + \second{\varnum}}} \\
 
-% Subtract
+% - e e
 
 \redrulem
 {\expsub{\first{\expnum{\varnum}}}{\second{\expnum{\varnum}}}}
 {\expnum{\formvar{max}(\first{\varnum} - \second{\varnum}, 0)}} \\
 
-% If0 true
+% if0 e e e (true)
 
 \redrulem
 {\expif{\expnum{0}}{\first{\varexpm}}{\second{\varexpm}}}
 {\first{\varexpm}} \\
 
-% If0 false
+% if0 e e e (false)
 
 \redrulem
 {\expif{\expnum{\varnum}}{\first{\varexpm}}{\second{\varexpm}}}
 {\second{\varexpm}}
 $(\varnum \neq 0)$ \\
 
-% Head nil
+% hd nil
 
 \redrulem
 {\exphd{(\expnils{\vartym})}}
 {\expwrongs{\vartym}{\str{Empty \; list}}} \\
 
-% Tail nil
+% tl nil
 
 \redrulem
 {\exptl{(\expnils{\vartym})}}
 {\expwrongs{\tylist{\vartym}}{\str{Empty \; list}}} \\
 
-% Head cons
+% hd (cons u u)
 
 \redrulem
 {\exphd{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
 {\first{\varvalum}} \\
 
-% Tail cons
+% tl (cons u u)
 
 \redrulem
 {\exptl{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
 {\second{\varvalum}} \\
 
-% Null nil
+% null nil
 
 \redrulem
 {\exppnull{(\expnils{\vartym})}}
 {\expnum{0}} \\
 
-% Null cons
+% null (cons u u)
 
 \redrulem
 {\exppnull{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}

@@ -1,5 +1,5 @@
 \begin{figure}[p]
-\caption{Haskell typing rules}
+\caption{The Haskell typing rules.}
 \[
 % L
 \frac
@@ -52,7 +52,7 @@
 \[
 % nil t
 \frac
-{\judeh{\env}{\vartyh}}
+{\judth{\env}{\vartyh}}
 {\judeh{\env}{\expnils{\vartyh}}{\tylist{\vartyh}}}
 \quad
 % cons e e
@@ -71,16 +71,27 @@
 {\judeh{\env}{\first{\varexph}}{\tyfun{\first{\vartyh}}{\second{\vartyh}}} \quad \judeh{\env}{\second{\varexph}}{\first{\vartyh}}}
 {\env\symjudh\expfapp{\first{\varexph}}{\second{\varexph}}:\second{\vartyh}}
 \quad
-% fix e
-\frac
-{\judeh{\env}{\varexph}{\tyfun{\vartyh}{\vartyh}}}
-{\judeh{\env}{\expfix{\varexph}}{\vartyh}}
-\]
-\[
-% e<t>
+% e <t>
 \frac
 {\judth{\env}{\first{\vartyh}} \quad \judeh{\env}{\varexph}{\tyfor{\tyvarh}{\second{\vartyh}}}}
 {\judeh{\env}{\exptapp{\varexph}{\first{\vartyh}}}{\tysubst{\second{\vartyh}}{\first{\vartyh}}{\tyvarh}}}
+\]
+\[
+% a e e
+\frac
+{\judeh{\env}{\first{\varexph}}{\tynum} \quad \judeh{\env}{\second{\varexph}}{\tynum}}
+{\judeh{\env}{\expop{\first{\varexph}}{\second{\varexph}}}{\tynum}}
+\quad
+% if0 e e e
+\frac
+{\judeh{\env}{\first{\varexph}}{\tynum} \quad \judeh{\env}{\second{\varexph}}{\vartyh} \quad \judeh{\env}{\third{\varexph}}{\vartyh}}
+{\judeh{\env}{\expif{\first{\varexph}}{\second{\varexph}}{\third{\varexph}}}{\vartyh}}
+\]
+\[
+% null? e
+\frac
+{\judeh{\env}{\varexph}{\tylist{\vartyh}}}
+{\judeh{\env}{\exppnull{\varexph}}{\tynum}}
 \quad
 % hd e
 \frac
@@ -93,31 +104,15 @@
 {\judeh{\env}{\exptl{\varexph}}{\tylist{\vartyh}}}
 \]
 \[
-% o e e
+% wrong t s
 \frac
-{\judeh{\env}{\first{\varexph}}{\tynum} \quad \judeh{\env}{\second{\varexph}}{\tynum}}
-{\judeh{\env}{\expop{\first{\varexph}}{\second{\varexph}}}{\tynum}}
-\quad
-% null? e
-\frac
-{\judeh{\env}{\varexph}{\tylist{\vartyh}}}
-{\judeh{\env}{\exppnull{\varexph}}{\tynum}}
+{\judth{\env}{\vartyh}}
+{\judeh{\env}{\expwrongs{\vartyh}{\formvar{string}}}{\vartyh}}
 \quad
 % hs k e
 \frac
 {\judth{\env}{\tyunbrand{\varcsh}} \quad \judes{\env}{\varexps}{\tytst}}
 {\judeh{\env}{\exphs{\varcsh}{\varexps}}{\tyunbrand{\varcsh}}}
-\]
-\[
-% if0 e e e
-\frac
-{\judeh{\env}{\first{\varexph}}{\tynum} \quad \judeh{\env}{\second{\varexph}}{\vartyh} \quad \judeh{\env}{\third{\varexph}}{\vartyh}}
-{\judeh{\env}{\expif{\first{\varexph}}{\second{\varexph}}{\third{\varexph}}}{\vartyh}}
-\quad
-% wrong t s
-\frac
-{\judth{\env}{\vartyh}}
-{\judeh{\env}{\expwrongs{\vartyh}{\formvar{string}}}{\vartyh}}
 \]
 \[
 % hm k k e

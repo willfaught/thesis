@@ -1,9 +1,9 @@
 \begin{figure}[p]
-\caption{Haskell syntax and evaluation contexts.}
+\caption{The Haskell syntax and evaluation contexts.}
 \centering
 \begin{tabular}{rcl}
 
-\varexph & $=$ & \varvarh $|$ \varvalfh $|$ \expfapp{\varexph}{\varexph} $|$ \exptapp{\varexph}{\vartyh} $|$ \expfix{\varexph} $|$ \expop{\varexph}{\varexph} $|$ \expif{\varexph}{\varexph}{\varexph} $|$ \expfield{\varexph} \\
+\varexph & $=$ & \varvarh $|$ \varvalfh $|$ \expfapp{\varexph}{\varexph} $|$ \exptapp{\varexph}{\vartyh} $|$ \expop{\varexph}{\varexph} $|$ \expif{\varexph}{\varexph}{\varexph} $|$ \expfield{\varexph} \\
 
 && \exppnull{\varexph} $|$ \expwrongs{\vartyh}{\formvar{string}} $|$ \exphm{\vartyh}{\vartym}{\varexpm} $|$ \exphs{\varcsh}{\varexps} \\
 
@@ -19,9 +19,9 @@
 
 \formvar{\symfield} & $=$ & \formsym{\symhd} $|$ \formsym{\symtl} \\
 
-\varconfh & $=$ & \symholeh $|$ \expfapp{\varconfh}{\varexph} $|$ \exptapp{\varconfh}{\vartyh} $|$ \expfix{\varconfh} $|$ \expop{\varconfh}{\varexph} $|$ \expop{\varvalfh}{\varconfh} \\
+\varconfh & $=$ & \symholeh $|$ \expfapp{\varconfh}{\varexph} $|$ \exptapp{\varconfh}{\vartyh} $|$ \expop{\varconfh}{\varexph} $|$ \expop{\varvalfh}{\varconfh} $|$ \expif{\varconfh}{\varexph}{\varexph} \\
 
-&& \expif{\varconfh}{\varexph}{\varexph} $|$ \expfield{\varconfh} $|$ \exppnull{\varconfh} $|$ \exphm{\vartyh}{\vartym}{\varconfm} $|$ \exphs{\varcsh}{\varconfs}
+&& \expfield{\varconfh} $|$ \exppnull{\varconfh} $|$ \exphm{\vartyh}{\vartym}{\varconfm} $|$ \exphs{\varcsh}{\varconfs}
 
 \end{tabular}
 \label{fighs}

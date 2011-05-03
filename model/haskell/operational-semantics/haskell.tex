@@ -12,7 +12,7 @@
 
 \newcommand{\osfapph}{\redruleh{\osfapplh}{\osfapprh}}
 
-% e<t>
+% e <t>
 
 \newcommand{\ostappl}
 {
@@ -25,20 +25,6 @@
 }
 
 \newcommand{\ostapp}{\redruleh{\ostappl}{\ostappr}}
-
-% fix e
-
-\newcommand{\osfixl}
-{
-\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}
-}
-
-\newcommand{\osfixr}
-{
-\expsubst{\varexph}{\expfix{(\expfabss{\varvarh}{\vartyh}{\varexph})}}{\varvarh}
-}
-
-\newcommand{\osfix}{\redruleh{\osfixl}{\osfixr}}
 
 % + e e
 
@@ -195,13 +181,12 @@
 \newcommand{\oswrong}{\redrule{\oswrongl}{\oswrongr}}
 
 \begin{figure}[p]
-\caption{Haskell operational semantics}
+\caption{The Haskell operational semantics.}
 \centering
 \begin{tabular}{l}
 
 \osfapph \\
 \ostapp \\
-\osfix \\
 \osadd \\
 \ossub \\
 \osiftrue \\
