@@ -1,27 +1,110 @@
-% hm t L (mh L t e)
+% hm t t (mh t t e)
 
 \newcommand{\oshmmheql}
 {
-\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}
+	\exphm
+	{
+		\first
+		{
+			\vartyh
+		}
+	}
+	{
+		\first
+		{
+			\vartym
+		}
+	}
+	{
+		(
+		\expmh
+		{
+			\second
+			{
+				\vartym
+			}
+		}
+		{
+			\second
+			{
+				\vartyh
+			}
+		}
+		{
+			\first
+			{
+				\varexph
+			}
+		}
+		)
+	}
 }
 
 \newcommand{\oshmmheqr}
 {
-\varexph
+	\first
+	{
+		\varexph
+	}
 }
 
 \newcommand{\oshmmheqn}
 {
-$(\first{\vartyh} = \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$
+	(\first{	\vartyh} $\neq$ \tylump $\wedge$ \first{\vartyh} = \second{\vartyh})
 }
 
-\newcommand{\oshmmheq}{\redruleh{\oshmmheql}{\oshmmheqr} \oshmmheqn}
+\newcommand
+{
+	\oshmmheq
+}
+{
+	\redruleh
+	{
+		\oshmmheql
+	}
+	{
+		\oshmmheqr
+	}
+	\oshmmheqn
+}
 
-% hm t L (mh L t e)
+% hm t t (mh t t e) (t /= t)
 
 \newcommand{\oshmmhneql}
 {
-\exphm{\first{\vartyh}}{\tylump}{(\expmh{\tylump}{\second{\vartyh}}{\varexph})}
+	\exphm
+	{
+		\first
+		{
+			\vartyh
+		}
+	}
+	{
+		\first
+		{
+			\vartym
+		}
+	}
+	{
+		(
+		\expmh
+		{
+			\second
+			{
+				\vartym
+			}
+		}
+		{
+			\second
+			{
+				\vartyh
+			}
+		}
+		{
+			\varexph
+		}
+		)
+	}
 }
 
 \newcommand{\oshmmhneqr}
@@ -31,7 +114,7 @@ $(\first{\vartyh} = \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$
 
 \newcommand{\oshmmhneqn}
 {
-$(\first{\vartyh} \neq \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$
+	(\first{	\vartyh} $\neq$ \tylump $\wedge$ \first{\vartyh} $\neq$ \second{\vartyh})
 }
 
 % hm t L (ms L v)
@@ -43,7 +126,13 @@ $(\first{\vartyh} \neq \second{\vartyh}$ and $\first{\vartyh} \neq \tylump)$
 
 \newcommand{\oshmmsr}
 {
-\expwrongs{\vartyh}{\errvalue}
+	\expwrongs
+	{
+		\vartyh
+	}
+	{
+		\errvalue
+	}
 }
 
 \newcommand{\oshmmsn}
@@ -124,8 +213,8 @@ $(\vartyh \neq \tylump)$
 \begin{tabular}{l}
 
 \oshmmheq \\
-\redruleh{\oshmmhneql}{\oshmmhneqr} \\
-\redsp \oshmmhneqn \\
+\redconh{\oshmmhneql} \red \\
+\redsp \redcon{\oshmmhneqr} \oshmmhneqn \\
 \oshmms \\
 \oshmnum \\
 \oshmnil \\
