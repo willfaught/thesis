@@ -2,19 +2,94 @@
 \centering
 \begin{tabular}{l}
 
-% mh t L (hm L t e)
+% mh t t (hm t t e) (t = t)
 
 \redrulem
-{\expmh{\first{\vartym}}{\tylump}{(\exphm{\tylump}{\second{\vartym}}{\varvalfm})}}
-{\varvalfm}
-$(\first{\vartym} = \second{\vartym}$ and $\first{\vartym} \neq \tylump)$ \\
+{
+	\expmh
+	{
+		\first
+		{
+			\vartym
+		}
+	}
+	{
+		\first
+		{
+			\vartyh
+		}
+	}
+	{
+		(
+		\exphm
+		{
+			\second
+			{
+				\vartyh
+			}
+		}
+		{
+			\second
+			{
+				\vartym
+			}
+		}
+		{
+			\varvalfm
+		}
+		)
+	}
+}
+{
+	\varvalfm
+}
+(\first{\vartym} $\neq$ \tylump $\wedge$ \first{\vartym} = \second{\vartym}) \\
 
-% mh t L (hm L t e)
+% mh t L (hm L t e) (t /= t)
 
-\redrulem
-{\expmh{\first{\vartym}}{\tylump}{(\exphm{\tylump}{\second{\vartym}}{\varvalfm})}}
-{\expwrongs{\vartym}{\errtype}}
-$(\first{\vartym} \neq \second{\vartym}$ and $\first{\vartym} \neq \tylump)$ \\
+\redconm
+{
+	\expmh
+	{
+		\first
+		{
+			\vartym
+		}
+	}
+	{
+		\first
+		{
+			\vartyh
+		}
+	}
+	{
+		(
+		\exphm
+		{
+			\second
+			{
+				\vartyh
+			}
+		}
+		{
+			\second
+			{
+				\vartym
+			}
+		}
+		{
+			\varvalfm
+		}
+		)
+	}
+}
+\red \\
+\redsp
+\redcon
+{
+	\expwrongs{\vartym}{\errtype}
+}
+(\first{\vartym} $\neq$ \tylump $\wedge$ \first{\vartym} $\neq$ \second{\vartym}) \\
 
 % mh t L (hs L v)
 

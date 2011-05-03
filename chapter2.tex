@@ -11,11 +11,106 @@ Transparency is restored for interoperation in all cases with our changes to the
 \begin{theorem}{Interoperation is transparent:}
 \label{thmtransparent}
 \begin{enumerate}
-\item $\varexph \equiv \expmh{\vartym}{\vartyh}{\varexph} \equiv \expsh{\vartyh}{\varexph}$
-\item $\varexpm \equiv \exphm{\vartyh}{\vartym}{\varexpm} \equiv \expsm{\vartym}{\varexpm}$
-\item $\varexps \equiv \exphs{\vartyh}{\varexps} \equiv \expms{\vartym}{\varexps}$
+\item
+\varexph
+$\simeq$
+\exphm
+{
+	\vartyh
+}
+{
+	\vartym
+}
+{
+	(
+	\expmh
+	{
+		\vartym
+	}
+	{
+		\vartyh
+	}
+	{
+		\varexph
+	}
+	)
+}
+$\simeq$
+\expms
+{
+	\vartym
+}
+{
+	(
+	\expsh
+	{
+		\vartyh
+	}
+	{
+		\varexph
+	}
+	)
+}
+\item
+$\simeq$
+\exphs
+{
+	\vartyh
+}
+{
+	(
+	\expsh
+	{
+		\vartyh
+	}
+	{
+		\varexph
+	}
+	)
+}
+\item
+\varexpm
+$\simeq$
+\expmh
+{
+	\vartym
+}
+{
+	\vartyh
+}
+{
+	(
+	\exphm
+	{
+		\vartyh
+	}
+	{
+		\vartym
+	}
+	{
+		\varexpm
+	}
+	)
+}
+$\simeq$
+\expms
+{
+	\vartym
+}
+{
+	(
+	\expsm
+	{
+		\vartym
+	}
+	{
+		\varexpm
+	}
+	)
+}
+\item $\varexps \simeq \exphs{\vartyh}{\varexps} \simeq \expms{\vartym}{\varexps}$
 \end{enumerate}
-where $\equiv$ denotes contextual equivalence.
+where $\simeq$ denotes observational equivalence ???CITE???.
 \begin{proof}
 By structural induction.
 \end{proof}

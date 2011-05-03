@@ -8,16 +8,18 @@ The model of computation of Matthews and Findler comprises two eager languages b
 
 Unlike ML and Scheme, Haskell does not evaluate function arguments or list construction operands. These three evaluation contexts comprise the set of incompatible evaluation contexts between Haskell and ML, and Haskell and Scheme. Since Haskell permits unused erroneous or divergent expressions in these evaluation contexts and ML and Scheme do not, there are Haskell values that have no counterpart in ML and Scheme. Attempting to convert such values to ML and Scheme forces the evaluation of such expressions and breaks the transparency of interoperation.
 
-\input{figures/figlistunfixed.tex}
-
-\input{figures/figlistfixed.tex}
-
 Figure \ref{figlistunfixed} demonstrates how a straightforward introduction of Haskell to the model of Matthews and Findler breaks the transparency of interoperation when converting a list construction from Haskell to Scheme. The Haskell list construction contains an erroneous operand that Scheme forces to evaluate in the process of converting the Haskell list construction. Figure \ref{figlistfixed} demonstrates Scheme correctly deferring the evaluation of the erroneous Haskell list construction operand and producing as a result the counterpart Scheme list construction.
 
 Moreover, since the conversion of functions from ML and Scheme to Haskell requires the application of the original function to the converted Haskell argument, ML and Scheme always force the evaluation of the converted Haskell argument, even if it is never used. The application of such converted functions effectively changes the order of evaluation of Haskell and breaks the transparency of interoperation.
 
+Likewise, figure \ref{figfunctionunfixed} demonstrates the conversion of a function from Haskell to Scheme. Scheme forces the evaluation of the erroneous Haskell argument in the process of applying the Scheme function, even though the Haskell argument is never used. From the perspective of the outermost Haskell application, the argument must have been used, but it was not. Figure \ref{figfunctionfixed} demonstrates Scheme not forcing the evaluation of the Haskell argument, which allows the Scheme function to produce a number.
+
+\clearpage
+
+\input{figures/figlistunfixed.tex}
+
+\input{figures/figlistfixed.tex}
+
 \input{figures/figfunctionunfixed.tex}
 
 \input{figures/figfunctionfixed.tex}
-
-Likewise, figure \ref{figfunctionunfixed} demonstrates the conversion of a function from Haskell to Scheme. Scheme forces the evaluation of the erroneous Haskell argument in the process of applying the Scheme function, even though the Haskell argument is never used. From the perspective of the outermost Haskell application, the argument must have been used, but it was not. Figure \ref{figfunctionfixed} demonstrates Scheme not forcing the evaluation of the Haskell argument, which allows the Scheme function to produce a number.

@@ -2,17 +2,41 @@
 \centering
 \begin{tabular}{l}
 
+% sh t (hs t f)
+
+\redrules
+{
+	\expsh
+	{
+		\first
+		{
+			\varcsh
+		}
+	}
+	{
+		(
+		\exphs
+		{
+			\second
+			{
+				\varcsh
+			}
+		}
+		{
+			\varvalfs
+		}
+		)
+	}
+}
+{
+	\varvalfs
+} \\
+
 % sh L (hm L k w)
 
 \redrules
 {\expsh{\cslump}{(\exphm{\cslump}{\varcsm}{\varvalfm})}}
 {\expwrongd{\errvalue}} \\
-
-% sh L (ms L w)
-
-\redrules
-{\expsh{\cslump}{(\exphs{\cslump}{\varvalfs})}}
-{\varvalfs} \\
 
 % sh N n
 
