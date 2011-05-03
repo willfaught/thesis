@@ -1,8 +1,8 @@
 \chapter{Introduction}
 
-Programmers forgo existing solutions to problems in other programming languages where software interoperation proves too cumbersome; they remake solutions, rather than reuse them. To facilitate reuse, interoperation must resolve language incompatibilities transparently. To address part of this problem, we present a model of computation that resolves lazy and eager evaluation strategies.
+Programmers forgo existing solutions to problems in other programming languages where software interoperation proves too cumbersome; they remake solutions, rather than reuse them. To facilitate reuse, interoperation must resolve language incompatibilities transparently. To address part of this problem, we present a model of computation that resolves incompatible lazy and eager evaluation strategies.
 
-Matthews and Findler presented a method of safe interoperation between languages with incompatible polymorphic static and dynamic type systems \cite{matthews07}. We observe that their method is insufficient for safe interoperation between languages with incompatible lazy and eager evaluation strategies, then explain the underlying problem, and then finally present a method of interoperation that resolves this incompatibility.
+Matthews and Findler presented a method of type-safe interoperation between languages with incompatible polymorphic static and dynamic type systems \cite{matthews07}. We observe that their method is insufficient for transparent interoperation between languages with incompatible lazy and eager evaluation strategies. We explain the underlying problem and present a method of interoperation that resolves this incompatibility.
 
 The model of computation of Matthews and Findler comprises two eager languages based on ML and Scheme. We extend their model of computation with a third language that is based on Haskell and identical to their ML-like language, except it is lazy. We introduce lists to all three languages. Hereafter, we use the names of Haskell, ML, and Scheme to refer to their counterparts in our model of computation.
 
