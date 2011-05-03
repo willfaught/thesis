@@ -1,9 +1,7 @@
 \begin{figure}[p]
-%\onehalfspacing
+\caption{Syntax names}
 \centering
 \begin{tabular}{rl}
-
-\textbf{Syntax} & \textbf{Name} \\
 
 \expadd{\varexp}{\varexp} & Addition \\
 \expif{\varexp}{\varexp}{\varexp} & Condition \\\expnils{\varty} & Empty list \\
@@ -32,26 +30,22 @@
 \exptapp{\varexp}{\varty} & Type application \\
 
 \end{tabular}
-\caption{Syntax names}
 \label{figsyntax1}
 \end{figure}
 
 \begin{figure}[p]
-%\onehalfspacing
+\caption{Syntax names}
 \centering
 \begin{tabular}{rl}
 
-\textbf{Syntax} & \textbf{Name} \\
-
 \csbrand{\varbrand}{\varty} & Branded type \\
-\tyfor{\tyvar}{\varty} & Universally quantified type \\
-\csfor{\csvar}{\varcs} & Universally quantified conversion scheme \\
+\tyfor{\tyvar}{\varty} & Forall type \\
+\csfor{\csvar}{\varcs} & Forall conversion scheme \\
 \tyfun{\varty}{\varty} & Function abstraction \\
 \csfun{\varcs}{\varcs} & Function abstraction \\
 \tylist{\varty} & List \\
 \cslist{\varcs} & List \\
 
 \end{tabular}
-\caption{Syntax names}
 \label{figsyntax2}
 \end{figure}
