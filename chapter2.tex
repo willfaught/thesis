@@ -36,32 +36,15 @@ $\simeq$
 	)
 }
 $\simeq$
-\expms
-{
-	\vartym
-}
-{
-	(
-	\expsh
-	{
-		\vartyh
-	}
-	{
-		\varexph
-	}
-	)
-}
-\item
-$\simeq$
 \exphs
 {
-	\vartyh
+	\varcsh
 }
 {
 	(
 	\expsh
 	{
-		\vartyh
+		\varcsh
 	}
 	{
 		\varexph
@@ -95,22 +78,61 @@ $\simeq$
 $\simeq$
 \expms
 {
-	\vartym
+	\varcsm
 }
 {
 	(
 	\expsm
 	{
-		\vartym
+		\varcsm
 	}
 	{
 		\varexpm
 	}
 	)
 }
-\item $\varexps \simeq \exphs{\vartyh}{\varexps} \simeq \expms{\vartym}{\varexps}$
+\item
+\varexps
+$\simeq$
+\expsh
+{
+	\varcsh
+}
+{
+	(
+	\exphs
+	{
+		\varcsh
+	}
+	{
+		\first
+		{
+			\varexps
+		}
+	}
+	)
+}
+$\simeq$
+\expsm
+{
+	\varcsm
+}
+{
+	(
+	\expms
+	{
+		\varcsm
+	}
+	{
+		\first
+		{
+			\varexps
+		}
+	}
+	)
+}
 \end{enumerate}
-where $\simeq$ denotes observational equivalence ???CITE???.
+where $\simeq$ denotes observational equivalence \cite{felleisen09}.
 \begin{proof}
 By structural induction.
 \end{proof}
