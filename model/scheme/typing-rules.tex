@@ -40,16 +40,16 @@
 {\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst}}
 {\env\symjudh\expfapp{\first{\varexps}}{\second{\varexps}}:\tytst}
 \quad
-% f e
-\frac
-{\judes{\env}{\varexps}{\tytst}}
-{\judes{\env}{\expfield{\varexps}}{\tytst}}
-\]
-\[
-% + e e
+% a e e
 \frac
 {\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst}}
 {\judes{\env}{\expop{\first{\varexps}}{\second{\varexps}}}{\tytst}}
+\]
+\[
+% if0 e e e
+\frac
+{\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst} \quad \judes{\env}{\third{\varexps}}{\tytst}}
+{\judes{\env}{\expif{\first{\varexps}}{\second{\varexps}}{\third{\varexps}}}{\tytst}}
 \quad
 % p e
 \frac
@@ -57,10 +57,10 @@
 {\judes{\env}{\exppred{\varexps}}{\tytst}}
 \]
 \[
-% if0 e e e
+% c e
 \frac
-{\judes{\env}{\first{\varexps}}{\tytst} \quad \judes{\env}{\second{\varexps}}{\tytst} \quad \judes{\env}{\third{\varexps}}{\tytst}}
-{\judes{\env}{\expif{\first{\varexps}}{\second{\varexps}}{\third{\varexps}}}{\tytst}}
+{\judes{\env}{\varexps}{\tytst}}
+{\judes{\env}{\expfield{\varexps}}{\tytst}}
 \quad
 % wrong string
 \frac
@@ -72,7 +72,8 @@
 \frac
 {\judth{\env}{\tyunbrand{\varcsh}} \quad \judeh{\env}{\varexph}{\vartyh} \quad \tyunbrand{\varcsh} = \vartyh}
 {\judes{\env}{\expsh{\varcsh}{\varexph}}{\tytst}}
-\quad
+\]
+\[
 % sm k e
 \frac
 {\judtm{\env}{\tyunbrand{\varcsm}} \quad \judem{\env}{\varexpm}{\vartym} \quad \tyunbrand{\varcsm} = \vartym}

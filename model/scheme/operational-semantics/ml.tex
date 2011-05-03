@@ -3,17 +3,17 @@
 \centering
 \begin{tabular}{l}
 
-% sm L (mh L k e)
-
-\redrules
-{\expsm{\cslump}{(\expmh{\cslump}{\varcsh}{\varexph})}}
-{\expwrongd{\errvalue}} \\
-
 % sm L (ms L v)
 
 \redrules
 {\expsm{\cslump}{(\expms{\cslump}{\varvalfs})}}
 {\varvalfs} \\
+
+% sm L (mh L k e)
+
+\redrules
+{\expsm{\cslump}{(\expmh{\cslump}{\varcsh}{\varexph})}}
+{\expwrongd{\errvalue}} \\
 
 % sm N n
 
@@ -33,15 +33,13 @@
 {\expsm{\cslist{\varcsm}}{(\expcons{\first{\varvalum}}{\second{\varvalum}})}}
 {\expcons{(\expsm{\varcsm}{\first{\varvalum}})}{(\expsm{\cslist{\varcsm}}{\second{\varvalum}})}} \\
 
-% sm (k->k) (\x:t.e)
+% sm (k->k) f
 
-\redrule
-{\redcons{\expsm{(\csfun{\first{\varcsm}}{\second{\varcsm}})}{(\expfabss{\varvarm}{\vartym}{\varexpm})}}}
-{} \\
+\redrules
+{\expsm{(\csfun{\first{\varcsm}}{\second{\varcsm}})}{\first{\varvalfm}}}
+{\expfabsd{\varvars}{\expsm{\second{\varcsm}}{\expfapp{(\varvalfm}{(\expms{\first{\varcsm}}{\varvars})})}}} \\
 
-\redsp \redcon{{\expfabsd{\varvars}{\expsm{\second{\varcsm}}{\expfapp{((\expfabss{\varvarm}{\vartym}{\varexpm})}{(\expms{\first{\varcsm}}{\varvars})})}}}} \\
-
-% sm (Au.k) (\\u.e)
+% sm (Ay.k) (\\u.e)
 
 \redrules
 {\expsm{(\csfor{\first{\csvarm}}{\varcsm})}{(\exptabs{\second{\tyvarm}}{\varexpm})}}
