@@ -1,3 +1,113 @@
-\chapter{Conclusion}
+\chapter{Proof of Type Soundness}
 
-Our method of interoperation resolves incompatible lazy and eager evaluation strategies transparently. The eager evaluation strategy mirrors the lazy one for reducible expressions inside the lazy language's boundaries in incompatible evaluation contexts common to both languages. Forced and unforced evaluation contexts and values comprise a simple framework that implements such a system. This method could be extended to resolve incompatible evaluation strategies for any pair of languages with common expressions.
+The proof of correctness is similar to that of Kinghorn \cite{kinghorn07}, mutatis mutandis.
+
+\begin{lemma}{Inversion of the Typing Relation}
+
+\label{leminv}
+The syntactic forms of well-typed expressions determine the types of their subexpressions.
+\begin{proof}
+Immediate from the typing rules.
+\end{proof}
+\end{lemma}
+
+\begin{lemma}{Uniqueness of Types}
+
+\label{lemuni}
+If \varexph, \varexpm, and \varexps are well-typed then they have only one type.
+\begin{proof}
+By structural induction on \varexph, \varexpm, and \varexps and lemma \ref{leminv}.
+\end{proof}
+\end{lemma}
+
+\begin{lemma}{Canonical Forms}
+
+\label{lemcan}
+The syntactic forms of \prouvs for each type.
+\begin{proof}
+Immediate from the definitions of unforced values and the typing relations.
+\end{proof}
+\end{lemma}
+
+\begin{theorem}{Haskell Progress}
+
+\label{thmpsh}
+If \judeh{}{\first{\varexph}}{\vartyh} then \pshyp{\first{\varexph}}{\second{\varexph}}.
+\begin{proof}
+By structural induction on \first{\varexph} and theorems \ref{thmpsm} and \ref{thmpss}.
+\end{proof}
+\end{theorem}
+
+\begin{theorem}{ML Progress}
+
+\label{thmpsm}
+If \judem{}{\first{\varexpm}}{\vartym} then \pshyp{\first{\varexpm}}{\second{\varexpm}}.
+\begin{proof}
+By structural induction on \first{\varexpm} and theorems \ref{thmpsh} and \ref{thmpss}.
+\end{proof}
+\end{theorem}
+
+\begin{theorem}{Scheme Progress}
+
+\label{thmpss}
+If \judes{}{\first{\varexps}}{\tytst} then \pshyp{\first{\varexps}}{\second{\varexps}}.
+\begin{proof}
+By structural induction on \first{\varexps} and theorems \ref{thmpsh} and \ref{thmpsm}.
+\end{proof}
+\end{theorem}
+
+\begin{lemma}{Expression Substitution Preservation}
+
+\label{lemexp}
+If \judeh{\envexte{\env}{\first{\varvarh}}{\first{\vartyh}}}{\first{\varexph}}{\second{\vartyh}} and \judeh{\env}{\second{\varexph}}{\first{\vartyh}} then \judeh{\env}{\expsubst{\first{\varexph}}{\second{\varexph}}{\first{\varvarh}}}{\second{\vartyh}}.  If \judem{\envexte{\env}{\first{\varvarm}}{\first{\vartym}}}{\first{\varexpm}}{\second{\vartym}} and \judem{\env}{\second{\varexpm}}{\first{\vartym}} then \judem{\env}{\expsubst{\first{\varexpm}}{\second{\varexpm}}{\first{\varvarm}}}{\second{\vartym}}.  If \judes{\envexte{\env}{\first{\varvars}}{\tytst}}{\first{\varexps}}{\tytst} and \judes{\env}{\second{\varexps}}{\tytst} then \judes{\env}{\expsubst{\first{\varexps}}{\second{\varexps}}{\first{\varvars}}}{\tytst}.
+\begin{proof}
+By structural induction.
+\end{proof}
+\end{lemma}
+
+\begin{lemma}{Type Substitution Preservation}
+
+\label{lemtyp}
+If \judeh{\envextt{\env}{\first{\tyvarh}}}{\first{\varexph}}{\first{\vartyh}} and \judth{\env}{\second{\vartyh}} then \judeh{\env}{\expsubst{\first{\varexph}}{\second{\vartyh}}{\first{\tyvarh}}}{\tysubst{\first{\vartyh}}{\second{\vartyh}}{\first{\tyvarh}}}.  If \judem{\envextt{\env}{\first{\tyvarm}}}{\first{\varexpm}}{\first{\vartym}} and \judtm{\env}{\second{\vartym}} then \judem{\env}{\expsubst{\first{\varexpm}}{\second{\vartym}}{\first{\tyvarm}}}{\tysubst{\first{\vartym}}{\second{\vartym}}{\first{\tyvarm}}}.
+\begin{proof}
+By structural induction.
+\end{proof}
+\end{lemma}
+
+\begin{lemma}{Evaluation Context Preservation}
+
+\label{lemeva}
+If \judeh{}{\first{\varexph}}{\first{\vartyh}}, \judeh{}{\second{\varexph}}{\first{\vartyh}}, and \judeh{}{\redconh{\first{\varexph}}}{\second{\vartyh}} then \judeh{}{\redconh{\second{\varexph}}}{\second{\vartyh}}.
+If \judem{}{\first{\varexpm}}{\first{\vartym}}, \judem{}{\second{\varexpm}}{\first{\vartym}}, and \judem{}{\redconm{\first{\varexpm}}}{\second{\vartym}} then \judem{}{\redconm{\second{\varexpm}}}{\second{\vartym}}.
+If \judes{}{\first{\varexps}}{\tytst}, \judes{}{\second{\varexps}}{\tytst}, and \judes{}{\redcons{\first{\varexps}}}{\tytst} then \judes{}{\redcons{\second{\varexps}}}{\tytst}.
+\begin{proof}
+By structural induction.
+\end{proof}
+\end{lemma}
+
+\begin{theorem}{Haskell Preservation}
+
+\label{thmpnh}
+If \judeh{\env}{\first{\varexph}}{\first{\vartyh}} and \redruleh{\first{\varexph}}{\second{\varexph}} then \judeh{\env}{\second{\varexph}}{\first{\vartyh}}.
+\begin{proof}
+By cases on the reduction \redruleh{\first{\varexph}}{\second{\varexph}}, lemma \ref{lemeva}, and theorems \ref{thmpnm} and \ref{thmpns}.
+\end{proof}
+\end{theorem}
+
+\begin{theorem}{ML Preservation}
+
+\label{thmpnm}
+If \judem{\env}{\first{\varexpm}}{\first{\vartym}} and \first{\varexpm} \red \second{\varexpm} then \judem{\env}{\second{\varexpm}}{\first{\vartym}}.
+\begin{proof}
+By cases on the reduction \redruleh{\first{\varexpm}}{\second{\varexpm}}, lemma \ref{lemeva}, and theorems \ref{thmpnh} and \ref{thmpns}.
+\end{proof}
+\end{theorem}
+
+\begin{theorem}{Scheme Preservation}
+
+\label{thmpns}
+If \judes{\env}{\first{\varexps}}{\tytst} and \first{\varexps} \red \second{\varexps} then \judes{\env}{\second{\varexps}}{\tytst}.
+\begin{proof}
+By cases on the reduction \redrules{\first{\varexps}}{\second{\varexps}}, lemma \ref{lemeva}, and theorems \ref{thmpnh} and \ref{thmpnm}.
+\end{proof}
+\end{theorem}
