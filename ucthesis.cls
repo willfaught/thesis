@@ -375,27 +375,19 @@
 \begin{samepage}
 
 \begin{center}
-		APPROVAL PAGE
+		COMMITTEE MEMBERSHIP
 \end{center}
 
 \par
 
-TITLE:  \@title      \par
-AUTHOR: \@author     \par
-DATE SUBMITTED: \@degreemonth~\@degreeyear
+\begin{tabular}{llp{2.5in}}
 
-\par
-
-\vspace{1in}
-
-\begin{tabular}{lcc}
-		
-		\underline{\makebox[2.1in][l]{\@chair}}        & \hspace{0.5in} &  \underline{\makebox[2.1in][l]{}} \\
-		Advisor or Committee Chair \vspace{0.75in}   & & Signature \\
-		\underline{\makebox[2.1in][l]{\@othermemberA}} & &  \underline{\makebox[2.1in][l]{}} \\
-		Committee Member    \vspace{0.75in}          & & Signature \\
-		\underline{\makebox[2.1in][l]{\@othermemberB}} & &  \underline{\makebox[2.1in][l]{}} \\
-		Committee Member    \vspace{0.75in}          & & Signature \\
+TITLE: & \hspace{0.1in} & \@title \\
+AUTHOR: & \hspace{0.1in} & \@author \\
+DATE SUBMITTED: & \hspace{0.1in} & \@degreemonth~\@degreeyear \vspace{1in} \\
+COMMITTEE CHAIR: & \hspace{0.1in} & John Clements, Dr. \\
+COMMITTEE MEMBER: & \hspace{0.1in} & Gene Fisher, Dr. \\
+COMMITTEE MEMBER: & \hspace{0.1in} & Phillip Nico, Dr.
 
 \end{tabular}
 
@@ -411,22 +403,16 @@ DATE SUBMITTED: \@degreemonth~\@degreeyear
 \begin{alwayssingle}
 %\setcounter{page}{2}
 \fmfont
-AUTHORIZATION FOR REPRODUCTION OF MASTER'S THESIS
+\centering
+\vspace*{\fill}
 
-\vspace{1in}
-\noindent
-I reserve the reproduction rights of this thesis for a
-period of~\@copyrightyears~years from the date of submission. I waive
-reproduction rights after the time span has expired. \par
-\vspace{1in}
+\textcopyright{} 2011
 
-\noindent
-\rule[0in]{4in}{0.2mm} \\
-Signature \vspace{.5in} \\
+William Faught
 
-\noindent
-\rule[0in]{4in}{0.2mm} \\
-Date
+ALL RIGHTS RESERVED
+
+\vspace{0.5in}
 
 \end{alwayssingle}
 }
